@@ -1,0 +1,144 @@
+@font-face {
+  font-family: 'valenciahairline';
+  src: url("../fonts/valenciahairline-webfont.eot");
+  src: url("../fonts/valenciahairline-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/valenciahairline-webfont.woff") format("woff"), url("../fonts/valenciahairline-webfont.ttf") format("truetype"), url("../fonts/valenciahairline-webfont.svg#valenciahairline") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  font-size: 100%;
+  background: #000;
+  /*header {
+  	h1 {
+  		color: rgba(255,255,255,.4);
+  		font-family: "proxima-nova",sans-serif;
+  		font-weight: 100;
+  		@include transition(color .2s);
+  		&:hover {
+  			color: white;
+  		}
+  	}
+  }*/
+  /* ---------------- Home ---------------- */
+  /* -------------------------------------- */ }
+  body section {
+    z-index: 1000;
+    -webkit-transition: opacity .4s ease-out;
+    -moz-transition: opacity .4s ease-out;
+    -ms-transition: opacity .4s ease-out;
+    -o-transition: opacity .4s ease-out;
+    transition: opacity .4s ease-out;
+    opacity: 0; }
+  body .opacity {
+    opacity: 1; }
+  body .load {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    overflow: hidden;
+    background: #000;
+    z-index: 1; }
+    body .load span {
+      font-family: 'valenciahairline', 'proxima-nova', sans-serif;
+      font-size: 10em;
+      color: rgba(255, 255, 255, 0.2);
+      font-weight: 100;
+      -webkit-transition: opacity .2s ease-out;
+      -moz-transition: opacity .2s ease-out;
+      -ms-transition: opacity .2s ease-out;
+      -o-transition: opacity .2s ease-out;
+      transition: opacity .2s ease-out; }
+  body .home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("../img/bg_home.jpg") no-repeat center center fixed black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+    body .home .homeTitle {
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      text-align: center;
+      color: white;
+      font-weight: 100; }
+      body .home .homeTitle h1 {
+        font-family: 'valenciahairline', 'proxima-nova', sans-serif;
+        display: inline-block;
+        font-size: 14em;
+        line-height: 75%;
+        text-transform: uppercase;
+        letter-spacing: 15px;
+        padding: 19px 0 12px 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.9); }
+      body .home .homeTitle h2 {
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        display: none; }
+      body .home .homeTitle .homeMenu {
+        margin-top: 28px; }
+        body .home .homeTitle .homeMenu li {
+          display: inline;
+          margin-left: -2px;
+          margin-right: -2px; }
+          body .home .homeTitle .homeMenu li a {
+            padding: 15px 15px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            text-decoration: none;
+            -webkit-transition: color .2s ease-in-out;
+            -moz-transition: color .2s ease-in-out;
+            -ms-transition: color .2s ease-in-out;
+            -o-transition: color .2s ease-in-out;
+            transition: color .2s ease-in-out; }
+            body .home .homeTitle .homeMenu li a:hover {
+              color: white; }
+          body .home .homeTitle .homeMenu li .homeMenuHover {
+            color: rgba(255, 255, 255, 0.2); }
+          body .home .homeTitle .homeMenu li .homeMenuActive {
+            color: rgba(255, 255, 255, 0); }
+    body .home .homeMenuFooter {
+      position: absolute;
+      margin: auto;
+      top: auto;
+      right: 0;
+      bottom: 50px;
+      left: 0; }
+      body .home .homeMenuFooter ul {
+        text-align: center; }
+        body .home .homeMenuFooter ul li {
+          display: inline; }
+          body .home .homeMenuFooter ul li a {
+            display: inline-block;
+            margin: 0 10px; }
+        body .home .homeMenuFooter ul .twitter {
+          height: 17px;
+          width: 21px;
+          background: url("../img/sprite.png") left top no-repeat;
+          background-size: 500px 500px;
+          -webkit-transition: background 0.1s ease-out;
+          -moz-transition: background 0.1s ease-out;
+          -o-transition: background 0.1s ease-out;
+          transition: background 0.1s ease-out; }
+          body .home .homeMenuFooter ul .twitter:hover {
+            background-position: left -17px; }
+        body .home .homeMenuFooter ul .linkedin {
+          width: 19px;
+          height: 18px;
+          background: url("../img/sprite.png") left -36px no-repeat;
+          background-size: 500px 500px;
+          -webkit-transition: background 0.1s ease-out;
+          -moz-transition: background 0.1s ease-out;
+          -o-transition: background 0.1s ease-out;
+          transition: background 0.1s ease-out; }
+          body .home .homeMenuFooter ul .linkedin:hover {
+            background-position: left -54px; }
