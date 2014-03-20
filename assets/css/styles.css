@@ -20,14 +20,16 @@ body {
   	}
   }*/
   /* ---------------- Home ---------------- */
-  /* -------------------------------------- */ }
+  /* -------------------------------------- */
+  /* ---------------- Projets ---------------- */
+  /* ----------------------------------------- */ }
   body section {
     z-index: 1000;
-    -webkit-transition: opacity .4s ease-out;
-    -moz-transition: opacity .4s ease-out;
-    -ms-transition: opacity .4s ease-out;
-    -o-transition: opacity .4s ease-out;
-    transition: opacity .4s ease-out;
+    -webkit-transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    -ms-transition: opacity .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
     opacity: 0; }
   body .opacity {
     opacity: 1; }
@@ -142,3 +144,8 @@ body {
           transition: background 0.1s ease-out; }
           body .home .homeMenuFooter ul .linkedin:hover {
             background-position: left -54px; }
+  body .projets h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 10em;
+    margin-top: 200px; }
