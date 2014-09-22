@@ -9,10 +9,10 @@ $(document).ready(function(){
 	    });
 	}
 
-	$(".homeMenu a, .projets").click(function (e) {
+	$("a[data-role='ajax']").click(function (e) {
 		e.preventDefault();
 	    if (Modernizr.history) {
-	        $('.home .homeMenu li a').not(this).addClass('homeMenuActive');
+	        $('.home .homeTitle-menu li a').not(this).addClass('homeTitle-menu_jsActive');
 	        var thisPage =  $(this);
 	        var thisSection = $(this).parents('section');
 	        thisSection.removeClass('opacity');
@@ -57,16 +57,36 @@ $(document).ready(function(){
 
 
 /* ---------------- Home ---------------- */
-	$('.home .homeMenu li a').mouseover(function(){ $('.home .homeMenu li a').not(this).addClass('homeMenuHover'); })
-		.mouseout(function(){ $('.home .homeMenu li a').not(this).removeClass('homeMenuHover'); })
-
+	$('.home .homeTitle-menu li a').mouseover(function(){ $('.home .homeTitle-menu li a').not(this).addClass('homeTitle-menu_jsHover'); })
+		.mouseout(function(){ $('.home .homeTitle-menu li a').not(this).removeClass('homeTitle-menu_jsHover'); })
 /* -------------------------------------- */
 
 
 
+/* ---------------- Others ---------------- */
+	var navMenuWidth = 0;
+	for(var x = 1; x <= $('.works .mainNav li').size(); x++){
+		navMenuWidth = navMenuWidth + $('.works .mainNav li:nth-child('+x+') a').width() + 26;
+		console.log('li'+x+': '+navMenuWidth);
+	}
 
-	
+	$('.works .mainNav').css('width',navMenuWidth);
+/* ---------------------------------------- */
+
+
+
 
 });
+
+
+
+
+
+
+
+
+
+
+
 
 
