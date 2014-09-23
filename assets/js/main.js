@@ -64,32 +64,26 @@ $(document).ready(function(){
 		$('.home .homeTitle h1').text().split(""),
 		$('.home .homeTitle p:last-of-type').text().split(""),
 		$('.home .homeTitle h2').text().split("")
-	];
-
-
+	]
+	var homeTitleContent_btStartUx = $('.homeTitle--btStartUx').text();
 	function killHomeFunction(){
 		w = 0;
-		console.log('over');
-		setTimeout(function(){
+		
 			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,.8)'});
-		},500);
+		
 		return w;
 	}
-
-
-
-
 	$('.home .homeTitle')
 		.empty()
 		.delay(1000)
 		.queue(function(){
-			$(this).html('<p></p><h1>Alexis</h1><p></p><h2></h2>');
-			
+			$(this).html('<p></p><h1>Alexis</h1><p></p><h2></h2><a href="" data-role="ajax" title="" class="homeTitle--btStartUx"></a>');
+			$('.homeTitle--btStartUx').html("Come on, let's take a ride");
 			var x = 0;
 			var w = 0;
-			function lightMyWord(w){
+			function lightMyWord(w, x){
 				/*console.log(homeTitleContent[w]);*/
-				function lightMyFire(w){
+				function lightMyFire(w, x){
 					var homeTitleAttr;
 					switch(w) {
 					    case 0:
@@ -118,54 +112,66 @@ $(document).ready(function(){
 								'transition': 'opacity .4s ease-out, color .4s ease-out',
 								'color': 'rgba(255,255,255,1)'
 							});
-							
-							$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
-								.css({'opacity':'1'})
-								.delay(200)
-								.queue(function(){
-									$(this).css({'color': 'rgba(255,255,255,.4)'});	
-								});					
-							
+							$
+							if(w == 3){
+								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
+									.css({'opacity':'1'})
+									.delay(200)
+									.queue(function(){
+										$(this).css({'color': 'rgba(255,255,255,.8)'});		
+									});					
+							} else {
+								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
+									.css({'opacity':'1'})
+									.delay(200)
+									.queue(function(){
+										$(this).css({'color': 'rgba(255,255,255,.4)'});		
+									});	
+							}
 							if(w == "0" && homeTitleContent[w][x] == "o"){ // Break after the "Hello"
 								setTimeout(function(){
 									x++;
 									if(x < homeTitleContent[w].length){
-										lightMyFire(w);
+										lightMyFire(w, x);
 									} else {
 										x = 0;
 										w++;
 										if(w < homeTitleContent.length){
-											lightMyWord(w);
+											if(w == 1){
+												w++;
+												lightMyWord(w, x);
+											} else {
+												lightMyWord(w, x);
+											}
 										} else if(w >= homeTitleContent.length){
 											killHomeFunction();
 										}
 									}
-								},2000);
+								},1000);
 							} else {
 								x++;
 								if(x < homeTitleContent[w].length){
-									lightMyFire(w);
+									lightMyFire(w, x);
 								} else {
 									x = 0;
 									w++;
 									if(w < homeTitleContent.length){
 										if(w == 1){
 											w++;
-											lightMyWord(w);
+											lightMyWord(w, x);
 										} else {
-											lightMyWord(w);
+											lightMyWord(w, x);
 										}
 									} else if(w >= homeTitleContent.length){
 										killHomeFunction();
 									}
 								}
 							}
-					},100);	
+					},70);	
 				}
-				lightMyFire(w);
-				
+				lightMyFire(w, x);
 			}
-			lightMyWord(w);
+			lightMyWord(w, x);
 		});
 /* -------------------------------------- */
 

@@ -50,7 +50,7 @@ body {
 		}
 	}*/
 	
-
+}
 
 
 /* ---------------- System CSS ---------------- */
@@ -189,7 +189,7 @@ body {
 		  background-size: cover;
 
 		.homeTitle {
-			display: inline-block;
+			display: block;
 			@include center-align;
 			text-align: center;
 			padding: 40px 0px;
@@ -208,21 +208,25 @@ body {
 				transition: border .2s ease-out;
 			}
 			h2 {
-				color: rgba(255,255,255,.8);
-				text-transform: uppercase;
-				font-size: 16px;
-				letter-spacing: 2px;
-				margin-left: 4px;
-				-webkit-transition: color .2s ease-out;
-				-moz-transition: color .2s ease-out;
-				-ms-transition: color .2s ease-out;
-				-o-transition: color .2s ease-out;
-				transition: color .2s ease-out;
+				margin-left: 5px;
+				span {
+					font-family: 'good_footregular', 'proxima-nova', sans-serif;
+					color: rgba(255,255,255,1);
+					/*text-transform: uppercase;*/
+					font-size: 30px;
+					margin-left: 4px;
+					word-spacing: -5px;
+					-webkit-transition: color .2s ease-out;
+					-moz-transition: color .2s ease-out;
+					-ms-transition: color .2s ease-out;
+					-o-transition: color .2s ease-out;
+					transition: color .2s ease-out;
+				}
 			}
 			p {
 				color: rgba(255,255,255,.4);
-				text-transform: uppercase;
-				font-size: 16px;
+				/*text-transform: uppercase;*/
+				font-size: 18px;
 				letter-spacing: 2px;
 				a {
 					text-decoration: none;
@@ -241,6 +245,33 @@ body {
 			}
 			& > p:last-of-type, h2 {
 				display: inline;
+			}
+
+
+			a.homeTitle--btStartUx {
+				display: block;
+				text-decoration: none;
+				color: rgba(255,255,255,.6);
+				text-align: center;
+				text-transform: uppercase;
+				letter-spacing: 3px;
+
+				margin-top: 20px;
+				padding: 10px 0;
+				border-top: 1px solid rgba(255,255,255,.2);
+				border-bottom: 1px solid rgba(255,255,255,.2);
+
+				-webkit-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
+				-moz-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
+				-ms-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
+				-o-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
+				transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
+				&:hover {
+					color: #fff;
+					letter-spacing: 5px;
+					border-top: 1px solid rgba(255,255,255,.6);
+					border-bottom: 1px solid rgba(255,255,255,.6);
+				}
 			}
 		}
 		.homeMenu {
@@ -296,20 +327,7 @@ body {
 		}
 	}
 
-
-	/* Chrome, Safari, Opera */
-	@-webkit-keyframes lightMyFire_letters {
-	    0%   { color: rgba(255,255,255,.4); }
-	    50%  { color: rgba(255,255,255,.1); }
-	    100% { color: rgba(255,255,255,.4); }
-	}
-
-	/* Standard syntax */
-	@keyframes lightMyFire_letters {
-	   	0%   { color: rgba(255,255,255,.4); }
-	    50%  { color: rgba(255,255,255,.1); }
-	    100% { color: rgba(255,255,255,.4); }
-	}
+	
 /* -------------------------------------- */
 
 
@@ -335,8 +353,6 @@ body {
 	}
 /* ----------------------------------------- */
 
-
-}
 
 
 
