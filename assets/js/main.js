@@ -65,10 +65,8 @@ $(document).ready(function(){
 		$('.home .homeTitle p:last-of-type').text().split(""),
 		$('.home .homeTitle h2').text().split("")
 	]
-	var homeTitleContent_btStartUx = $('.homeTitle--btStartUx').text();
 	function killHomeFunction(){
 		w = 0;
-		
 			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,.8)'});
 		
 		return w;
@@ -77,8 +75,7 @@ $(document).ready(function(){
 		.empty()
 		.delay(1000)
 		.queue(function(){
-			$(this).html('<p></p><h1>Alexis</h1><p></p><h2></h2><a href="" data-role="ajax" title="" class="homeTitle--btStartUx"></a>');
-			$('.homeTitle--btStartUx').html("Come on, let's take a ride");
+			$(this).html('<p></p><h1></h1><p></p><h2></h2>');
 			var x = 0;
 			var w = 0;
 			function lightMyWord(w, x){
@@ -113,7 +110,14 @@ $(document).ready(function(){
 								'color': 'rgba(255,255,255,1)'
 							});
 							$
-							if(w == 3){
+							if(w == 1){
+								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
+									.css({'opacity':'1'})
+									.delay(200)
+									.queue(function(){
+										$(this).css({'color': 'rgba(255,255,255,1)'});		
+									});					
+							} else if(w == 3){
 								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
 									.css({'opacity':'1'})
 									.delay(200)
@@ -156,12 +160,12 @@ $(document).ready(function(){
 									x = 0;
 									w++;
 									if(w < homeTitleContent.length){
-										if(w == 1){
+										/*if(w == 1){
 											w++;
 											lightMyWord(w, x);
-										} else {
+										} else {*/
 											lightMyWord(w, x);
-										}
+										/*}*/
 									} else if(w >= homeTitleContent.length){
 										killHomeFunction();
 									}

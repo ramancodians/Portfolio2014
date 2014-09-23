@@ -149,28 +149,23 @@ section > div {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-    padding: 40px 0px;
     color: white;
     font-weight: 100; }
     .home .homeTitle h1 {
-      font-family: 'good_footregular', 'proxima-nova', sans-serif;
-      display: inline;
-      font-size: 10em;
       margin: 0 10px;
-      -webkit-transition: border .2s ease-out;
-      -moz-transition: border .2s ease-out;
-      -ms-transition: border .2s ease-out;
-      -o-transition: border .2s ease-out;
-      transition: border .2s ease-out; }
-    .home .homeTitle h2 {
-      margin-left: 5px; }
-      .home .homeTitle h2 span {
+      display: inline; }
+      .home .homeTitle h1 span {
         font-family: 'good_footregular', 'proxima-nova', sans-serif;
+        font-size: 10em; }
+    .home .homeTitle h2 {
+      margin-left: 6px;
+      letter-spacing: 4px;
+      font-size: 18px;
+      font-weight: 300; }
+      .home .homeTitle h2 span {
         color: white;
         /*text-transform: uppercase;*/
-        font-size: 30px;
-        margin-left: 4px;
-        word-spacing: -5px;
+        /*word-spacing: -5px;*/
         -webkit-transition: color .2s ease-out;
         -moz-transition: color .2s ease-out;
         -ms-transition: color .2s ease-out;
@@ -196,27 +191,32 @@ section > div {
       display: inline; }
     .home .homeTitle > p:last-of-type, .home .homeTitle h2 {
       display: inline; }
-    .home .homeTitle a.homeTitle--btStartUx {
-      display: block;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.6);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-top: 20px;
-      padding: 10px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      -webkit-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-      -moz-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-      -ms-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-      -o-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-      transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out; }
-      .home .homeTitle a.homeTitle--btStartUx:hover {
-        color: #fff;
-        letter-spacing: 5px;
-        border-top: 1px solid rgba(255, 255, 255, 0.6);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
+  .home .home-btStartUx {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 100;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-transition: color .2s ease-out, border .2s ease-out;
+    -moz-transition: color .2s ease-out, border .2s ease-out;
+    -ms-transition: color .2s ease-out, border .2s ease-out;
+    -o-transition: color .2s ease-out, border .2s ease-out;
+    transition: color .2s ease-out, border .2s ease-out;
+    z-index: 16; }
+    .home .home-btStartUx:hover {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      /*border-bottom: 1px solid rgba(255,255,255,.6);*/ }
   .home .homeMenu {
     position: absolute;
     margin: auto;
@@ -233,6 +233,7 @@ section > div {
         padding: 15px 15px;
         font-size: 18px;
         color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 1px;
         text-transform: uppercase;
         text-decoration: none;
         font-weight: 100;

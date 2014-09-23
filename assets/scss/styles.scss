@@ -192,30 +192,30 @@ body {
 			display: block;
 			@include center-align;
 			text-align: center;
-			padding: 40px 0px;
+			
 			color: rgba(255,255,255,1);
 			font-weight: 100;
 
 			h1 {
-				font-family: 'good_footregular', 'proxima-nova', sans-serif;
-				display: inline;
-				font-size: 10em;
 				margin: 0 10px;
-				-webkit-transition: border .2s ease-out;
-				-moz-transition: border .2s ease-out;
-				-ms-transition: border .2s ease-out;
-				-o-transition: border .2s ease-out;
-				transition: border .2s ease-out;
-			}
-			h2 {
-				margin-left: 5px;
+				display: inline;
+				
 				span {
 					font-family: 'good_footregular', 'proxima-nova', sans-serif;
+					font-size: 10em;
+				}
+			}
+			h2 {
+				margin-left: 6px;
+				letter-spacing: 4px;
+				font-size: 18px;
+					font-weight: 300;
+				span {
 					color: rgba(255,255,255,1);
+					
 					/*text-transform: uppercase;*/
-					font-size: 30px;
-					margin-left: 4px;
-					word-spacing: -5px;
+					
+					/*word-spacing: -5px;*/
 					-webkit-transition: color .2s ease-out;
 					-moz-transition: color .2s ease-out;
 					-ms-transition: color .2s ease-out;
@@ -246,34 +246,45 @@ body {
 			& > p:last-of-type, h2 {
 				display: inline;
 			}
+		}
+
+		.home-btStartUx {
+
+			position: absolute;
+			top: 60%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
 
 
-			a.homeTitle--btStartUx {
-				display: block;
-				text-decoration: none;
-				color: rgba(255,255,255,.6);
-				text-align: center;
-				text-transform: uppercase;
-				letter-spacing: 3px;
+			display: block;
+			text-decoration: none;
+			color: rgba(255,255,255,.6);
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			font-weight: 100;
 
-				margin-top: 20px;
-				padding: 10px 0;
-				border-top: 1px solid rgba(255,255,255,.2);
-				border-bottom: 1px solid rgba(255,255,255,.2);
+			padding: 15px 20px;
+			border: 1px solid rgba(255,255,255,.2);
+			
 
-				-webkit-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-				-moz-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-				-ms-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-				-o-transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-				transition: color .2s ease-out, border .2s ease-out, letter-spacing .2s ease-out;
-				&:hover {
-					color: #fff;
-					letter-spacing: 5px;
-					border-top: 1px solid rgba(255,255,255,.6);
-					border-bottom: 1px solid rgba(255,255,255,.6);
-				}
+			-webkit-transition: color .2s ease-out, border .2s ease-out;
+			-moz-transition: color .2s ease-out, border .2s ease-out;
+			-ms-transition: color .2s ease-out, border .2s ease-out;
+			-o-transition: color .2s ease-out, border .2s ease-out;
+			transition: color .2s ease-out, border .2s ease-out;
+
+			z-index: 16;
+
+			&:hover {
+				color: #fff;
+				border: 1px solid rgba(255,255,255,.6);
+				/*border-bottom: 1px solid rgba(255,255,255,.6);*/
 			}
 		}
+
 		.homeMenu {
 			position: absolute;
 			margin: auto;
@@ -290,6 +301,7 @@ body {
 					padding: 15px 15px;
 					font-size: 18px;
 					color: rgba(255,255,255,.4);
+					letter-spacing: 1px;
 					text-transform: uppercase;
 					text-decoration: none;
 					font-weight: 100;
