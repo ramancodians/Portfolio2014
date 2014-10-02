@@ -195,27 +195,35 @@ body {
 			
 			color: rgba(255,255,255,1);
 			font-weight: 100;
+			span {
+				-webkit-transition: opacity .2s ease-in-out, color .2s ease-out;
+				-moz-transition: opacity .2s ease-in-out, color .2s ease-out;
+				-ms-transition: opacity .2s ease-in-out, color .2s ease-out;
+				-o-transition: opacity .2s ease-in-out, color .2s ease-out;
+				transition: opacity .2s ease-in-out, color .2s ease-out;
+			}
 
 			h1 {
-				margin: 0 10px;
 				display: inline;
-				
-				span {
-					font-family: 'good_footregular', 'proxima-nova', sans-serif;
-					font-size: 10em;
+				margin: 0 10px;
+				& > span:first-of-type {
+					margin-left: 10px;
 				}
+			}
+			h1, h1 span {
+				font-family: 'good_footregular', 'proxima-nova', sans-serif;
+				font-size: 168px;
 			}
 			h2 {
 				margin-left: 6px;
 				letter-spacing: 4px;
 				font-size: 18px;
-					font-weight: 300;
+				font-weight: 300;
+				& > span:first-of-type {
+					margin-left: 6px;
+				}
 				span {
 					color: rgba(255,255,255,1);
-					
-					/*text-transform: uppercase;*/
-					
-					/*word-spacing: -5px;*/
 					-webkit-transition: color .2s ease-out;
 					-moz-transition: color .2s ease-out;
 					-ms-transition: color .2s ease-out;
@@ -225,7 +233,6 @@ body {
 			}
 			p {
 				color: rgba(255,255,255,.4);
-				/*text-transform: uppercase;*/
 				font-size: 18px;
 				letter-spacing: 2px;
 				a {
@@ -248,15 +255,14 @@ body {
 			}
 		}
 
-		.home-btStartUx {
 
+		.home-btStartUx {
 			position: absolute;
 			top: 60%;
 			left: 50%;
 			-webkit-transform: translate(-50%, -50%);
 			-ms-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
-
 
 			display: block;
 			text-decoration: none;
@@ -265,22 +271,21 @@ body {
 			text-transform: uppercase;
 			letter-spacing: 3px;
 			font-weight: 100;
-
 			padding: 15px 20px;
 			border: 1px solid rgba(255,255,255,.2);
-			
+
+
 
 			-webkit-transition: color .2s ease-out, border .2s ease-out;
 			-moz-transition: color .2s ease-out, border .2s ease-out;
 			-ms-transition: color .2s ease-out, border .2s ease-out;
 			-o-transition: color .2s ease-out, border .2s ease-out;
 			transition: color .2s ease-out, border .2s ease-out;
-
 			z-index: 16;
 
 			&:hover {
 				color: #fff;
-				border: 1px solid rgba(255,255,255,.6);
+				border: 1px solid rgba(255,255,255,.4);
 				/*border-bottom: 1px solid rgba(255,255,255,.6);*/
 			}
 		}
@@ -339,7 +344,6 @@ body {
 		}
 	}
 
-	
 /* -------------------------------------- */
 
 

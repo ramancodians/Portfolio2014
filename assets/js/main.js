@@ -58,7 +58,8 @@ $(document).ready(function(){
 
 
 /* ---------------- Home ---------------- */
-
+	
+	var homeTitle = $('.home .homeTitle').html();
 	var homeTitleContent = [
 		$('.home .homeTitle p:first-of-type').text().split(""),
 		$('.home .homeTitle h1').text().split(""),
@@ -67,8 +68,8 @@ $(document).ready(function(){
 	]
 	function killHomeFunction(){
 		w = 0;
-			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,.8)'});
-		
+		$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,.8)'});
+		$('.home .homeTitle').empty().html(homeTitle);
 		return w;
 	}
 	$('.home .homeTitle')
@@ -102,20 +103,19 @@ $(document).ready(function(){
 							}
 							$('.home .homeTitle '+homeTitleAttr+' span:last-of-type').css({
 								'opacity':'0',
-								'-webkit-transition': 'opacity .4s ease-out, color .4s ease-out',
-								'-moz-transition': 'opacity .4s ease-out, color .4s ease-out',
-								'-ms-transition': 'opacity .4s ease-out, color .4s ease-out',
-								'-o-transition': 'opacity .4s ease-out, color .4s ease-out',
-								'transition': 'opacity .4s ease-out, color .4s ease-out',
 								'color': 'rgba(255,255,255,1)'
 							});
 							$
 							if(w == 1){
 								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
-									.css({'opacity':'1'})
+									.css({
+										'color': 'rgba(255,255,255,1)'
+									})
 									.delay(200)
 									.queue(function(){
-										$(this).css({'color': 'rgba(255,255,255,1)'});		
+										$(this).css({
+											'opacity':'1'
+										});		
 									});					
 							} else if(w == 3){
 								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
@@ -160,12 +160,7 @@ $(document).ready(function(){
 									x = 0;
 									w++;
 									if(w < homeTitleContent.length){
-										/*if(w == 1){
-											w++;
-											lightMyWord(w, x);
-										} else {*/
-											lightMyWord(w, x);
-										/*}*/
+										lightMyWord(w, x);
 									} else if(w >= homeTitleContent.length){
 										killHomeFunction();
 									}
