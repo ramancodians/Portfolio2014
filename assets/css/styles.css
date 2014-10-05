@@ -231,6 +231,7 @@ section > div {
     right: 0;
     bottom: 120px;
     left: 0;
+    width: 306px;
     z-index: 15; }
     .home .homeMenu li {
       display: inline-block;

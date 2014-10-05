@@ -177,7 +177,9 @@ $(document).ready(function(){
 
 
 /* ---------------- Others ---------------- */
-	var navMenuWidth = 0;
+	/* Calcul de la taille du menu en fonction du nombre de li et de leur taille individuelle */
+
+	/*var navMenuWidth = 0;
 	for(var x = 1; x <= $('.works .mainNav li').size(); x++){
 		navMenuWidth = navMenuWidth + $('.works .mainNav li:nth-child('+x+') a').width() + 26;
 	}
@@ -186,9 +188,9 @@ $(document).ready(function(){
 	for(var x = 1; x <= $('.home .homeMenu li').size(); x++){
 		homeMenuWidth = homeMenuWidth + $('.home .homeMenu li:nth-child('+x+') a').width() + 26;
 	}
-
+	console.log(homeMenuWidth);
 	$('.home .homeMenu').css('width',homeMenuWidth);
-	$('.works .mainNav').css('width',navMenuWidth);
+	$('.works .mainNav').css('width',navMenuWidth);*/
 /* ---------------------------------------- */
 
 
