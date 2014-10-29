@@ -52,12 +52,12 @@ section > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   			/*-moz-box-sizing:    border-box;
      			-webkit-box-sizing: border-box;
       		box-sizing:        border-box;
-      		border: 20px solid #fff;*/
-  z-index: 10; }
+      		border: 5px solid $yellow;
+      		z-index: 10;*/ }
 
 .load {
   position: absolute;
@@ -139,7 +139,11 @@ section > div {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 1000; } }
+ }
   .home .homeTitle {
     display: block;
     position: relative;
@@ -159,7 +163,8 @@ section > div {
       transition: opacity .2s ease-in-out, color .2s ease-out; }
     .home .homeTitle h1 {
       display: inline;
-      margin: 0 10px; }
+      margin: 0 10px;
+      color: #f4fd14; }
       .home .homeTitle h1 > span:first-of-type {
         margin-left: 10px; }
     .home .homeTitle h1, .home .homeTitle h1 span {
@@ -174,6 +179,7 @@ section > div {
         margin-left: 6px; }
       .home .homeTitle h2 span {
         color: white;
+        font-weight: 300;
         -webkit-transition: color .2s ease-out;
         -moz-transition: color .2s ease-out;
         -ms-transition: color .2s ease-out;
@@ -205,25 +211,95 @@ section > div {
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    display: block;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.6);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 100;
-    padding: 15px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    -webkit-transition: color .2s ease-out, border .2s ease-out;
-    -moz-transition: color .2s ease-out, border .2s ease-out;
-    -ms-transition: color .2s ease-out, border .2s ease-out;
-    -o-transition: color .2s ease-out, border .2s ease-out;
-    transition: color .2s ease-out, border .2s ease-out;
-    z-index: 16; }
-    .home .home-btStartUx:hover {
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      /*border-bottom: 1px solid rgba(255,255,255,.6);*/ }
+    -webkit-transition: -webkit-transform .6s ease-out;
+    -moz-transition: -moz-transform .6s ease-out;
+    -ms-transition: -ms-transform .6s ease-out;
+    -o-transition: -o-transform .6s ease-out;
+    transition: transform .6s ease-out;
+    /*padding: 15px 20px;*/
+    /*border: 1px solid rgba(255,255,255,.2);*/
+    width: 222px;
+    height: 48px;
+    overflow: hidden; }
+    .home .home-btStartUx a {
+      display: block;
+      text-decoration: none;
+      color: white;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 100;
+      padding: 16px 10px;
+      -webkit-transition: color .2s ease-out, border .2s ease-out;
+      -moz-transition: color .2s ease-out, border .2s ease-out;
+      -ms-transition: color .2s ease-out, border .2s ease-out;
+      -o-transition: color .2s ease-out, border .2s ease-out;
+      transition: color .2s ease-out, border .2s ease-out;
+      z-index: 60;
+      /*&:hover svg line.home-btStartUx--top { @include transform(translateX(-232px)); }
+      &:hover svg line.home-btStartUx--right { @include transform(translateY(-58px)); }
+      &:hover svg line.home-btStartUx--bottom { @include transform(translateX(232px)); }
+      &:hover svg line.home-btStartUx--left { @include transform(translateY(58px)); }*/
+      				/*&:hover svg line.home-btStartUx--top2 { @include transform(translateX(10px)); }
+      				&:hover svg line.home-btStartUx--right2 { @include transform(translateY(10px)); }
+      				&:hover svg line.home-btStartUx--bottom2 { @include transform(translateX(-10px)); }
+      				&:hover svg line.home-btStartUx--left2 { @include transform(translateY(-10px)); }
+      */ }
+      .home .home-btStartUx a:hover {
+        color: #fff; }
+      .home .home-btStartUx a:hover svg line {
+        stroke: #f4fd14;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s; }
+      .home .home-btStartUx a:hover svg line.home-btStartUx--top {
+        -webkit-transform: translateX(-222px);
+        -moz-transform: translateX(-222px);
+        -ms-transform: translateX(-222px);
+        -o-transform: translateX(-222px);
+        transform: translateX(-222px); }
+      .home .home-btStartUx a:hover svg line.home-btStartUx--right {
+        -webkit-transform: translateY(-48px);
+        -moz-transform: translateY(-48px);
+        -ms-transform: translateY(-48px);
+        -o-transform: translateY(-48px);
+        transform: translateY(-48px); }
+      .home .home-btStartUx a:hover svg line.home-btStartUx--bottom {
+        -webkit-transform: translateX(222px);
+        -moz-transform: translateX(222px);
+        -ms-transform: translateX(222px);
+        -o-transform: translateX(222px);
+        transform: translateX(222px); }
+      .home .home-btStartUx a:hover svg line.home-btStartUx--left {
+        -webkit-transform: translateY(48px);
+        -moz-transform: translateY(48px);
+        -ms-transform: translateY(48px);
+        -o-transform: translateY(48px);
+        transform: translateY(48px); }
+      .home .home-btStartUx a svg {
+        position: absolute;
+        top: 0;
+        left: 0; }
+        .home .home-btStartUx a svg line {
+          stroke-width: 2;
+          /*stroke: rgba(255,255,255,.4);*/
+          stroke: #f4fd14;
+          fill: none;
+          -webkit-transition: -webkit-transform .2s ease-out, stroke .6s ease-out;
+          -moz-transition: -moz-transform .2s ease-out, stroke .6s ease-out;
+          -ms-transition: -ms-transform .2s ease-out, stroke .6s ease-out;
+          -o-transition: -o-transform .2s ease-out, stroke .6s ease-out;
+          transition: transform .2s ease-out, stroke .6s ease-out; }
+        .home .home-btStartUx a svg line.home-btStartUx--top, .home .home-btStartUx a svg line.home-btStartUx--bottom {
+          stroke-dasharray: 232 202 232; }
+        .home .home-btStartUx a svg line.home-btStartUx--right, .home .home-btStartUx a svg line.home-btStartUx--left {
+          stroke-dasharray: 58 28 58; }
+  .home .triskel {
+    fill: none;
+    stroke-width: 2;
+    stroke: #f4fd14;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: dash 5s linear; }
   .home .homeMenu {
     position: absolute;
     margin: auto;
@@ -245,11 +321,11 @@ section > div {
         text-transform: uppercase;
         text-decoration: none;
         font-weight: 100;
-        -webkit-transition: color .2s ease-in-out;
-        -moz-transition: color .2s ease-in-out;
-        -ms-transition: color .2s ease-in-out;
-        -o-transition: color .2s ease-in-out;
-        transition: color .2s ease-in-out; }
+        -webkit-transition: color .2s ease-out;
+        -moz-transition: color .2s ease-out;
+        -ms-transition: color .2s ease-out;
+        -o-transition: color .2s ease-out;
+        transition: color .2s ease-out; }
         .home .homeMenu li a:hover {
           color: white; }
       .home .homeMenu li .homeMenu_jsHover {
