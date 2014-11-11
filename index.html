@@ -29,6 +29,11 @@
 <body>
 	<section class="home">
         <div class="background"></div>
+        <video autoplay loop poster="assets/img/bg_home.jpg" class="home-bgVideo">
+            <source src="assets/video/bg_home.mp4" type="video/mp4">
+            <source src="assets/video/bg_home.ogv" type="video/ogg">
+            <source src="assets/video/bg_home.webm" type="video/webm">
+        </video>
 		<div class="homeTitle">
             <p>Hello, I'm</p>
 			<h1>Alexis</h1>
@@ -38,36 +43,73 @@
         <!-- <a href="" data-role='ajax' title="" class="home-btStartUx">Let's take a ride</a> -->
         <div class="home-btStartUx">
             <a href="" title="">Let's take a ride
-                <svg width="222" height="48">
-                    <line class="home-btStartUx--top" x1="0" y1="0" x2="666" y2="0" />
-                    <line class="home-btStartUx--right" x1="222" y1="0" x2="222" y2="144" />
-                    <line class="home-btStartUx--bottom" x1="222" y1="48" x2="-444" y2="48" />
-                    <line class="home-btStartUx--left" x1="0" y1="48" x2="0" y2="-96" />
-
-                   <!--  <line class="home-btStartUx--top2" x1="-10" y1="0" x2="0" y2="0" />
-                    <line class="home-btStartUx--right2" x1="222" y1="-10" x2="222" y2="0" />
-                    <line class="home-btStartUx--bottom2" x1="222" y1="48" x2="232" y2="48" />
-                    <line class="home-btStartUx--left2" x1="0" y1="48" x2="0" y2="58" /> -->
+                <svg width="245" height="52">
+                    <line class="home-btStartUx--top" x1="0" y1="0" x2="735" y2="0" />
+                    <line class="home-btStartUx--right" x1="245" y1="0" x2="245" y2="156" />
+                    <line class="home-btStartUx--bottom" x1="245" y1="52" x2="-490" y2="52" />
+                    <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
                 </svg>
             </a>
         </div>
-
-    
-        <ul class="homeMenu">
-            <li><a href="works/" data-role='ajax' title="Works" class="homeMenu--btProject">Works</a></li>
-            <li><a href="about/" data-role='ajax' title="About" class="homeMenu--btAbout">About</a></li>
-            <li><a href="contact/" data-role='ajax' title="Contact" class="homeMenu--btContact">Contact</a></li>
-        </ul>
-        <div class="homeFooter">   
-            <ul class="mainFooter-links">
-                <li><a title="Alexis Bertin's Twitter" href="https://twitter.com/_alexisbertin" target="_blank" class="mainFooter--twitter"></a></li>
-                <li><a title="Alexis Bertin's LinkedIn" href="http://www.linkedin.com/profile/view?id=248502799" target="_blank" class="mainFooter--linkedin"></a></li>
-            </ul>
-        </div>
-        
 	</section>
 
+
+    <div class="bt-menuOverlay">Menu</div>
+    <div class="menuOverlay">
+        <div class="logo"><span>Alexis Bertin</span> Front End Developer</div>
+        <ul class="menuOverlay-mainMenu">
+            <li>
+                <a href="works/" data-role='ajax' title="Works" class="menuOverlay--btProject">
+                    <div class="menuOverlay--menuContent">
+                        <h3>Works</h3>
+                        <p>My few student projects</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="designProcess/" data-role='ajax' title="designProcess" class="menuOverlay--btdesignProcess">
+                    <div class="menuOverlay--menuContent">
+                        <h3>Design Process</h3>
+                        <p>How I builded this mothership</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="about/" data-role='ajax' title="About" class="menuOverlay--btAbout">
+                    <div class="menuOverlay--menuContent">
+                        <h3>About</h3>
+                        <p>"Who the f*** is this guy ?"</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="contact/" data-role='ajax' title="Contact" class="menuOverlay--btContact">
+                    <div class="menuOverlay--menuContent">
+                        <h3>Contact</h3>
+                        <p>Let's talk about the secret deathstar plan or about the meaning of life.</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <ul class="menuOverlay-subMenu">
+                    <li><a href="credits/" data-role='ajax' title="credits">Credits</a><li>
+                    <li><a href="" data-role='ajax' title="privacyPolicies">Privacy & Policies</a><li>
+                    <li><a href="404/" data-role='ajax' title="404 - you are lost">404</a><li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="menuOverlay-externalLinks">
+            <li><a title="Alexis Bertin's Twitter" href="https://twitter.com/_alexisbertin" target="_blank" class="menuOverlay--twitter"></a></li>
+            <li><a title="Alexis Bertin's LinkedIn" href="http://www.linkedin.com/profile/view?id=248502799" target="_blank" class="menuOverlay--linkedin"></a></li>
+        </ul>
+    </div>
+
+
     <div class="load"><span>Loading</span></div>
+
+
+
 	<!-- script type="text/javascript" src="http://code.jquery.com/jquery.js"></script -->
     <script type="text/javascript" src="assets/js/jquerire.js"></script>
     <script type="text/javascript">

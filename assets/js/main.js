@@ -132,7 +132,7 @@ $(document).ready(function(){
 									});					
 							} else if(w == 3){
 								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
-									.css({'opacity':'1','font-weight':'300'})
+									.css({'opacity':'1','font-weight':'500'})
 									.delay(200)
 									.queue(function(){
 										$(this).css({'color': 'rgba(255,255,255,1)'});		

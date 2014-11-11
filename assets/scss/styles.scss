@@ -1,6 +1,7 @@
 @import "../css/bourbon/bourbon";
 
 
+
 @mixin center-align {
   position: relative;
   top: 50%;
@@ -9,19 +10,12 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-$yellow: #f4fd14;
 
-@font-face {
-    font-family: 'valenciahairline';
-    src: url('../fonts/valenciahairline-webfont.eot');
-    src: url('../fonts/valenciahairline-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/valenciahairline-webfont.woff') format('woff'),
-         url('../fonts/valenciahairline-webfont.ttf') format('truetype'),
-         url('../fonts/valenciahairline-webfont.svg#valenciahairline') format('svg');
-    font-weight: normal;
-    font-style: normal;
+$yellow: rgba(244,253,20,1); /* #f4fd14 */
+$font-brandon: "brandon-grotesque", sans-serif;
+$font-goodFoot: "good_footregular", sans-serif;
 
-}
+
 @font-face {
     font-family: 'good_footregular';
     src: url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.eot');
@@ -41,23 +35,16 @@ $yellow: #f4fd14;
 body {
 	font-size: 100%;
 	background: #000;
-	
-	/*header {
-		h1 {
-			color: rgba(255,255,255,.4);
-			font-family: "proxima-nova",sans-serif;
-			font-weight: 100;
-			@include transition(color .2s);
-			&:hover {
-				color: white;
-			}
-		}
-	}*/
-	
+	font-family: $font-brandon;
+	font-weight: 300;
 }
 
 
 /* ---------------- System CSS ---------------- */
+	::-moz-selection { color: #fff;  background: rgba(244,253,20,.6); }
+	::selection      { color: #fff;  background: rgba(244,253,20,.6); } 
+
+
 	section {
 		z-index: 1000;
 		-webkit-transition: opacity .2s ease-in-out;
@@ -83,7 +70,7 @@ body {
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
-			background: rgba(0,0,0,.2);
+			background: rgba(0,0,0,.9);
 			/*-moz-box-sizing:    border-box;
    			-webkit-box-sizing: border-box;
     		box-sizing:        border-box;
@@ -111,8 +98,149 @@ body {
 			}
 		}
 
-	.mainFooter-links {
-		.mainFooter--twitter {
+	.logo {
+		position: absolute;
+		top: 50px;
+		left: 50px;
+		z-index: 5000;
+
+		font-family: $font-brandon;
+		font-weight: 300;
+		font-size: 12px;
+		color: rgba(255,255,255,.8);
+		text-transform: uppercase;
+		letter-spacing: 2px;
+
+
+		span {
+			margin-bottom: 5px;
+			display: block;
+			font-family: $font-goodFoot;
+			font-size: 40px;
+			color: $yellow;
+			letter-spacing: 1px;
+			word-spacing: -7px;
+			text-transform: initial;
+		}
+	}
+
+
+
+
+	.bt-menuOverlay {
+		position: absolute;
+		margin: auto;
+		top: auto;
+		right: 0;
+		bottom: 120px;
+		left: 0;
+
+		width: 52px;
+		cursor: pointer;
+		padding: 10px;
+		border: 2px solid rgba(255,255,255,.4);
+
+		@include transition(color .2s ease-out, border .2s ease-out);
+
+		color: rgba(255,255,255,.8);
+		letter-spacing: 1px;
+		font-size: 18px;
+		text-transform: uppercase;
+		font-weight: 300;
+
+		z-index: 10;
+
+		&:hover {
+			color: rgba(255,255,255,1);
+			border: 2px solid rgba(255,255,255, .8);
+		}
+	}
+	.menuOverlay {
+		/*display: none;*/
+		position: absolute;
+
+		width: 100%;
+		height: 100%;
+
+		background: rgba(0,0,0,.8);
+		z-index: 1000;
+
+		.menuOverlay-mainMenu {
+			display: table;
+			table-layout: fixed;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			vertical-align: middle;
+			background: rgba(30,30,30,.8);
+
+			border: 15px solid rgba(244,253,20,1);
+			@include box-sizing(border-box);
+			overflow: hidden;
+			z-index: 1000;
+
+
+			& > li {
+				display: table-cell;
+				& > a, .menuOverlay-subMenu {
+					display: table;
+					height: 50%;
+					width: 100%;
+					
+					/*padding: 15px 15px;*/
+					font-size: 18px;
+					color: rgba(255,255,255,.4);
+					letter-spacing: 1px;
+					text-transform: uppercase;
+					text-decoration: none;
+					font-weight: 100;
+
+					border-right: 1px solid rgba(244,253,20,.8);
+					border-bottom: 1px solid rgba(244,253,20,.8);
+					@include transition(color .2s ease-out, background .2s ease-out);
+
+					&:hover {
+						color: rgba(255,255,255,1);
+					}
+					.menuOverlay--menuContent {
+						display: table-cell;
+						text-align:center;
+						vertical-align: middle;
+					}
+				}
+				.menuOverlay-subMenu {
+					border-bottom: none;
+				}
+
+				.mainMenu_jsHover { color: rgba(255,255,255,.2); }
+				.mainMenu_jsActive { color: rgba(255,255,255,0); }
+			}
+		}
+	}
+
+
+/*	.menuOverlay-externalLinks {
+		position: absolute;
+		margin: auto;
+		top: auto;
+		right: 0;
+		bottom: 50px;
+		left: 0;
+		
+		text-align: center;
+		li {
+			display: inline;
+			a {
+				display: inline-block;
+				margin: 0 10px;
+			}
+		}
+	}
+*/
+
+	.menuOverlay-externalLinks {
+		.menuOverlay--twitter {
 			height: 17px;
 			width: 21px;
 			background: url('../img/sprite.png') left top no-repeat;
@@ -125,7 +253,7 @@ body {
 				background-position: left -17px;
 			}
 		}
-		.mainFooter--linkedin {
+		.menuOverlay--linkedin {
 			width: 19px;
 			height: 18px;
 			background: url('../img/sprite.png') left -36px no-repeat;
@@ -140,6 +268,7 @@ body {
 		}
 	}
 
+/*
 	.mainNav {
 		ul.mainNav-menu {
 			position: relative;
@@ -170,9 +299,26 @@ body {
 				.homeTitle-menu_jsActive { color: rgba(255,255,255,0); }
 			}
 		}
+	}*/
+
+	.home-bgVideo {
+		position: fixed;
+		top: 0;
+		left: 0;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: 5;
+		background: url('../img/bg_home.jpg') no-repeat;
+		background-size: cover;
 	}
 /* --------------------------------------------- */
 	
+
+
+
+
 
 
 
@@ -198,7 +344,7 @@ body {
 			text-align: center;
 			
 			color: rgba(255,255,255,1);
-			font-weight: 100;
+			font-weight: 500;
 			span {
 				-webkit-transition: opacity .2s ease-in-out, color .2s ease-out;
 				-moz-transition: opacity .2s ease-in-out, color .2s ease-out;
@@ -216,20 +362,20 @@ body {
 				}
 			}
 			h1, h1 span {
-				font-family: 'good_footregular', 'proxima-nova', sans-serif;
+				font-family: $font-goodFoot;
 				font-size: 168px;
 			}
 			h2 {
 				margin-left: 6px;
-				letter-spacing: 4px;
-				font-size: 18px;
-				font-weight: 300;
+				letter-spacing: 2px;
+				font-size: 21px;
+				font-weight: 500;
 				& > span:first-of-type {
 					margin-left: 6px;
 				}
 				span {
 					color: rgba(255,255,255,1);
-					font-weight: 300;
+					font-weight: 500;
 					-webkit-transition: color .2s ease-out;
 					-moz-transition: color .2s ease-out;
 					-ms-transition: color .2s ease-out;
@@ -238,9 +384,10 @@ body {
 				}
 			}
 			p {
-				color: rgba(255,255,255,.4);
-				font-size: 18px;
+				color: rgba(255,255,255,.3);
+				font-size: 21px;
 				letter-spacing: 2px;
+				font-weight: 500;
 				a {
 					text-decoration: none;
 					color: rgba(255,255,255,.8);
@@ -277,22 +424,21 @@ body {
 			-o-transition: -o-transform .6s ease-out;
 			transition: transform .6s ease-out;
 			
-			/*padding: 15px 20px;*/
-			/*border: 1px solid rgba(255,255,255,.2);*/
+			/*border: 1px solid rgba(255,255,255,1);*/
 
-			width: 222px;
-			height: 48px;
-			overflow: hidden;
+			width: 245px;
+			height: 52px;
 
 			a {
 				display: block;
 				text-decoration: none;
 				color: rgba(255,255,255,1);
 				text-align: center;
-				text-transform: uppercase;
 				letter-spacing: 3px;
-				font-weight: 100;
-				padding: 16px 10px;
+				text-transform: uppercase;
+				font-weight: 500;
+				font-size: 18px;
+				padding: 17px 20px;
 				-webkit-transition: color .2s ease-out, border .2s ease-out;
 				-moz-transition: color .2s ease-out, border .2s ease-out;
 				-ms-transition: color .2s ease-out, border .2s ease-out;
@@ -309,10 +455,10 @@ body {
 					transition-delay: 0s;
 				}
 
-				&:hover svg line.home-btStartUx--top { @include transform(translateX(-222px)); }
-				&:hover svg line.home-btStartUx--right { @include transform(translateY(-48px)); }
-				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(222px)); }
-				&:hover svg line.home-btStartUx--left { @include transform(translateY(48px)); }
+				&:hover svg line.home-btStartUx--top { @include transform(translateX(-245px)); }
+				&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(245px)); }
+				&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
 
 				/*&:hover svg line.home-btStartUx--top { @include transform(translateX(-232px)); }
 				&:hover svg line.home-btStartUx--right { @include transform(translateY(-58px)); }
@@ -341,88 +487,13 @@ body {
 						-o-transition: -o-transform .2s ease-out, stroke .6s ease-out;
 						transition: transform .2s ease-out, stroke .6s ease-out;
 					}
-					line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 232 202 232; }
-					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 58 28 58; }	
+					line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
+					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 				}
 			}
 		}
 
 
-		svg {
-		   
-		}
-
-		.triskel {
-			fill: none;
-			stroke-width: 2;
-			stroke: #f4fd14;
-			stroke-dasharray: 100;
-			stroke-dashoffset: 0;
-			animation: dash 5s linear;
-		}
-
-		@keyframes dash {
-		  to {
-		    stroke-dashoffset: 1000;
-		  }
-		}
-
-
-
-
-		.homeMenu {
-			position: absolute;
-			margin: auto;
-			top: auto;
-			right: 0;
-			bottom: 120px;
-			left: 0;
-			width: 306px;
-
-			z-index: 15;
-			li {
-				display: inline-block;
-				margin-left: -2px;
-				margin-right: -2px;
-				a {
-					padding: 15px 15px;
-					font-size: 18px;
-					color: rgba(255,255,255,.4);
-					letter-spacing: 1px;
-					text-transform: uppercase;
-					text-decoration: none;
-					font-weight: 100;
-					-webkit-transition: color .2s ease-out;
-					-moz-transition: color .2s ease-out;
-					-ms-transition: color .2s ease-out;
-					-o-transition: color .2s ease-out;
-					transition: color .2s ease-out;
-					&:hover {
-						color: rgba(255,255,255,1);
-					}
-				}
-				.homeMenu_jsHover { color: rgba(255,255,255,.2); }
-				.homeMenu_jsActive { color: rgba(255,255,255,0); }
-			}
-		}
-		.homeFooter {
-			position: absolute;
-			margin: auto;
-			top: auto;
-			right: 0;
-			bottom: 50px;
-			left: 0;
-			ul.mainFooter-links {
-				text-align: center;
-				li {
-					display: inline;
-					a {
-						display: inline-block;
-						margin: 0 10px;
-					}
-				}
-			}
-		}
 	}
 
 /* -------------------------------------- */
