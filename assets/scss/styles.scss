@@ -32,7 +32,6 @@ $home-fontWeight: 100;
 
 
 
-
 body {
 	font-size: 100%;
 	background: #000;
@@ -71,7 +70,7 @@ body {
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
-			background: rgba(0,0,0,.9);
+			background: rgba(0,0,0,.7);
 			/*-moz-box-sizing:    border-box;
    			-webkit-box-sizing: border-box;
     		box-sizing:        border-box;
@@ -100,6 +99,7 @@ body {
 		}
 
 	.logo {
+		display: none;
 		position: absolute;
 		top: 50px;
 		left: 50px;
@@ -129,6 +129,7 @@ body {
 
 
 	.bt-menuOverlay {
+
 		position: absolute;
 		margin: auto;
 		top: auto;
@@ -156,105 +157,7 @@ body {
 			border: 2px solid rgba(255,255,255, .8);
 		}
 	}
-	.menuOverlay {
-		/*display: none;*/
-		position: absolute;
-
-		width: 100%;
-		height: 100%;
-		
-		
-		/*@include background-size(cover);*/
-		/*background: rgba(0,0,0,.8);*/
-		z-index: 1000;
-
-
-		.menuOverlay-mainMenu {
-			display: table;
-			table-layout: fixed;
-			/*position: absolute;*/
-			text-align: center;
-			vertical-align: middle;
-			/*background: rgba(30,30,30,.8);
-			border: 15px solid rgba(244,253,20,1);
-			@include box-sizing(border-box);*/
-
-			
-
-			/*background: rgba(0,0,0,.5);*/
-			margin: 0 auto;
-			overflow: hidden;
-			z-index: 1000;
-
-
-			& > li {
-				display: table-cell;
-
-				height: 250px;
-				width: 300px;
-				
-				/*border-right: 1px solid rgba(255,255,255,.2);*/
-				/*border-bottom: 1px solid rgba(255,255,255,.2);*/
-				float: left;
-
-				& > a, .menuOverlay-subMenu {
-					/*display: table;*/
-					
-					
-
-					/*padding: 15px 15px;*/
-					font-size: 18px;
-					color: rgba(255,255,255,.4);
-					letter-spacing: 1px;
-					text-transform: uppercase;
-					text-decoration: none;
-					font-weight: 100;
-
-					/*border-right: 1px solid rgba(244,253,20,.8);
-					border-bottom: 1px solid rgba(244,253,20,.8);*/
-					
-					@include transition(color .2s ease-out, background .2s ease-out);
-
-					&:hover {
-						color: rgba(255,255,255,1);
-					}
-					.menuOverlay--menuContent {
-						/*display: table-cell;*/
-						text-align:center;
-						vertical-align: middle;
-
-						h3 {
-							margin: 50px 50px 20px 50px;
-							font-size: 24px;
-							display: block;
-							color: $yellow;
-							font-family: $font-goodFoot;
-							padding-bottom: 20px;
-							
-							border-bottom: 1px solid rgba(255,255,255,.1);
-						}
-						p {
-							margin: 0 50px 50px 50px;
-							display: block;
-							text-transform: initial;
-							font-family: $font-brandon;
-							font-size: 16px;
-							line-height: 24px;
-							font-weight: 100;
-							color: rgba(255,255,255,.8);
-						}
-
-					}
-				}
-				.menuOverlay-subMenu {
-					border-bottom: none;
-				}
-
-				.mainMenu_jsHover { color: rgba(255,255,255,.2); }
-				.mainMenu_jsActive { color: rgba(255,255,255,0); }
-			}
-		}
-	}
+	
 
 
 /*	.menuOverlay-externalLinks {
@@ -390,7 +293,7 @@ body {
 				transition: opacity .2s ease-in-out, color .2s ease-out;
 			}
 
-			h1 {
+			/*h1 {
 				display: inline;
 				margin: 0 10px;
 				color: $yellow;
@@ -401,7 +304,43 @@ body {
 			h1, h1 span {
 				font-family: $font-goodFoot;
 				font-size: 168px;
+			}*/
+			h1 {
+				display: inline;
+				margin: 0 10px;
+				svg {
+				  /*position: absolute;
+				  margin-left: 50px;
+				  margin-top: 50px;*/
+				 	fill: #000;
+				  stroke-width: 1;
+				  stroke: $yellow;
+
+
+				  overflow: hidden;
+				  -webkit-transition: -webkit-transform .2s ease-out;
+				  -moz-transition: -moz-transform .2s ease-out;
+					-ms-transition: -ms-transform .2s ease-out;
+					-o-transition: -o-transform .2s ease-out;
+					transition: transform .2s ease-out; 
+
+				  transform-origin: center center;
+				}
+
+				.alexis {
+				  fill: none;
+				  stroke-width: 1;
+				  stroke: $yellow;
+				  @include transition(fill .6s ease-out);
+				  /*  stroke-dasharray: 1000;
+				  stroke-dashoffset: 1000;
+				  animation: dash 3s ease-out infinite; */
+				}
+
+
+				
 			}
+
 			h2 {
 				margin-left: 6px;
 				letter-spacing: 2px;
@@ -444,6 +383,104 @@ body {
 				display: inline;
 			}
 		}
+
+
+
+
+
+
+		.menuOverlay {
+			display: none;
+			position: relative;
+
+			width: 100%;
+			
+			.menuOverlay-mainMenu {
+				display: table;
+				table-layout: fixed;
+				/*position: absolute;*/
+				text-align: center;
+				vertical-align: middle;
+
+				margin: 0 auto;
+				overflow: hidden;
+
+				& > li {
+					display: table-cell;
+
+					height: 250px;
+					width: 300px;
+					
+					/*border-right: 1px solid rgba(255,255,255,.2);*/
+					/*border-bottom: 1px solid rgba(255,255,255,.2);*/
+					float: left;
+
+					& > a, .menuOverlay-subMenu {
+						/*display: table;*/
+						
+						
+
+						/*padding: 15px 15px;*/
+						font-size: 18px;
+						color: rgba(255,255,255,.4);
+						letter-spacing: 1px;
+						
+						text-decoration: none;
+						font-weight: 100;
+
+						/*border-right: 1px solid rgba(244,253,20,.8);
+						border-bottom: 1px solid rgba(244,253,20,.8);*/
+						
+						@include transition(color .2s ease-out, background .2s ease-out);
+
+						&:hover {
+							color: rgba(255,255,255,1);
+						}
+						.menuOverlay--menuContent {
+							/*display: table-cell;*/
+							text-align:center;
+							vertical-align: middle;
+
+							h3 {
+								margin: 50px 50px 20px 50px;
+								font-size: 24px;
+								display: block;
+								color: $yellow;
+								font-family: $font-goodFoot;
+								padding-bottom: 20px;
+								
+								border-bottom: 1px solid rgba(255,255,255,.1);
+							}
+							p {
+								margin: 0 50px 50px 50px;
+								display: block;
+							
+								font-family: $font-brandon;
+								font-size: 16px;
+								line-height: 24px;
+								font-weight: 100;
+								color: rgba(255,255,255,.8);
+							}
+
+						}
+					}
+					.menuOverlay-subMenu {
+						border-bottom: none;
+					}
+
+					.mainMenu_jsHover { color: rgba(255,255,255,.2); }
+					.mainMenu_jsActive { color: rgba(255,255,255,0); }
+				}
+			}
+		}
+
+
+
+
+
+
+
+
 
 
 		.home-btStartUx {
@@ -561,6 +598,15 @@ body {
 
 
 
+@keyframes dash {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes dashBack {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 1000; }
+}
 
 
 
