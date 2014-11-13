@@ -305,41 +305,26 @@ body {
 				font-family: $font-goodFoot;
 				font-size: 168px;
 			}*/
-			h1 {
-				display: inline;
-				margin: 0 10px;
-				svg {
-				  /*position: absolute;
-				  margin-left: 50px;
-				  margin-top: 50px;*/
-				 	fill: #000;
-				  stroke-width: 1;
-				  stroke: $yellow;
 
+			svg {
+				display: inline-block;
+				fill: rgba(0,0,0,0);
+				stroke-width: 1;
 
-				  overflow: hidden;
-				  -webkit-transition: -webkit-transform .2s ease-out;
-				  -moz-transition: -moz-transform .2s ease-out;
-					-ms-transition: -ms-transform .2s ease-out;
-					-o-transition: -o-transform .2s ease-out;
-					transition: transform .2s ease-out; 
+				stroke: $yellow;
 
-				  transform-origin: center center;
-				}
-
-				.alexis {
-				  fill: none;
-				  stroke-width: 1;
-				  stroke: $yellow;
-				  @include transition(fill .6s ease-out);
-				  /*  stroke-dasharray: 1000;
-				  stroke-dashoffset: 1000;
-				  animation: dash 3s ease-out infinite; */
-				}
-
-
-				
+				overflow: hidden;
+				@include transition(transform .2s ease-out);
+				transform-origin: center center;
+				margin: 0 -5px -16px 5px;
 			}
+
+			.alexis {
+			  @include transition(fill .6s ease-out);
+			}
+
+
+			
 
 			h2 {
 				margin-left: 6px;

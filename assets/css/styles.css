@@ -243,33 +243,21 @@ section > div {
       -ms-transition: opacity .2s ease-in-out, color .2s ease-out;
       -o-transition: opacity .2s ease-in-out, color .2s ease-out;
       transition: opacity .2s ease-in-out, color .2s ease-out; }
-    .home .homeTitle h1 {
-      display: inline;
-      margin: 0 10px; }
-      .home .homeTitle h1 svg {
-        /*position: absolute;
-        margin-left: 50px;
-        margin-top: 50px;*/
-        fill: #000;
-        stroke-width: 1;
-        stroke: #f4fd14;
-        overflow: hidden;
-        -webkit-transition: -webkit-transform .2s ease-out;
-        -moz-transition: -moz-transform .2s ease-out;
-        -ms-transition: -ms-transform .2s ease-out;
-        -o-transition: -o-transform .2s ease-out;
-        transition: transform .2s ease-out;
-        transform-origin: center center; }
-      .home .homeTitle h1 .alexis {
-        fill: none;
-        stroke-width: 1;
-        stroke: #f4fd14;
-        -webkit-transition: fill 0.6s ease-out;
-        -moz-transition: fill 0.6s ease-out;
-        transition: fill 0.6s ease-out;
-        /*  stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        animation: dash 3s ease-out infinite; */ }
+    .home .homeTitle svg {
+      display: inline-block;
+      fill: rgba(0, 0, 0, 0);
+      stroke-width: 1;
+      stroke: #f4fd14;
+      overflow: hidden;
+      -webkit-transition: transform 0.2s ease-out;
+      -moz-transition: transform 0.2s ease-out;
+      transition: transform 0.2s ease-out;
+      transform-origin: center center;
+      margin: 0 -5px -16px 5px; }
+    .home .homeTitle .alexis {
+      -webkit-transition: fill 0.6s ease-out;
+      -moz-transition: fill 0.6s ease-out;
+      transition: fill 0.6s ease-out; }
     .home .homeTitle h2 {
       margin-left: 6px;
       letter-spacing: 2px;
