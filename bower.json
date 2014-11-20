@@ -1,0 +1,9 @@
+{
+	"name": "Portfolio2014",
+	"version": "0.4.1",
+	"dependencies": {
+		"jquery": "latest",
+		"angular": "latest",
+		"angular-route": "latest"
+	}
+}

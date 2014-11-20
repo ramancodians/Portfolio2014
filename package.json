@@ -1,0 +1,11 @@
+{
+	"name": "starter-node-angular",
+	"main": "server.js",
+	"dependencies": {
+		"express" : "~4.5.1",
+		"compression" : "~1.2.0",
+		"morgan" : "~1.5.0",
+		"body-parser" : "~1.4.2",
+		"method-override" : "~2.0.2"        
+      }
+}
