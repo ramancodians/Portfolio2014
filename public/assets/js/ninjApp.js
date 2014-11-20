@@ -1,7 +1,33 @@
-$(document).ready(function(){
 
 
-	var ninjApp = angular.module('ninjApp', []);
+
+	var ninjApp = angular.module('ninjApp', ['ui.router']);
+
+
+	ninjApp.config(function($routeProvider) {
+	       $routeProvider
+
+	           // route for the home page
+	           .when('/', {
+	               templateUrl : 'views/home.html',
+	               controller  : function($scope, $http){
+	               		$http
+	               			.get('assets/js/ninjApp_homeCtrl.js')
+	               			.success(function(data, status, headers, config) {
+	               		    	$scope.posts = data;
+	               		   	})
+	               		   	.error(function(data, status, headers, config) {
+	               		    	console.log('fail HOME js http');
+	               		   	});
+	               }
+	           })
+
+	           // route for the about page
+	           .when('/about', {
+	               templateUrl : 'views/works.html',
+	           })
+	   });
+
 
 
 
@@ -26,9 +52,9 @@ $(document).ready(function(){
 
 
 // Controllers ==========================================================================
-	/*angular.controller('homeController', function(){
-		$.get('assets/js/ninjApp_homeCtrl.js', function(data){
-			return data;
+	/*ninjApp.controller('homeController', function($scope){
+		$.get('assets/js/ninjApp_homeCtrl.js', function($scope){
+			return $scope;
 		});
 	});*/
 // ======================================================================================
@@ -63,7 +89,6 @@ $(document).ready(function(){
 
 
 
-});
 
 
 

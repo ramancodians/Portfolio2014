@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="fr" ng-app="ninjApp">
+<html class="no-js" lang="fr" ng-app="ninjApp" ng-controller="mainController" >
 <head>
 	<title>{{ Page.title() }}</title>
 
@@ -28,7 +28,7 @@
 
     <script type="text/javascript" src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
-    <!--script type="text/javascript" src="assets/libs/angular-route/angular-route.min.js"></script-->
+    <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 
     <script type="text/javascript" src="assets/libs/vendor/modernizr.js"></script>
 
@@ -42,7 +42,7 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 </head>
-<body ng-controller="mainCtrl" ng-view >
+<body ui-view >
     
 
 

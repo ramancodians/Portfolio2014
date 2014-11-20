@@ -6,8 +6,8 @@
 	var oneDay = 86400000;
 
 
-	/*var mongoose = require('mongoose');
-	var db = require('./config/db');*/
+	var mongoose = require('mongoose');
+	var db = require('./config/db');
 	var port = process.env.PORT || 8080;
 
 	var morgan = require('morgan'); // log requests for the console
@@ -23,7 +23,7 @@
 
 
 // Configuration ========================================================================
-	/*mongoose.connect(db.url);*/
+	mongoose.connect(db.url);
 
 	/*app.use(compression());*/
 	app.use(express.static(__dirname + '/public', { maxAge : oneDay })); // static files location
@@ -31,7 +31,7 @@
 	app.use(bodyParser.urlencoded({'extended':'true'}));
 	app.use(bodyParser.json());
 	app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
-	app.use(methodOverride('X-HTTP-Method-Override'));
+	app.use(methodOverride());
 // ======================================================================================
 
 

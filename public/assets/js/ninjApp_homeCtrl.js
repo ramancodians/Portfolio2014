@@ -1,6 +1,6 @@
-ninjApp.controller('homeController', function(){
+/*ninjApp.controller('homeController', function(){*/
 
-
+	console.log('GG !');
 	/* ---------------- Home ---------------- */
 		// Home "Alexis" SVG animation
 		$.get('assets/svg/svgdefs.svg', function(data){
@@ -210,4 +210,4 @@ ninjApp.controller('homeController', function(){
 	/* -------------------------------------- */
 
 
-)};
+/*});*/
