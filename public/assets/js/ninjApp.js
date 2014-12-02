@@ -1,32 +1,43 @@
 
 
 
-	var ninjApp = angular.module('ninjApp', ['ui.router']);
+	var ninjApp = angular.module('ninjApp', [
+		'ui.router'
+	]);
 
 
-	ninjApp.config(function($routeProvider) {
-	       $routeProvider
 
-	           // route for the home page
-	           .when('/', {
-	               templateUrl : 'views/home.html',
-	               controller  : function($scope, $http){
-	               		$http
-	               			.get('assets/js/ninjApp_homeCtrl.js')
-	               			.success(function(data, status, headers, config) {
-	               		    	$scope.posts = data;
-	               		   	})
-	               		   	.error(function(data, status, headers, config) {
-	               		    	console.log('fail HOME js http');
-	               		   	});
-	               }
-	           })
+	ninjApp.config(function($stateProvider, $urlRouterProvider) {
+	    $urlRouterProvider.otherwise('/');
+	    $stateProvider
+	        .state('/', {
+	            url: '/',
+	            templateUrl: 'views/home.html',
+	            controller: 'homeController'
+	        })
+	        
+	        .state('/works', {
+	        	url: '/works',
+	        	templateUrl: 'views/works.html',
+	        	controller: 'worksController'
+	        });
+	});
 
-	           // route for the about page
-	           .when('/about', {
-	               templateUrl : 'views/works.html',
-	           })
-	   });
+
+
+	ninjApp.factory('Page', function(){
+	  var title = 'Alexis Bertin | Front-End Developer';
+	  return {
+	    title: function() { return title; },
+	    setTitle: function(newTitle) { title = newTitle; }
+	  };
+	});
+
+
+
+	ninjApp.controller('mainController', function($scope, Page){
+		$scope.Page = Page;
+	});
 
 
 

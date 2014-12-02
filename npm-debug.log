@@ -1,82 +1,89 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'method_override' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'videogular' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
-4 verbose cache add [ 'method_override', null ]
-5 verbose cache add name=undefined spec="method_override" args=["method_override",null]
-6 verbose parsed url { protocol: null,
-6 verbose parsed url   slashes: null,
-6 verbose parsed url   auth: null,
-6 verbose parsed url   host: null,
-6 verbose parsed url   port: null,
-6 verbose parsed url   hostname: null,
-6 verbose parsed url   hash: null,
-6 verbose parsed url   search: null,
-6 verbose parsed url   query: null,
-6 verbose parsed url   pathname: 'method_override',
-6 verbose parsed url   path: 'method_override',
-6 verbose parsed url   href: 'method_override' }
-7 silly lockFile 88ca3e74-method-override method_override
-8 verbose lock method_override /Users/Nyx/.npm/88ca3e74-method-override.lock
-9 silly lockFile 88ca3e74-method-override method_override
-10 silly lockFile 88ca3e74-method-override method_override
-11 verbose addNamed [ 'method_override', '' ]
-12 verbose addNamed [ null, '*' ]
-13 silly lockFile 41023a0b-method-override method_override@
-14 verbose lock method_override@ /Users/Nyx/.npm/41023a0b-method-override.lock
-15 silly addNameRange { name: 'method_override', range: '*', hasData: false }
-16 verbose request where is /method_override
-17 verbose request registry https://registry.npmjs.org/
-18 verbose request id 8e0045f1e49ef054
-19 verbose url raw /method_override
-20 verbose url resolving [ 'https://registry.npmjs.org/', './method_override' ]
-21 verbose url resolved https://registry.npmjs.org/method_override
-22 verbose request where is https://registry.npmjs.org/method_override
-23 info trying registry request attempt 1 at 16:01:34
-24 http GET https://registry.npmjs.org/method_override
-25 http 404 https://registry.npmjs.org/method_override
-26 verbose headers { date: 'Wed, 19 Nov 2014 15:01:35 GMT',
-26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 verbose headers   'content-type': 'application/json',
-26 verbose headers   'cache-control': 'max-age=0',
-26 verbose headers   'content-length': '52',
-26 verbose headers   'accept-ranges': 'bytes',
-26 verbose headers   via: '1.1 varnish',
-26 verbose headers   age: '0',
-26 verbose headers   'x-served-by': 'cache-fra1238-FRA',
-26 verbose headers   'x-cache': 'MISS',
-26 verbose headers   'x-cache-hits': '0',
-26 verbose headers   'x-timer': 'S1416409295.210291,VS0,VE176',
-26 verbose headers   'keep-alive': 'timeout=10, max=50',
-26 verbose headers   connection: 'Keep-Alive' }
-27 silly registry.get cb [ 404,
-27 silly registry.get   { date: 'Wed, 19 Nov 2014 15:01:35 GMT',
-27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-27 silly registry.get     'content-type': 'application/json',
-27 silly registry.get     'cache-control': 'max-age=0',
-27 silly registry.get     'content-length': '52',
-27 silly registry.get     'accept-ranges': 'bytes',
-27 silly registry.get     via: '1.1 varnish',
-27 silly registry.get     age: '0',
-27 silly registry.get     'x-served-by': 'cache-fra1238-FRA',
-27 silly registry.get     'x-cache': 'MISS',
-27 silly registry.get     'x-cache-hits': '0',
-27 silly registry.get     'x-timer': 'S1416409295.210291,VS0,VE176',
-27 silly registry.get     'keep-alive': 'timeout=10, max=50',
-27 silly registry.get     connection: 'Keep-Alive' } ]
-28 silly lockFile 41023a0b-method-override method_override@
-29 silly lockFile 41023a0b-method-override method_override@
-30 error 404 404 Not Found: method_override
-30 error 404
-30 error 404 'method_override' is not in the npm registry.
-30 error 404 You should bug the author to publish it
-30 error 404
-30 error 404 Note that you can also install from a
-30 error 404 tarball, folder, or http url, or git url.
-31 error System Darwin 14.0.0
-32 error command "node" "/usr/local/bin/npm" "install" "method_override"
-33 error cwd /Users/Nyx/nodeWork/Portfolio2014
-34 error node -v v0.10.33
-35 error npm -v 1.4.28
-36 error code E404
-37 verbose exit [ 1, true ]
+4 warn package.json starter-node-angular@ No description
+5 warn package.json starter-node-angular@ No repository field.
+6 warn package.json starter-node-angular@ No README data
+7 warn package.json path@0.4.9 path is also the name of a node core module.
+8 warn package.json path@0.4.9 No README data
+9 verbose readDependencies using package.json deps
+10 verbose cache add [ 'videogular', null ]
+11 verbose cache add name=undefined spec="videogular" args=["videogular",null]
+12 verbose parsed url { protocol: null,
+12 verbose parsed url   slashes: null,
+12 verbose parsed url   auth: null,
+12 verbose parsed url   host: null,
+12 verbose parsed url   port: null,
+12 verbose parsed url   hostname: null,
+12 verbose parsed url   hash: null,
+12 verbose parsed url   search: null,
+12 verbose parsed url   query: null,
+12 verbose parsed url   pathname: 'videogular',
+12 verbose parsed url   path: 'videogular',
+12 verbose parsed url   href: 'videogular' }
+13 silly lockFile 1bb6220b-videogular videogular
+14 verbose lock videogular /Users/Nyx/.npm/1bb6220b-videogular.lock
+15 silly lockFile 1bb6220b-videogular videogular
+16 silly lockFile 1bb6220b-videogular videogular
+17 verbose addNamed [ 'videogular', '' ]
+18 verbose addNamed [ null, '*' ]
+19 silly lockFile 067a9574-videogular videogular@
+20 verbose lock videogular@ /Users/Nyx/.npm/067a9574-videogular.lock
+21 silly addNameRange { name: 'videogular', range: '*', hasData: false }
+22 verbose request where is /videogular
+23 verbose request registry https://registry.npmjs.org/
+24 verbose request id 70b3ca604f1a5b3f
+25 verbose url raw /videogular
+26 verbose url resolving [ 'https://registry.npmjs.org/', './videogular' ]
+27 verbose url resolved https://registry.npmjs.org/videogular
+28 verbose request where is https://registry.npmjs.org/videogular
+29 info trying registry request attempt 1 at 19:03:07
+30 http GET https://registry.npmjs.org/videogular
+31 http 404 https://registry.npmjs.org/videogular
+32 verbose headers { date: 'Mon, 01 Dec 2014 18:03:08 GMT',
+32 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+32 verbose headers   'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=0',
+32 verbose headers   'content-length': '52',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   age: '0',
+32 verbose headers   'x-served-by': 'cache-fra1245-FRA',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1417456987.370733,VS0,VE719',
+32 verbose headers   'keep-alive': 'timeout=10, max=50',
+32 verbose headers   connection: 'Keep-Alive' }
+33 silly registry.get cb [ 404,
+33 silly registry.get   { date: 'Mon, 01 Dec 2014 18:03:08 GMT',
+33 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+33 silly registry.get     'content-type': 'application/json',
+33 silly registry.get     'cache-control': 'max-age=0',
+33 silly registry.get     'content-length': '52',
+33 silly registry.get     'accept-ranges': 'bytes',
+33 silly registry.get     via: '1.1 varnish',
+33 silly registry.get     age: '0',
+33 silly registry.get     'x-served-by': 'cache-fra1245-FRA',
+33 silly registry.get     'x-cache': 'MISS',
+33 silly registry.get     'x-cache-hits': '0',
+33 silly registry.get     'x-timer': 'S1417456987.370733,VS0,VE719',
+33 silly registry.get     'keep-alive': 'timeout=10, max=50',
+33 silly registry.get     connection: 'Keep-Alive' } ]
+34 silly lockFile 067a9574-videogular videogular@
+35 silly lockFile 067a9574-videogular videogular@
+36 error 404 404 Not Found: videogular
+36 error 404
+36 error 404 'videogular' is not in the npm registry.
+36 error 404 You should bug the author to publish it
+36 error 404 It was specified as a dependency of 'starter-node-angular'
+36 error 404
+36 error 404 Note that you can also install from a
+36 error 404 tarball, folder, or http url, or git url.
+37 error System Darwin 14.0.0
+38 error command "node" "/usr/local/bin/npm" "install" "videogular"
+39 error cwd /Users/Nyx/nodeWork/Portfolio2014
+40 error node -v v0.10.33
+41 error npm -v 1.4.28
+42 error code E404
+43 verbose exit [ 1, true ]

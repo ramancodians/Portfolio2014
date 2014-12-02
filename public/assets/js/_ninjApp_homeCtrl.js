@@ -23,51 +23,52 @@ ninjApp.controller('homeController', function($scope, Page){
 		});
 
 
+		// Fade Out
 		function alexisAppears_reset(y, z, alexisNbLetters){
-		  setTimeout(function(){
-		    if(z <= alexisNbLetters){
-		      $('.alexis:nth-child('+z+')').css({
-		        'fill':'rgba(0,0,0,0)'
-		      }).queue(function(){
-		        $(this).css({
-		           'animation': 'dashBack 1s ease-out forwards'
-		         }).dequeue();
-		      });
-		      
-		      z++;
-		      alexisAppears_reset(y, z, alexisNbLetters);
-		    } else {
-		      setTimeout(function(){
-		        z = 1;
-		        alexisAppears(y, z, alexisNbLetters);
-		      },1000);
-		    }
-		  },150);
+		  	setTimeout(function(){
+			    if(z <= alexisNbLetters){
+				    $('.alexis:nth-child('+z+')')
+				      	.css({'fill':'rgba(0,0,0,0)'})
+				      	.queue(function(){
+				        	$(this).css({
+				           		'animation': 'dashBack 1s ease-out forwards'
+				         	})
+				        .dequeue();
+			    	});
+			     	z++;
+			    	alexisAppears_reset(y, z, alexisNbLetters);
+			    } else {
+			    	setTimeout(function(){
+			        	z = 1;
+			        	alexisAppears(y, z, alexisNbLetters);
+			      	},1000);
+			    }
+		  	},150);
 		}
-
-
+		// Fade In
 		function alexisAppears(y, z, alexisNbLetters){
-		  setTimeout(function(){
-		    if(y <= alexisNbLetters){
-		      $('.alexis:nth-child('+y+')').css({
-		        'animation': 'dash 3s ease-out forwards'
-		      }).delay(400).queue(function(){
-		        $(this).css({
-		           'fill':'#f4fd14'
-		        }).dequeue();
-		      });
-		    
-		      y++;
-		      alexisAppears(y, z, alexisNbLetters);
-		    } else {
-		      setTimeout(function(){
-		        y = 1;
-		        alexisAppears_reset(y, z, alexisNbLetters);
-		      },3000);
-		    }
-		  },150);
+			setTimeout(function(){
+			    if(y <= alexisNbLetters){
+			    	$('.alexis:nth-child('+y+')')
+			    		.css({'animation': 'dash 3s ease-out forwards'})
+			    		.delay(400)
+			    		.queue(function(){
+					        $(this).css({
+					           'fill':'#f4fd14'
+					        })
+					    .dequeue();
+			    	});
+			      	y++;
+			      	alexisAppears(y, z, alexisNbLetters);
+			    } else {
+			      	setTimeout(function(){
+			        	y = 1;
+			        	alexisAppears_reset(y, z, alexisNbLetters);
+			      	},3000);
+			    }
+			},150);
 		}
-	
+		
 
 
 

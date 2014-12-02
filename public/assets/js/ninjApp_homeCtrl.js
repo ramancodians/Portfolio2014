@@ -1,68 +1,97 @@
-/*ninjApp.controller('homeController', function(){*/
+
+
+
+ninjApp.controller('homeController', function($scope, Page){
+
+	Page.setTitle('Alexis Bertin | Front-End Developer');
 
 	console.log('GG !');
-	/* ---------------- Home ---------------- */
+
+
+
 		// Home "Alexis" SVG animation
 		$.get('assets/svg/svgdefs.svg', function(data){
 			// inject the defs we need from the SVG doc into main file.
-			$('.home .homeTitle svg').html($(data).find('#homeAlexis').html());
-
+			$('.home .homeTitle svg').empty().html($(data).find('#homeAlexis .alexis'));
 			var alexisNbLetters = $('.alexis').size();
-			for(var x=1; x<= alexisNbLetters; x++){
-			  $('.alexis:nth-child('+x+')').css({
+
+			  $('.alexis').css({
 			    'stroke-dasharray': '1000',
 			    'stroke-dashoffset': '1000'
-			  });  
-			}
+			  }); 
+
+
+			
+			
+
+			var supportedFlag = $.keyframe.isSupported();
+
+			/*var vendorPrefix = $.keyframe.getVendorPrefix();
+			var stroke = pfx + 'stroke-offset'; 
+
+
+
+			$.keyframe.define([{
+				    name: 'dash',
+				    '0%': { stroke: '1000' },
+				    '100%': { stroke: '0' }
+			    },{
+				    name: 'dashBack',
+				    '0%': { stroke: '0' },
+				    '100%': { stroke: '1000' }
+			    }
+			]);*/
+
+
+
 		});
 
 
-		// Fade Out
 		function alexisAppears_reset(y, z, alexisNbLetters){
-		  	setTimeout(function(){
-			    if(z <= alexisNbLetters){
-				    $('.alexis:nth-child('+z+')')
-				      	.css({'fill':'rgba(0,0,0,0)'})
-				      	.queue(function(){
-				        	$(this).css({
-				           		'animation': 'dashBack 1s ease-out forwards'
-				         	})
-				        .dequeue();
-			    	});
-			     	z++;
-			    	alexisAppears_reset(y, z, alexisNbLetters);
-			    } else {
-			    	setTimeout(function(){
-			        	z = 1;
-			        	alexisAppears(y, z, alexisNbLetters);
-			      	},1000);
-			    }
-		  	},150);
+		  setTimeout(function(){
+		    if(z <= alexisNbLetters){
+			    $('.alexis:nth-child('+z+')').css({
+			        'fill':'rgba(0,0,0,0)'
+			    }).queue(function(){
+			        $(this).playKeyframe(
+				        'dashBack 1000 ease-out forwards'
+				    ).dequeue();
+			    });
+		      
+		      z++;
+		      alexisAppears_reset(y, z, alexisNbLetters);
+		    } else {
+		      setTimeout(function(){
+		        z = 1;
+		        alexisAppears(y, z, alexisNbLetters);
+		      },1000);
+		    }
+		  },150);
 		}
-		// Fade In
+
+
 		function alexisAppears(y, z, alexisNbLetters){
-			setTimeout(function(){
-			    if(y <= alexisNbLetters){
-			    	$('.alexis:nth-child('+y+')')
-			    		.css({'animation': 'dash 3s ease-out forwards'})
-			    		.delay(400)
-			    		.queue(function(){
-					        $(this).css({
-					           'fill':'#f4fd14'
-					        })
-					    .dequeue();
-			    	});
-			      	y++;
-			      	alexisAppears(y, z, alexisNbLetters);
-			    } else {
-			      	setTimeout(function(){
-			        	y = 1;
-			        	alexisAppears_reset(y, z, alexisNbLetters);
-			      	},3000);
-			    }
-			},150);
+		  setTimeout(function(){
+		    if(y <= alexisNbLetters){
+		      $('.alexis:nth-child('+y+')').playKeyframe(
+		        'dash 3000 ease-out forwards'
+		      ).delay(400).queue(function(){
+		        $(this).css({
+		           'fill':'#f4fd14'
+		        }).dequeue();
+		      });
+		    
+		      y++;
+		      alexisAppears(y, z, alexisNbLetters);
+		    } else {
+		      setTimeout(function(){
+		        y = 1;
+		        alexisAppears_reset(y, z, alexisNbLetters);
+		      },3000);
+		    }
+		  },150);
 		}
-		
+	
 
 
 
@@ -93,7 +122,7 @@
 		// Ending function, reset the div
 		function killHomeFunction(){
 			w = 0;
-			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,.8)'});
+			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,0.8)'});
 
 			for(var x = 0; x < homeTitle.length; x++){
 				$('.home .homeTitle '+homeTitle[x]).empty().html(homeTitleContent[x]);
@@ -155,7 +184,7 @@
 										.css({'opacity':'1'})
 										.delay(200)
 										.queue(function(){
-											$(this).css({'color': 'rgba(255,255,255,.4)'});		
+											$(this).css({'color': 'rgba(255,255,255,0.4)'});		
 										});	
 								}
 								if((w == "0") && (homeTitleContentSplit[w][x] == "o")) { // Break after the "Hello"
@@ -179,8 +208,10 @@
 										}
 									},1000);
 								} else if((w == "0") && (homeTitleContentSplit[w][x] == "m")){
-					// "ALEXIS" fadein
+	// "ALEXIS" fadein =========================
+
 									alexisAppears(y, z, alexisNbLetters);
+	// =========================================
 									x = 0;
 									w++;
 									if(w < homeTitleContentSplit.length){
@@ -210,4 +241,4 @@
 	/* -------------------------------------- */
 
 
-/*});*/
+});

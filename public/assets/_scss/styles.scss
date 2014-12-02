@@ -46,14 +46,8 @@ body {
 
 
 	section {
-		z-index: 1000;
-		-webkit-transition: opacity .2s ease-in-out;
-		-moz-transition: opacity .2s ease-in-out;
-		-ms-transition: opacity .2s ease-in-out;
-		-o-transition: opacity .2s ease-in-out;
-		transition: opacity .2s ease-in-out;
-		
-		opacity: 0;
+	
+
 		width: 100%;
 		height: 100%;
 		z-index: 9;
@@ -286,11 +280,11 @@ body {
 			color: rgba(255,255,255,1);
 			font-weight: $home-fontWeight;
 			span {
-				-webkit-transition: opacity .2s ease-in-out, color .2s ease-out;
-				-moz-transition: opacity .2s ease-in-out, color .2s ease-out;
-				-ms-transition: opacity .2s ease-in-out, color .2s ease-out;
-				-o-transition: opacity .2s ease-in-out, color .2s ease-out;
-				transition: opacity .2s ease-in-out, color .2s ease-out;
+				-webkit-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+				-moz-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+				-ms-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+				-o-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+				transition: opacity 0.2s ease-in-out, color .2s ease-out;
 			}
 
 			/*h1 {
@@ -307,6 +301,7 @@ body {
 			}*/
 
 			svg {
+
 				display: inline-block;
 				fill: rgba(0,0,0,0);
 				stroke-width: 1;
@@ -314,17 +309,22 @@ body {
 				stroke: $yellow;
 
 				overflow: hidden;
-				@include transition(transform .2s ease-out);
+				@include transition(transform 0.2s ease-out);
 				transform-origin: center center;
 				margin: 0 -5px -16px 5px;
 			}
 
 			.alexis {
-			  @include transition(fill .6s ease-out);
+				fill: rgba(0,0,0,0);
+				stroke-width: 1;
+				stroke: $yellow;
+				@include transition(fill 0.6s ease-out);
 			}
-
-
 			
+
+
+
+
 
 			h2 {
 				margin-left: 6px;
@@ -337,11 +337,11 @@ body {
 				span {
 					color: rgba(255,255,255,1);
 					font-weight: $home-fontWeight;
-					-webkit-transition: color .2s ease-out;
-					-moz-transition: color .2s ease-out;
-					-ms-transition: color .2s ease-out;
-					-o-transition: color .2s ease-out;
-					transition: color .2s ease-out;
+					-webkit-transition: color 0.2s ease-out;
+					-moz-transition: color 0.2s ease-out;
+					-ms-transition: color 0.2s ease-out;
+					-o-transition: color 0.2s ease-out;
+					transition: color 0.2s ease-out;
 				}
 			}
 			p {
@@ -352,11 +352,11 @@ body {
 				a {
 					text-decoration: none;
 					color: rgba(255,255,255,.8);
-					-webkit-transition: color .2s ease-out;
-					-moz-transition: color .2s ease-out;
-					-ms-transition: color .2s ease-out;
-					-o-transition: color .2s ease-out;
-					transition: color .2s ease-out;
+					-webkit-transition: color 0.2s ease-out;
+					-moz-transition: color 0.2s ease-out;
+					-ms-transition: color 0.2s ease-out;
+					-o-transition: color 0.2s ease-out;
+					transition: color 0.2s ease-out;
 					&:hover { color: #fff; }
 				}
 			}
@@ -583,18 +583,27 @@ body {
 
 
 
-@keyframes dash {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
-}
-
-@keyframes dashBack {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 1000; }
-}
 
 
 
+			@-webkit-keyframes dash {
+				0% { stroke-offset: 1000; }
+				100% { stroke-offset: 0; }
+			}
+			@keyframes dash {
+				0% { stroke-offset: 1000; }
+				100% { stroke-offset: 0; }
+			}
+
+
+			@-webkit-keyframes dashBack {
+				0% { stroke-offset: 0; }
+				100% { stroke-offset: 1000; }
+			}
+			@keyframes dashBack {
+				0% { stroke-offset: 0; }
+				100% { stroke-offset: 1000; }
+			}
 
 
 

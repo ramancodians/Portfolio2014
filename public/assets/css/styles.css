@@ -22,13 +22,6 @@ body {
   background: rgba(244, 253, 20, 0.6); }
 
 section {
-  z-index: 1000;
-  -webkit-transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -ms-transition: opacity .2s ease-in-out;
-  -o-transition: opacity .2s ease-in-out;
-  transition: opacity .2s ease-in-out;
-  opacity: 0;
   width: 100%;
   height: 100%;
   z-index: 9; }
@@ -238,11 +231,11 @@ section > div {
     	font-size: 168px;
     }*/ }
     .home .homeTitle span {
-      -webkit-transition: opacity .2s ease-in-out, color .2s ease-out;
-      -moz-transition: opacity .2s ease-in-out, color .2s ease-out;
-      -ms-transition: opacity .2s ease-in-out, color .2s ease-out;
-      -o-transition: opacity .2s ease-in-out, color .2s ease-out;
-      transition: opacity .2s ease-in-out, color .2s ease-out; }
+      -webkit-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+      -moz-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+      -ms-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+      -o-transition: opacity 0.2s ease-in-out, color .2s ease-out;
+      transition: opacity 0.2s ease-in-out, color .2s ease-out; }
     .home .homeTitle svg {
       display: inline-block;
       fill: rgba(0, 0, 0, 0);
@@ -255,6 +248,9 @@ section > div {
       transform-origin: center center;
       margin: 0 -5px -16px 5px; }
     .home .homeTitle .alexis {
+      fill: rgba(0, 0, 0, 0);
+      stroke-width: 1;
+      stroke: #f4fd14;
       -webkit-transition: fill 0.6s ease-out;
       -moz-transition: fill 0.6s ease-out;
       transition: fill 0.6s ease-out; }
@@ -268,11 +264,11 @@ section > div {
       .home .homeTitle h2 span {
         color: white;
         font-weight: 100;
-        -webkit-transition: color .2s ease-out;
-        -moz-transition: color .2s ease-out;
-        -ms-transition: color .2s ease-out;
-        -o-transition: color .2s ease-out;
-        transition: color .2s ease-out; }
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -ms-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out; }
     .home .homeTitle p {
       color: rgba(255, 255, 255, 0.3);
       font-size: 21px;
@@ -281,11 +277,11 @@ section > div {
       .home .homeTitle p a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.8);
-        -webkit-transition: color .2s ease-out;
-        -moz-transition: color .2s ease-out;
-        -ms-transition: color .2s ease-out;
-        -o-transition: color .2s ease-out;
-        transition: color .2s ease-out; }
+        -webkit-transition: color 0.2s ease-out;
+        -moz-transition: color 0.2s ease-out;
+        -ms-transition: color 0.2s ease-out;
+        -o-transition: color 0.2s ease-out;
+        transition: color 0.2s ease-out; }
         .home .homeTitle p a:hover {
           color: #fff; }
     .home .homeTitle > p:first-of-type {
