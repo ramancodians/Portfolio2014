@@ -32,18 +32,77 @@ section > div {
 .opacity {
   opacity: 1; }
 
-.background {
+.preloader, .overlay, .background {
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.7);
-  			/*-moz-box-sizing:    border-box;
-     			-webkit-box-sizing: border-box;
-      		box-sizing:        border-box;
-      		border: 5px solid $yellow;
-      		z-index: 10;*/ }
+  overflow: hidden; }
+
+.preloader {
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 14;
+  				/*svg {
+  
+  					display: inline-block;
+  					fill: rgba(0,0,0,0);
+  					stroke-width: 1;
+  
+  					stroke: $yellow;
+  
+  					overflow: hidden;
+  					@include transition(transform 0.2s ease-out);
+  					transform-origin: center center;
+  					margin: 0 -5px -16px 5px;
+  
+  					path {
+  						@include transition(stroke-dashoffset 0.2s ease-out);
+  					}
+  				}
+  
+  				.alexis {
+  					fill: rgba(0,0,0,0);
+  					stroke-width: 1;
+  					stroke: $yellow;
+  					@include transition(fill 0.6s ease-out);
+  				}*/ }
+  .preloader svg {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow: visible;
+    /* GCD of 558-522 | PGCD in french */
+    width: 174px;
+    height: 186px;
+    fill: rgba(0, 0, 0, 0);
+    stroke-width: 5;
+    stroke: #f4fd14;
+    -webkit-transform-origin: 87px 93px;
+    -moz-transform-origin: 87px 93px;
+    -ms-transform-origin: 87px 93px;
+    -o-transform-origin: 87px 93px;
+    transform-origin: 87px 93px;
+    -webkit-transition: transform 0.2s ease-out, stroke-dashoffset 0.2s ease-out;
+    -moz-transition: transform 0.2s ease-out, stroke-dashoffset 0.2s ease-out;
+    transition: transform 0.2s ease-out, stroke-dashoffset 0.2s ease-out;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    -webkit-animation: triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite;
+    -moz-animation: triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite;
+    animation: triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite; }
+
+.overlay {
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 7; }
+
+.background {
+  background: url("../img/bg_home.jpg") no-repeat center center fixed black;
+  background-size: cover;
+  z-index: 6; }
 
 .load {
   position: absolute;
@@ -57,11 +116,7 @@ section > div {
     font-size: 10em;
     color: rgba(255, 255, 255, 0.2);
     font-weight: 100;
-    -webkit-transition: opacity .2s ease-out;
-    -moz-transition: opacity .2s ease-out;
-    -ms-transition: opacity .2s ease-out;
-    -o-transition: opacity .2s ease-out;
-    transition: opacity .2s ease-out; }
+    @inlude transition(opacity 0.2s ease-out); }
 
 .logo {
   display: none;
@@ -201,12 +256,7 @@ section > div {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: url("../img/bg_home.jpg") no-repeat center center fixed black;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  height: 100%; }
   .home .homeTitle {
     display: block;
     position: relative;
@@ -217,7 +267,7 @@ section > div {
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
-    font-weight: 100;
+    font-weight: 300;
     /*h1 {
     	display: inline;
     	margin: 0 10px;
@@ -231,11 +281,9 @@ section > div {
     	font-size: 168px;
     }*/ }
     .home .homeTitle span {
-      -webkit-transition: opacity 0.2s ease-in-out, color .2s ease-out;
-      -moz-transition: opacity 0.2s ease-in-out, color .2s ease-out;
-      -ms-transition: opacity 0.2s ease-in-out, color .2s ease-out;
-      -o-transition: opacity 0.2s ease-in-out, color .2s ease-out;
-      transition: opacity 0.2s ease-in-out, color .2s ease-out; }
+      -webkit-transition: opacity 0.2s ease-in-out, color 0.2s ease-out;
+      -moz-transition: opacity 0.2s ease-in-out, color 0.2s ease-out;
+      transition: opacity 0.2s ease-in-out, color 0.2s ease-out; }
     .home .homeTitle svg {
       display: inline-block;
       fill: rgba(0, 0, 0, 0);
@@ -247,6 +295,10 @@ section > div {
       transition: transform 0.2s ease-out;
       transform-origin: center center;
       margin: 0 -5px -16px 5px; }
+      .home .homeTitle svg path {
+        -webkit-transition: stroke-dashoffset 0.2s ease-out;
+        -moz-transition: stroke-dashoffset 0.2s ease-out;
+        transition: stroke-dashoffset 0.2s ease-out; }
     .home .homeTitle .alexis {
       fill: rgba(0, 0, 0, 0);
       stroke-width: 1;
@@ -258,29 +310,23 @@ section > div {
       margin-left: 6px;
       letter-spacing: 2px;
       font-size: 21px;
-      font-weight: 100; }
-      .home .homeTitle h2 > span:first-of-type {
-        margin-left: 6px; }
+      font-weight: 300; }
       .home .homeTitle h2 span {
         color: white;
-        font-weight: 100;
+        font-weight: 300;
         -webkit-transition: color 0.2s ease-out;
         -moz-transition: color 0.2s ease-out;
-        -ms-transition: color 0.2s ease-out;
-        -o-transition: color 0.2s ease-out;
         transition: color 0.2s ease-out; }
     .home .homeTitle p {
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.4);
       font-size: 21px;
       letter-spacing: 2px;
-      font-weight: 100; }
+      font-weight: 300; }
       .home .homeTitle p a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.8);
         -webkit-transition: color 0.2s ease-out;
         -moz-transition: color 0.2s ease-out;
-        -ms-transition: color 0.2s ease-out;
-        -o-transition: color 0.2s ease-out;
         transition: color 0.2s ease-out; }
         .home .homeTitle p a:hover {
           color: #fff; }
@@ -354,14 +400,13 @@ section > div {
     top: 60%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    -webkit-transition: -webkit-transform .6s ease-out;
-    -moz-transition: -moz-transform .6s ease-out;
-    -ms-transition: -ms-transform .6s ease-out;
-    -o-transition: -o-transform .6s ease-out;
-    transition: transform .6s ease-out;
-    /*border: 1px solid rgba(255,255,255,1);*/
+    -webkit-transition: transform 0.6s ease-out;
+    -moz-transition: transform 0.6s ease-out;
+    transition: transform 0.6s ease-out;
     width: 245px;
     height: 52px; }
     .home .home-btStartUx a {
@@ -371,24 +416,13 @@ section > div {
       text-align: center;
       letter-spacing: 3px;
       text-transform: uppercase;
-      font-weight: 100;
+      font-weight: 300;
       font-size: 18px;
       padding: 17px 20px;
-      -webkit-transition: color .2s ease-out, border .2s ease-out;
-      -moz-transition: color .2s ease-out, border .2s ease-out;
-      -ms-transition: color .2s ease-out, border .2s ease-out;
-      -o-transition: color .2s ease-out, border .2s ease-out;
-      transition: color .2s ease-out, border .2s ease-out;
-      z-index: 60;
-      /*&:hover svg line.home-btStartUx--top { @include transform(translateX(-232px)); }
-      &:hover svg line.home-btStartUx--right { @include transform(translateY(-58px)); }
-      &:hover svg line.home-btStartUx--bottom { @include transform(translateX(232px)); }
-      &:hover svg line.home-btStartUx--left { @include transform(translateY(58px)); }*/
-      				/*&:hover svg line.home-btStartUx--top2 { @include transform(translateX(10px)); }
-      				&:hover svg line.home-btStartUx--right2 { @include transform(translateY(10px)); }
-      				&:hover svg line.home-btStartUx--bottom2 { @include transform(translateX(-10px)); }
-      				&:hover svg line.home-btStartUx--left2 { @include transform(translateY(-10px)); }
-      */ }
+      -webkit-transition: color 0.2s ease-out, border 0.2s ease-out;
+      -moz-transition: color 0.2s ease-out, border 0.2s ease-out;
+      transition: color 0.2s ease-out, border 0.2s ease-out;
+      z-index: 60; }
       .home .home-btStartUx a:hover {
         color: #fff; }
       .home .home-btStartUx a:hover svg line {
@@ -424,15 +458,13 @@ section > div {
         top: 0;
         left: 0; }
         .home .home-btStartUx a svg line {
-          stroke-width: 2;
-          /*stroke: rgba(255,255,255,.4);*/
+          overflow: visible;
+          stroke-width: 3;
           stroke: #f4fd14;
           fill: none;
-          -webkit-transition: -webkit-transform .2s ease-out, stroke .6s ease-out;
-          -moz-transition: -moz-transform .2s ease-out, stroke .6s ease-out;
-          -ms-transition: -ms-transform .2s ease-out, stroke .6s ease-out;
-          -o-transition: -o-transform .2s ease-out, stroke .6s ease-out;
-          transition: transform .2s ease-out, stroke .6s ease-out; }
+          -webkit-transition: transform 0.2s ease-out, stroke 0.6s ease-out;
+          -moz-transition: transform 0.2s ease-out, stroke 0.6s ease-out;
+          transition: transform 0.2s ease-out, stroke 0.6s ease-out; }
         .home .home-btStartUx a svg line.home-btStartUx--top, .home .home-btStartUx a svg line.home-btStartUx--bottom {
           stroke-dasharray: 255 225 255; }
         .home .home-btStartUx a svg line.home-btStartUx--right, .home .home-btStartUx a svg line.home-btStartUx--left {
@@ -447,16 +479,65 @@ section > div {
   margin-top: 200px; }
 
 /* ----------------------------------------- */
-@keyframes dash {
+@keyframes triskel-rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes triskel-dash {
   0% {
     stroke-dashoffset: 1000; }
 
-  100% {
-    stroke-dashoffset: 0; } }
-
-@keyframes dashBack {
-  0% {
+  50% {
     stroke-dashoffset: 0; }
 
   100% {
     stroke-dashoffset: 1000; } }
+
+@keyframes triskel-dash {
+  0% {
+    stroke-dashoffset: 1000; }
+
+  50% {
+    stroke-dashoffset: 0; }
+
+  100% {
+    stroke-dashoffset: 1000; } }
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-offset: 1000; }
+
+  100% {
+    stroke-offset: 0; } }
+
+@keyframes dash {
+  0% {
+    stroke-offset: 1000; }
+
+  100% {
+    stroke-offset: 0; } }
+
+@-webkit-keyframes dashBack {
+  0% {
+    stroke-offset: 0; }
+
+  100% {
+    stroke-offset: 1000; } }
+
+@keyframes dashBack {
+  0% {
+    stroke-offset: 0; }
+
+  100% {
+    stroke-offset: 1000; } }

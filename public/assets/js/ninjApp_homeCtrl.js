@@ -24,7 +24,7 @@ ninjApp.controller('homeController', function($scope, Page){
 			
 			
 
-			var supportedFlag = $.keyframe.isSupported();
+			/*var supportedFlag = $.keyframe.isSupported();*/
 
 			/*var vendorPrefix = $.keyframe.getVendorPrefix();
 			var stroke = pfx + 'stroke-offset'; 
@@ -54,8 +54,10 @@ ninjApp.controller('homeController', function($scope, Page){
 				    	.css({'fill':'rgba(0,0,0,0)'})
 				    	.queue(function(){
 				        	$(this)
-				        		.playKeyframe('dashBack 1000 ease-out forwards')
-				        		.css({'animation': 'dashBack 1s ease-out forwards'})
+				        		.css({
+				        			'-webkit-animation': 'dashBack 1s ease-out forwards',
+				        			'animation': 'dashBack 1s ease-out forwards'
+				        		})
 				        		.dequeue();
 				    	});
 			      
@@ -75,15 +77,16 @@ ninjApp.controller('homeController', function($scope, Page){
 			setTimeout(function(){
 			    if(y <= alexisNbLetters){
 			    	$('.alexis:nth-child('+y+')')
-			    		.playKeyframe('dash 3000 ease-out forwards')
-			    		.css({'animation': 'dash 3s ease-out forwards'})
+			    		.css({
+			    			'-webkit-animation': 'dash 3s ease-out forwards',
+			    			'animation': 'dash 3s ease-out forwards'
+			    		})
 			      		.delay(400)
 			      		.queue(function(){
 					        $(this)
 					        	.css({'fill':'#f4fd14'})
 					        	.dequeue();
 			      		});
-			    
 			      	y++;
 			      	alexisAppears(y, z, alexisNbLetters);
 			    } else {
@@ -125,10 +128,12 @@ ninjApp.controller('homeController', function($scope, Page){
 		// Ending function, reset the div
 		function killHomeFunction(){
 			w = 0;
-			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,0.8)'});
+			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,1)'});
 
 			for(var x = 0; x < homeTitle.length; x++){
-				$('.home .homeTitle '+homeTitle[x]).empty().html(homeTitleContent[x]);
+				$('.home .homeTitle '+homeTitle[x])
+					.empty()
+					.html(homeTitleContent[x]);
 			}
 			$('.home-btStartUx').fadeIn(600);
 			$('.home-btStartUx').queue(function(){

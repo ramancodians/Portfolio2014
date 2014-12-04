@@ -1,10 +1,7 @@
 
-
-
 	var ninjApp = angular.module('ninjApp', [
 		'ui.router'
 	]);
-
 
 
 	ninjApp.config(function($stateProvider, $urlRouterProvider) {
@@ -38,6 +35,13 @@
 	ninjApp.controller('mainController', function($scope, Page){
 		$scope.Page = Page;
 	});
+
+
+
+
+
+
+
 
 
 
