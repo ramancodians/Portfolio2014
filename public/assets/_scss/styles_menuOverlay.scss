@@ -1,0 +1,115 @@
+@import "_var.scss";
+
+.menuOverlay {
+	display: block;
+	position: relative;
+
+	width: 100%;
+	
+	.menuOverlay-mainMenu {
+		display: table;
+		table-layout: fixed;
+		/*position: absolute;*/
+		text-align: center;
+		vertical-align: middle;
+
+		margin: 0 auto;
+		overflow: hidden;
+
+		& > li {
+			display: table-cell;
+
+			height: 250px;
+			width: 300px;
+			
+			/*border-right: 1px solid rgba(255,255,255,.2);*/
+			/*border-bottom: 1px solid rgba(255,255,255,.2);*/
+			float: left;
+
+			& > a, .menuOverlay-subMenu {
+				/*display: table;*/
+				
+				
+
+				/*padding: 15px 15px;*/
+				font-size: 18px;
+				color: rgba(255,255,255,.4);
+				letter-spacing: 1px;
+				
+				text-decoration: none;
+				font-weight: 100;
+
+				/*border-right: 1px solid rgba(244,253,20,.8);
+				border-bottom: 1px solid rgba(244,253,20,.8);*/
+				
+				@include transition(color .2s ease-out, background .2s ease-out);
+
+				&:hover {
+					color: rgba(255,255,255,1);
+				}
+				.menuOverlay--menuContent {
+					/*display: table-cell;*/
+					text-align:center;
+					vertical-align: middle;
+
+					h3 {
+						margin: 50px 50px 20px 50px;
+						font-size: 24px;
+						display: block;
+						color: $yellow;
+						font-family: $font-goodFoot;
+						padding-bottom: 20px;
+						
+						border-bottom: 1px solid rgba(255,255,255,.1);
+					}
+					p {
+						margin: 0 50px 50px 50px;
+						display: block;
+					
+						font-family: $font-brandon;
+						font-size: 16px;
+						line-height: 24px;
+						font-weight: 100;
+						color: rgba(255,255,255,.8);
+					}
+
+				}
+			}
+			.menuOverlay-subMenu {
+				border-bottom: none;
+			}
+
+			.mainMenu_jsHover { color: rgba(255,255,255,.2); }
+			.mainMenu_jsActive { color: rgba(255,255,255,0); }
+		}
+	}
+
+	.menuOverlay-externalLinks {
+		.menuOverlay--twitter {
+			height: 17px;
+			width: 21px;
+			background: url('../img/sprite.png') left top no-repeat;
+			background-size: 500px 500px;
+			-webkit-transition: background 0.1s ease-out;
+			-moz-transition: background 0.1s ease-out;
+			-o-transition: background 0.1s ease-out;
+			transition: background 0.1s ease-out;
+			&:hover {
+				background-position: left -17px;
+			}
+		}
+		.menuOverlay--linkedin {
+			width: 19px;
+			height: 18px;
+			background: url('../img/sprite.png') left -36px no-repeat;
+			background-size: 500px 500px;
+			-webkit-transition: background 0.1s ease-out;
+			-moz-transition: background 0.1s ease-out;
+			-o-transition: background 0.1s ease-out;
+			transition: background 0.1s ease-out;
+			&:hover {
+				background-position: left -54px;
+			}
+		}
+	}
+}

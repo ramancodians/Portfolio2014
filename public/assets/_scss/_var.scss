@@ -1,0 +1,28 @@
+@import "../css/bourbon/bourbon";
+
+@mixin center-align {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+$yellow: rgba(244,253,20,1); /* #f4fd14 */
+$font-brandon: "brandon-grotesque", sans-serif;
+$font-goodFoot: "good_footregular", sans-serif;
+
+$home-fontWeight: 300; 
+$sectionZindex: 9;
+@font-face {
+    font-family: 'good_footregular';
+    src: url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.eot');
+    src: url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.woff') format('woff'),
+         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.ttf') format('truetype'),
+         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.svg#good_footregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

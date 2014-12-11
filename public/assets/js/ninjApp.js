@@ -31,9 +31,71 @@
 	});
 
 
+	ninjApp.directive('menuOverlay',function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'views/_menuOverlay.html',
+			controller: function($scope, $http){
+				$http.get('views/_menuOverlayData.json')
+					.success(function(data){
+						$scope.menuOverlay = data;
+						console.log($scope.menuOverlay.mainMenu);
+					})
+					.error(function(data){
+						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
+					});
+			}
+		}
+	});
+
+
 
 	ninjApp.controller('mainController', function($scope, Page){
 		$scope.Page = Page;
+
+		function preloaderAnimation(){
+			var preloaderLength = $('.preloader h4').html().length;
+			var preloaderArray = $('.preloader h4').html().split('');
+			$('.preloader h4').empty();
+			for(var x=0; x<preloaderLength;x++){ 
+				$('.preloader h4').append('<span>'+preloaderArray[x]+'</span>');
+			}
+			var y = 0,
+				z = 0,
+				timer = 100;
+			function preloaderAnimation_reset(y,z){
+				setTimeout(function(){
+					if(z<=preloaderLength){
+						$('.preloader h4 span:nth-child('+z+')').css({
+							'opacity':'0.2'
+						});
+						z++;
+						preloaderAnimation_reset(y,z);
+					} else {
+						z=0;
+						preloaderAnimation_color(y,z);	
+					}
+				},timer);
+			}
+			function preloaderAnimation_color(y,z){
+				setTimeout(function(){
+					if(y<=preloaderLength){
+						$('.preloader h4 span:nth-child('+y+')').css({
+							'opacity':'0.8'
+						});
+						y++;
+						preloaderAnimation_color(y,z);
+					} else {
+						y=0;
+						preloaderAnimation_reset(y,z);
+					}			
+				},timer);
+			}
+			preloaderAnimation_color(y,z);
+		}
+		preloaderAnimation();
+
+
 	});
 
 

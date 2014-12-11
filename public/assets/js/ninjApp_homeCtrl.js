@@ -19,31 +19,6 @@ ninjApp.controller('homeController', function($scope, Page){
 				'stroke-dasharray': '1000',
 				'stroke-dashoffset': '1000'
 			}); 
-
-
-			
-			
-
-			/*var supportedFlag = $.keyframe.isSupported();*/
-
-			/*var vendorPrefix = $.keyframe.getVendorPrefix();
-			var stroke = pfx + 'stroke-offset'; 
-
-
-
-			$.keyframe.define([{
-				    name: 'dash',
-				    '0%': { stroke: '1000' },
-				    '100%': { stroke: '0' }
-			    },{
-				    name: 'dashBack',
-				    '0%': { stroke: '0' },
-				    '100%': { stroke: '1000' }
-			    }
-			]);*/
-
-
-
 		});
 
 
@@ -240,7 +215,7 @@ ninjApp.controller('homeController', function($scope, Page){
 										}
 									}
 								}
-						},70);	
+						},55);	
 					}
 					lightMyFire(w, x);
 				}

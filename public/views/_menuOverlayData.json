@@ -1,0 +1,29 @@
+[{
+	"mainMenu":[
+		{
+			"name": "Works",
+			"desc": "My few student projects",
+			"link": "works/",
+			"class":"menuOverlay--btProject",
+			"subClass":""
+		},{
+			"name": "Design Process",
+			"desc": "How this mothership is builded",
+			"link": "designProcess/",
+			"class":"menuOverlay--btdesignProcess",
+			"subClass":""
+		},{
+			"name": "About",
+			"desc": "\"Who the f*** is this guy ?\"",
+			"link": "about/",
+			"class":"menuOverlay--btAbout",
+			"subClass":""
+		},{
+			"name": "Contact",
+			"desc": "Let's talk about the secret deathstar plan or about the meaning of life.",
+			"link": "contact/",
+			"class":"menuOverlay--btProject",
+			"subClass":""
+		}
+	]
+}]
