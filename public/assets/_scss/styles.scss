@@ -3,10 +3,9 @@
 
 
 
-
 body {
 	font-size: 100%;
-	background: #000;
+	background: #151515;
 	font-family: $font-brandon;
 	font-weight: 300;
 
@@ -37,12 +36,10 @@ body {
 			overflow: hidden;
 		}
 		.preloader {
-			display: none;
-			
-
-			background: rgba(0,0,0,1);
+			display: block;
+	
+			background: rgba(0,0,0,.6);
 			z-index: $sectionZindex + 5;
-
 			svg {
 				position: absolute;
 				margin: auto;
@@ -58,7 +55,7 @@ body {
 				stroke-width: 5;
 				stroke: $yellow;
 				@include transform-origin((522px/$gcd)*($multiple/2) (558px/$gcd)*($multiple/2));
-				@include transition(transform 0.2s ease-out, stroke-dashoffset 0.2s ease-out); 
+				@include transition(all 0.2s ease-out); 
 				stroke-dasharray: 1000;
 				stroke-dashoffset: 1000;
 				@include animation(triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite);
@@ -83,14 +80,19 @@ body {
 
 
 		.overlay {
-			background: rgba(0,0,0,.8);
+			/*background: rgba(0,0,0,.8);*/
+			background: rgba(10,10,10,0.85);
+
 			z-index: $sectionZindex - 2;
+			@include transition(background .2s ease-out);
 		}
 		.background {
-			background: url('../img/bg_home.jpg') no-repeat center center fixed #000; 
+			/*background: url('../img/bg_home.jpg') no-repeat center center fixed; */
+			background: url('../img/bg_menu.jpg') no-repeat center center fixed; 
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;
-			
+		
+			@include transition(transform 0.4s ease-out);
 		}
 		.load {
 			position: absolute;
@@ -188,8 +190,8 @@ body {
 						color: rgba(255,255,255,1);
 					}
 				}
-				.homeTitle-menu_jsHover { color: rgba(255,255,255,.2); }
-				.homeTitle-menu_jsActive { color: rgba(255,255,255,0); }
+				#homeTitle-menu_jsHover { color: rgba(255,255,255,.2); }
+				#homeTitle-menu_jsActive { color: rgba(255,255,255,0); }
 			}
 		}
 	}*/
@@ -226,11 +228,12 @@ body {
 		width: 100%;
 		height: 100%;
 
-		.homeTitle {
+		#homeTitle {
 			display: block;
 			@include center-align;
 			text-align: center;
-			
+			@include transition(all 0.2s ease-out);
+
 			color: rgba(255,255,255,1);
 			font-weight: $home-fontWeight;
 
@@ -275,12 +278,7 @@ body {
 				stroke: $yellow;
 				@include transition(fill 0.6s ease-out);
 			}
-			
-
-
-
-
-
+	
 			h2 {
 				margin-left: 6px;
 				letter-spacing: 2px;
@@ -313,9 +311,9 @@ body {
 				display: inline;
 			}
 		}
+		
 
-
-
+		
 
 
 		.home-btStartUx {
@@ -325,10 +323,11 @@ body {
 			@include transform(translate(-50%, -50%));
 			@include transition(transform .6s ease-out);
 
+			cursor: pointer;
 			width: 245px;
 			height: 52px;
 
-			a {
+			span {
 				display: block;
 				text-decoration: none;
 				color: rgba(255,255,255,1);
@@ -340,43 +339,40 @@ body {
 				padding: 17px 20px;
 				@include transition(color 0.2s ease-out, border 0.2s ease-out);
 				z-index: 60;
+			}
 
-				&:hover {
-					color: #fff;
-				}
-				&:hover svg line {
+			&:hover svg line {
+				stroke: $yellow;
+				-webkit-transition-delay: 0s;
+				transition-delay: 0s;
+			}
+
+			&:hover svg line.home-btStartUx--top { @include transform(translateX(-245px)); }
+			&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+			&:hover svg line.home-btStartUx--bottom { @include transform(translateX(245px)); }
+			&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
+
+			svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				line {
+					overflow: visible;
+					stroke-width: 3;
 					stroke: $yellow;
-					-webkit-transition-delay: 0s;
-					transition-delay: 0s;
+					fill: none;
+					@include transition(transform .2s ease-out, stroke .6s ease-out)
+
 				}
-
-				&:hover svg line.home-btStartUx--top { @include transform(translateX(-245px)); }
-				&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
-				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(245px)); }
-				&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
-
-				svg {
-					position: absolute;
-					top: 0;
-					left: 0;
-
-					line {
-						overflow: visible;
-						stroke-width: 3;
-						stroke: $yellow;
-						fill: none;
-						@include transition(transform .2s ease-out, stroke .6s ease-out)
-
-					}
-					line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
-					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
-				}
+				line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
+				line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 			}
 		}
-
-
 	}
 
+
+	
 /* -------------------------------------- */
 
 

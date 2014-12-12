@@ -1,42 +1,7 @@
 
     <ul class="menuOverlay-mainMenu">
-        <li>
-            <a href="works/" data-role='ajax' title="Works" class="menuOverlay--btProject">
-                <div class="menuOverlay--menuContent">
-                    <h3>1. Works</h3>
-                    <p>My few student projects</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="designProcess/" data-role='ajax' title="designProcess" class="menuOverlay--btdesignProcess">
-                <div class="menuOverlay--menuContent">
-                    <h3>Design Process</h3>
-                    <p>How I builded this mothership</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="about/" data-role='ajax' title="About" class="menuOverlay--btAbout">
-                <div class="menuOverlay--menuContent">
-                    <h3>About</h3>
-                    <p>"Who the f*** is this guy ?"</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="contact/" data-role='ajax' title="Contact" class="menuOverlay--btContact">
-                <div class="menuOverlay--menuContent">
-                    <h3>Contact</h3>
-                    <p>Let's talk about the secret deathstar plan or about the meaning of life.</p>
-                </div>
-            </a>
-        </li>
-
-
-
         <li ng-repeat="menu in menuOverlay">
-            <a href="{{li.link}}" data-role='ajax' ng-attr-title="{{li.name}}" ng-class="{{li.class}}">
+            <a href="{{li.link}}" ng-attr-title="{{li.name}}" ng-class="{{li.class}}">
                 <div ng-class="menuOverlay--menuContent {{li.subClass}}">
                     <h3>{{li.name}}</h3>
                     <p>{{li.desc}}</p>
@@ -53,8 +18,12 @@
 
       <!-- <li>
             <ul class="menuOverlay-subMenu">
-                <li><a href="credits/" data-role='ajax' title="credits">Credits</a><li>
-                <li><a href="" data-role='ajax' title="privacyPolicies">Privacy & Policies</a><li>
-                <li><a href="404/" data-role='ajax' title="404 - you are lost">404</a><li>
+                <li><a href="credits/" title="credits">Credits</a><li>
+                <li><a href="" title="privacyPolicies">Privacy & Policies</a><li>
+                <li><a href="404/" title="404 - you are lost">404</a><li>
             </ul>
         </li> -->
+
+    <div class="close">
+        x
+    </div>

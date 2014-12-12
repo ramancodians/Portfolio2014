@@ -1,7 +1,7 @@
 	<section class="home">
         <!-- <div class="logo"><span>Alexis Bertin</span> Front End Developer</div> -->
         
-		<div class="homeTitle">
+		<div class="alphaTransi transiArray" id="homeTitle">
             <p>Hello, I'm</p>
 		
     
@@ -16,14 +16,13 @@
         <!-- <a href="" data-role='ajax' title="" class="home-btStartUx">Let's take a ride</a> -->
 
         
-        <div class="home-btStartUx">
-            <a href="" title="">Let's take a ride
-                <svg width="245" height="52">   
-                    <line class="home-btStartUx--top" x1="0" y1="0" x2="735" y2="0" />
-                    <line class="home-btStartUx--right" x1="245" y1="0" x2="245" y2="156" />
-                    <line class="home-btStartUx--bottom" x1="245" y1="52" x2="-490" y2="52" />
-                    <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
-                </svg>
-            </a>
+        <div class="home-btStartUx alphaTransi" ng-click="openMenuOverlay('home')">
+            <span>Let's take a ride</span>
+            <svg width="245" height="52">   
+                <line class="home-btStartUx--top" x1="0" y1="0" x2="735" y2="0" />
+                <line class="home-btStartUx--right" x1="245" y1="0" x2="245" y2="156" />
+                <line class="home-btStartUx--bottom" x1="245" y1="52" x2="-490" y2="52" />
+                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
+            </svg>
         </div>
 	</section>

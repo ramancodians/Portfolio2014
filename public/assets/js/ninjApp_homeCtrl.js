@@ -5,14 +5,13 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	Page.setTitle('Alexis Bertin | Front-End Developer');
 
-	console.log('GG !');
 
 
 
-		// Home "Alexis" SVG animation
+/* ---------------------- Home "Alexis" SVG animation ------------------------ */
 		$.get('assets/svg/svgdefs.svg', function(data){
 			// inject the defs we need from the SVG doc into main file.
-			$('.home .homeTitle svg').empty().html($(data).find('#homeAlexis .alexis'));
+			$('.home #homeTitle svg').empty().html($(data).find('#homeAlexis .alexis'));
 			var alexisNbLetters = $('.alexis').size();
 
 			$('.alexis').css({
@@ -20,7 +19,6 @@ ninjApp.controller('homeController', function($scope, Page){
 				'stroke-dashoffset': '1000'
 			}); 
 		});
-
 
 		function alexisAppears_reset(y, z, alexisNbLetters){
 		  	setTimeout(function(){
@@ -74,9 +72,6 @@ ninjApp.controller('homeController', function($scope, Page){
 		}
 	
 
-
-
-
 		$('.home-btStartUx').hide().css({
 			'-webkit-transform': 'translate(-50%,10px)',
 			'-ms-transform': 'translate(-50%,10px)',
@@ -90,23 +85,23 @@ ninjApp.controller('homeController', function($scope, Page){
 			'h2'
 		]
 		var homeTitleContent = [
-			$('.home .homeTitle p:first-of-type').html(),
-			$('.home .homeTitle p:last-of-type').html(),
-			$('.home .homeTitle h2').html()
+			$('.home #homeTitle p:first-of-type').html(),
+			$('.home #homeTitle p:last-of-type').html(),
+			$('.home #homeTitle h2').html()
 		]
 		var homeTitleContentSplit = [
-			$('.home .homeTitle p:first-of-type').text().split(""),
-			$('.home .homeTitle p:last-of-type').text().split(""),
-			$('.home .homeTitle h2').text().split("")
+			$('.home #homeTitle p:first-of-type').text().split(""),
+			$('.home #homeTitle p:last-of-type').text().split(""),
+			$('.home #homeTitle h2').text().split("")
 		]
 
 		// Ending function, reset the div
 		function killHomeFunction(){
 			w = 0;
-			$('home .homeTitle h2 span').css({'color':'rgba(255,255,255,1)'});
+			$('home #homeTitle h2 span').css({'color':'rgba(255,255,255,1)'});
 
 			for(var x = 0; x < homeTitle.length; x++){
-				$('.home .homeTitle '+homeTitle[x])
+				$('.home #homeTitle '+homeTitle[x])
 					.empty()
 					.html(homeTitleContent[x]);
 			}
@@ -123,9 +118,9 @@ ninjApp.controller('homeController', function($scope, Page){
 
 
 		for(var x = 0; x < homeTitle.length; x++){
-			$('.home .homeTitle '+homeTitle[x]).empty();
+			$('.home #homeTitle '+homeTitle[x]).empty();
 		}
-		$('.home .homeTitle').delay(1000)
+		$('.home #homeTitle').delay(1000)
 			.queue(function(){
 				var x = 0,
 					w = 0,
@@ -147,23 +142,23 @@ ninjApp.controller('homeController', function($scope, Page){
 						setTimeout(function(){
 								if(homeTitleContentSplit[w][x] == " "){
 									x++;
-									$('.home .homeTitle '+homeTitleAttr).append(' <span>'+homeTitleContentSplit[w][x]+'</span>');
+									$('.home #homeTitle '+homeTitleAttr).append(' <span>'+homeTitleContentSplit[w][x]+'</span>');
 								} else {
-									$('.home .homeTitle '+homeTitleAttr).append('<span>'+homeTitleContentSplit[w][x]+'</span>');
+									$('.home #homeTitle '+homeTitleAttr).append('<span>'+homeTitleContentSplit[w][x]+'</span>');
 								}
-								$('.home .homeTitle '+homeTitleAttr+' span:last-of-type').css({
+								$('.home #homeTitle '+homeTitleAttr+' span:last-of-type').css({
 									'opacity':'0',
 									'color': 'rgba(255,255,255,1)'
 								});
 								if(w == 2){
-									$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
+									$('.home #homeTitle '+homeTitleAttr+' span:last-of-type')
 										.css({'opacity':'1','font-weight':'500'})
 										.delay(200)
 										.queue(function(){
 											$(this).css({'color': 'rgba(255,255,255,1)'});		
 										});					
 								} else {
-									$('.home .homeTitle '+homeTitleAttr+' span:last-of-type')
+									$('.home #homeTitle '+homeTitleAttr+' span:last-of-type')
 										.css({'opacity':'1'})
 										.delay(200)
 										.queue(function(){
@@ -191,10 +186,9 @@ ninjApp.controller('homeController', function($scope, Page){
 										}
 									},1000);
 								} else if((w == "0") && (homeTitleContentSplit[w][x] == "m")){
-	// "ALEXIS" fadein =========================
-
+				// "ALEXIS" fadein =========================
 									alexisAppears(y, z, alexisNbLetters);
-	// =========================================
+				// =========================================
 									x = 0;
 									w++;
 									if(w < homeTitleContentSplit.length){
@@ -221,7 +215,7 @@ ninjApp.controller('homeController', function($scope, Page){
 				}
 				lightMyWord(w, x);
 		});
-	/* -------------------------------------- */
+/* --------------------------------------------------------------------------- */
 
 
 });

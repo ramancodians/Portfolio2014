@@ -21,7 +21,6 @@
 	});
 
 
-
 	ninjApp.factory('Page', function(){
 	  var title = 'Alexis Bertin | Front-End Developer';
 	  return {
@@ -29,6 +28,27 @@
 	    setTitle: function(newTitle) { title = newTitle; }
 	  };
 	});
+
+
+
+	ninjApp.directive('loading', ['$http',function($http){
+		return {
+			restrict: 'A',
+			link: function (scope, elm, attrs){
+				scope.isLoading = function () {
+					return $http.pendingRequests.length > 0;
+				};
+				scope.$watch(scope.isLoading, function (v){
+					if(v){
+						elm.show();
+					} else {
+						elm.fadeOut();
+					}
+				});
+			}
+		};
+	}]);
+
 
 
 	ninjApp.directive('menuOverlay',function(){
@@ -39,7 +59,6 @@
 				$http.get('views/_menuOverlayData.json')
 					.success(function(data){
 						$scope.menuOverlay = data;
-						console.log($scope.menuOverlay.mainMenu);
 					})
 					.error(function(data){
 						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
@@ -53,47 +72,81 @@
 	ninjApp.controller('mainController', function($scope, Page){
 		$scope.Page = Page;
 
-		function preloaderAnimation(){
-			var preloaderLength = $('.preloader h4').html().length;
-			var preloaderArray = $('.preloader h4').html().split('');
-			$('.preloader h4').empty();
-			for(var x=0; x<preloaderLength;x++){ 
-				$('.preloader h4').append('<span>'+preloaderArray[x]+'</span>');
-			}
-			var y = 0,
-				z = 0,
-				timer = 100;
-			function preloaderAnimation_reset(y,z){
-				setTimeout(function(){
-					if(z<=preloaderLength){
-						$('.preloader h4 span:nth-child('+z+')').css({
-							'opacity':'0.2'
-						});
-						z++;
-						preloaderAnimation_reset(y,z);
-					} else {
-						z=0;
-						preloaderAnimation_color(y,z);	
-					}
-				},timer);
-			}
-			function preloaderAnimation_color(y,z){
-				setTimeout(function(){
-					if(y<=preloaderLength){
-						$('.preloader h4 span:nth-child('+y+')').css({
-							'opacity':'0.8'
-						});
-						y++;
-						preloaderAnimation_color(y,z);
-					} else {
-						y=0;
-						preloaderAnimation_reset(y,z);
-					}			
-				},timer);
-			}
-			preloaderAnimation_color(y,z);
+
+		$scope.homeReset = function (){
+			setTimeout(function(){
+				
+			},200);
+			openMenuOverlay();
+
 		}
-		preloaderAnimation();
+
+
+	// ================ Syntax ================ //
+	/*
+		var transitionArray = {
+			'page' = {
+				'divClass': {
+					'property': {
+						'easing': '',
+						'oldValue': '',
+						'newValue': ''
+					}
+				}
+			}
+		};
+
+		transitionArray.page.divClass.property.easing;
+	*/
+	// ======================================== //
+
+		var transiArray = {
+			'home': {
+				'homeTitle': {
+					'top': {
+						'easing': '0.2s ease-out',
+						'oldValue': '50%',
+						'newValue': '48%'
+					}
+				}
+			}
+		};
+
+
+
+
+		$scope.openMenuOverlay = function(page){
+			
+			var x = 1;
+			openMenu_fadeOut(transiArray, page, x);
+
+			$('.close').click(function(){ closeMenuOverlay(); });
+		}
+
+
+
+
+		window.closeMenuOverlay = function(){
+
+			$('.menuOverlay').fadeOut();
+
+
+			
+
+
+
+		}
+
+
+
+
+
+
+
+
+
+
+		preloaderAnimation(); // functions.js
 
 
 	});
