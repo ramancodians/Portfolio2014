@@ -1,10 +1,15 @@
+<div class="menuOverlay" ng-controller="menuController">
+
+
+    <div class="menuOverlay-logo"><span>Alexis Bertin</span> Frontend & UI Developer</div>
 
     <ul class="menuOverlay-mainMenu">
-        <li ng-repeat="menu in menuOverlay">
-            <a href="{{li.link}}" ng-attr-title="{{li.name}}" ng-class="{{li.class}}">
-                <div ng-class="menuOverlay--menuContent {{li.subClass}}">
-                    <h3>{{li.name}}</h3>
-                    <p>{{li.desc}}</p>
+        <li ng-repeat="mainMenu in menuOverlay" >
+            <a href="{{mainMenu.link}}" title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id)" ng-mouseleave="hoverOut(mainMenu.id)">
+                <div class="menuOverlay--menuContent {{mainMenu.subClass}}">
+                    <h3>{{mainMenu.name}}</h3>
+
+                    <p>{{mainMenu.desc}}</p>
                 </div>
             </a>
         </li>
@@ -27,3 +32,15 @@
     <div class="close">
         x
     </div>
+
+</div>
+
+<!-- 
+{
+            "id": "2",
+            "name": "Design Process",
+            "desc": "How this mothership was made",
+            "link": "designProcess/",
+            "class":"menuOverlay--btdesignProcess",
+            "subClass":""
+        }, -->

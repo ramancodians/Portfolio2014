@@ -47,7 +47,7 @@ window.preloaderAnimation = function(){
 
 
 
-	
+
 
 
 // ======================================= Page events on Menu Overlay opening ======================================= //
@@ -99,17 +99,23 @@ window.openMenu_fadeOut = function(transiArray, page, x){
 		},100);
 
 	} else {
-		setTimeout(function(){
+		/*setTimeout(function(){*/
 			x = 1;
-
+			/*$('.background').addClass('overlay-open');*/
 			/*$('.menuOverlay').fadeIn();*/
 			/*$('.menuOverlay-contentscale').addClass('open');*/
-			$('.background').addClass('overlay-open');
+			
+			
 			$(this).dequeue();
-		},100);
+		/*},100);*/
 	}
 }
 // =================================================================================================================== //
+
+
+
+
+
 
 
 

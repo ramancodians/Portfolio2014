@@ -37,9 +37,9 @@ body {
 		}
 		.preloader {
 			display: block;
-	
 			background: rgba(0,0,0,.6);
 			z-index: $sectionZindex + 5;
+
 			svg {
 				position: absolute;
 				margin: auto;
@@ -80,19 +80,21 @@ body {
 
 
 		.overlay {
-			/*background: rgba(0,0,0,.8);*/
-			background: rgba(10,10,10,0.85);
+			background: rgba(0,0,0,.8);
+			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
 			@include transition(background .2s ease-out);
 		}
 		.background {
+			display: none;
+
 			/*background: url('../img/bg_home.jpg') no-repeat center center fixed; */
 			background: url('../img/bg_menu.jpg') no-repeat center center fixed; 
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;
 		
-			@include transition(transform 0.4s ease-out);
+			@include transition(opacity 0.2s ease-out);
 		}
 		.load {
 			position: absolute;
@@ -110,33 +112,7 @@ body {
 			}
 		}
 
-	.logo {
-		display: none;
-		position: absolute;
-		top: 50px;
-		left: 50px;
-		z-index: 5000;
-
-		font-family: $font-brandon;
-		font-weight: 300;
-		font-size: 12px;
-		color: rgba(255,255,255,.8);
-		text-transform: uppercase;
-		letter-spacing: 2px;
-
-
-		span {
-			margin-bottom: 5px;
-			display: block;
-			font-family: $font-goodFoot;
-			font-size: 40px;
-			color: $yellow;
-			letter-spacing: 1px;
-			word-spacing: -7px;
-			text-transform: initial;
-		}
-	}
-
+	
 
 
 
@@ -222,6 +198,8 @@ body {
 
 /* ---------------- Home ---------------- */
 	.home {
+		display: none;
+
 		position: absolute;
 		top: 0;
 		left: 0;

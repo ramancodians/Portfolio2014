@@ -58,11 +58,13 @@
 			controller: function($scope, $http){
 				$http.get('views/_menuOverlayData.json')
 					.success(function(data){
-						$scope.menuOverlay = data;
+						$scope.menuOverlay = data[0].mainMenu;
 					})
 					.error(function(data){
 						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
 					});
+
+
 			}
 		}
 	});
@@ -106,13 +108,14 @@
 					'top': {
 						'easing': '0.2s ease-out',
 						'oldValue': '50%',
-						'newValue': '48%'
+						'newValue': '51%'
 					}
 				}
 			}
 		};
 
 
+		
 
 
 		$scope.openMenuOverlay = function(page){
