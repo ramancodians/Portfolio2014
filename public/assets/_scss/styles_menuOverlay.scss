@@ -56,6 +56,10 @@
 
 	z-index: 50;
 	
+
+
+
+
 	.menuOverlay-mainMenu {
 		display: table;
 		/*table-layout: fixed;*/
@@ -65,38 +69,8 @@
 		/*top: 50%;
 		@include transform(translateY(-50%));*/
 		width: 100%;
-		height: 50%;
-		border-bottom: 1px solid rgba(255,255,225,.1); 
-		
-		li.selected {
-			
-			width: 40% !important;
-			a {
-				/*background: rgba(241, 196, 15,.1);*/
-				/*background: rgba(52, 152, 219,.2);*/
-				background: rgba(231, 76, 60, .2);
-				h3 {
-					padding-bottom: 31px !important;
-					margin-bottom: 29px !important;
-					border-bottom: 1px solid rgba(255,255,255,.1) !important;
-					width: 80% !important;
-				}
-				p {
-					opacity: 1 !important;
-					
-				}
-			}
-		}
-		li.notSelected { 
-			width: 30% !important;
-			border-right: 0;
-			a {
-				h3 {
-					opacity: .2;
-				}
-			}
-		}
-
+		height: 65%;
+		@include transition(height .2s ease-in-out);
 
 		& > li {
 			display: table-cell;
@@ -104,6 +78,7 @@
 			overflow: hidden;
 			@include transition(all .2s ease-in-out);
 			border-right: 1px solid rgba(255,255,255,.1);
+			border-bottom: 1px solid rgba(255,255,225,.1); 
 
 			&:first-child { width: 34%; }
 
@@ -148,8 +123,10 @@
 						width: 100%;
 						border-bottom: 1px solid rgba(255,255,255,0);
 
-						
-						@include transition(all .2s ease-out);
+						@include transition-property(all);
+						@include transition-duration(.2s);
+						@include transition-timing-function(ease-out);
+						/*@include transition(all .2s step-st);*/
 
 					}
 					
@@ -167,9 +144,11 @@
 						font-weight: 100;
 						color: rgba(255,255,255,.8);
 
-						-webkit-animation-delay: .3s; /* Chrome, Safari, Opera */
-						animation-delay: .3s;
-						@include transition(all .2s ease-out);
+						@include transition-property(all);
+						@include transition-duration(.2s);
+						@include transition-timing-function(ease-out);
+						
+						/*@include transition(all .2s ease-out);*/
 					}
 
 				}
@@ -181,8 +160,51 @@
 			.mainMenu_jsHover { color: rgba(255,255,255,.2); }
 			.mainMenu_jsActive { color: rgba(255,255,255,0); }
 		}
+
+		/* ----- li Hover ----- */
+		li.menuOverlay-mainMenu--selected {
+			&:nth-child(1) a { background: $redOpa !important; }
+			&:nth-child(2) a { background: $greenOpa !important; }
+			&:nth-child(3) a { background: $blueOpa !important; }
+
+			width: 40% !important;
+			a {
+				background: rgba(241, 196, 15,.2); /* Fallback */
+				h3 {
+					padding-bottom: 31px !important;
+					border-bottom: 1px solid rgba(255,255,255,.1) !important;
+					width: 80% !important;
+					@include transition-delay(.2s);
+				}
+				p {
+					@include transition-delay(.2s);
+					margin-top: 29px !important;
+					opacity: 1 !important;
+				}
+			}
+		}
+		li.menuOverlay-mainMenu--notSelected { 
+			width: 30% !important;
+			border-right: 0;
+			border-bottom: 0;
+			a {
+				h3 {
+					opacity: .2;
+				}
+			}
+		}
+		/* ----------------- */
 	}
 
+
+	/* ----- ul Hover ----- */
+	ul.menuOverlay-mainMenu--selected {
+		height: 70%;
+	}
+	ul.menuOverlay-mainMenu--notSelected {
+		height: 30%;
+	}
+	/* -------------------- */
 
 
 

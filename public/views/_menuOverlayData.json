@@ -5,22 +5,77 @@
 			"name": "Works",
 			"desc": "My few student projects",
 			"link": "works/",
-			"class":"menuOverlay--btProject",
-			"subClass":""
+			"class":"menuOverlay--btProject"
 		},{
 			"id": "2",
 			"name": "About",
 			"desc": "\"Who the f*** is this guy ?\"",
 			"link": "about/",
-			"class":"menuOverlay--btAbout",
-			"subClass":""
+			"class":"menuOverlay--btAbout"
 		},{
 			"id": "3",
 			"name": "Contact",
 			"desc": "Let's talk about the secret deathstar plan or about the meaning of life.",
 			"link": "contact/",
-			"class":"menuOverlay--btProject",
-			"subClass":""
+			"class":"menuOverlay--btProject"
 		}
 	]
+},{
+	"secondMenu":[
+		{
+			"id": "1",
+            "name": "Design Process",
+            "desc": "How this mothership was made",
+            "link": "designProcess/",
+            "class":"menuOverlay--btDesignProcess"
+		},{
+			"id": "2",
+            "name": "Credits",
+            "desc": "The awesome job from other people I used",
+            "link": "credit/",
+            "class":"menuOverlay--btCredits"
+		}
+	]
+},{
+	"subMenu":[
+		{
+			"id": "1",
+			"name": "Landing Page",
+			"desc": "An introduction of this website",
+			"link": "landingPage/",
+			"class":"menuOverlay---btLandingPage"
+		},{
+			"id": "2",
+			"name": "Privacies & Policies",
+			"desc": "Things you have to know about the information the I get",
+			"link": "privaciesPolicies/",
+			"class":"menuOverlay---btprivaciesPolicies"
+		}
+	]
+},{
+	"externalLinks":[
+		{
+			"id": "1",
+			"name": "Twitter",
+			"link": "https://twitter.com/_alexisbertin",
+			"class":"menuOverlay----btTwitter"
+		},{
+			"id": "2",
+			"name": "GitHub",
+			"link": "https://github.com/AlexisBertin",
+			"class":"menuOverlay----btGitHub"
+		},{
+			"id": "3",
+			"name": "Codepen",
+			"link": "http://codepen.io/AlexisBertin/",
+			"class":"menuOverlay----btCodepen"
+		},{
+			"id": "4",
+			"name": "LinkedIn",
+			"link": "https://www.linkedin.com/pub/alexis-bertin/6b/281/5a7",
+			"class":"menuOverlay----btLinkedIn"
+		}
+	] 
 }]
+
+

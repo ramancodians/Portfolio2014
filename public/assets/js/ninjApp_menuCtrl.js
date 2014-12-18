@@ -7,10 +7,10 @@ ninjApp.controller('menuController', function($scope, Page){
 	    var sizePercentBase = 25;
 	    var newSizePercent;
 	    var newSizePercentNotSelected;*/
-	    $('.menuOverlay-mainMenu li').addClass('notSelected');
-	    $('.menuOverlay-mainMenu li:nth-child('+id+')')
-	    		.removeClass('notSelected')
-	    		.addClass('selected');
+	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li').addClass('menuOverlay-mainMenu--notSelected');
+	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li:nth-child('+id+')')
+	    		.removeClass('menuOverlay-mainMenu--notSelected')
+	    		.addClass('menuOverlay-mainMenu--selected');
 
 	    // Too laggy.. :(
 	    /*$('.menuOverlay-mainMenu li:nth-child('+id+')').on('mousemove', function(e){
@@ -34,7 +34,7 @@ ninjApp.controller('menuController', function($scope, Page){
 	};
 
 	$scope.hoverOut = function(id){
-	    $('.menuOverlay-mainMenu li').removeClass('notSelected').removeClass('selected');
+	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li').removeClass('menuOverlay-mainMenu--notSelected').removeClass('menuOverlay-mainMenu--selected');
 	};
 
 
