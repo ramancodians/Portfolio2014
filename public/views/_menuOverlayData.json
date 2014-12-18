@@ -41,13 +41,13 @@
 		{
 			"id": "1",
 			"name": "Landing Page",
-			"desc": "An introduction of this website",
+			"desc": "An introduction",
 			"link": "landingPage/",
 			"class":"menuOverlay---btLandingPage"
 		},{
 			"id": "2",
 			"name": "Privacies & Policies",
-			"desc": "Things you have to know about the information the I get",
+			"desc": "the informations that I get",
 			"link": "privaciesPolicies/",
 			"class":"menuOverlay---btprivaciesPolicies"
 		}
@@ -56,24 +56,24 @@
 	"externalLinks":[
 		{
 			"id": "1",
-			"name": "Twitter",
+			"name": "twitter",
 			"link": "https://twitter.com/_alexisbertin",
-			"class":"menuOverlay----btTwitter"
+			"class":"icon-twitter"
 		},{
 			"id": "2",
-			"name": "GitHub",
+			"name": "github",
 			"link": "https://github.com/AlexisBertin",
-			"class":"menuOverlay----btGitHub"
+			"class":"icon-github"
 		},{
 			"id": "3",
-			"name": "Codepen",
+			"name": "codepen",
 			"link": "http://codepen.io/AlexisBertin/",
-			"class":"menuOverlay----btCodepen"
+			"class":"icon-codepen"
 		},{
 			"id": "4",
-			"name": "LinkedIn",
+			"name": "linkedin",
 			"link": "https://www.linkedin.com/pub/alexis-bertin/6b/281/5a7",
-			"class":"menuOverlay----btLinkedIn"
+			"class":"icon-linkedin"
 		}
 	] 
 }]

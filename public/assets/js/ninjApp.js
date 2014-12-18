@@ -59,7 +59,6 @@
 				$http.get('views/_menuOverlayData.json')
 					.success(function(data){
 						$scope.menuOverlay = data;
-						console.log($scope.menuOverlay);
 					})
 					.error(function(data){
 						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);

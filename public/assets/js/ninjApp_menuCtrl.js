@@ -1,42 +1,60 @@
 ninjApp.controller('menuController', function($scope, Page){
 
-	$scope.hoverIn = function(id){
-	    /*var xPosL = $('.menuOverlay-mainMenu li:nth-child('+id+')').offset().left;
-	    var xPosR = xPosL + $('.menuOverlay-mainMenu li:nth-child('+id+')').width();
-	    var xPosMid = xPosL + ((xPosR - xPosL) / 2);
-	    var sizePercentBase = 25;
-	    var newSizePercent;
-	    var newSizePercentNotSelected;*/
-	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li').addClass('menuOverlay-mainMenu--notSelected');
-	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li:nth-child('+id+')')
-	    		.removeClass('menuOverlay-mainMenu--notSelected')
-	    		.addClass('menuOverlay-mainMenu--selected');
-
-	    // Too laggy.. :(
-	    /*$('.menuOverlay-mainMenu li:nth-child('+id+')').on('mousemove', function(e){
-	    	if(e.pageX < xPosMid){
-	    		newSizePercent = (xPosMid / e.pageX) * (sizePercentBase+1);
-	    	} else {
-	    		newSizePercent = (e.pageX / xPosMid) * (sizePercentBase+1);
-	    	}
-	    	newSizePercentNotSelected = (100 - newSizePercent) / 3;
-
-	    	$('.menuOverlay-mainMenu li')
-	    		.width(newSizePercentNotSelected+'%');
-
-	    	$('.menuOverlay-mainMenu li:nth-child('+id+')')
-	    		.width(newSizePercent+'%');
-	    });*/
 
 
-	   
 
+	$scope.hoverIn = function(id, menu){
+		$('.menuOverlay ul li').addClass('menuOverlay--notSelected');
+		$('.menuOverlay---externalLinks li').addClass('menuOverlay--notSelected-externalLinks');
+
+		if(menu == "mainMenu"){
+			$('.menuOverlay-mainMenu li:nth-child('+id+')')
+					.removeClass('menuOverlay--notSelected')
+					.addClass('menuOverlay--selected')
+					.addClass('menuOverlay--selected-mainMenu');
+		} else if(menu == "secondMenu"){
+			$('.menuOverlay-secondMenu > li:nth-child('+id+')')
+					.removeClass('menuOverlay--notSelected')
+					.addClass('menuOverlay--selected')
+					.addClass('menuOverlay--selected-secondMenu');
+		} else if(menu == "subMenu"){
+			$('.menuOverlay--subMenu > li:nth-child('+id+')')
+					.removeClass('menuOverlay--notSelected')
+					.addClass('menuOverlay--selected')
+					.addClass('menuOverlay--selected-subMenu');
+		} else if(menu == "externalLinks"){
+			$('.menuOverlay---externalLinks li:nth-child('+id+')')
+					.removeClass('menuOverlay--notSelected-externalLinks')
+					.addClass('menuOverlay--selected-externalLinks');
+		} else {
+			console.log('nope');
+		}
+	    
 	};
 
-	$scope.hoverOut = function(id){
-	    $('.menuOverlay-mainMenu, .menuOverlay-mainMenu li').removeClass('menuOverlay-mainMenu--notSelected').removeClass('menuOverlay-mainMenu--selected');
+	$scope.hoverOut = function(id, menu){
+		$('.menuOverlay ul li')
+		   	.removeClass('menuOverlay--notSelected')
+		    .removeClass('menuOverlay--selected')
+		    .removeClass('menuOverlay--selected-mainMenu')
+		    .removeClass('menuOverlay--selected-secondMenu')
+			.removeClass('menuOverlay--selected-subMenu');
+
+		$('.menuOverlay---externalLinks li')
+			.removeClass('menuOverlay--selected-externalLinks')
+			.removeClass('menuOverlay--notSelected-externalLinks');
 	};
 
 
 
 });
+
+/*
+	$('menuOverlay---externalLinks li a')
+		.mouseenter(function(e){
+			console.log($(this));
+		})
+		.mouseleave(function(e){
+
+		});
+*/

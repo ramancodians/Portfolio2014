@@ -1,11 +1,13 @@
 <div class="menuOverlay" ng-controller="menuController">
 
 
-    <div class="menuOverlay-logo"><span>Alexis Bertin</span> Frontend & UI Developer</div>
+    <div class="menuOverlay-header">
+        <div class="menuOverlay--logo"><span>Alexis Bertin</span> Frontend & UI Developer</div>
+    </div>
 
     <ul class="menuOverlay-mainMenu">
         <li ng-repeat="mainMenu in menuOverlay[0].mainMenu" >
-            <a href="{{mainMenu.link}}" title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id)" ng-mouseleave="hoverOut(mainMenu.id)">
+            <a href="{{mainMenu.link}}" title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id, 'mainMenu')" ng-mouseleave="hoverOut(mainMenu.id, 'mainMenu')">
                 <div class="menuOverlay--menuContent {{mainMenu.subClass}}">
                     <h3>{{mainMenu.name}}</h3>
 
@@ -24,7 +26,7 @@
 
     <ul class="menuOverlay-secondMenu">
         <li ng-repeat="secondMenu in menuOverlay[1].secondMenu" >
-            <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id)" ng-mouseleave="hoverOut(secondMenu.id)">
+            <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')">
                 <div class="menuOverlay--menuContent {{secondMenu.subClass}}">
                     <h3>{{secondMenu.name}}</h3>
                     <p>{{secondMenu.desc}}</p>
@@ -34,16 +36,54 @@
         <li>
             <ul class="menuOverlay--subMenu">
                 <li ng-repeat="subMenu in menuOverlay[2].subMenu">
-                    <a href="{{subMenu.link}}" title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id)" ng-mouseleave="hoverOut(subMenu.id)">
+                    <a href="{{subMenu.link}}" title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')">
                         <div class="menuOverlay--menuContent {{subMenu.subClass}}">
                             <h4>{{subMenu.name}}</h4>
+                            <p>{{subMenu.desc}}</p>
                         </div>
                     </a>
                 </li>
-                <li ng-repeat="externalLinks in menuOverlay.subMenu[3].externalLinks" class="menuOverlay---externalLinks">
-                    <a href="{{externalLinks.link}}" title="{{externalLinks.name}}" class="{{externalLinks.class}}" ng-mouseover="hoverIn(externalLinks.id)" ng-mouseleave="hoverOut(externalLinks.id)">
-                        <div class="menuOverlay--menuContent {{externalLinks.subClass}}">
-                            <h4>{{externalLinks.name}}</h4>
+            </ul>
+        </li>
+        <li>
+            <ul class="menuOverlay---externalLinks">
+                <li>
+                    <a href="https://twitter.com/_alexisbertin" title="Twitter" target="_blank" ng-mouseover="hoverIn(1, 'externalLinks')" ng-mouseleave="hoverOut('1', 'externalLinks')">
+                        <div class="menuOverlay--menuContent">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-twitter">
+                                <use xlink:href="assets/svg/svgicons.svg#icon-twitter"></use>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/_alexisbertin" title="GitHub" target="_blank" ng-mouseover="hoverIn('2', 'externalLinks')" ng-mouseleave="hoverOut('2', 'externalLinks')">
+                        <div class="menuOverlay--menuContent">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-github">
+                                <use xlink:href="assets/svg/svgicons.svg#icon-github"></use>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/_alexisbertin" title="CodePen" target="_blank" ng-mouseover="hoverIn('3', 'externalLinks')" ng-mouseleave="hoverOut('3', 'externalLinks')">
+                        <div class="menuOverlay--menuContent">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-codepen">
+                                <use xlink:href="assets/svg/svgicons.svg#icon-codepen"></use>
+                            </svg>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/_alexisbertin" title="LinkedIn" target="_blank" ng-mouseover="hoverIn('4', 'externalLinks')" ng-mouseleave="hoverOut('4', 'externalLinks')">
+                        <div class="menuOverlay--menuContent">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-linkedin">
+                                <use xlink:href="assets/svg/svgicons.svg#icon-linkedin"></use>
+                            </svg>
                         </div>
                     </a>
                 </li>
