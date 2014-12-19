@@ -87,8 +87,6 @@ body {
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			display: none;
-
 			/*background: url('../img/bg_home.jpg') no-repeat center center fixed; */
 			background: url('../img/bg_menu.jpg') no-repeat center center fixed; 
 			@include background-size(cover);
@@ -198,7 +196,7 @@ body {
 
 /* ---------------- Home ---------------- */
 	.home {
-		display: none;
+		/*display: none;*/
 
 		position: absolute;
 		top: 0;

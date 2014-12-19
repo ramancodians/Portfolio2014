@@ -51,7 +51,7 @@ window.preloaderAnimation = function(){
 
 
 // ======================================= Page events on Menu Overlay opening ======================================= //
-window.openMenu_fadeOut = function(transiArray, page, x){
+window.openMenu_fadeOutElements = function(transiArray, page, x){
 	var nbTransi =  $('.'+page+' .alphaTransi').size();
 
 	if(x <= nbTransi){
@@ -95,21 +95,21 @@ window.openMenu_fadeOut = function(transiArray, page, x){
 
 		setTimeout(function(){
 			x++;
-			openMenu_fadeOut(transiArray, page, x);
+			openMenu_fadeOutElements(transiArray, page, x);
 		},100);
 
 	} else {
 		/*setTimeout(function(){*/
 			x = 1;
-			/*$('.background').addClass('overlay-open');*/
-			/*$('.menuOverlay').fadeIn();*/
-			/*$('.menuOverlay-contentscale').addClass('open');*/
+			$('.background').addClass('overlay-open');
+			$('.menuOverlay').fadeIn();
+			$('.menuOverlay-contentscale').addClass('open');
 			
-			
-			$(this).dequeue();
 		/*},100);*/
 	}
 }
+
+
 // =================================================================================================================== //
 
 

@@ -78,28 +78,26 @@
 				
 			},200);
 			openMenuOverlay();
-
 		}
 
 
-	// ================ Syntax ================ //
-	/*
-		var transitionArray = {
-			'page' = {
-				'divClass': {
-					'property': {
-						'easing': '',
-						'oldValue': '',
-						'newValue': ''
-					}
-				}
-			}
-		};
+				// ================ Syntax ================ //
+				/*
+					var transitionArray = {
+						'page' = {
+							'divClass': {
+								'property': {
+									'easing': '',
+									'oldValue': '',
+									'newValue': ''
+								}
+							}
+						}
+					};
 
-		transitionArray.page.divClass.property.easing;
-	*/
-	// ======================================== //
-
+					transitionArray.page.divClass.property.easing;
+				*/
+				// ======================================== //
 		var transiArray = {
 			'home': {
 				'homeTitle': {
@@ -112,39 +110,12 @@
 			}
 		};
 
-
-		
-
-
 		$scope.openMenuOverlay = function(page){
-			
 			var x = 1;
-			openMenu_fadeOut(transiArray, page, x);
-
-			$('.close').click(function(){ closeMenuOverlay(); });
-		}
-
-
-
-
-		window.closeMenuOverlay = function(){
-
-			$('.menuOverlay').fadeOut();
-
+			openMenu_fadeOutElements(transiArray, page, x);
 
 			
-
-
-
 		}
-
-
-
-
-
-
-
-
 
 
 		preloaderAnimation(); // functions.js

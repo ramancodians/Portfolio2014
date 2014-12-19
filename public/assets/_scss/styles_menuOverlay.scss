@@ -17,13 +17,33 @@
 .menuOverlay-header {
 	height: 10%;
 	width: 100%;
+	cursor: pointer;
+
+	@include transition(background .2s ease-out);
+
+	&:hover {
+		background: rgba(0,0,0,1);
+		.menuOverlay--close {
+			margin-top: -10px;
+			opacity: 1;
+			h5, .icon-cross { opacity: 1 !important; }
+			&:hover .icon-cross {
+				@include animation(icon-cross-rotation .8s ease-out infinite);
+			}
+		}
+		
+	}
+	&:active .icon-cross {
+		@include animation(icon-cross-rotation .8s ease-out infinite);
+	}
+
 	.menuOverlay--logo {
 		position: relative;
 		top: 50%;
-		@include transform(translateY(-50%));
-		left: 3%;
+		
 		z-index: 5000;
 
+		left: 3%;
 		font-family: $font-brandon;
 		font-weight: 300;
 		font-size: 12px;
@@ -31,6 +51,9 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 
+		/*margin-left: 135px;*/
+
+		@include transform(translateY(-50%));
 
 		span {
 			margin-bottom: 5px;
@@ -43,21 +66,75 @@
 			text-transform: initial;
 		}
 	}
+
+	.menuOverlay--close {
+		opacity: 0;
+
+		position: absolute;
+		/*margin-top: -10px;*/
+		margin-top: -15px;
+
+		height: 30px;
+		
+		right: 3%;
+		@include transition(all .2s ease-out);
+
+		.icon-cross {
+			fill: #F4FD14;
+			opacity: .2;
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+			width: 30px;
+			height: 30px;
+			top: 8px;
+			margin-left: 10px;
+			display: inline-block;
+			transform-origin: center center;
+			@include transition(all .2s ease-out);
+
+			
+		}
+
+		h5 {
+			color: $yellow;
+			font-size: 20px;
+			text-align: center;
+			letter-spacing: 1px;
+			font-weight: 100;
+			display: inline-block;
+			opacity: .2;
+			@include transition(opacity .2s ease-out);
+
+			span {
+				opacity: 0.4;
+				@include transition(opacity .2s ease-out);
+			}
+		}
+	}
+}
+
+@keyframes icon-cross-rotation {
+	0% { @include transform(rotate(0deg)); }
+	100% { @include transform(rotate(360deg)); }
 }
 
 
 
 
 
+
+
+
 .menuOverlay {
-	display: block;
+	display: none;
 	position: fixed;
 	/*background: rgba(0,0,0,.6);*/
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
-	z-index: 50;
+	z-index: $menuZindex;
 
 	& > ul {
 		display: table;
@@ -340,31 +417,6 @@
 	/* ----------------- */
 	
 
-
-
-
-
-
-	.close {
-		display: block;
-		position: absolute;
-		cursor: pointer; 
-		top: 20px;
-		right: 20px;
-		font-size: 18px;
-		font-weight: 500;
-		color: rgba(255,255,255,.8);
-		padding: 10px 15px;
-		border: 1px solid rgba(255,255,255,.6);
-		background: rgba(255,255,255,0);
-		@include transition(color .2s ease-out, border .2s ease-out, background .2s ease-out);
-
-		&:hover{
-			border: 1px solid rgba(255,255,255,1);
-			background: rgba(255,255,255,1);
-			color: rgba(0,0,0,1);
-		}
-	}
 }
 
 
