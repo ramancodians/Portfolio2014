@@ -40,7 +40,7 @@
 
 
     <ul class="menuOverlay-secondMenu">
-        <li ng-repeat="secondMenu in menuOverlay[1].secondMenu" >
+        <li ng-repeat="secondMenu in menuOverlay[1].secondMenu" class="menuOverlay-secondMenu--elements">
             <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')">
                 <div class="menuOverlay--menuContent {{secondMenu.subClass}}">
                     <h3>{{secondMenu.name}}</h3>

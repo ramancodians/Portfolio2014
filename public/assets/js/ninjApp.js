@@ -40,9 +40,16 @@
 				};
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
-						elm.show();
+						setTimeout(function(){
+							elm.show().css({'top': '0','bottom': 'auto','height':'100%'});
+						},1000);
 					} else {
-						elm.fadeOut();
+						setTimeout(function(){
+							elm.css({'top': 'auto','bottom': '0','height':'0'})
+							setTimeout(function(){
+								elm.hide().css({'top': '0','bottom': 'auto','height':'0'})
+							},1000);
+						},1000);
 					}
 				});
 			}
@@ -100,11 +107,23 @@
 				// ======================================== //
 		var transiArray = {
 			'home': {
+				'home-tips': {
+					'opacity':{
+						'easing': '0.2s ease-out',
+						'oldValue': '1',
+						'newValue': '0'
+					},
+					'margin-top':{
+						'easing': '0.2s ease-out',
+						'oldValue': '0',
+						'newValue': '10px'
+					}
+				},
 				'homeTitle': {
 					'top': {
 						'easing': '0.2s ease-out',
 						'oldValue': '50%',
-						'newValue': '51%'
+						'newValue': '48%'
 					}
 				}
 			}

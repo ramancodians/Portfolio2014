@@ -77,6 +77,7 @@ ninjApp.controller('homeController', function($scope, Page){
 			'-ms-transform': 'translate(-50%,10px)',
 			'transform': 'translate(-50%,10px)'
 		});
+		$('#home-tips').css('opacity','0');
 
 
 		var homeTitle = [
@@ -113,6 +114,9 @@ ninjApp.controller('homeController', function($scope, Page){
 					'transform': 'translate(-50%,0)'
 				}); 
 			}).dequeue();
+			setTimeout(function(){
+				$('#home-tips').css('opacity','1');
+			}, 600)
 			return w;
 		}
 

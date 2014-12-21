@@ -37,58 +37,64 @@ body {
 		}
 		.preloader {
 			display: block;
-			background: rgba(0,0,0,.6);
+			/*background: rgba(0,0,0,.6);*/
+			background: #111;
 			z-index: $sectionZindex + 5;
+			@include transition(all .2s ease-out);
+			height: 0;
 
-			svg {
-				position: absolute;
-				margin: auto;
-				top: 0; right: 0; bottom: 0; left: 0;
-				display: block;
-				overflow: visible;
-				$gcd: 18; /* GCD of 558-522 | PGCD in french */
-				$multiple: 6;
-				width: 522px / $gcd * $multiple;
-				height: 558px / $gcd * $multiple;
-				
-				fill: rgba(0,0,0,0);
-				stroke-width: 5;
-				stroke: $yellow;
-				@include transform-origin((522px/$gcd)*($multiple/2) (558px/$gcd)*($multiple/2));
-				@include transition(all 0.2s ease-out); 
-				stroke-dasharray: 1000;
-				stroke-dashoffset: 1000;
-				@include animation(triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite);
-			}
-
-			h4 {
-				position: relative;
-				top: 50%;
-				@include transform(translateY(-50%));
-				margin-top: 140px;
-				color: $yellow;
-				font-size: 20px;
-				text-align: center;
-				letter-spacing: 1px;
-				font-weight: 100;
-				span {
-					opacity: 0.4;
-					@include transition(opacity .2s ease-out);
+				svg {
+					position: fixed;
+					margin: auto;
+					top: 0; right: 0; bottom: 0; left: 0;		
+					display: block;
+					overflow: visible;
+					$gcd: 18; /* GCD of 558-522 | PGCD in french */
+					$multiple: 6;
+					width: 522px / $gcd * $multiple;
+					height: 558px / $gcd * $multiple;
+					
+					fill: rgba(0,0,0,0);
+					stroke-width: 5;
+					stroke: $yellow;
+					@include transform-origin((522px/$gcd)*($multiple/2) (558px/$gcd)*($multiple/2));
+					@include transition(all 0.2s ease-out); 
+					stroke-dasharray: 1000;
+					stroke-dashoffset: 1000;
+					@include animation(triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite);
 				}
-			}
+
+				h4 {
+					position: fixed;
+					top: 50%;
+					left: 50%;
+					@include transform(translate(-50%, -50%));
+					margin-top: 150px;
+					color: $yellow;
+					font-size: 20px;
+					text-align: center;
+					letter-spacing: 1px;
+					font-weight: 100;
+					span {
+						opacity: 0.4;
+						@include transition(opacity .2s ease-out);
+					}
+				}
+			
+
 		}
 
 
 		.overlay {
-			background: rgba(0,0,0,.8);
+			background: rgba(0,0,0,0);
 			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			/*background: url('../img/bg_home.jpg') no-repeat center center fixed; */
-			background: url('../img/bg_menu.jpg') no-repeat center center fixed; 
+			background: url('../img/bg_homeBW.jpg') no-repeat center center fixed; 
+			/*background: url('../img/bg_menu.jpg') no-repeat center center fixed; */
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;
 		
@@ -344,6 +350,20 @@ body {
 				line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
 				line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 			}
+		}
+
+
+		#home-tips {
+			display: block;
+			font-family: $font-goodFoot;
+			font-size: 32px;
+			word-spacing: -10px;
+			letter-spacing: 1px;
+			color: rgba(244,253,20,0.4);
+			position: absolute;
+			left: 55.5%;
+			top: 64%;
+			@include transition(all .2s ease-out);
 		}
 	}
 
