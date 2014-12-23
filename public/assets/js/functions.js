@@ -52,38 +52,39 @@ window.preloaderAnimation = function(){
 
 
 // ======================================= Menu events on Menu Overlay opening ======================================= //
-window.openMenu_events = function(){
-	/*$('.background').addClass('overlay-open');*/
-	$('.overlay').css('background', 'rgba(0,0,0,.4)');
-	$('.menuOverlay').fadeIn();
-	$('.menuOverlay-contentscale').addClass('open');
+	window.mainMenuElements = function(transiArray, y, openMenu){
+		var mainMenu = $('.menuOverlay-mainMenu li').length;
 
-	function mainMenuElements(y){
 		setTimeout(function(){
 			if(y<=mainMenu){
-				console.log('-mainMenuLinks Functions - '+y);
-				$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
-					'-webkit-transform': 'translateY(0%)',
-					'-moz-transform': 'translateY(0%)',
-					'-ms-transform': 'translateY(0%)',
-					'-o-transform': 'translateY(0%)',
-					'transform': 'translateY(0%)',
-					'opacity':'1'
-				});
+				if(openMenu == false){
+					$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
+						'-webkit-transform': 'translateY(0%)',
+						'-moz-transform': 'translateY(0%)',
+						'-ms-transform': 'translateY(0%)',
+						'-o-transform': 'translateY(0%)',
+						'transform': 'translateY(0%)',
+						'opacity':'1'
+					});
+				} else {
+					$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
+						'opacity':'0'
+					});
+				}
 				y++;
-				mainMenuElements(y);
+				mainMenuElements(transiArray, y, openMenu);
 			} else {
 				y = 1;
 				x++;
-				openMenu_anim(x);
+				switchMenu_anim(transiArray, x, openMenu);
 			}
 		},timer);
 	};
-	function secondMenuElements(y){
+
+	window.secondMenuElements = function(transiArray, y, openMenu){
 		setTimeout(function(){
-			if(y<=secondMenu){
-				console.log('--secondMenu Functions - '+y);
-				$(".menuOverlay-secondMenu .menuOverlay-secondMenu--elements:nth-child("+y+")").css({
+			if(openMenu == false){
+				$(".menuOverlay-secondMenu").css({
 					'-webkit-transform': 'translateY(0%)',
 					'-moz-transform': 'translateY(0%)',
 					'-ms-transform': 'translateY(0%)',
@@ -91,100 +92,66 @@ window.openMenu_events = function(){
 					'transform': 'translateY(0%)',
 					'opacity':'1'
 				});
-				y++;
-				secondMenuElements(y);
 			} else {
-				y = 1;
-				console.log('--secondMenu Functions ELSE - '+y);
-				x++;
-				openMenu_anim(2);
-			}
-		},timer);
-	};
-	function subMenuElements(y){
-		setTimeout(function(){
-			if(y<=subMenu){
-				console.log('--subMenu Functions - '+y);
-				$(".menuOverlay--subMenu li:nth-child("+y+")").css({
-					'-webkit-transform': 'translateY(0%)',
-					'-moz-transform': 'translateY(0%)',
-					'-ms-transform': 'translateY(0%)',
-					'-o-transform': 'translateY(0%)',
-					'transform': 'translateY(0%)',
-					'opacity':'1'
+				$(".menuOverlay-secondMenu").css({
+					'-webkit-transform': 'translateY(100%)',
+					'-moz-transform': 'translateY(100%)',
+					'-ms-transform': 'translateY(100%)',
+					'-o-transform': 'translateY(100%)',
+					'transform': 'translateY(100%)',
+					'opacity':'0'
 				});
-				y++;
-				subMenuElements(y);
-			} else {
-				y = 1;
-				console.log('--subMenu Functions ELSE - '+y);
-				x++;
-				openMenu_anim(3);
 			}
+			x++;
+			switchMenu_anim(transiArray, 2, openMenu);
 		},timer);
 	};
-	function externalMenuElements(y){
-		setTimeout(function(){
-			if(y<=externalMenu){
-				console.log('---externalLinks Functions - '+y);
-				$(".menuOverlay---externalLinks li:nth-child("+y+")").css({
-					'-webkit-transform': 'translateY(0%)',
-					'-moz-transform': 'translateY(0%)',
-					'-ms-transform': 'translateY(0%)',
-					'-o-transform': 'translateY(0%)',
-					'transform': 'translateY(0%)',
-					'opacity':'1'
-				});
-				y++;
-				externalMenuElements(y);
-			} else {
-				y = 1;
-				console.log('---externalLinks Functions ELSE - '+y);
-				x++;
-				openMenu_anim(4);
-			}
-		},timer);
-	};
-	
+
 	var x = 0;
 	var y = 1;
 	var timer = 100;
-	var mainMenu = $('.menuOverlay-mainMenu li').length;
-	var secondMenu = $('.menuOverlay-secondMenu--elements').length;
-	var subMenu = $('.menuOverlay--subMenu li').length;
-	var externalMenu = $('.menuOverlay---externalLinks li').length;
-	console.log('secondMenu: '+secondMenu);
 
-	function openMenu_anim(x){
+	window.switchMenu_anim = function(transiArray, x, openMenu){
 		setTimeout(function(){
-			console.log('openMenu_anim, x: '+x);
-			switch(x){
-				case 0:
-					$('.menuOverlay-header').css({'opacity':'1','top':'0'});
-					x++;
-					openMenu_anim(x);
-					break;
-				case 1:
-					secondMenuElements(y);
-					break;
-				case 2:
-					subMenuElements(y);
-					break;
-				case 3:
-					externalMenuElements(y);
-					break;
-				case 4:
-					mainMenuElements(y)
-					break;
-				default:
-					console.log('Error dans le Switch case | x: '+x+' | y: '+y);
+			if(openMenu == false){
+				switch(x){
+					case 0:
+						$('.menuOverlay-header').css({'opacity':'1','top':'0'});
+						x++; 
+						switchMenu_anim(transiArray, x, openMenu); break;
+					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 2: mainMenuElements(transiArray, y, openMenu); break;
+					default:
+						openMenu = true;
+						x = 0;
+				}
+			} else {
+				switch(x){
+					case 0: mainMenuElements(transiArray, y, openMenu); break;
+					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 2:
+						$('.menuOverlay-header').css({'opacity':'0','top':'-10%'});
+						x++;
+						switchMenu_anim(transiArray, x, openMenu);
+						break;
+					default:
+						openMenu = false;
+						x = 0;
+						$('.overlay').css('background', 'rgba(0,0,0,0)');
+						$('.menuOverlay').fadeOut();
+						$('.menuOverlay-contentscale').removeClass('open');
+						setTimeout(function(){
+							var x = 1;
+							page = $('section').attr('class');
+							page = page.replace('ng-scope','').replace(' ', '');
+							closeMenu_fadeInElements(transiArray, page, x);
+						}, 200);
+				}	
 			}
 		}, timer);
 	}
-	openMenu_anim(x);
 
 
-}
 // =================================================================================================================== //
 
 
@@ -243,8 +210,14 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 		},200);
 
 	} else {
-			x = 1;
-			openMenu_events();
+		x = 0;
+		var openMenu = false;
+
+		$('.overlay').css('background', 'rgba(0,0,0,.4)');
+		$('.menuOverlay').fadeIn();
+		$('.menuOverlay-contentscale').addClass('open');
+		
+		switchMenu_anim(transiArray, x, openMenu);
 	}
 
 	return transiArray, page, x;
@@ -254,6 +227,84 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 
 
 
+
+
+
+
+
+// ======================================= Page events on Menu Overlay closing ======================================= //
+window.closeMenu_fadeInElements = function(transiArray, page, x){
+	var nbTransi =  $('.'+page+' .alphaTransi').size();
+
+	if(x <= nbTransi){
+		var thisTransi = '.alphaTransi:nth-child('+x+')';
+
+		if($(thisTransi).hasClass('transiArray')){
+			var thisTransiId = $(thisTransi).attr('id');
+
+			// Property Objects in array to count them and use them with an easier way
+				var propertiesKey = [];
+
+				angular.forEach(transiArray[page][thisTransiId], function(value, key) {
+					propertiesKey.push(key);
+				});
+				var nbProperties = propertiesKey.length;
+
+			for(var y=0; y<nbProperties; y++){
+				$(thisTransi)
+					.css({
+						'-webkit-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
+						'-moz-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
+						'-ms-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
+						'-o-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
+						'transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
+						'opacity': '1'
+					})
+					.css(propertiesKey[y], transiArray[page][thisTransiId][propertiesKey[y]].oldValue);
+			}
+
+		} else {
+			$('.alphaTransi:nth-child('+x+')')
+				.css({
+					'-webkit-transition': 'opacity 0.2s ease-out',
+					'-moz-transition': 'opacity 0.2s ease-out',
+					'-ms-transition': 'opacity 0.2s ease-out',
+					'-o-transition': 'opacity 0.2s ease-out',
+					'transition': 'opacity 0.2s ease-out',
+					'opacity': '1'
+				});
+		}
+
+		setTimeout(function(){
+			x++;
+			closeMenu_fadeInElements(transiArray, page, x);
+		},200);
+
+	} else {
+			/*x = 1;
+			openMenu_events();*/
+	}
+
+	return transiArray, page, x;
+}
+// =================================================================================================================== //
+
+
+
+
+
+
+
+
+
+
+
+// =================================================== Switch Page =================================================== //
+
+
+
+
+// =================================================================================================================== //
 
 
 

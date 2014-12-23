@@ -120,13 +120,7 @@ ninjApp.controller('menuController', function($scope, Page){
 
 
 
-// ========================================= Close the Menu ========================================= //
-	$scope.closeMenu = function(){
-		$('.menuOverlay').fadeOut();
-		$('.background').removeClass('overlay-open');
-		$('.menuOverlay-contentscale').removeClass('open');
-	}
-// ================================================================================================== //
+
 
 
 

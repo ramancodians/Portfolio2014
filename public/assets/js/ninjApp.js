@@ -20,13 +20,24 @@
 	        });
 	});
 
+	ninjApp.run(function($rootScope, $location) {
+		$rootScope.$on( "$routeChangeStart", function(event, next, current) {
+			console.log('changePage');
+			if ( next.templateUrl === "partials/login.html") {
+				
+			} else {
+	        	$location.path("/login");
+			}
+		});
+	});
+
 
 	ninjApp.factory('Page', function(){
-	  var title = 'Alexis Bertin | Front-End Developer';
-	  return {
-	    title: function() { return title; },
-	    setTitle: function(newTitle) { title = newTitle; }
-	  };
+		var title = 'Alexis Bertin | Front-End Developer';
+		return {
+			title: function() { return title; },
+			setTitle: function(newTitle) { title = newTitle; }
+		};
 	});
 
 
@@ -70,6 +81,7 @@
 					.error(function(data){
 						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
 					})
+
 			}
 		}
 	});
@@ -80,13 +92,11 @@
 		$scope.Page = Page;
 
 
-		$scope.homeReset = function (){
-			setTimeout(function(){
-				
-			},200);
+		/*$scope.homeReset = function (){
+		
 			openMenuOverlay();
 		}
-
+*/
 
 				// ================ Syntax ================ //
 				/*
@@ -132,10 +142,11 @@
 		$scope.openMenuOverlay = function(page){
 			var x = 1;
 			openMenu_fadeOutElements(transiArray, page, x);
-
-			
 		}
-
+		$scope.closeMenuOverlay = function(){
+			var x = 0;
+			switchMenu_anim(transiArray, x, true);
+		}
 
 		preloaderAnimation(); // functions.js
 

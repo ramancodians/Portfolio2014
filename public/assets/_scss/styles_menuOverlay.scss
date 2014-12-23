@@ -219,9 +219,7 @@
 
 
 	.menuOverlay-mainMenu li,
-	.menuOverlay-secondMenu .menuOverlay-secondMenu--elements,
-	.menuOverlay-secondMenu .menuOverlay--subMenu li,
-	.menuOverlay-secondMenu .menuOverlay---externalLinks li {
+	.menuOverlay-secondMenu {
 		@include transition(all .2s ease-out);
 		@include transform(transitionY(100%));
 		opacity: 0;
@@ -242,12 +240,16 @@
 	.menuOverlay-secondMenu {
 		height: 20%;
 		
-		li.menuOverlay-secondMenu--elements,
-		ul.menuOverlay--subMenu li,
-		ul.menuOverlay---externalLinks li {
+		li {
 			border-top: $lowBorder;
 			@include transition(all .2s ease-out);
 		}
+
+		.menuOverlay--subMenu li:first-child,
+		.menuOverlay---externalLinks li:first-child {
+			border-top: 0 !important;
+		}
+
 
 		li a .menuOverlay--menuContent h3 {
 			font-size: 18px;			

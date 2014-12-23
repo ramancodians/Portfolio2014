@@ -1,7 +1,7 @@
 <div class="menuOverlay" ng-controller="menuController">
 
 
-    <div class="menuOverlay-header" ng-mouseover="hoverHeaderIn()" ng-mouseleave="hoverHeaderOut()" ng-click="closeMenu()">
+    <div class="menuOverlay-header" ng-mouseover="hoverHeaderIn()" ng-mouseleave="hoverHeaderOut()" ng-click="closeMenuOverlay()">
 
         <!-- <div class="menuOverlay--triskel">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="174px" height="186px" viewBox="0 0 174 186"
@@ -41,7 +41,7 @@
 
     <ul class="menuOverlay-secondMenu">
         <li ng-repeat="secondMenu in menuOverlay[1].secondMenu" class="menuOverlay-secondMenu--elements">
-            <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')">
+            <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')" ng-click="switchPage(secondMenu.link)">
                 <div class="menuOverlay--menuContent {{secondMenu.subClass}}">
                     <h3>{{secondMenu.name}}</h3>
                     <p>{{secondMenu.desc}}</p>
@@ -51,7 +51,7 @@
         <li>
             <ul class="menuOverlay--subMenu">
                 <li ng-repeat="subMenu in menuOverlay[2].subMenu">
-                    <a href="{{subMenu.link}}" title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')">
+                    <a href="{{subMenu.link}}" title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')" ng-click="switchPage(subMenu.link)">
                         <div class="menuOverlay--menuContent {{subMenu.subClass}}">
                             <h4>{{subMenu.name}}</h4>
                             <p>{{subMenu.desc}}</p>
