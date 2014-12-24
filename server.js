@@ -58,15 +58,15 @@
 
 // Listen ===============================================================================
 	
-	app.get('*', function (req, res) {
+	/*app.get('*', function (req, res) {
 	    res.sendFile(__dirname+'/public/index.html');
 	});
+*/
 
-
-	/*app.get('*', function(req, res){
+	app.get('*', function(req, res){
 		res.sendFile(path.join(__dirname, '/public', 'index.html'));
 		res.sendFile('index.html', { root: path.join(__dirname, '/public') });
-	});	*/
+	});	
 
 	app.listen(port);
 	console.log('App listening on port **'+port+'**');

@@ -109,7 +109,7 @@ window.preloaderAnimation = function(){
 
 	var x = 0;
 	var y = 1;
-	var timer = 100;
+	var timer = 50;
 
 	window.switchMenu_anim = function(transiArray, x, openMenu){
 		setTimeout(function(){

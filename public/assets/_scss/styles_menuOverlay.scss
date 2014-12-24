@@ -23,43 +23,50 @@
 	cursor: pointer;
 	border-bottom: $lowBorder;
 
-	@include transition(all .2s ease-out);
+		@include transition(all .2s ease-out);
 
-	&:hover {
-		background: rgba(0,0,0,.4);
-		.menuOverlay--close {
-			margin-top: -10px;
-			opacity: 1;
-			h5, .icon-cross { opacity: 1 !important; }
-			&:hover .icon-cross {
-				@include animation(icon-cross-rotation .8s ease-out infinite);
+		&:hover {
+			background: rgba(0,0,0,.4);
+			.menuOverlay--close {
+				margin-top: -10px;
+				opacity: 1;
+				h5, .icon-cross { opacity: 1 !important; }
+				&:hover .icon-cross {
+					@include animation(icon-cross-rotation .8s ease-out infinite);
+				}
 			}
+			
 		}
-		
-	}
-	&:active .icon-cross {
-		@include animation(icon-cross-rotation .8s ease-out infinite);
-	}
+		&:active .icon-cross {
+			@include animation(icon-cross-rotation .8s ease-out infinite);
+		}
+	
 
 	.menuOverlay--logo {
+		display: block;
 		position: relative;
 		top: 50%;
-		
-		z-index: 5000;
-
 		left: 3%;
-		font-family: $font-brandon;
-		font-weight: 300;
-		font-size: 12px;
+		float: left;
+		z-index: 5000;
+		width: 210px;
+		padding: 20px 3% 20px 0;
+		
+		text-decoration: none;
 		color: rgba(255,255,255,.8);
 		text-transform: uppercase;
 		letter-spacing: 2px;
+		font-family: $font-brandon;
+		font-weight: 300;
+		font-size: 12px;
+		
 
 		/*margin-left: 135px;*/
 
 		@include transform(translateY(-50%));
-
+	
 		span {
+			
 			margin-bottom: 5px;
 			display: block;
 			font-family: $font-goodFoot;
@@ -74,12 +81,12 @@
 	.menuOverlay--close {
 		opacity: 0;
 
-		position: absolute;
-		/*margin-top: -10px;*/
-		margin-top: -15px;
-
+		position: relative;
+		top: 50%;
+		@include transform(translateY(-50%));
 		height: 30px;
 		
+		float: right;
 		right: 3%;
 		@include transition(all .2s ease-out);
 

@@ -4,31 +4,21 @@
 	]);
 
 
-	ninjApp.config(function($stateProvider, $urlRouterProvider) {
-	    $urlRouterProvider.otherwise('/');
+	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+		$urlRouterProvider.otherwise("/");
+		$locationProvider.html5Mode(true);
 	    $stateProvider
 	        .state('/', {
 	            url: '/',
 	            templateUrl: 'views/home.html',
 	            controller: 'homeController'
 	        })
-	        
-	        .state('/works', {
+	        .state('works', {
 	        	url: '/works',
 	        	templateUrl: 'views/works.html',
 	        	controller: 'worksController'
 	        });
-	});
-
-	ninjApp.run(function($rootScope, $location) {
-		$rootScope.$on( "$routeChangeStart", function(event, next, current) {
-			console.log('changePage');
-			if ( next.templateUrl === "partials/login.html") {
-				
-			} else {
-	        	$location.path("/login");
-			}
-		});
 	});
 
 
@@ -91,12 +81,19 @@
 	ninjApp.controller('mainController', function($scope, Page){
 		$scope.Page = Page;
 
+		var intro = false;
 
 		/*$scope.homeReset = function (){
 		
 			openMenuOverlay();
 		}
 */
+
+		$scope.homeTitleContent = [
+			$('.home #homeTitle p:first-of-type').html(),
+			$('.home #homeTitle p:last-of-type').html(),
+			$('.home #homeTitle h2').html()
+		];
 
 				// ================ Syntax ================ //
 				/*
