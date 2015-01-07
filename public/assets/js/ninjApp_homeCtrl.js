@@ -109,20 +109,19 @@ ninjApp.controller('homeController', function($scope, Page){
 						.empty()
 						.html(homeTitleContent[x]);
 				}
-				$('.home-btStartUx').fadeIn(600);
-				$('.home-btStartUx').queue(function(){
-					$('.home-btStartUx').css({
-						'-webkit-transform': 'translate(-50%,0)',
-						'-ms-transform': 'translate(-50%,0)',
-						'transform': 'translate(-50%,0)'
-					}); 
-				}).dequeue();
+				$('.home-btStartUx')
+					.fadeIn(600)
+					.queue(function(){
+						$(this).css({
+							'-webkit-transform': 'translate(-50%,0)',
+							'-ms-transform': 'translate(-50%,0)',
+							'transform': 'translate(-50%,0)'
+						}); 
+					})
+					.dequeue();
 				setTimeout(function(){
 					$('#home-tips').css('opacity','1');
-				
-					
 				}, 600);
-
 				return w;
 			}
 
@@ -133,6 +132,17 @@ ninjApp.controller('homeController', function($scope, Page){
 					.empty()
 					.html($scope.homeTitleContent[x]);
 			}
+			$('.home-btStartUx')
+				.fadeIn(600)
+				.queue(function(){
+					$(this).css({
+						'-webkit-transform': 'translate(-50%,0)',
+						'-ms-transform': 'translate(-50%,0)',
+						'transform': 'translate(-50%,0)'
+					}); 
+				})
+				.dequeue();
+				
 			$('.alexis').css({
 				'stroke-dasharray': '1000',
 				'stroke-dashoffset': '1000'

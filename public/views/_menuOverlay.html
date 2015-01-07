@@ -9,7 +9,7 @@
                 <use xlink:href="assets/svg/svgdefs.svg#triskel"></use>
             </svg>
         </div> -->
-        <a href="/" title="Home" class="menuOverlay--logo">
+        <a href ng-click="switchPage('home')" title="Home" class="menuOverlay--logo">
             <span>Alexis Bertin</span> Frontend & UI Developer
         </a>
 
@@ -24,7 +24,7 @@
 
     <ul class="menuOverlay-mainMenu">
         <li ng-repeat="mainMenu in menuOverlay[0].mainMenu" >
-            <a href="{{mainMenu.link}}" title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id, 'mainMenu')" ng-mouseleave="hoverOut(mainMenu.id, 'mainMenu')">
+            <a href title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id, 'mainMenu')" ng-mouseleave="hoverOut(mainMenu.id, 'mainMenu')" ng-click="switchPage(mainMenu.link)">
                 <div class="menuOverlay--menuContent {{mainMenu.subClass}}">
                     <h3>{{mainMenu.name}}</h3>
 
@@ -43,7 +43,7 @@
 
     <ul class="menuOverlay-secondMenu">
         <li ng-repeat="secondMenu in menuOverlay[1].secondMenu" class="menuOverlay-secondMenu--elements">
-            <a href="{{secondMenu.link}}" title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')" ng-click="switchPage(secondMenu.link)">
+            <a href title="{{secondMenu.name}}" class="{{secondMenu.class}}" ng-mouseover="hoverIn(secondMenu.id, 'secondMenu')" ng-mouseleave="hoverOut(secondMenu.id, 'secondMenu')" ng-click="switchPage(secondMenu.link)">
                 <div class="menuOverlay--menuContent {{secondMenu.subClass}}">
                     <h3>{{secondMenu.name}}</h3>
                     <p>{{secondMenu.desc}}</p>
@@ -53,7 +53,7 @@
         <li>
             <ul class="menuOverlay--subMenu">
                 <li ng-repeat="subMenu in menuOverlay[2].subMenu">
-                    <a href="{{subMenu.link}}" title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')" ng-click="switchPage(subMenu.link)">
+                    <a href title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')" ng-click="switchPage(subMenu.link)">
                         <div class="menuOverlay--menuContent {{subMenu.subClass}}">
                             <h4>{{subMenu.name}}</h4>
                             <p>{{subMenu.desc}}</p>

@@ -7,7 +7,7 @@
 	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 		$urlRouterProvider.otherwise("/");
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode(true).hashPrefix('!');
 	    $stateProvider
 	        .state('/', {
 	            url: '/',
@@ -30,88 +30,7 @@
 		};
 	});
 
-
-
-	ninjApp.directive('loading', ['$http',function($http){
-		return {
-			restrict: 'A',
-			link: function (scope, elm, attrs){
-				scope.isLoading = function () {
-					return $http.pendingRequests.length > 0;
-				};
-				scope.$watch(scope.isLoading, function (v){
-					if(v){
-						setTimeout(function(){
-							elm.show().css({'top': '0','bottom': 'auto','height':'100%'});
-						},1000);
-					} else {
-						setTimeout(function(){
-							elm.css({'top': 'auto','bottom': '0','height':'0'})
-							setTimeout(function(){
-								elm.hide().css({'top': '0','bottom': 'auto','height':'0'})
-							},1000);
-						},1000);
-					}
-				});
-			}
-		};
-	}]);
-
-
-
-	ninjApp.directive('menuOverlay',function(){
-		return {
-			restrict: 'E',
-			templateUrl: 'views/_menuOverlay.html',
-			controller: function($scope, $http){
-				$http.get('views/_menuOverlayData.json')
-					.success(function(data){
-						$scope.menuOverlay = data;
-					})
-					.error(function(data){
-						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
-					})
-
-			}
-		}
-	});
-
-
-
-	ninjApp.controller('mainController', function($scope, Page){
-		$scope.Page = Page;
-
-		var intro = false;
-
-		/*$scope.homeReset = function (){
-		
-			openMenuOverlay();
-		}
-*/
-
-		$scope.homeTitleContent = [
-			$('.home #homeTitle p:first-of-type').html(),
-			$('.home #homeTitle p:last-of-type').html(),
-			$('.home #homeTitle h2').html()
-		];
-
-				// ================ Syntax ================ //
-				/*
-					var transitionArray = {
-						'page' = {
-							'divClass': {
-								'property': {
-									'easing': '',
-									'oldValue': '',
-									'newValue': ''
-								}
-							}
-						}
-					};
-
-					transitionArray.page.divClass.property.easing;
-				*/
-				// ======================================== //
+	ninjApp.factory('transiArray', function(){
 		var transiArray = {
 			'home': {
 				'home-tips': {
@@ -135,20 +54,180 @@
 				}
 			}
 		};
+		return transiArray;
+	})
+
+
+
+	ninjApp.directive('loading', ['$http',function($http){
+		return {
+			restrict: 'A',
+			link: function (scope, elm, attrs){
+				scope.isLoading = function () {
+					return $http.pendingRequests.length > 0;
+				};
+				scope.$watch(scope.isLoading, function (v){
+					if(v){
+						setTimeout(function(){
+							elm.show().css({'top': '0','bottom': 'auto','height':'100%'});
+						},1000);
+					} else {
+						setTimeout(function(){
+							elm.css({'top': 'auto','bottom': '0','height':'0'});
+							setTimeout(function(){
+								elm.hide().css({'top': '0','bottom': 'auto','height':'100%'});
+							},1000);
+						},1000);
+					}
+				});
+			}
+		};
+	}]);
+
+
+
+	ninjApp.directive('menuOverlay',function(){
+		return {
+			restrict: 'E',
+			templateUrl: 'views/_menuOverlay.html',
+			controller: function($scope, $http){
+				$http.get('views/_menuOverlayData.json')
+					.success(function(data){
+						$scope.menuOverlay = data;
+					})
+					.error(function(data){
+						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
+					})
+			}
+		}
+	});
+
+
+
+	ninjApp.controller('mainController', function($scope, $state, Page, transiArray){
+		$scope.Page = Page;
+
+		var intro = false;
+
+		$scope.homeTitleContent = [
+			$('.home #homeTitle p:first-of-type').html(),
+			$('.home #homeTitle p:last-of-type').html(),
+			$('.home #homeTitle h2').html()
+		];
+
+
+	
+		$scope.menu = function(keyEvent){
+			if(keyEvent.which == 109){
+				if($('.menuOverlay').css('display') == 'none'){
+					var page =  $('section').attr('class');
+					page = page.replace('ng-scope', '').replace(' ','');
+					openMenu_fadeOutElements(transiArray, page, 1);
+				} else {
+					switchMenu_anim(transiArray, 0, true);
+				} 
+			}
+		}
 
 		$scope.openMenuOverlay = function(page){
-			var x = 1;
-			openMenu_fadeOutElements(transiArray, page, x);
+			openMenu_fadeOutElements(transiArray, page, 1);
 		}
 		$scope.closeMenuOverlay = function(){
-			var x = 0;
-			switchMenu_anim(transiArray, x, true);
+			switchMenu_anim(transiArray, 0, true);
 		}
+
+		$scope.switchPage = function(link){
+			function transitionTo(link){
+				if(link == 'home'){
+					$state.transitionTo('/');
+				} else {
+					$state.transitionTo(link);
+				}
+
+			}
+
+			var overlayAnim;
+			var page =  $('section').attr('class');
+			page = page.replace('ng-scope', '').replace(' ','');
+			console.log('page: '+page);
+			console.log('link: '+link);
+			if(page == link){
+				switchMenu_anim(transiArray, 0, true);
+			} else {
+				switchMenu_anim(transiArray, 0, undefined);
+					overlayAnim = true;
+					$('.preloader')
+						.show()
+						.css({'top': '0','bottom': 'auto','height':'100%'})
+						.queue(function(){
+							transitionTo(link);
+						})
+						.delay(500)
+						.queue(function(){
+							$(this).css({'top': 'auto','bottom': '0','height':'0'});
+							setTimeout(function(){
+								$(this).hide().css({'top': '0','bottom': 'auto','height':'100%'});
+							},1000);
+						})
+						.dequeue();							
+
+						// Check if the page switch is really done
+						setTimeout(function(){
+							page =  $('section').attr('class');
+							page = page.replace('ng-scope', '').replace(' ','');
+							console.log('page2: '+page);
+							console.log('link2: '+link);
+							if(page != link){
+								transitionTo(link);
+							}
+							$('.preloader')
+								.css({'top': '0','bottom': 'auto','height':'100%'})
+								.delay(200)
+								.queue(function(){
+									$(this).fadeOut();
+								})
+							overlayAnim = false;
+						}, 700);
+
+						setTimeout(function(){
+							$('.preloader')
+								.css({'top': '0','bottom': 'auto','height':'100%'})
+								.delay(200)
+								.queue(function(){
+									$(this).hide();
+								})
+								.dequeue();
+						},2000);
+			}			
+
+			// prevent timer's fucked and blocked overlay
+			if(overlayAnim == true){
+				$('.preloader')
+					.css({'top': '0','bottom': 'auto','height':'100%'})
+					.delay(200)
+					.queue(function(){
+						$(this).fadeOut('fast');
+						overlayAnim = false;
+					})
+					.dequeue();
+			}
+		}
+
+
 
 		preloaderAnimation(); // functions.js
 
 
-	});
+
+
+
+		
+			
+
+
+	}
+
+	);
 
 
 

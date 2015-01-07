@@ -57,7 +57,7 @@ window.preloaderAnimation = function(){
 
 		setTimeout(function(){
 			if(y<=mainMenu){
-				if(openMenu == false){
+				if(openMenu === false){
 					$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
 						'-webkit-transform': 'translateY(0%)',
 						'-moz-transform': 'translateY(0%)',
@@ -83,7 +83,7 @@ window.preloaderAnimation = function(){
 
 	window.secondMenuElements = function(transiArray, y, openMenu){
 		setTimeout(function(){
-			if(openMenu == false){
+			if(openMenu === false){
 				$(".menuOverlay-secondMenu").css({
 					'-webkit-transform': 'translateY(0%)',
 					'-moz-transform': 'translateY(0%)',
@@ -107,13 +107,13 @@ window.preloaderAnimation = function(){
 		},timer);
 	};
 
-	var x = 0;
+	x = 0;
 	var y = 1;
 	var timer = 50;
 
 	window.switchMenu_anim = function(transiArray, x, openMenu){
 		setTimeout(function(){
-			if(openMenu == false){
+			if(openMenu === false){
 				switch(x){
 					case 0:
 						$('.menuOverlay-header').css({'opacity':'1','top':'0'});
@@ -125,7 +125,7 @@ window.preloaderAnimation = function(){
 						openMenu = true;
 						x = 0;
 				}
-			} else {
+			} else if(openMenu === true) {
 				switch(x){
 					case 0: mainMenuElements(transiArray, y, openMenu); break;
 					case 1: secondMenuElements(transiArray, y, openMenu); break;
@@ -146,8 +146,27 @@ window.preloaderAnimation = function(){
 							page = page.replace('ng-scope','').replace(' ', '');
 							closeMenu_fadeInElements(transiArray, page, x);
 						}, 200);
-				}	
+					}
+			} else if(openMenu === undefined){
+				switch(x){
+					case 0: mainMenuElements(transiArray, y, openMenu); break;
+					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 2:
+						$('.menuOverlay-header').css({'opacity':'0','top':'-10%'});
+						x++;
+						switchMenu_anim(transiArray, x, openMenu);
+						break;
+					default:
+						openMenu = false;
+						x = 0;
+						$('.overlay').css('background', 'rgba(0,0,0,0)');
+						$('.menuOverlay').fadeOut();
+						$('.menuOverlay-contentscale').removeClass('open');
+				}
+			} else {
+				console.log('functions.js -> bug switchMenu_anim.openMenu');
 			}
+			
 		}, timer);
 	}
 
@@ -298,13 +317,6 @@ window.closeMenu_fadeInElements = function(transiArray, page, x){
 
 
 
-
-// =================================================== Switch Page =================================================== //
-
-
-
-
-// =================================================================================================================== //
 
 
 

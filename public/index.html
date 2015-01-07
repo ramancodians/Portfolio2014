@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="fr" xmlns:ng="http://angularjs.org" ng-app="ninjApp" ng-controller="mainController">
+<html class="no-js" lang="fr" xmlns:ng="http://angularjs.org" ng-app="ninjApp" ng-controller="mainController" ng-keypress="menu($event)">
 <head>
 	<title>{{ Page.title() }}</title>
 
@@ -31,7 +31,8 @@
     <script type="text/javascript" src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
     <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-
+    <script type="text/javascript" src="assets/libs/velocity/velocity.min.js"></script>
+    <script type="text/javascript" src="assets/libs/velocity/velocity.ui.min.js"></script>
     <script type="text/javascript" src="assets/libs/vendor/modernizr.js"></script>
     <!--script src='assets/libs/jquery_keyFrames/jquery.keyframes.min.js'></script-->
     <script type="text/JavaScript" src="assets/js/functions.js"></script>
@@ -43,6 +44,14 @@
     <script type="text/javascript" src="assets/libs/svg4everybody.js"></script>
     <script type="text/javascript" src="//use.typekit.net/gib4jtx.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/JavaScript">
+        $(document).keypress(function(e){
+            if(e.which == 77){
+                console.log('good jub !');
+                openMenuOverlay();
+            }
+        });
+    </script>
     <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
