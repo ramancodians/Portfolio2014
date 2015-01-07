@@ -9,23 +9,21 @@ ninjApp.controller('menuController', function($scope, Page, transiArray){
 		setTimeout(function(){
 			if(z<=closeLength){
 				$('.menuOverlay--close h5 span:nth-child('+z+')').velocity({
-					'opacity':'0.1'
+					'opacity':'0.2'
 				});
 				z++;
 				hoverHeader_reset(y,z,timer,closeLength);
 			} else {
 				z=0;
-				if(In == true){
-					hoverHeader_color(y,z,timer,closeLength);	
-				}
+				hoverHeader_color(y,z,timer,closeLength);	
 			}
 		},timer);
 	}
 	function hoverHeader_color(y,z,timer,closeLength){
 		setTimeout(function(){
-			if(y<=closeLength && In == true){
+			if(y<=closeLength){
 				$('.menuOverlay--close h5 span:nth-child('+y+')').velocity({
-					'opacity':'0.8'
+					'opacity':'1'
 				});
 				y++;
 				hoverHeader_color(y,z,timer,closeLength);
@@ -36,10 +34,6 @@ ninjApp.controller('menuController', function($scope, Page, transiArray){
 		},timer);
 	}
 	
-
-	$scope.hoverHeaderIn = function(){
-		if(In == false){
-			In = true;
 			$('.menuOverlay--close h5').html(closeContent);
 			var closeLength = closeContent.length;
 			var closeArray = closeContent.split('');
@@ -49,15 +43,11 @@ ninjApp.controller('menuController', function($scope, Page, transiArray){
 			}
 			var y = 0,
 				z = 0,
-				timer = 80;
+				timer = 100;
 			hoverHeader_color(y,z,timer,closeLength);
-			return closeContent;
-		}
-	}
-	$scope.hoverHeaderOut = function(){
-		In = false;
-		$('.menuOverlay--close h5').empty().html(closeContent);
-	}
+	
+	
+
 // ================================================================================================== //
 
 

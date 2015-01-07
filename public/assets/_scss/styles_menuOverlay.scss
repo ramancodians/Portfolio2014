@@ -18,7 +18,7 @@
 	height: 15%;
 	top: -10%;
 	opacity: 0;
-
+	
 	width: 100%;
 	cursor: pointer;
 	border-bottom: $lowBorder;
@@ -26,7 +26,7 @@
 		@include transition(all .2s ease-out);
 
 		&:hover {
-			background: rgba(0,0,0,.4);
+			background: rgba(0,0,0,1);
 			.menuOverlay--close {
 				margin-top: -10px;
 				opacity: 1;
@@ -35,12 +35,15 @@
 					@include animation(icon-cross-rotation .8s ease-out infinite);
 				}
 			}
+			.menuOverlay--title {
+				margin-top: -20px;
+				opacity: 0;
+			}
 			
 		}
 		&:active .icon-cross {
-			@include animation(icon-cross-rotation .8s ease-out infinite);
+			@include animation(icon-cross-rotation 1s ease-out);
 		}
-	
 
 	.menuOverlay--logo {
 		display: block;
@@ -53,16 +56,21 @@
 		padding: 20px 3% 20px 0;
 		
 		text-decoration: none;
-		color: rgba(255,255,255,.8);
+		color: rgba(255,255,255,.4);
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		font-family: $font-brandon;
 		font-weight: 300;
 		font-size: 12px;
 		
+		
+
+		&:hover {
+			color: rgba(255,255,255,.8);
+		}
 
 		/*margin-left: 135px;*/
-
+		@include transition(color .2s ease-out);
 		@include transform(translateY(-50%));
 	
 		span {
@@ -78,12 +86,30 @@
 		}
 	}
 
+
+	.menuOverlay--title {
+		opacity: 1;
+		position: absolute;
+		top: 6.5%;
+		right: 3%;
+		height: 30px;
+		float: right;
+		@include transition(all .2s ease-out);
+
+		h2 {
+			display: block;
+			font-family: $font-brandon;
+			font-size: 20px;
+			text-transform: uppercase;
+			color: rgba(255,255,255,1);
+			letter-spacing: 3px;
+		}
+	}
 	.menuOverlay--close {
 		opacity: 0;
 
 		position: absolute;
-		top: 50%;
-		@include transform(translateY(-50%));
+		top: 5.5%;
 		height: 30px;
 		
 		float: right;
@@ -104,25 +130,26 @@
 			transform-origin: center center;
 			@include transition(all .2s ease-out);	
 		}
-	}
 
-
-
-	h5 {
-		color: $yellow;
-		font-size: 20px;
-		text-align: center;
-		letter-spacing: 1px;
-		font-weight: 100;
-		display: inline-block;
-		opacity: .2;
-		@include transition(opacity .2s ease-out);
-
-		span {
-			opacity: 0.4;
+		h5 {
+			text-transform: uppercase;
+			color: $yellow;
+			font-size: 20px;
+			text-align: center;
+			letter-spacing: 3px;
+			/*font-weight: 100;*/
+			display: inline-block;
+			opacity: .2;
 			@include transition(opacity .2s ease-out);
+
+			span {
+				opacity: 0.4;
+				@include transition(opacity .2s ease-out);
+			}
 		}
+
 	}
+
 }
 
 @keyframes icon-cross-rotation {

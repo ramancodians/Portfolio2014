@@ -125,32 +125,9 @@ ninjApp.controller('homeController', function($scope, Page){
 				return w;
 			}
 
-		if ($("body").hasClass("home_noClick") ) {
-			// Reset the home content when the controller is loaded to prevent html5mode history trolling
-			for(var x = 0; x < $scope.homeTitleContent.length; x++){
-				$('.home #homeTitle '+$scope.homeTitleContent[x])
-					.empty()
-					.html($scope.homeTitleContent[x]);
-			}
-			$('.home-btStartUx')
-				.fadeIn(600)
-				.queue(function(){
-					$(this).css({
-						'-webkit-transform': 'translate(-50%,0)',
-						'-ms-transform': 'translate(-50%,0)',
-						'transform': 'translate(-50%,0)'
-					}); 
-				})
-				.dequeue();
-				
-			$('.alexis').css({
-				'stroke-dasharray': '1000',
-				'stroke-dashoffset': '1000'
-			});
-			$('body').removeClass("home_noClick");
 
-		} else {
-			$('body').addClass("home_noClick");
+
+	
 
 			for(var x = 0; x < homeTitle.length; x++){
 				$('.home #homeTitle '+homeTitle[x]).empty();
@@ -254,7 +231,7 @@ ninjApp.controller('homeController', function($scope, Page){
 					}
 					lightMyWord(w, x);
 			});
-		}
+		
 	
 	/* --------------------------------------------------------------------------- */
 

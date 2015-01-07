@@ -159,17 +159,7 @@
 
 		preloaderAnimation(); // functions.js
 
-
-
-
-
-		
-			
-
-
-	}
-
-	);
+	});
 
 
 
