@@ -137,16 +137,6 @@
 		}
 
 		$scope.switchPage = function(link){
-			function transitionTo(link){
-				if(link == 'home'){
-					$state.transitionTo('/');
-				} else {
-					$state.transitionTo(link);
-				}
-
-			}
-
-			var overlayAnim;
 			var page =  $('section').attr('class');
 			page = page.replace('ng-scope', '').replace(' ','');
 			console.log('page: '+page);
@@ -155,62 +145,14 @@
 				switchMenu_anim(transiArray, 0, true);
 			} else {
 				switchMenu_anim(transiArray, 0, undefined);
-					overlayAnim = true;
-					$('.preloader')
-						.show()
-						.css({'top': '0','bottom': 'auto','height':'100%'})
-						.queue(function(){
-							transitionTo(link);
-						})
-						.delay(500)
-						.queue(function(){
-							$(this).css({'top': 'auto','bottom': '0','height':'0'});
-							setTimeout(function(){
-								$(this).hide().css({'top': '0','bottom': 'auto','height':'100%'});
-							},1000);
-						})
-						.dequeue();							
-
-						// Check if the page switch is really done
-						setTimeout(function(){
-							page =  $('section').attr('class');
-							page = page.replace('ng-scope', '').replace(' ','');
-							console.log('page2: '+page);
-							console.log('link2: '+link);
-							if(page != link){
-								transitionTo(link);
-							}
-							$('.preloader')
-								.css({'top': '0','bottom': 'auto','height':'100%'})
-								.delay(200)
-								.queue(function(){
-									$(this).fadeOut();
-								})
-							overlayAnim = false;
-						}, 700);
-
-						setTimeout(function(){
-							$('.preloader')
-								.css({'top': '0','bottom': 'auto','height':'100%'})
-								.delay(200)
-								.queue(function(){
-									$(this).hide();
-								})
-								.dequeue();
-						},2000);
+				setTimeout(function(){
+					if(link == 'home'){
+						$state.transitionTo('/');
+					} else {
+						$state.transitionTo(link);
+					}
+				},800);						
 			}			
-
-			// prevent timer's fucked and blocked overlay
-			if(overlayAnim == true){
-				$('.preloader')
-					.css({'top': '0','bottom': 'auto','height':'100%'})
-					.delay(200)
-					.queue(function(){
-						$(this).fadeOut('fast');
-						overlayAnim = false;
-					})
-					.dequeue();
-			}
 		}
 
 
