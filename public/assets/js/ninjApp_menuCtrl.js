@@ -67,18 +67,18 @@ ninjApp.controller('menuController', function($scope, Page, transiArray){
 
 		if(menu == "mainMenu"){
 			$('.menuOverlay-mainMenu li:nth-child('+id+')')
-					.addClass('menuOverlay--selected-mainMenu');
-					/*.removeClass('menuOverlay--notSelected')*/
+					.addClass('menuOverlay--selected-mainMenu')
+					.removeClass('menuOverlay--notSelected');
 		} else if(menu == "secondMenu"){
 			$('.menuOverlay-secondMenu > li:nth-child('+id+')')
 					.addClass('menuOverlay--selected')
-					.addClass('menuOverlay--selected-secondMenu');
-					/*.removeClass('menuOverlay--notSelected')*/
+					.addClass('menuOverlay--selected-secondMenu')
+					.removeClass('menuOverlay--notSelected');
 		} else if(menu == "subMenu"){
 			$('.menuOverlay--subMenu > li:nth-child('+id+')')
 					.addClass('menuOverlay--selected')
-					.addClass('menuOverlay--selected-subMenu');
-					/*.removeClass('menuOverlay--notSelected')*/
+					.addClass('menuOverlay--selected-subMenu')
+					.removeClass('menuOverlay--notSelected');
 		} else if(menu == "externalLinks"){
 			$('.menuOverlay---externalLinks li:nth-child('+id+')')
 					.removeClass('menuOverlay--notSelected-externalLinks')
@@ -91,8 +91,8 @@ ninjApp.controller('menuController', function($scope, Page, transiArray){
 		    .removeClass('menuOverlay--selected')
 		    .removeClass('menuOverlay--selected-mainMenu')
 		    .removeClass('menuOverlay--selected-secondMenu')
-			.removeClass('menuOverlay--selected-subMenu');
-			/*.removeClass('menuOverlay--notSelected')*/
+			.removeClass('menuOverlay--selected-subMenu')
+			.removeClass('menuOverlay--notSelected');
 		$('.menuOverlay---externalLinks li')
 			.removeClass('menuOverlay--selected-externalLinks')
 			.removeClass('menuOverlay--notSelected-externalLinks');

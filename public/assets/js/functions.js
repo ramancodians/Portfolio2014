@@ -75,51 +75,47 @@ window.preloaderAnimation = function(){
 				mainMenuElements(transiArray, y, openMenu);
 			} else {
 				y = 1;
-				x++;
+				if(openMenu === false){ x = 3; }
+				else { x = 1; }
 				switchMenu_anim(transiArray, x, openMenu);
 			}
 		},timer);
 	};
 
-	window.secondMenuElements = function(transiArray, y, openMenu){
-		setTimeout(function(){
-			if(openMenu === false){
-				$(".menuOverlay-secondMenu").css({
-					'-webkit-transform': 'translateY(0%)',
-					'-moz-transform': 'translateY(0%)',
-					'-ms-transform': 'translateY(0%)',
-					'-o-transform': 'translateY(0%)',
-					'transform': 'translateY(0%)',
-					'opacity':'1'
-				});
-			} else {
-				$(".menuOverlay-secondMenu").css({
-					'-webkit-transform': 'translateY(100%)',
-					'-moz-transform': 'translateY(100%)',
-					'-ms-transform': 'translateY(100%)',
-					'-o-transform': 'translateY(100%)',
-					'transform': 'translateY(100%)',
-					'opacity':'0'
-				});
-			}
-			x++;
-			switchMenu_anim(transiArray, 2, openMenu);
-		},timer);
-	};
-
 	x = 0;
 	var y = 1;
-	var timer = 50;
+	var timer = 70;
 
 	window.switchMenu_anim = function(transiArray, x, openMenu){
 		setTimeout(function(){
 			if(openMenu === false){
 				switch(x){
 					case 0:
-						$('.menuOverlay-header').css({'opacity':'1','top':'0'});
+						/*$('.menuOverlay-header').css({'opacity':'1','top':'0'});*/
+						$('.menuOverlay-header')
+							.css({
+								'-webkit-transform': 'translateY(0%)',
+								'-moz-transform': 'translateY(0%)',
+								'-ms-transform': 'translateY(0%)',
+								'-o-transform': 'translateY(0%)',
+								'transform': 'translateY(0%)',
+								'opacity':'1'
+							});
 						x++; 
 						switchMenu_anim(transiArray, x, openMenu); break;
-					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 1:
+						/*.css({'opacity':'1','bottom':'0'});*/
+						$('.menuOverlay-secondMenu')
+							.css({
+								'-webkit-transform': 'translateY(0%)',
+								'-moz-transform': 'translateY(0%)',
+								'-ms-transform': 'translateY(0%)',
+								'-o-transform': 'translateY(0%)',
+								'transform': 'translateY(0%)',
+								'opacity':'1'
+							});
+						x++; 
+						switchMenu_anim(transiArray, x, openMenu); break;
 					case 2: mainMenuElements(transiArray, y, openMenu); break;
 					default:
 						openMenu = true;
@@ -128,20 +124,45 @@ window.preloaderAnimation = function(){
 			} else if(openMenu === true) {
 				switch(x){
 					case 0: mainMenuElements(transiArray, y, openMenu); break;
-					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 1:
+						$('.menuOverlay-secondMenu')
+							.css({
+								'-webkit-transform': 'translateY(20%)',
+								'-moz-transform': 'translateY(20%)',
+								'-ms-transform': 'translateY(20%)',
+								'-o-transform': 'translateY(20%)',
+								'transform': 'translateY(20%)',
+								'opacity':'0'
+							});
+							/*.velocity("transition.slideDownOut", 200)
+							.velocity({ opacity: 0 }, 200);*/
+							/*.css({'opacity':'0','bottom':'-20%'});*/
+						x++;
+						switchMenu_anim(transiArray, x, openMenu);
+						break;
 					case 2:
-						$('.menuOverlay-header').css({'opacity':'0','top':'-10%'});
+						$('.menuOverlay-header')
+							.css({
+								'-webkit-transform': 'translateY(-15%)',
+								'-moz-transform': 'translateY(-15%)',
+								'-ms-transform': 'translateY(-15%)',
+								'-o-transform': 'translateY(-15%)',
+								'transform': 'translateY(-15%)',
+								'opacity':'0'
+							});
+							/*.velocity("transition.slideUpOut", 200)
+							.velocity({ opacity: 0 }, 200);*/
+							/*.css({'opacity':'0','top':'-10%'});*/
 						x++;
 						switchMenu_anim(transiArray, x, openMenu);
 						break;
 					default:
 						openMenu = false;
-						x = 0;
+						x = 1;
 						$('.overlay').css('background', 'rgba(0,0,0,0)');
 						$('.menuOverlay').fadeOut();
 						$('.menuOverlay-contentscale').removeClass('open');
 						setTimeout(function(){
-							var x = 1;
 							page = $('section').attr('class');
 							page = page.replace('ng-scope','').replace(' ', '');
 							closeMenu_fadeInElements(transiArray, page, x);
@@ -150,9 +171,34 @@ window.preloaderAnimation = function(){
 			} else if(openMenu === undefined){
 				switch(x){
 					case 0: mainMenuElements(transiArray, y, openMenu); break;
-					case 1: secondMenuElements(transiArray, y, openMenu); break;
+					case 1:
+						$('.menuOverlay-secondMenu')
+							.css({
+								'-webkit-transform': 'translateY(20%)',
+								'-moz-transform': 'translateY(20%)',
+								'-ms-transform': 'translateY(20%)',
+								'-o-transform': 'translateY(20%)',
+								'transform': 'translateY(20%)',
+								'opacity':'0'
+							});
+							/*.velocity("transition.slideDownOut", 200)
+							.velocity({ opacity: 0 }, 200);*/
+							/*.css({'opacity':'0','bottom':'-20%'});*/
+						x++; 
+						switchMenu_anim(transiArray, x, openMenu); break;
 					case 2:
-						$('.menuOverlay-header').css({'opacity':'0','top':'-10%'});
+						$('.menuOverlay-header')
+							.css({
+								'-webkit-transform': 'translateY(-15%)',
+								'-moz-transform': 'translateY(-15%)',
+								'-ms-transform': 'translateY(-15%)',
+								'-o-transform': 'translateY(-15%)',
+								'transform': 'translateY(-15%)',
+								'opacity':'0'
+							});
+							/*.velocity("transition.slideUpOut", 200)
+							.velocity({ opacity: 0 }, 200);*/
+							/*.css({'opacity':'0','top':'-10%'});*/
 						x++;
 						switchMenu_anim(transiArray, x, openMenu);
 						break;
