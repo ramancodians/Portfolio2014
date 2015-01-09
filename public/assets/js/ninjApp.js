@@ -118,13 +118,24 @@
 
 	
 		$scope.menu = function(keyEvent){
-			if(keyEvent.which == 109){
-				if($('.menuOverlay').css('display') == 'none'){
-					var page =  $('section').attr('class');
-					page = page.replace('ng-scope', '').replace(' ','');
-					openMenu_fadeOutElements(transiArray, page, 1);
-				} else {
-					switchMenu_anim(transiArray, 0, true);
+		    if(keyEvent.which == 109){
+		    	if($('body').hasClass("menu_noClick")){
+		    		
+		    	} else {
+		    	    var elem = $('body');
+		    	    elem.addClass("menu_noClick");
+		    	    
+		    	    setTimeout(function() {
+		    	        elem.removeClass("menu_noClick");
+		    	    }, 600);
+
+					if($('.menuOverlay').css('display') == 'none'){
+						var page =  $('section').attr('class');
+						page = page.replace('ng-scope', '').replace(' ','');
+						openMenu_fadeOutElements(transiArray, page, 1);
+					} else {
+						switchMenu_anim(transiArray, 0, true);
+					}
 				} 
 			}
 		}

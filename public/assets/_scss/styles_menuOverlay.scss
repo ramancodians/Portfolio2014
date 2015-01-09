@@ -454,9 +454,15 @@
 					height: 30px !important;
 				}
 			}
-			&:nth-child(1) a { background: $redOpa !important; }
+			/*&:nth-child(1) a { background: $redOpa !important; }
 			&:nth-child(2) a { background: $greenOpa !important; }
-			&:nth-child(3) a { background: $blueOpa !important; }
+			&:nth-child(3) a { background: $blueOpa !important; }*/
+			&:nth-child(1) a h3 { color: $redOpa !important; }
+			&:nth-child(2) a h3 { color: $greenOpa !important; }
+			&:nth-child(3) a h3 { color: $blueOpa !important; }
+			&:nth-child(1) a,
+			&:nth-child(2) a,
+			&:nth-child(3) a { background: rgba(0,0,0,.4) !important; }
 		}
 		li.menuOverlay--selected-secondMenu {
 			&:nth-child(1) a { background: $orangeOpa !important; }
