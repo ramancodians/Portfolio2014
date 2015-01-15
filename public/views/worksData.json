@@ -24,13 +24,6 @@
 	"table":"1",
 },{
 	"id":"3",
-	"name":"USA, Leader of The Flight World | DataViz",
-	"date":"November 2012",
-	"mainType":"Dataviz",
-	"type1":"Infographic",
-	"table":"2"
-},{
-	"id":"4",
 	"name":"Portfolio 2013",
 	"date":"June 2013",
 	"mainType":"Code & Design",
@@ -42,6 +35,13 @@
 	"language3":"JS",
 	"tag1":"Responsive",
 	"table":"1"
+},{
+	"id":"4",
+	"name":"USA, Leader of The Flight World | DataViz",
+	"date":"November 2012",
+	"mainType":"Dataviz",
+	"type1":"Infographic",
+	"table":"2"
 },{
 	"id":"5",
 	"name":"Portfolio 2012",
@@ -92,18 +92,6 @@
 	"tag1":"Responsive",
 	"tag2":"IE6 Compatibility",
 	"table":"2"
-},{
-	"id":"9",
-	"name":"CJD Bretagne contre-attaque",
-	"date":"October 2013",
-	"mainType":"Code",
-	"type1":"Front-End",
-	"language1":"HTML",
-	"language2":"CSS",
-	"language3":"JS",
-	"tag1":"Responsive",
-	"tag2":"IE6 Compatibility",
-	"table":"2"
-},]
+}]
 
 

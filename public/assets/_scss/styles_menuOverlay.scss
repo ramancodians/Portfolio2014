@@ -462,12 +462,14 @@
 			&:nth-child(3) a h3 { color: $blueOpa !important; }
 			&:nth-child(1) a,
 			&:nth-child(2) a,
-			&:nth-child(3) a { background: rgba(0,0,0,.4) !important; }
+			&:nth-child(3) a,
+			li.menuOverlay--selected-secondMenu:nth-child(1),
+			li.menuOverlay--selected-secondMenu:nth-child(2) { background: rgba(0,0,0,.4) !important; }
 		}
-		li.menuOverlay--selected-secondMenu {
+		/*li.menuOverlay--selected-secondMenu {
 			&:nth-child(1) a { background: $orangeOpa !important; }
 			&:nth-child(2) a { background: $violetOpa !important; }
-		}
+		}*/
 
 		li.menuOverlay--selected-externalLinks {
 			a {
