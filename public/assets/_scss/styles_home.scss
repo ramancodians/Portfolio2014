@@ -1,3 +1,5 @@
+@import "_var.scss";
+
 
 /* ---------------- Home ---------------- */
 	.home {
@@ -8,6 +10,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		overflow: hidden;
 
 		#homeTitle {
 			display: block;
@@ -146,8 +149,8 @@
 					@include transition(transform .2s ease-out, stroke .6s ease-out)
 
 				}
-				line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
-				line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
+			line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
+					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 			}
 		}
 
@@ -171,3 +174,52 @@
 
 	
 /* -------------------------------------- */
+
+
+
+@media only screen and (max-width : 1100px){
+	#homeTitle {
+		max-width: 400px;
+		line-height: 50px;
+		svg { fill: #f4fd14 !important; }
+	}
+}
+@media only screen and (max-height : 1100px){ .home-btStartUx { top: 70% !important; }}
+@media only screen and (max-height : 850px){ .home-btStartUx { top: 75% !important; }}
+@media only screen and (max-height : 600px){
+	#homeTitle { top: 37% !important; }
+	.home-btStartUx { top: 80% !important; }
+}
+
+@media only screen and (max-width : 500px){
+	#homeTitle {
+		h2 { display: block !important; }
+		p { display: none !important; }
+	}
+	.home-btStartUx {
+		svg { display: none; }
+		span { border: 1px solid #f4fd14; }
+		#home-tips { display: none !important; }
+	}
+}
+
+@media only screen and (max-width : 500px){
+	#homeTitle {
+		h2 { line-height: 30px !important; }
+		svg { max-width: 80% !important; }
+	}
+	.home-btStartUx {
+		width: 210px !important;
+		span {
+			font-size: 14px !important;
+		}
+	}
+}
+
+
+
+
+
+
+
+

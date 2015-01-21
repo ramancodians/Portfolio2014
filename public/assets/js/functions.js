@@ -278,7 +278,8 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 		x = 0;
 		var openMenu = false;
 
-		$('.overlay').css('background', 'rgba(0,0,0,.4)');
+		$('.overlay').css('background', 'rgba(0,0,0,.6)');
+		/*$('.overlay').css('background', 'rgba(52, 152, 219, .1) ');*/
 		$('.menuOverlay').fadeIn();
 		$('.menuOverlay-contentscale').addClass('open');
 		

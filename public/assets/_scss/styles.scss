@@ -39,7 +39,8 @@ body {
 		.preloader {
 			display: block;
 			/*background: rgba(0,0,0,.6);*/
-			background: #111;
+			/*background: #111; */
+			background: #000;
 			z-index: $sectionZindex + 5;
 			@include transition(all .2s ease-out);
 			height: 100%;
@@ -87,7 +88,7 @@ body {
 
 
 		.overlay {
-			background: rgba(0,0,0,0);
+			background: rgba(0,0,0,.2);
 			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
