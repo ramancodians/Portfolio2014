@@ -14,9 +14,7 @@ window.preloaderAnimation = function(){
 	function preloaderAnimation_reset(y,z){
 		setTimeout(function(){
 			if(z<=preloaderLength){
-				$('.preloader h4 span:nth-child('+z+')').css({
-					'opacity':'0.2'
-				});
+				TweenLite.to('.preloader h4 span:nth-child('+z+')', 0.2, {opacity:"0.2", ease:Quad.easeOut});
 				z++;
 				preloaderAnimation_reset(y,z);
 			} else {
@@ -28,9 +26,7 @@ window.preloaderAnimation = function(){
 	function preloaderAnimation_color(y,z){
 		setTimeout(function(){
 			if(y<=preloaderLength){
-				$('.preloader h4 span:nth-child('+y+')').css({
-					'opacity':'0.8'
-				});
+				TweenLite.to('.preloader h4 span:nth-child('+y+')', 0.2, {opacity:"0.8", ease:Quad.easeOut});
 				y++;
 				preloaderAnimation_color(y,z);
 			} else {
@@ -58,18 +54,9 @@ window.preloaderAnimation = function(){
 		setTimeout(function(){
 			if(y<=mainMenu){
 				if(openMenu === false){
-					$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
-						'-webkit-transform': 'translateY(0%)',
-						'-moz-transform': 'translateY(0%)',
-						'-ms-transform': 'translateY(0%)',
-						'-o-transform': 'translateY(0%)',
-						'transform': 'translateY(0%)',
-						'opacity':'1'
-					});
+					TweenLite.to('.menuOverlay-mainMenu li:nth-child('+y+')', 0.2, {y: "0", opacity:"1", ease:Quad.easeOut});
 				} else {
-					$(".menuOverlay-mainMenu li:nth-child("+y+")").css({
-						'opacity':'0'
-					});
+					TweenLite.to(".menuOverlay-mainMenu li:nth-child("+y+")", 0.2, {opacity:"0", ease:Quad.easeOut});
 				}
 				y++;
 				mainMenuElements(transiArray, y, openMenu);
@@ -91,31 +78,15 @@ window.preloaderAnimation = function(){
 			if(openMenu === false){
 				switch(x){
 					case 0:
-						/*$('.menuOverlay-header').css({'opacity':'1','top':'0'});*/
-						$('.menuOverlay-header')
-							.css({
-								'-webkit-transform': 'translateY(0%)',
-								'-moz-transform': 'translateY(0%)',
-								'-ms-transform': 'translateY(0%)',
-								'-o-transform': 'translateY(0%)',
-								'transform': 'translateY(0%)',
-								'opacity':'1'
-							});
+						TweenLite.to('.menuOverlay-header', 0.2, {top: "0", opacity:"1", ease:Quad.easeOut});
 						x++; 
 						switchMenu_anim(transiArray, x, openMenu); break;
 					case 1:
-						/*.css({'opacity':'1','bottom':'0'});*/
-						$('.menuOverlay-secondMenu')
-							.css({
-								'-webkit-transform': 'translateY(0%)',
-								'-moz-transform': 'translateY(0%)',
-								'-ms-transform': 'translateY(0%)',
-								'-o-transform': 'translateY(0%)',
-								'transform': 'translateY(0%)',
-								'opacity':'1'
-							});
-						x++; 
-						switchMenu_anim(transiArray, x, openMenu); break;
+						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "0", opacity:"1" , ease:Quad.easeOut, onComplete:function(){
+							x++; 
+							switchMenu_anim(transiArray, x, openMenu);
+						}});
+						break;
 					case 2: mainMenuElements(transiArray, y, openMenu); break;
 					default:
 						openMenu = true;
@@ -125,42 +96,21 @@ window.preloaderAnimation = function(){
 				switch(x){
 					case 0: mainMenuElements(transiArray, y, openMenu); break;
 					case 1:
-						$('.menuOverlay-secondMenu')
-							.css({
-								'-webkit-transform': 'translateY(20%)',
-								'-moz-transform': 'translateY(20%)',
-								'-ms-transform': 'translateY(20%)',
-								'-o-transform': 'translateY(20%)',
-								'transform': 'translateY(20%)',
-								'opacity':'0'
-							});
-							/*.velocity("transition.slideDownOut", 200)
-							.velocity({ opacity: 0 }, 200);*/
-							/*.css({'opacity':'0','bottom':'-20%'});*/
+						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "-5%",opacity:"0", ease:Quad.easeOut});
 						x++;
 						switchMenu_anim(transiArray, x, openMenu);
 						break;
 					case 2:
-						$('.menuOverlay-header')
-							.css({
-								'-webkit-transform': 'translateY(-15%)',
-								'-moz-transform': 'translateY(-15%)',
-								'-ms-transform': 'translateY(-15%)',
-								'-o-transform': 'translateY(-15%)',
-								'transform': 'translateY(-15%)',
-								'opacity':'0'
-							});
-							/*.velocity("transition.slideUpOut", 200)
-							.velocity({ opacity: 0 }, 200);*/
-							/*.css({'opacity':'0','top':'-10%'});*/
-						x++;
-						switchMenu_anim(transiArray, x, openMenu);
+						TweenLite.to('.menuOverlay-header', 0.2, {top: "-10%",opacity:"0", ease:Quad.easeOut, onComplete:function(){
+							x++;
+							switchMenu_anim(transiArray, x, openMenu);
+						}});
 						break;
 					default:
 						openMenu = false;
 						x = 1;
-						$('.overlay').css('background', 'rgba(0,0,0,0)');
-						$('.menuOverlay').fadeOut();
+						TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)", ease:Quad.easeOut});
+						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none", ease:Quad.easeOut});
 						$('.menuOverlay-contentscale').removeClass('open');
 						setTimeout(function(){
 							page = $('section').attr('class');
@@ -172,41 +122,20 @@ window.preloaderAnimation = function(){
 				switch(x){
 					case 0: mainMenuElements(transiArray, y, openMenu); break;
 					case 1:
-						$('.menuOverlay-secondMenu')
-							.css({
-								'-webkit-transform': 'translateY(20%)',
-								'-moz-transform': 'translateY(20%)',
-								'-ms-transform': 'translateY(20%)',
-								'-o-transform': 'translateY(20%)',
-								'transform': 'translateY(20%)',
-								'opacity':'0'
-							});
-							/*.velocity("transition.slideDownOut", 200)
-							.velocity({ opacity: 0 }, 200);*/
-							/*.css({'opacity':'0','bottom':'-20%'});*/
+						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "-5%", opacity:"0", ease:Quad.easeOut});
 						x++; 
 						switchMenu_anim(transiArray, x, openMenu); break;
 					case 2:
-						$('.menuOverlay-header')
-							.css({
-								'-webkit-transform': 'translateY(-15%)',
-								'-moz-transform': 'translateY(-15%)',
-								'-ms-transform': 'translateY(-15%)',
-								'-o-transform': 'translateY(-15%)',
-								'transform': 'translateY(-15%)',
-								'opacity':'0'
-							});
-							/*.velocity("transition.slideUpOut", 200)
-							.velocity({ opacity: 0 }, 200);*/
-							/*.css({'opacity':'0','top':'-10%'});*/
-						x++;
-						switchMenu_anim(transiArray, x, openMenu);
+						TweenLite.to('.menuOverlay-header', 0.2, {top: "-10%", opacity:"0", ease:Quad.easeOut, onComplete:function(){
+							x++;
+							switchMenu_anim(transiArray, x, openMenu);
+						}});
 						break;
 					default:
 						openMenu = false;
 						x = 0;
-						$('.overlay').css('background', 'rgba(0,0,0,0)');
-						$('.menuOverlay').fadeOut();
+						TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)"});
+						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none"});
 						$('.menuOverlay-contentscale').removeClass('open');
 				}
 			} else {
@@ -235,40 +164,12 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 
 		if($(thisTransi).hasClass('transiArray')){
 			var thisTransiId = $(thisTransi).attr('id');
-
-			// Property Objects in array to count them and use them with an easier way
-				var propertiesKey = [];
-
-				angular.forEach(transiArray[page][thisTransiId], function(value, key) {
-					propertiesKey.push(key);
-				});
-				var nbProperties = propertiesKey.length;
-
-			for(var y=0; y<nbProperties; y++){
-				$(thisTransi)
-					.css({
-						'-webkit-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-moz-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-ms-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-o-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'opacity': '0'
-					})
-					.css(propertiesKey[y], transiArray[page][thisTransiId][propertiesKey[y]].newValue);
-			}
+			var propertiesNewValue = transiArray[page][thisTransiId]['y'].newValue;
+			TweenLite.to(thisTransi, 0.2, { opacity:"0", y: propertiesNewValue , ease:Quad.easeOut});
 
 		} else {
-			$('.alphaTransi:nth-child('+x+')')
-				.css({
-					'-webkit-transition': 'opacity 0.2s ease-out',
-					'-moz-transition': 'opacity 0.2s ease-out',
-					'-ms-transition': 'opacity 0.2s ease-out',
-					'-o-transition': 'opacity 0.2s ease-out',
-					'transition': 'opacity 0.2s ease-out',
-					'opacity': '0'
-				});
+			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.2, { opacity:"0"});
 		}
-
 		setTimeout(function(){
 			x++;
 			openMenu_fadeOutElements(transiArray, page, x);
@@ -278,11 +179,10 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 		x = 0;
 		var openMenu = false;
 
-		$('.overlay').css('background', 'rgba(0,0,0,.6)');
-		/*$('.overlay').css('background', 'rgba(52, 152, 219, .1) ');*/
-		$('.menuOverlay').fadeIn();
+		TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.6)"});
+		TweenLite.to('.menuOverlay', 0.2, {display:"block", opacity: "1"});
 		$('.menuOverlay-contentscale').addClass('open');
-		
+
 		switchMenu_anim(transiArray, x, openMenu);
 	}
 
@@ -305,41 +205,15 @@ window.closeMenu_fadeInElements = function(transiArray, page, x){
 	if(x <= nbTransi){
 		var thisTransi = '.alphaTransi:nth-child('+x+')';
 
+
 		if($(thisTransi).hasClass('transiArray')){
 			var thisTransiId = $(thisTransi).attr('id');
-
-			// Property Objects in array to count them and use them with an easier way
-				var propertiesKey = [];
-
-				angular.forEach(transiArray[page][thisTransiId], function(value, key) {
-					propertiesKey.push(key);
-				});
-				var nbProperties = propertiesKey.length;
-
-			for(var y=0; y<nbProperties; y++){
-				$(thisTransi)
-					.css({
-						'-webkit-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-moz-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-ms-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'-o-transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'transition': propertiesKey[y]+' '+transiArray[page][thisTransiId][propertiesKey[y]].easing+', opacity 0.2s ease-out',
-						'opacity': '1'
-					})
-					.css(propertiesKey[y], transiArray[page][thisTransiId][propertiesKey[y]].oldValue);
-			}
-
+			var propertiesOldValue = transiArray[page][thisTransiId]['y'].oldValue;
+			TweenLite.to(thisTransi, 0.2, { opacity:"1", y: propertiesOldValue});
 		} else {
-			$('.alphaTransi:nth-child('+x+')')
-				.css({
-					'-webkit-transition': 'opacity 0.2s ease-out',
-					'-moz-transition': 'opacity 0.2s ease-out',
-					'-ms-transition': 'opacity 0.2s ease-out',
-					'-o-transition': 'opacity 0.2s ease-out',
-					'transition': 'opacity 0.2s ease-out',
-					'opacity': '1'
-				});
+			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.2, { opacity:"1"});
 		}
+
 
 		setTimeout(function(){
 			x++;

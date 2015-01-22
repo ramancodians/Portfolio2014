@@ -10,9 +10,7 @@ if (document.documentElement.clientWidth > 900) {
 		function hoverHeader_reset(y,z,timer,closeLength){
 			setTimeout(function(){
 				if(z<=closeLength){
-					$('.menuOverlay--close h5 span:nth-child('+z+')').velocity({
-						'opacity':'0.2'
-					});
+					TweenLite.to('.menuOverlay--close h5 span:nth-child('+z+')', 0.2, {opacity:"0.2", ease:Quart.easeOut});
 					z++;
 					hoverHeader_reset(y,z,timer,closeLength);
 				} else {
@@ -24,9 +22,7 @@ if (document.documentElement.clientWidth > 900) {
 		function hoverHeader_color(y,z,timer,closeLength){
 			setTimeout(function(){
 				if(y<=closeLength){
-					$('.menuOverlay--close h5 span:nth-child('+y+')').velocity({
-						'opacity':'1'
-					});
+					TweenLite.to('.menuOverlay--close h5 span:nth-child('+y+')', 0.2, {opacity:"1", ease:Quart.easeOut});
 					y++;
 					hoverHeader_color(y,z,timer,closeLength);
 				} else {

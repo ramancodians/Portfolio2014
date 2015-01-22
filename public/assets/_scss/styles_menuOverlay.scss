@@ -53,8 +53,8 @@
 	.menuOverlay-header {
 		position: absolute;
 		height: 15%;
-		@include transform(translateY(-15%));
-		top: 0;
+		/*@include transform(translateY(-15%));*/
+		top: -10%;
 		opacity: 0;
 		width: 100%;
 		cursor: pointer;
@@ -234,9 +234,7 @@
 	.menuOverlay-secondMenu {
 		position: absolute;
 		height: 20%;
-		bottom: 0;
-		@include transform(translateY(20%));
-
+		bottom: -5%;
 		@include transition(all .2s ease-out);
 		opacity: 0;
 		display: table !important;

@@ -34,22 +34,15 @@
 		var transiArray = {
 			'home': {
 				'home-tips': {
-					'opacity':{
-						'easing': '0.2s ease-out',
-						'oldValue': '1',
-						'newValue': '0'
-					},
-					'margin-top':{
-						'easing': '0.2s ease-out',
+					'y':{
 						'oldValue': '0',
-						'newValue': '10px'
+						'newValue': '10'
 					}
 				},
 				'homeTitle': {
-					'top': {
-						'easing': '0.2s ease-out',
-						'oldValue': '50%',
-						'newValue': '48%'
+					'y': {
+						'oldValue': '0',
+						'newValue': '-20'
 					}
 				}
 			}
@@ -69,13 +62,13 @@
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
 						setTimeout(function(){
-							elm.show().css({'top': '0','bottom': 'auto','height':'100%'});
+							TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
 						},1000);
 					} else {
 						setTimeout(function(){
-							elm.css({'top': 'auto','bottom': '0','height':'0'});
+							TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});
 							setTimeout(function(){
-								elm.hide().css({'top': '0','bottom': 'auto','height':'100%'});
+								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
 							},1000);
 						},1000);
 					}
