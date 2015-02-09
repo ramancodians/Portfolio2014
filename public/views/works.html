@@ -1,6 +1,20 @@
 <section class="works">
-    <h1>Page Works test</h1>
-    
+    <header class="transiArray alphaTransi">
+        <h1>Work</h1>
+        <h2>My few projects</h2>
+    </header>
+
+    <div class="works-list transiArray alphaTransi">
+        <article ng-repeat="work in works" id="work{{work.id}}" style="background: url('assets/img/work/{{work.id}}_{{work.link}}.jpg') center center no-repeat; background-size: cover;">
+            <a href="/{{work.link}}" ng-attr-title="take a look at {{work.name}}">
+                <div class="works--header">
+                    <h3>{{work.name}}</h3>
+                    <p>{{work.miniDesc}}</p>
+                </div>
+                <details>- {{work.mainType}}</details>
+            </a>
+        </article>
+    </div>
 
 
     <div class="works-contents">
@@ -10,7 +24,6 @@
 
             <p>This <span>Arduino experiment<span> sends some requests to an online php file which checks the #ardunno hashtag on Twitter.<br />
             When there is a new tweet with the #ardunno hashtag, the Vader Lighthouse reads the tweet and translates it into morse code.</p>
-
             <p>This work is clearly not over. The next steps will probably be to code a live stream for the tweet requests and a website with a webcam stream to see the result in live.</p>
         </div>
         <div class="works--description works---gifMePlz">

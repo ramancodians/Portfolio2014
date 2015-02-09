@@ -102,7 +102,7 @@
 
 		.home-btStartUx {
 			position: absolute;
-			top: 65%;
+			top: 60%;
 			left: 50%;
 			@include transform(translate(-50%, -50%));
 			@include transition(transform .6s ease-out);

@@ -3,17 +3,26 @@
 
 
 
-
-
-.menuOverlay {
-	display: none;
-	position: fixed;
-	/*background: rgba(0,0,0,.6);*/
+.menuOverlay-container {
+	/*background: url('../img/magic.gif') center center no-repeat;*/
+	background-size: cover;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
+	position: fixed;
+	z-index: 50;
+}
+
+.menuOverlay-content {
+	display: none;
+	background: rgba(0,0,0,.6);
 	z-index: $menuZindex;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	position: fixed;
 
 	& > ul {
 		display: table;
@@ -141,7 +150,7 @@
 				@include transition(all .2s ease-out);	
 			}
 
-			h5 {
+			h6 {
 				text-transform: uppercase;
 				color: $yellow;
 				font-size: 20px;
@@ -176,20 +185,29 @@
 				top: 50%;
 				@include transform(translateY(-50%));
 
-				h3 {
-					text-transform: uppercase;
-					letter-spacing: 4px;
+				h3, h4 {
 					display: block;
-					color: #fff;
-					font-family: $font-brandon;
 					padding-bottom: 0px;
 					margin: 0 auto;
 					width: 80%;
+
 					border-bottom: 1px solid rgba(255,255,255,0);
 					@include transition(all .2s ease-out);
-
 				}
-			
+					h3 {
+						letter-spacing: 2px;
+						font-size: 70px;
+						color: $yellow;
+						font-family: $font-goodFoot;
+					}
+					h4 {
+						text-transform: uppercase;
+						font-size: 24px;
+						letter-spacing: 4px;
+						color: #fff;
+						font-family: $font-brandon;
+					}
+
 				p {
 					display: block;
 					opacity: 0;
@@ -197,7 +215,7 @@
 					width: 80%;
 					max-width: 350px;
 					height: 0;
-					margin: 15px auto 0 auto;
+					margin: 0 auto;
 					letter-spacing: 1px;
 					font-family: $font-brandon;
 					font-size: 16px;
@@ -227,9 +245,6 @@
 			&:first-child { width: 34%; }
 		}
 		& > li:last-child { border-right: 0; }
-		li a .menuOverlay--menuContent h3 {
-			font-size: 24px;
-		}
 	}
 	.menuOverlay-secondMenu {
 		position: absolute;
@@ -238,6 +253,8 @@
 		@include transition(all .2s ease-out);
 		opacity: 0;
 		display: table !important;
+
+
 
 		li {
 			border-top: $lowBorder;
@@ -251,7 +268,7 @@
 		.menuOverlay---externalLinks li:first-child { border-top: 0 !important }
 
 
-		li a .menuOverlay--menuContent h3 {
+		li a .menuOverlay--menuContent h4 {
 			font-size: 18px;			
 		}
 	}
@@ -279,7 +296,7 @@
 					overflow: hidden;
 
 					.menuOverlay--menuContent {
-						h4 {
+						h5 {
 							opacity: .8;
 							color: #fff;
 							margin: 0 auto;
@@ -364,34 +381,32 @@
 		a {
 			background: $menuBackground;
 			/*background: rgba(241, 196, 15,.2);*/
-			h3 {
-				padding-bottom: 15px !important;
+			h3, h4 {
+				padding-bottom: 20px !important;
 				border-bottom: $lowBorder !important;
 			}
-			h4 { margin-top: -10px !important; }
+			h5 { margin-top: -10px !important; }
 			p { opacity: 1 !important; }
 		}
 	}
-	ul.menuOverlay--subMenu li.menuOverlay--selected p { @include transition-delay(.2s); }
+	/*ul.menuOverlay--subMenu li.menuOverlay--selected p { @include transition-delay(.2s); }*/
 
 	li.menuOverlay--notSelected a h3,
-	li.menuOverlay--notSelected a h4 { opacity: .4 !important; }
+	li.menuOverlay--notSelected a h5 { opacity: .4 !important; }
 
 
 		li.menuOverlay--selected-mainMenu {
-			a {
-				background: $menuBackground !important;
-				/*background: rgba(241, 196, 15,.2);*/
-				h3 {
-					padding-bottom: 25px !important;
-					border-bottom: $lowBorder !important;
-				}
-				p {
-					/*@include transition-delay(.2s);*/
-					margin-top: 20px !important;
-					opacity: 1 !important;
-					height: 30px !important;
-				}
+			background: $menuBackground !important;
+			/*background: rgba(241, 196, 15,.2);*/
+			h3 {
+				padding-bottom: 20px !important;
+				border-bottom: $lowBorder !important;
+			}
+			p {
+				/*@include transition-delay(.2s);*/
+				margin-top: 30px !important;
+				opacity: 1 !important;
+				height: 30px !important;
 			}
 			/*&:nth-child(1) a { background: $redOpa !important; }
 			&:nth-child(2) a { background: $greenOpa !important; }
@@ -409,6 +424,11 @@
 			&:nth-child(1) a { background: $orangeOpa !important; }
 			&:nth-child(2) a { background: $violetOpa !important; }
 		}*/
+		li.menuOverlay--selected-secondMenu a {
+			p {
+				margin-top: 15px !important;
+			}
+		}
 
 		li.menuOverlay--selected-externalLinks {
 			a {
@@ -437,7 +457,7 @@
 		.menuOverlay--close {
 			margin-top: -10px;
 			opacity: 1;
-			h5, .icon-cross { opacity: 1 !important; }
+			h6, .icon-cross { opacity: 1 !important; }
 			&:hover .icon-cross {
 				@include animation(icon-cross-rotation .8s ease-out infinite);
 			}
@@ -465,7 +485,7 @@
 	}
 	.menuOverlay-header {
 		position: relative !important;
-		.menuOverlay--title, .menuOverlay--close h5 { opacity: 0 !important; }
+		.menuOverlay--title, .menuOverlay--close h6 { opacity: 0 !important; }
 		.menuOverlay--close, .menuOverlay--close svg  { opacity: 1 !important; }
 	}
 	.menuOverlay-mainMenu {

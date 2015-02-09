@@ -33,16 +33,16 @@
 	ninjApp.factory('transiArray', function(){
 		var transiArray = {
 			'home': {
-				'home-tips': {
-					'y':{
-						'oldValue': '0',
-						'newValue': '10'
-					}
-				},
 				'homeTitle': {
-					'y': {
+					'top': {
 						'oldValue': '0',
 						'newValue': '-20'
+					}
+				},
+				'btStartUx':{
+					'top': {
+						'oldValue': '0',
+						'newValue': '20'
 					}
 				}
 			}
@@ -61,9 +61,7 @@
 				};
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
-						setTimeout(function(){
-							TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
-						},1000);
+						TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
 					} else {
 						setTimeout(function(){
 							TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});

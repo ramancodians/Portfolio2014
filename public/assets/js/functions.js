@@ -109,12 +109,22 @@ window.preloaderAnimation = function(){
 					default:
 						openMenu = false;
 						x = 1;
-						TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)", ease:Quad.easeOut});
+						page = $('section').attr('class');
+						page = page.replace('ng-scope','').replace(' ', '');
+						
+						/*
+						var backgroundAlpha;
+
+						switch(page){
+							case 'home': backgroundAlpha = "rgba(0,0,0,.8)"; break;
+							case 'works': backgroundAlpha = "rgba(0,0,0,.6)"; break;
+						}
+						
+						TweenLite.to('.overlay', 0.2, {background: backgroundAlpha, ease:Quad.easeOut});*/
+
 						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none", ease:Quad.easeOut});
 						$('.menuOverlay-contentscale').removeClass('open');
 						setTimeout(function(){
-							page = $('section').attr('class');
-							page = page.replace('ng-scope','').replace(' ', '');
 							closeMenu_fadeInElements(transiArray, page, x);
 						}, 200);
 					}
@@ -134,7 +144,17 @@ window.preloaderAnimation = function(){
 					default:
 						openMenu = false;
 						x = 0;
-						TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)"});
+						page = $('section').attr('class');
+						page = page.replace('ng-scope','').replace(' ', '');
+						
+						/*var backgroundAlpha;
+
+						switch(page){
+							case 'home': backgroundAlpha = "rgba(0,0,0,.8)"; break;
+							case 'works': backgroundAlpha = "rgba(0,0,0,.6)"; break;
+						}
+						
+						TweenLite.to('.overlay', 0.2, {background: backgroundAlpha, ease:Quad.easeOut});*/
 						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none"});
 						$('.menuOverlay-contentscale').removeClass('open');
 				}
@@ -164,7 +184,7 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 
 		if($(thisTransi).hasClass('transiArray')){
 			var thisTransiId = $(thisTransi).attr('id');
-			var propertiesNewValue = transiArray[page][thisTransiId]['y'].newValue;
+			var propertiesNewValue = transiArray[page][thisTransiId]['top'].newValue;
 			TweenLite.to(thisTransi, 0.2, { opacity:"0", y: propertiesNewValue , ease:Quad.easeOut});
 
 		} else {
@@ -179,7 +199,8 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 		x = 0;
 		var openMenu = false;
 
-		TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.6)"});
+		/*TweenLite.to('.overlay', 0.2, {background: "rgba(0, 0, 0,0.8)"});*/
+
 		TweenLite.to('.menuOverlay', 0.2, {display:"block", opacity: "1"});
 		$('.menuOverlay-contentscale').addClass('open');
 
@@ -208,10 +229,10 @@ window.closeMenu_fadeInElements = function(transiArray, page, x){
 
 		if($(thisTransi).hasClass('transiArray')){
 			var thisTransiId = $(thisTransi).attr('id');
-			var propertiesOldValue = transiArray[page][thisTransiId]['y'].oldValue;
-			TweenLite.to(thisTransi, 0.2, { opacity:"1", y: propertiesOldValue});
+			var propertiesOldValue = transiArray[page][thisTransiId]['top'].oldValue;
+			TweenLite.to(thisTransi, 0.2, { opacity:"1", y: propertiesOldValue, ease:Quad.easeOut});
 		} else {
-			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.2, { opacity:"1"});
+			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.4, { opacity:"1"});
 		}
 
 

@@ -6,11 +6,11 @@ if (document.documentElement.clientWidth > 900) {
 
 	// ==================================== Hover on the Menu Header ==================================== //
 		var In = false;
-		var closeContent = $('.menuOverlay--close h5').html();
+		var closeContent = $('.menuOverlay--close h6').html();
 		function hoverHeader_reset(y,z,timer,closeLength){
 			setTimeout(function(){
 				if(z<=closeLength){
-					TweenLite.to('.menuOverlay--close h5 span:nth-child('+z+')', 0.2, {opacity:"0.2", ease:Quart.easeOut});
+					TweenLite.to('.menuOverlay--close h6 span:nth-child('+z+')', 0.2, {opacity:"0.2", ease:Quart.easeOut});
 					z++;
 					hoverHeader_reset(y,z,timer,closeLength);
 				} else {
@@ -22,7 +22,7 @@ if (document.documentElement.clientWidth > 900) {
 		function hoverHeader_color(y,z,timer,closeLength){
 			setTimeout(function(){
 				if(y<=closeLength){
-					TweenLite.to('.menuOverlay--close h5 span:nth-child('+y+')', 0.2, {opacity:"1", ease:Quart.easeOut});
+					TweenLite.to('.menuOverlay--close h6 span:nth-child('+y+')', 0.2, {opacity:"1", ease:Quart.easeOut});
 					y++;
 					hoverHeader_color(y,z,timer,closeLength);
 				} else {
@@ -32,12 +32,12 @@ if (document.documentElement.clientWidth > 900) {
 			},timer);
 		}
 		
-				$('.menuOverlay--close h5').html(closeContent);
+				$('.menuOverlay--close h6').html(closeContent);
 				var closeLength = closeContent.length;
 				var closeArray = closeContent.split('');
-				$('.menuOverlay--close h5').empty();
+				$('.menuOverlay--close h6').empty();
 				for(var x=0; x<closeLength; x++){ 
-					$('.menuOverlay--close h5').append('<span>'+closeArray[x]+'</span>');
+					$('.menuOverlay--close h6').append('<span>'+closeArray[x]+'</span>');
 				}
 				var y = 0,
 					z = 0,
