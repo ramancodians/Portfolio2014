@@ -5,7 +5,10 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	Page.setTitle('Alexis Bertin | Front-End Developer');
 
+	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.8)"});
+	TweenLite.to('.background', 0.2, {opacity: "1"});
 
+	if (document.documentElement.clientWidth > 1100) {
 
 
 
@@ -230,12 +233,14 @@ ninjApp.controller('homeController', function($scope, Page){
 						
 					}
 					lightMyWord(w, x);
-			});
+				});
 		
 	
 	/* --------------------------------------------------------------------------- */
 
 	
-
+	} else {
+		$('#homeTitle p span').css('display','none');
+	}
 
 });

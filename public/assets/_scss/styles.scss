@@ -1,5 +1,6 @@
 @import "_var.scss";
 @import "styles_home.scss";
+@import "styles_works.scss";
 @import "styles_menuOverlay.scss";
 
 
@@ -19,9 +20,9 @@ body {
 
 
 	section {
-		width: 100%;
-		height: 100%;
+		position: absolute;
 		z-index: $sectionZindex;
+		width: 100%;
 	}
 		section > div {
 			z-index: $sectionZindex + 3;
@@ -39,7 +40,8 @@ body {
 		.preloader {
 			display: block;
 			/*background: rgba(0,0,0,.6);*/
-			background: #111;
+			/*background: #111; */
+			background: #000;
 			z-index: $sectionZindex + 5;
 			@include transition(all .2s ease-out);
 			height: 100%;
@@ -87,14 +89,14 @@ body {
 
 
 		.overlay {
-			background: rgba(0,0,0,0);
+			background: rgba(0,0,0,.4);
 			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			background: url('../img/bg_homeBW.jpg') no-repeat center center fixed; 
+			background: url('../img/bg_home_test.jpg') no-repeat center center fixed; 
 			/*background: url('../img/bg_menu.jpg') no-repeat center center fixed; */
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;
@@ -120,75 +122,51 @@ body {
 	
 
 
-
-
-
-/*	.menuOverlay-externalLinks {
-		position: absolute;
-		margin: auto;
-		top: auto;
-		right: 0;
-		bottom: 50px;
-		left: 0;
-		
-		text-align: center;
-		li {
-			display: inline;
-			a {
-				display: inline-block;
-				margin: 0 10px;
-			}
-		}
-	}
-*/
-
-	
-
-/*
-	.mainNav {
-		ul.mainNav-menu {
-			position: relative;
-			margin: 0 auto;
-			li {
-				display: inline-block;
-				margin-left: -2px;
-				margin-right: -2px;
-				a {
-					text-align: center;
-					padding: 15px 15px;
-					font-size: 18px;
-					font-weight: 100;
-					color: rgba(255,255,255,.4);
-					text-transform: uppercase;
-					text-decoration: none;
-					-webkit-transition: color .2s ease-in-out;
-					-moz-transition: color .2s ease-in-out;
-					-ms-transition: color .2s ease-in-out;
-					-o-transition: color .2s ease-in-out;
-					transition: color .2s ease-in-out;
-					
-					&:hover {
-						color: rgba(255,255,255,1);
-					}
-				}
-				#homeTitle-menu_jsHover { color: rgba(255,255,255,.2); }
-				#homeTitle-menu_jsActive { color: rgba(255,255,255,0); }
-			}
-		}
-	}*/
-
 	.home-bgVideo {
 		position: fixed;
 		top: 0;
 		left: 0;
 		min-width: 100%;
-		min-height: 100%;
 		width: auto;
 		height: auto;
 		z-index: 5;
 		background: url('../img/bg_home.jpg') no-repeat;
 		background-size: cover;
 	}
+
+
+
+
+	header {
+		margin: 250px 0 !important;
+		text-align: center;
+		h1 {
+			font-family: $font-goodFoot !important;
+			font-size: 216px !important;
+			color: $yellow;
+			letter-spacing: 5px;
+			line-height: 120px;
+			margin-bottom: 32px !important;
+			display: inline-block;
+		}
+		h2 {
+			color: rgba(255,255,255,1);
+			text-transform: uppercase;
+			font-size: 16px;
+			line-height: 28px;
+			letter-spacing: 10px;
+			font-family: "brandon-grotesque",sans-serif;
+			font-weight: 500;
+			display: block;
+			margin: 0 auto;
+		}	
+	}
+	
+
+
+
+
+
 /* --------------------------------------------- */
 	
 
@@ -203,7 +181,13 @@ body {
 
 
 
-		
+
+
+
+
+
+
+
 			@keyframes triskel-rotation {
 				0% { @include transform(rotate(0deg)); }
 				100% { @include transform(rotate(360deg)); }
