@@ -477,7 +477,7 @@
 
 
 
-@media only screen and (max-width : 900px), screen and (max-height: 800px) {
+@media only screen and (max-width : 900px), screen and (max-height: 650px) {
 	.menuOverlay {
 		position: absolute;
 		height: auto;
@@ -533,6 +533,18 @@
 			}
 		}
 	/* --------------------------------- */
+	li.menuOverlay--selected-mainMenu {
+		h3 {
+			padding-bottom: 0px !important;
+			border-bottom: 0 !important;
+		}
+		p {
+			margin-top: 0px !important;
+			opacity: 0 !important;
+			height: 0px !important;
+		}
+	}
+	li.menuOverlay--selected-secondMenu a p { margin-top: 0px !important; }
 } 
 
 
