@@ -3,34 +3,35 @@
 	.works {	
 		.works-list {
 			overflow: hidden;
-			background: #fff;
+			
 			
 
 			article {
-				width: 30%;
+				width: 100%;
 				display: block;
-				float: left;
 				height: 400px;
-				margin-top: 150px;
+				
+				float: left;
+
 				/*&:nth-child(3n-1){ width: 33.4%;}*/
 
-				&:nth-child(2n-1){ margin-left: 20%; }
+				/*&:nth-child(2n-1){ margin-left: 20%; }
 				&:nth-child(2n+1){
 					clear: left;
 					float: left;
-				}
+				}*/
 
 				a {
 					display: block;
 					width: 100%;
 					height: 100%;
-					background: rgba(0,0,0,.8);
+					background: rgba(5, 5, 20, 0.2);
 					text-align: center;
 					text-decoration: none;
 					line-height: 400px;
 					@include transition(all .2s ease-out);
 					&:hover {
-						background: rgba(0,0,0,.2);
+						background: rgba(5, 5, 20, 0.85);
 						.works--header p:before { width: 100%; } 
 					}
 
@@ -74,6 +75,31 @@
 						}
 					}
 				}
+
+				/*&:hover svg line {
+					stroke: $yellow;
+					-webkit-transition-delay: 0s;
+					transition-delay: 0s;
+				}
+
+				&:hover svg line.worksList-work--top { @include transform(translateX(-350px)); }
+				&:hover svg line.worksList-work--right { @include transform(translateY(-400px)); }
+				&:hover svg line.worksList-work--bottom { @include transform(translateX(350px)); }
+				&:hover svg line.worksList-work--left { @include transform(translateY(400px)); }
+
+				svg {
+					top: 0;
+					left: 0;
+					line {
+						overflow: visible;
+						stroke-width: 3;
+						stroke: $yellow;
+						fill: none;
+						@include transition(transform .2s ease-out, stroke .6s ease-out)
+					}
+					line.worksList-work--top, line.worksList-work--bottom { stroke-dasharray: 360 330 360; }
+					line.worksList-work--right, line.worksList-work--left { stroke-dasharray: 410 380 410; }
+				}*/
 			}
 		}
 		

@@ -5,7 +5,7 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	Page.setTitle('Alexis Bertin | Front-End Developer');
 
-	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.6)"});
+	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.4)"});
 	TweenLite.to('.background', 0.2, {opacity: "1"});
 
 	if (document.documentElement.clientWidth > 1100) {
@@ -18,7 +18,7 @@ ninjApp.controller('homeController', function($scope, Page){
 				// inject the defs we need from the SVG doc into main file.
 				
 
-				$('.home #homeTitle svg').empty().html($(data).find('#homeAlexis .alexis'));
+				$('.home .home-title svg').empty().html($(data).find('#homeAlexis .alexis'));
 				var alexisNbLetters = $('.alexis').size();
 
 				$('.alexis').css({
@@ -79,11 +79,7 @@ ninjApp.controller('homeController', function($scope, Page){
 			}
 		
 
-			$('.home-btStartUx').hide().css({
-				'-webkit-transform': 'translate(-50%,10px)',
-				'-ms-transform': 'translate(-50%,10px)',
-				'transform': 'translate(-50%,10px)'
-			});
+			$('.home-btStartUx').hide();
 
 
 			var homeTitle = [
@@ -92,36 +88,27 @@ ninjApp.controller('homeController', function($scope, Page){
 				'h2'
 			]
 			var homeTitleContent = [
-				$('.home #homeTitle p:first-of-type').html(),
-				$('.home #homeTitle p:last-of-type').html(),
-				$('.home #homeTitle h2').html()
+				$('.home .home-title p:first-of-type').html(),
+				$('.home .home-title p:last-of-type').html(),
+				$('.home .home-title h2').html()
 			]
 			var homeTitleContentSplit = [
-				$('.home #homeTitle p:first-of-type').text().split(""),
-				$('.home #homeTitle p:last-of-type').text().split(""),
-				$('.home #homeTitle h2').text().split("")
+				$('.home .home-title p:first-of-type').text().split(""),
+				$('.home .home-title p:last-of-type').text().split(""),
+				$('.home .home-title h2').text().split("")
 			]
 
 			// Ending function, reset the div
 			function killHomeFunction(){
 				w = 0;
-				$('home #homeTitle h2 span').css({'color':'rgba(255,255,255,1)'});
+				$('home .home-title h2 span').css({'color':'rgba(255,255,255,1)'});
 
 				for(var x = 0; x < homeTitle.length; x++){
-					$('.home #homeTitle '+homeTitle[x])
+					$('.home .home-title '+homeTitle[x])
 						.empty()
 						.html(homeTitleContent[x]);
 				}
-				$('.home-btStartUx')
-					.fadeIn(600)
-					.queue(function(){
-						$(this).css({
-							'-webkit-transform': 'translate(-50%,0)',
-							'-ms-transform': 'translate(-50%,0)',
-							'transform': 'translate(-50%,0)'
-						}); 
-					})
-					.dequeue();
+				$('.home-btStartUx').fadeIn(600);
 				setTimeout(function(){
 					$('#home-tips').css('opacity','1');
 				}, 600);
@@ -133,9 +120,9 @@ ninjApp.controller('homeController', function($scope, Page){
 	
 
 			for(var x = 0; x < homeTitle.length; x++){
-				$('.home #homeTitle '+homeTitle[x]).empty();
+				$('.home .home-title '+homeTitle[x]).empty();
 			}
-			$('.home #homeTitle').delay(1000)
+			$('.home .home-title').delay(1000)
 				.queue(function(){
 					var x = 0,
 						w = 0,
@@ -160,23 +147,23 @@ ninjApp.controller('homeController', function($scope, Page){
 								setTimeout(function(){
 										if(homeTitleContentSplit[w][x] == " "){
 											x++;
-											$('.home #homeTitle '+homeTitleAttr).append(' <span>'+homeTitleContentSplit[w][x]+'</span>');
+											$('.home .home-title '+homeTitleAttr).append(' <span>'+homeTitleContentSplit[w][x]+'</span>');
 										} else {
-											$('.home #homeTitle '+homeTitleAttr).append('<span>'+homeTitleContentSplit[w][x]+'</span>');
+											$('.home .home-title '+homeTitleAttr).append('<span>'+homeTitleContentSplit[w][x]+'</span>');
 										}
-										$('.home #homeTitle '+homeTitleAttr+' span:last-of-type').css({
+										$('.home .home-title '+homeTitleAttr+' span:last-of-type').css({
 											'opacity':'0',
 											'color': 'rgba(255,255,255,1)'
 										});
 										if(w == 2){
-											$('.home #homeTitle '+homeTitleAttr+' span:last-of-type')
+											$('.home .home-title '+homeTitleAttr+' span:last-of-type')
 												.css({'opacity':'1','font-weight':'500'})
 												.delay(200)
 												.queue(function(){
 													$(this).css({'color': 'rgba(255,255,255,1)'});		
 												});					
 										} else {
-											$('.home #homeTitle '+homeTitleAttr+' span:last-of-type')
+											$('.home .home-title '+homeTitleAttr+' span:last-of-type')
 												.css({'opacity':'1'})
 												.delay(200)
 												.queue(function(){
@@ -240,7 +227,7 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	
 	} else {
-		$('#homeTitle p span').css('display','none');
+		$('.home-title p span').css('display','none');
 	}
 
 });

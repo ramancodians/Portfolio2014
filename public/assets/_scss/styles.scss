@@ -39,6 +39,7 @@ body {
 		}
 		.preloader {
 			display: block;
+			opacity: 1;
 			/*background: rgba(0,0,0,.6);*/
 			/*background: #111; */
 			background: #000;
@@ -136,32 +137,55 @@ body {
 
 
 
-
 	header {
-		margin: 250px 0 !important;
+		position: absolute;
+		margin: auto;
+		right: 0;
+		left: 0;
+		top: 310px;
 		text-align: center;
 		h1 {
-			font-family: $font-goodFoot !important;
-			font-size: 216px !important;
-			color: $yellow;
+			font-family: $font-goodFoot;
+			font-size: 216px;
 			letter-spacing: 5px;
 			line-height: 120px;
-			margin-bottom: 32px !important;
+			margin-bottom: 32px;
+			color: $yellow;
 			display: inline-block;
 		}
 		h2 {
 			color: rgba(255,255,255,1);
 			text-transform: uppercase;
+			font-family: "brandon-grotesque",sans-serif;
+			font-weight: 500;
 			font-size: 16px;
 			line-height: 28px;
 			letter-spacing: 10px;
-			font-family: "brandon-grotesque",sans-serif;
-			font-weight: 500;
 			display: block;
 			margin: 0 auto;
 		}	
 	}
-	
+	/*.headerTiny {
+		-webkit-transform: translateZ(0);
+		position: fixed;
+		margin: auto;
+		top: 0px;
+		background: rgba(0,0,0,.8);
+		h1 {
+			font-size: 48px;
+			letter-spacing: 5px;
+			line-height: 70px;
+		}
+		h2 {
+			font-size: 14px;
+			line-height: 24px;
+			letter-spacing: 5px;
+		}
+	}*/
+
+	.pageContent {
+		margin-top: 800px;
+	}
 
 
 

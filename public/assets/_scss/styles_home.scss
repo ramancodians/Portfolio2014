@@ -13,9 +13,10 @@
 		overflow: hidden;
 
 		
-		#homeTitle {
+		.home-title {
 			display: block;
-			@include center-align;
+			position: relative;
+			top: 45%;
 			text-align: center;
 			@include transition(all 0.2s ease-out);
 
@@ -103,10 +104,13 @@
 
 		.home-btStartUx {
 			position: absolute;
-			top: 60%;
-			left: 50%;
-			@include transform(translate(-50%, -50%));
-			@include transition(transform .6s ease-out);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			@include transform(matrix(1, 0, 0, 1, 0, 160));
+			@include transition(transform .4s ease-out);
 
 			cursor: pointer;
 			width: 245px;
@@ -150,8 +154,8 @@
 					@include transition(transform .2s ease-out, stroke .6s ease-out)
 
 				}
-			line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
-					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
+				line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
+				line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 			}
 		}
 
@@ -179,7 +183,7 @@
 
 
 @media only screen and (max-width : 1100px){
-	#homeTitle {
+	.home-title {
 		max-width: 400px;
 		line-height: 50px;
 		svg { fill: #f4fd14 !important; }
@@ -188,12 +192,12 @@
 @media only screen and (max-height : 1100px){ .home-btStartUx { top: 70% !important; }}
 @media only screen and (max-height : 850px){ .home-btStartUx { top: 75% !important; }}
 @media only screen and (max-height : 600px){
-	#homeTitle { top: 37% !important; }
+	.home-title { top: 37% !important; }
 	.home-btStartUx { top: 80% !important; }
 }
 
 @media only screen and (max-width : 500px){
-	#homeTitle {
+	.home-title {
 		h2 { display: block !important; }
 		p { display: none !important; }
 	}
@@ -205,7 +209,7 @@
 }
 
 @media only screen and (max-width : 500px){
-	#homeTitle {
+	.home-title {
 		h2 { line-height: 30px !important; }
 		svg { max-width: 80% !important; }
 	}

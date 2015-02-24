@@ -34,13 +34,27 @@
 		var transiArray = {
 			'home': {
 				'homeTitle': {
-					'top': {
+					'y': {
 						'oldValue': '0',
 						'newValue': '-20'
 					}
 				},
 				'btStartUx':{
-					'top': {
+					'y': {
+						'oldValue': '160',
+						'newValue': '180'
+					}
+				}
+			},
+			'works': {
+				'worksHeader': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '-20'
+					}
+				},
+				'worksList': {
+					'y': {
 						'oldValue': '0',
 						'newValue': '20'
 					}
@@ -61,14 +75,14 @@
 				};
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
-						TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
+						TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});	
 					} else {
 						setTimeout(function(){
 							TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});
 							setTimeout(function(){
-								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
-							},1000);
-						},1000);
+								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"0", ease:Quart.easeOut});
+							},500);
+						},500);
 					}
 				});
 			}
@@ -138,12 +152,22 @@
 			switchMenu_anim(transiArray, 0, true);
 		}
 
-		$scope.switchPage = function(link){
+		$scope.switchPage = function(link, propertie){
 			var page =  $('section').attr('class');
 			page = page.replace('ng-scope', '').replace(' ','');
+			console.log('propertie: '+propertie);
 			console.log('page: '+page);
 			console.log('link: '+link);
-			if(page == link){
+			if(propertie == 'directLink'){
+				directLink_fadeOutElements(transiArray, page, 0);
+				setTimeout(function(){
+					if(link == 'home'){
+						$state.transitionTo('/');
+					} else {
+						$state.transitionTo(link);
+					}
+				},1500);
+			} else if(page == link){
 				switchMenu_anim(transiArray, 0, true);
 			} else {
 				switchMenu_anim(transiArray, 0, undefined);
@@ -158,10 +182,44 @@
 		}
 
 
+	/*	$(window).scroll(function(){
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop > 200){
+				$('header').removeClass('headerBig').addClass('headerTiny');
+			} else {
+				$('header').removeClass('headerTiny').addClass('headerBig');
+			}
+		})*/
+
+		/*window.addEventListener('scroll', function(e){
+			var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+			shrinkOn = 700,
+			header = document.querySelector("header");
+
+			if (distanceY > shrinkOn) {
+				classie.add(header,"headerTiny");
+				setTimeout(function(){
+					TweenLite.to(header, 0.2, {y: '0', ease:Quart.easeOut});
+				},2000);
+
+			} else {
+				if (classie.has(header,"headerTiny")) {
+					classie.remove(header,"headerTiny");
+					TweenLite.to(header, 0.2, {y: '-200px', ease:Quart.easeOut});
+				}
+			}
+		});*/
+
+
 
 		preloaderAnimation(); // functions.js
 
+
+
+
+
 	});
+
 
 
 
