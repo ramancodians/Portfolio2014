@@ -281,9 +281,8 @@ window.directLink_fadeOutElements = function(transiArray, page, x){
 			directLink_fadeOutElements(transiArray, page, x);
 		},200);
 	} else {
-		TweenLite.to('.preloader', 0, {display:"block", top:"0px", bottom:"auto"});	
 		setTimeout(function(){
-			TweenLite.to('.preloader', 0.2, {height:"100%"});		
+			TweenLite.to('.preloader', 0.2, {display:"block", opacity:"1", ease:Quart.easeOut});	
 		},200);
 	}
 }
