@@ -128,10 +128,10 @@ body {
 		left: 0;
 		/*min-width: 100%;*/
 		min-height: 100%;
-		width: auto;
+		min-width: 100%;
 		height: auto;
 		z-index: 5;
-		background: url('../img/bg_home.jpg') no-repeat;
+		background: url('../img/bg_home.jpg') center center no-repeat;
 		background-size: cover;
 	}
 

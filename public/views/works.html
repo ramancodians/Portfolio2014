@@ -12,18 +12,18 @@
                 <line class="worksList-work--bottom" x1="350" y1="400" x2="-700" y2="400" />
                 <line class="worksList-work--left" x1="0" y1="400" x2="0" y2="-800" />
             </svg> -->
-            <div class="work--content">
-                <a href="/{{work.link}}" ng-attr-title="take a look at {{work.name}}" class="{{work.mainTypeClass}}">
-                    <div class="work---header">
-                        <div class="work----headerContent">
-                            <h3>{{work.name}}</h3>
-                            <p>{{work.miniDesc}}</p>
-                        </div>
+            
+            <a href="/{{work.link}}" ng-attr-title="take a look at {{work.name}}" class="{{work.mainTypeClass}}">
+                <div class="work--header">
+                    <div class="work---headerContent">
+                        <h3>{{work.name}}</h3>
+                        <p>{{work.miniDesc}}</p>
                     </div>
-                    <div class="work---details">{{work.mainType}}</div>
-                    <div class="work---background" style="background: url('assets/img/work/{{work.id}}_{{work.link}}.jpg') {{work.bgColor}} center center no-repeat;"></div>
-                </a>
-            </div>
+                </div>
+                <div class="work--details">{{work.mainType}}</div>
+                <div class="work--background" style="background: url('assets/img/work/{{work.id}}_{{work.link}}.jpg') {{work.bgColor}} center center no-repeat; background-size: {{work.bgSize}}"></div>
+            </a>
+            
         </article>
     </div>
 
