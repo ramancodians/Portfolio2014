@@ -90,14 +90,14 @@ body {
 
 
 		.overlay {
-			background: rgba(0,0,0,.4);
+			background: rgba(0,0,0,0);
 			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			background: url('../img/bg_home_test.jpg') no-repeat center center fixed; 
+			background: url('../img/bg_homeBW_old.jpg') no-repeat center center fixed; 
 			/*background: url('../img/bg_menu.jpg') no-repeat center center fixed; */
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;

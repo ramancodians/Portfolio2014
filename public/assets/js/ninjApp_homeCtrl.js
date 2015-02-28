@@ -5,7 +5,7 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	Page.setTitle('Alexis Bertin | Front-End Developer');
 
-	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0.4)"});
+	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)"});
 	TweenLite.to('.background', 0.2, {opacity: "1"});
 
 	if (document.documentElement.clientWidth > 1100) {
@@ -64,7 +64,7 @@ ninjApp.controller('homeController', function($scope, Page){
 				      		.delay(400)
 				      		.queue(function(){
 						        $(this)
-						        	.css({'fill':'#f4fd14'})
+						        	.css({'fill':'#F9E30B'})
 						        	.dequeue();
 				      		});
 				      	y++;
@@ -197,8 +197,7 @@ ninjApp.controller('homeController', function($scope, Page){
 											x = 0;
 											w++;
 											if(w < homeTitleContentSplit.length){
-												lightMyWord(w, x);
-												
+												setTimeout(function(){ lightMyWord(w, x); },800);
 											}
 										} else {
 											x++;
@@ -214,7 +213,7 @@ ninjApp.controller('homeController', function($scope, Page){
 												}
 											}
 										}
-								},55);	
+								},50);	
 							}
 							lightMyFire(w, x);
 						

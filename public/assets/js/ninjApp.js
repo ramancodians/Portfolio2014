@@ -35,14 +35,14 @@
 			'home': {
 				'homeTitle': {
 					'y': {
-						'oldValue': '0',
-						'newValue': '-20'
+						'oldValue': '',
+						'newValue': ''
 					}
 				},
 				'btStartUx':{
 					'y': {
-						'oldValue': '160',
-						'newValue': '180'
+						'oldValue': '0',
+						'newValue': '20'
 					}
 				}
 			},

@@ -49,7 +49,37 @@
 	"tag1":"Responsive",
 	"table":"1",
 	"bgColor":"#191919",
-	"bgSize":"auto"
+	"bgSize":"cover"
+},{
+	"id":"5",
+	"name":"USA, Leader of The Flight World",
+	"date":"November 2012",
+	"link":"usaFlight",
+	"miniDesc":"Data visualization Marathon",
+	"mainType":"Dataviz",
+	"mainTypeClass":"workClass-dataviz",
+	"type1":"Infographic",
+	"table":"2",
+	"bgColor":"#000",
+	"bgSize":"auto",
+	"h3Class": "bigW"
+},{
+	"id":"7",
+	"name":"Comme chez Soi Restaurant",
+	"date":"March 2013",
+	"link":"commeChezSoi",
+	"miniDesc":"HTML & CSS Exercise",
+	"mainType":"Code & Design",
+	"mainTypeClass":"workClass-codeDesign",
+	"type1":"Front-End",
+	"type2":"UI",
+	"language1":"HTML",
+	"language2":"CSS",
+	"language3":"JS",
+	"table":"2",
+	"bgColor":"#fff",
+	"bgSize":"auto",
+	"h3Class": "bigW"
 },{
 	"id":"4",
 	"name":"Portfolio 2012",
@@ -67,34 +97,6 @@
 	"tag1":"Responsive",
 	"table":"2",
 	"bgColor":"#19191b",
-	"bgSize":"auto"
-},{
-	"id":"5",
-	"name":"USA, Leader of The Flight World",
-	"date":"November 2012",
-	"link":"usaFlight",
-	"miniDesc":"Data visualization Marathon",
-	"mainType":"Dataviz",
-	"mainTypeClass":"workClass-dataviz",
-	"type1":"Infographic",
-	"table":"2",
-	"bgColor":"#000",
-	"bgSize":"auto"
-},{
-	"id":"7",
-	"name":"Comme chez Soi Restaurant",
-	"date":"March 2013",
-	"link":"commeChezSoi",
-	"miniDesc":"HTML & CSS Exercise",
-	"mainType":"Code & Design",
-	"mainTypeClass":"workClass-codeDesign",
-	"type1":"Front-End",
-	"type2":"UI",
-	"language1":"HTML",
-	"language2":"CSS",
-	"language3":"JS",
-	"table":"2",
-	"bgColor":"#fff",
 	"bgSize":"auto"
 },{
 	"id":"6",

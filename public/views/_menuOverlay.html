@@ -29,7 +29,7 @@
         <li ng-repeat="mainMenu in menuOverlay[0].mainMenu" >
             <a href title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id, 'mainMenu')" ng-mouseleave="hoverOut(mainMenu.id, 'mainMenu')" ng-click="switchPage(mainMenu.link)">
                 <div class="menuOverlay--menuContent {{mainMenu.subClass}}">
-                    <h3>{{mainMenu.name}}</h3>
+                    <h3 class="{{work.h3Class}}">{{mainMenu.name}}</h3>
 
                     <p>{{mainMenu.desc}}</p>
                 </div>
