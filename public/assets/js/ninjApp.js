@@ -6,7 +6,7 @@
 
 	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-		$urlRouterProvider.otherwise("/");
+		/*$urlRouterProvider.otherwise("/");*/
 		$locationProvider.html5Mode(true).hashPrefix('!');
 	    $stateProvider
 	        .state('/', {
@@ -18,7 +18,12 @@
 	        	url: '/works',
 	        	templateUrl: 'views/works.html',
 	        	controller: 'worksController'
-	        });
+	        })
+	        .state('works/', {
+	        	url: '/works/',
+	        	templateUrl: 'views/works.html',
+	        	controller: 'worksController'
+	        })
 	});
 
 
@@ -54,6 +59,12 @@
 					}
 				},
 				'worksList': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				},
+				'footerBanner-works': {
 					'y': {
 						'oldValue': '0',
 						'newValue': '20'
@@ -108,6 +119,28 @@
 			}
 		}
 	});
+
+
+
+
+	ninjApp.directive('worksContent',function(){
+		return {
+			restrict: 'A',
+			templateUrl: 'views/worksContent.html',
+			controller: function() {
+				this.workTab = 1;
+				this.isSet = function(checkTab) {
+					return this.workTab === checkTab;
+				};
+				this.setTab = function(activeTab) {
+					this.workTab = activeTab;
+				};
+			},
+			controllerAs: "workTab"
+		}
+	});
+
+
 
 
 
@@ -182,43 +215,6 @@
 				},800);						
 			}			
 		}
-
-
-	/*	$(window).scroll(function(){
-			var scrollTop = $(this).scrollTop();
-			if(scrollTop > 200){
-				$('header').removeClass('headerBig').addClass('headerTiny');
-			} else {
-				$('header').removeClass('headerTiny').addClass('headerBig');
-			}
-		})*/
-
-		/*window.addEventListener('scroll', function(e){
-			var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-			shrinkOn = 700,
-			header = document.querySelector("header");
-
-			if (distanceY > shrinkOn) {
-				classie.add(header,"headerTiny");
-				setTimeout(function(){
-					TweenLite.to(header, 0.2, {y: '0', ease:Quart.easeOut});
-				},2000);
-
-			} else {
-				if (classie.has(header,"headerTiny")) {
-					classie.remove(header,"headerTiny");
-					TweenLite.to(header, 0.2, {y: '-200px', ease:Quart.easeOut});
-				}
-			}
-		});*/
-
-
-
-		preloaderAnimation(); // functions.js
-
-
-
-
 
 	});
 

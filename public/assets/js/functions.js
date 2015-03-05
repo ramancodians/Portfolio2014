@@ -294,3 +294,43 @@ window.directLink_fadeOutElements = function(transiArray, page, x){
 
 
 
+
+
+
+// ============================================= Header fadeOut on scroll ============================================ //
+	window.addEventListener('scroll', function(e){
+		/* scroll 0 = opa 1, y 0 | scroll 100% = opa 0, y 20 */
+		var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+			headerHeight = $('header').height(),
+			headerContainerHeight = $('.header-container').height(),
+			headerContainerSemiMargin = (headerHeight - headerContainerHeight)/2,
+			headerHeightCut = headerHeight - headerContainerSemiMargin,
+			header = document.querySelector("header"),
+			scrollTranslateY = (distanceY / headerHeightCut)*200;
+
+		var result = ((distanceY - headerHeightCut) - ((distanceY - headerHeightCut)*2))/headerHeightCut;
+		result = result.toFixed(2);
+
+		if(result >= 0){
+			if(result>1){result=1;}
+			else if(result<0){result=0;}
+			TweenLite.to(header, 0, {opacity: result, y: scrollTranslateY});
+		}
+	});
+// =================================================================================================================== //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
