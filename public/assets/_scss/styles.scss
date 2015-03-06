@@ -183,10 +183,8 @@ body {
 		height: 300px;
 		a {
 			position: relative;
-			float: right;
 			top: 50%;
 			@include transform(translateY(-50%));
-			margin-right: 3%;
 			display: block;
 			text-decoration: none;
 			z-index: 60;
@@ -204,8 +202,8 @@ body {
 				b { @include transition(color .2s ease-out); }
 				&:before {
 					content:"Keep riding";
-					position: relative;
-					right: 42px;
+					margin-left: -190px;
+					position: absolute;
 					@include transition(all .2s ease-out);
 					opacity: 1;
 				}
@@ -214,6 +212,8 @@ body {
 				position: absolute;
 				top: 0;
 				right: 0;
+				left: 0;
+				margin: auto;
 				line {
 					overflow: visible;
 					stroke-width: 3;
@@ -225,7 +225,7 @@ body {
 
 			&:hover {
 				span:before {
-					right: 52px;
+					margin-left: -200px;
 					opacity: 0;
 				}
 				span b { color: $yellow; }

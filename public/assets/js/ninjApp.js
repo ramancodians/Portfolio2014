@@ -134,6 +134,7 @@
 				};
 				this.setTab = function(activeTab) {
 					this.workTab = activeTab;
+					document.getElementById('works--nav').setAttribute("data-workPage", activeTab);
 				};
 			},
 			controllerAs: "workTab"

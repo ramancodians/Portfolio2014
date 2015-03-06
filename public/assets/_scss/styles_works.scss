@@ -1,22 +1,29 @@
 @import "_var.scss";
 /* ---------------- Works ---------------- */
 	
-	$articleHeight: 500px;
-	$articleWidth: 50%; 
+	$articleHeight: 400px;
+	$articleWidth: 500px; 
 
-	.works {	
+	.works {
 		.works-list {
 			overflow: hidden;
-			width: 100%;
+			width: ($articleWidth * 3)+(40*2);
+			margin: auto;
 
 			article {
 				width: $articleWidth;
 				display: block;
 				height: $articleHeight;
-				margin: auto;
+				margin: 0 20px 40px 20px;
 				overflow: hidden;
 				float: left;
 				@include transition(all .2s ease-out);
+
+				&:nth-child(3n){ margin-right: 0; }
+				&:nth-child(3n+1), &:first-child { margin-left: 0; }
+				/*&:nth-child(odd){ margin-right: 20px; }
+				&:nth-child(even){ margin-left: 20px; } */
+
 
 				a {
 					display: block;
@@ -47,13 +54,16 @@
 							}
 							.work--background {
 								opacity: .4;
-								-webkit-filter: blur(10px);
-								-moz-filter: blur(10px);
-								-o-filter: blur(10px);
-								-ms-filter: blur(10px);
-								filter: blur(10px);
+								-webkit-filter: blur(5px);
+								-moz-filter: blur(5px);
+								-o-filter: blur(5px);
+								-ms-filter: blur(5px);
+								filter: blur(5px);
 							}
+
 						}
+
+
 					/* ----------------- */
 
 
@@ -61,7 +71,7 @@
 						position: absolute;
 						width: $articleWidth;
 						height: $articleHeight;
-						line-height: 410px;
+						line-height: 310px;
 						@include transition(all .2s ease-out);
 						z-index: 2;
 						@include box-sizing(border-box);
@@ -111,7 +121,7 @@
 						font-weight: 700;
 						letter-spacing: 2px;
 						z-index: 1;
-						margin-top: 457px;
+						margin-top: 357px;
 						/*margin-left: 10px;*/
 						padding: 3px 10px 3px 10px;
 					}
@@ -181,6 +191,79 @@
 
 		}
 
+
+		.works--arrow {
+			position: absolute;
+			top: 3%;
+			right: 3%;
+			z-index: 15;
+			a {
+				display: inline-block;
+				margin: 0 20px;
+				padding: 10px;
+				border: 1px solid rgba(255,255,255,1);
+				text-decoration: none;
+				/*width: 62px;*/
+				/*height: 62px;*/
+				@include transition(all .2s ease-out);
+
+				span.works---iconWrap {
+					@include transition(all .2s ease-out);
+					svg {
+						fill: #fff;
+						width: 20px;
+						height: 20px;
+					}
+				}
+				h5 {
+					display: none;
+					color: rgba(255,255,255,.4);
+					text-transform: uppercase;
+					white-space: nowrap;
+					letter-spacing: 4px;
+					font-weight: 300;
+					font-size: 16px;
+					opacity: 1;
+					@include transition(opacity .2s ease-out, transform .2s ease-out);
+				}
+
+				&:hover {
+					border: 1px solid $yellow;
+					background: $yellow;
+					
+					span svg { fill: #000; }
+				}
+			}
+
+			a.works---arrowPrev {
+				/*float: left;*/
+				span.works---iconWrap { /*float: left;*/ }
+				h5 {
+					margin: 20px 0 0 75px;
+					/*right: 20px;*/
+					/*@include transform(translateX(100%));*/
+				}
+			}
+			a.works---arrowNext {
+				/*float: right;*/
+				span.works---iconWrap { /*float: right;*/ }
+				h5 {
+					margin: 20px 75px 0 0;
+					/*left: 20px;*/
+					/*@include transform(translateX(-100%));*/
+				}
+			}
+
+			/*a:hover {
+				width: 200px;
+				background: #fff;
+				h5 {
+					opacity: 1;
+					@include transition-delay(0.2s);
+					@include transform(translateX(0));
+				}
+			}*/
+		}
 
 		.works--description {
 			width: 100%;
@@ -258,9 +341,9 @@
 				text-decoration: none;
 				left: 50%;
 				@include transform(translateX(-50%));
-				padding: 15px 20px;
+				padding: 15px 18px 15px 23px;
 				text-align: center;
-				letter-spacing: 3px;
+				letter-spacing: 6px;
 				text-transform: uppercase;
 				font-weight: 700;
 				color: #fff;
@@ -269,10 +352,33 @@
 				border: 2px solid rgba(255,255,255,1);
 				@include transition(all .2s ease-out);
 
+				&:after {
+					content: '- External Link -';
+					display: block;
+					color: $yellow;
+					position: absolute;
+					margin: 30px auto 0 auto;
+					left: 0px;
+					right: 0;
+					font-size: 18px;
+					text-transform: none;
+					letter-spacing: 2px;
+					font-weight: 500;
+					opacity: 0;
+					@include transform(translateY(10px));
+					@include transition(all .2s ease-out);
+				}
+
 				&:hover {
 					background: #fff;
 					color: #000;
+					&:after {
+						opacity: 1;
+						@include transform(translateY(0px));
+					}
 				}
+
+				
 			}
 		}
 		
