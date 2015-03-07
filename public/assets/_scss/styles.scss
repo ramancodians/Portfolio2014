@@ -109,6 +109,8 @@ body {
 			@include transition(opacity 0.2s ease-out);
 		}
 	
+		.clearMargin { margin: 0 auto !important; }
+		
 
 
 	.home-bgVideo {
