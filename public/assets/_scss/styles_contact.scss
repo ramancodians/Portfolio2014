@@ -1,0 +1,75 @@
+@import "_var.scss";
+
+.contact {
+
+
+	header {
+		height: 700px !important;
+		z-index: 5;
+	}
+
+
+	.contactForm {
+		margin: 0 auto;
+		display: block;
+		position: relative;
+
+		input#contactForm-name,
+		input#contactForm-mail,
+		textarea#contactForm-message {
+			display: block;
+			max-width: 550px;
+			width: 100%;
+
+			margin: 0px auto 50px auto;
+			padding: 20px 50px;
+
+
+			border-top: 1px solid rgba(249, 227, 11, 0);
+			border-right: 1px solid rgba(249, 227, 11, 0);
+			border-bottom: 1px solid rgba(249, 227, 11, 0);
+			border-left: 1px solid $yellow;
+
+
+			color: #FFF;
+
+			font-size: 18px;
+			line-height: 36px;
+			font-weight: 300;
+			font-family: $font-museo;
+			letter-spacing: 2px;
+			font-style: italic;
+			text-align: left;
+
+			outline: 0;
+			background: rgba(0,0,0,0);
+
+			@include transition(all .2s ease-out);
+
+			&:focus {
+				background: rgba(0,0,0,.2);
+				/*border-top: 1px solid rgba(249, 227, 11, .2);
+				border-right: 1px solid rgba(249, 227, 11, .2);
+				border-bottom: 1px solid rgba(249, 227, 11, .2);*/
+			}
+
+			@include placeholder {
+				/*color: rgba(249, 227, 11,1);*/
+				color: #fff;
+				font-style: italic;
+				
+
+			}
+		}
+
+		textarea#contactForm-message {
+			/*height: 360px;*/
+		}
+	}
+
+
+	
+
+
+
+}

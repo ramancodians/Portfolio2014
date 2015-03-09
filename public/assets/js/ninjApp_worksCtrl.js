@@ -1,6 +1,5 @@
 ninjApp.controller('worksController', function($scope, $http, $state, Page){
 
-	
 
 	Page.setTitle('Works | Alexis Bertin');
 

@@ -1,0 +1,41 @@
+<section class="contact">
+    <header class="transiArray alphaTransi" data-transi="contactHeader">
+        <div class="header-container">
+            <h1>Contact</h1>
+            <h2>Drop a line</h2>
+        </div> 
+    </header>
+
+    <form class="transiArray alphaTransi contactForm" data-transi="contactForm" role="form" action="/sendMessage" method="post">
+        
+        <input id="contactForm-name" name="name" placeholder="Your Name" type="text" ng-model="contactForm.name" required />
+        <input id="contactForm-mail" name="mail" placeholder="Your Mail adress" type="email" ng-model="contactForm.mail" required />
+        <textarea id="contactForm-message" name="message" placeholder="Your message" type="text" ng-model="contactForm.message" required></textarea>
+
+        <div class="contactForm-submit">
+            <input id="contactForm-submitInput" type="submit" value="Send the message">
+            <svg width="292" height="52">   
+                <line class="home-btStartUx--top" x1="0" y1="0" x2="876" y2="0" />
+                <line class="home-btStartUx--right" x1="292" y1="0" x2="292" y2="156" />
+                <line class="home-btStartUx--bottom" x1="292" y1="52" x2="-584" y2="52" />
+                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
+            </svg>
+        </div>
+
+    </form>
+
+
+    <footer class="transiArray alphaTransi" data-transi="footerBanner-contact">
+        <a href class="footer-nextPageLink_contact" ng-click="switchPage('works', 'directLink')" title="link to the credits page">
+            <span>Visit the <b>Credits</b> page</span>
+            <svg width="292" height="52">   
+                <line class="home-btStartUx--top" x1="0" y1="0" x2="876" y2="0" />
+                <line class="home-btStartUx--right" x1="292" y1="0" x2="292" y2="156" />
+                <line class="home-btStartUx--bottom" x1="292" y1="52" x2="-584" y2="52" />
+                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
+            </svg>
+        </a>
+    </footer>
+
+
+</section>
