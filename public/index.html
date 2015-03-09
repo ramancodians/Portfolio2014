@@ -45,9 +45,9 @@
     <menu-overlay class="menuOverlay menuOverlay-contentscale menuOverlay-container" ></menu-overlay>
 
     <video autoplay loop poster="assets/img/bg_home.jpg" class="home-bgVideo">
-        <source src="assets/video/bg_home.mp4" type="video/mp4">
-        <source src="assets/video/bg_home.ogv" type="video/ogg">
-        <source src="assets/video/bg_home.webm" type="video/webm">
+        <source src="assets/video/bedRoomHD.mp4" type="video/mp4">
+        <source src="assets/video/bedRoomHD.ogv" type="video/ogg">
+        <source src="assets/video/bedRoomHD.webm" type="video/webm">
     </video>
 
     <div class="view" ui-view></div>
@@ -62,23 +62,29 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenLite.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/jquery.gsap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/plugins/CSSPlugin.min.js"></script>
-
+    <script type="text/javascript" src="assets/libs/classie.js"></script>
 
     <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
     <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="assets/libs/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="assets/libs/autosize.min.js"></script>
     <!--script src='assets/libs/jquery_keyFrames/jquery.keyframes.min.js'></script-->
     <script type="text/JavaScript" src="assets/js/functions.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp_menuCtrl.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp_homeCtrl.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp_worksCtrl.js"></script>
+    <script type="text/javascript" src="assets/js/ninjApp_contactCtrl.js"></script>
 
     <script type="text/javascript" src="assets/libs/svg4everybody.js"></script>
     <script type="text/JavaScript">
         $(document).keypress(function(e){
-            if(e.which == 77){ openMenuOverlay(); }
-        });
+            if($(e.target).is('input, textarea')){
+
+            } else {
+                if(e.which == 77){ openMenuOverlay(); }                
+            } 
+        });        
     </script>
 </body>
 </html>

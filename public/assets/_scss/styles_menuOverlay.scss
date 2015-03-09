@@ -4,6 +4,8 @@
 
 
 .menuOverlay-container {
+	display: none;
+	opacity: 0;
 	/*background: url('../img/magic.gif') center center no-repeat;*/
 	background-size: cover;
 	top: 0;
@@ -16,6 +18,7 @@
 
 .menuOverlay-content {
 	display: none;
+	opacity: 0;
 	background: rgba(0,0,0,.6);
 	z-index: $menuZindex;
 	top: 0;

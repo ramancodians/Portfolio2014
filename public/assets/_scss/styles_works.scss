@@ -1,86 +1,485 @@
 @import "_var.scss";
 /* ---------------- Works ---------------- */
-	.works {	
+	
+	$articleHeight: 400px;
+	$articleWidth: 500px; 
+
+	.works {
 		.works-list {
 			overflow: hidden;
-			background: #fff;
-			
+			width: ($articleWidth * 3)+(40*2);
+			margin: auto;
 
 			article {
-				width: 30%;
+				width: $articleWidth;
 				display: block;
+				height: $articleHeight;
+				margin: 0 20px 40px 20px;
+				overflow: hidden;
 				float: left;
-				height: 400px;
-				margin-top: 150px;
-				/*&:nth-child(3n-1){ width: 33.4%;}*/
+				@include transition(all .2s ease-out);
 
-				&:nth-child(2n-1){ margin-left: 20%; }
-				&:nth-child(2n+1){
-					clear: left;
-					float: left;
-				}
+				&:nth-child(3n){ margin-right: 0; }
+				&:nth-child(3n+1), &:first-child { margin-left: 0; }
+				/*&:nth-child(odd){ margin-right: 20px; }
+				&:nth-child(even){ margin-left: 20px; } */
+
 
 				a {
 					display: block;
 					width: 100%;
 					height: 100%;
-					background: rgba(0,0,0,.8);
 					text-align: center;
 					text-decoration: none;
-					line-height: 400px;
 					@include transition(all .2s ease-out);
-					&:hover {
-						background: rgba(0,0,0,.2);
-						.works--header p:before { width: 100%; } 
+
+					/* ----- Hover ----- */
+						&:hover {
+							.work--header {
+								opacity: 1;
+								border: 10px solid rgba(255,255,255,1);
+								.work---headerContent h3 {
+									@include transform(translateY(50%));
+									@include transition(all .2s ease-out);
+								}
+								.work---headerContent p {
+									@include transition-delay(.2s);
+									@include transform(translateY(0px));
+									opacity: 1;
+								}
+							}
+							.work--details {
+								@include transform(translateY(0px));
+								padding: 3px 10px 13px 20px;
+							}
+							.work--background {
+								opacity: .4;
+								-webkit-filter: blur(5px);
+								-moz-filter: blur(5px);
+								-o-filter: blur(5px);
+								-ms-filter: blur(5px);
+								filter: blur(5px);
+							}
+
+						}
+
+
+					/* ----------------- */
+
+
+					.work--header {
+						position: absolute;
+						width: $articleWidth;
+						height: $articleHeight;
+						line-height: 310px;
+						@include transition(all .2s ease-out);
+						z-index: 2;
+						@include box-sizing(border-box);
+						border: 0px solid rgba(255,255,255,0);
+						opacity: 0;
+
+						.work---headerContent {
+							vertical-align: middle;
+							line-height: normal;
+							display: inline-block;
+							h3 {
+								font-family: $font-goodFoot;
+								font-size: 72px;
+								color: #F4FD14;
+								letter-spacing: 2px;
+								display: block;
+								@include transform(translateY(45%));
+								@include transition(all .2s ease-out);
+							}
+							h3.bigW { font-size: 36px; }
+							p {
+								display: block;
+								color: #fff;
+								font-family: "brandon-grotesque",sans-serif;
+								font-size: 16px;
+								text-transform: uppercase;
+								letter-spacing: 11px;
+								font-weight: 400;
+								margin: 45px auto 0 auto;
+								@include transform(translateY(10px));
+								@include transition(all .2s ease-out);
+								opacity: 0;
+							}
+						}
 					}
+					.work--details {
+						@include transition(all .2s ease-out);
+						@include transform(translateY(10px));
+						/*opacity: 0;*/
+						/*opacity: 1;*/
+						position: absolute;
+						font-family: $font-brandon;
+						font-size: 18px;
+						line-height: 27px;
+						color: #fff;
+						text-transform: uppercase;
+						font-weight: 700;
+						letter-spacing: 2px;
+						z-index: 1;
+						margin-top: 357px;
+						/*margin-left: 10px;*/
+						padding: 3px 10px 3px 10px;
+					}
+					.work--background {
+						position: absolute;
+						width: $articleWidth;
+						height: $articleHeight;
+						@include transition(all .2s ease-out);
+						/*z-index: 1;*/
+						opacity: 1;
+						overflow: hidden;
+						box-shadow: none;
+						/*opacity: .4;*/
+					}
+				}
 
-					.works--header {
-						vertical-align: middle;
-						line-height: normal;
-						display: inline-block;
-						h3 {
-							font-family: $font-goodFoot;
-							font-size: 21px;
-							color: #f4fd14;
-							/*text-transform: uppercase;*/
-							/*font-weight: 700;*/
-							letter-spacing: 3px;
-							display: block;
-							@include transform(translateY(50%));
-						}
-						p:before {
-							content: "";
-							display: block;
-							width: 80%;
-							height: 1px;
-							margin: 0px auto 15px auto;
-							border-top: 1px solid rgba(255,255,255,.2);
-							@include transition(width .2s ease-out);
-						}
+				a.workClass-code .work--details { background: #3498db; }				
+				a.workClass-codeDesign .work--details { background: #e74c3c; }
+				a.workClass-dataviz .work--details { background: #2ecc71; }
 
-						p {
-							display: block;
-							color: rgba(255,255,255,1);
-							font-family: $font-brandon;
-							font-size: 16px; 
-							line-height: 21px;
-							letter-spacing: 2px;
-							font-weight: 100;
-							max-width: 200px;
-							margin: 22px auto 0 auto;
+				a.workClass-code,
+				a.workClass-codeDesign,
+				a.workClass-dataviz { background: #000; }
+			}
+		}
+	}
+
+	.works-content {
+		display: none;
+		opacity: 0;
+
+		h3 a {
+			display: block;
+			position: fixed;
+			text-decoration: none;
+			font-family: $font-goodFoot;
+			color: $yellow;
+			font-size: 64px;
+			letter-spacing: 2px;
+			top: 3%;
+			left: 3%;
+			cursor: pointer;
+			@include transition(all .2s ease-out);
+			z-index: 13;
+
+			&:after {
+				content: "- Back to all works";
+				position: relative;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+				font-weight: 500;
+				color: #fff;
+				font-size: 16px;
+				font-family: $font-brandon;
+				margin-left: 14px;
+				top: -3px;
+				padding: 12px 0;
+				@include transition(all .2s ease-out);
+				opacity: 0;
+				@include transform(translateX(10px));
+			}
+
+			&:hover:after {
+				@include transform(translateX(0px));
+				opacity: 1;
+			}
+
+		}
+
+
+		.works--arrow {
+			position: absolute;
+			top: 3%;
+			right: 3%;
+			z-index: 15;
+			a {
+				display: inline-block;
+				border: 1px solid rgba(255,255,255,0);
+				text-decoration: none;
+				overflow: hidden;
+				@include transition(all .2s ease-out);
+
+				span.works---iconWrap {
+					@include transition(all .2s ease-out);
+					svg {
+						fill: $yellow;
+						width: 20px;
+						height: 20px;
+					}
+				}
+				h5 {
+					display: none;
+					color: rgba(255,255,255,.4);
+					text-transform: uppercase;
+					white-space: nowrap;
+					letter-spacing: 4px;
+					font-weight: 300;
+					font-size: 16px;
+					opacity: 1;
+					@include transition(opacity .2s ease-out, transform .2s ease-out);
+				}
+
+				&.works---close {
+					width: 110px;
+					color: rgba(255, 255, 255, 0.3);
+					padding: 14px 5px 13px 5px;
+					text-align: center;
+					span {
+						@include transition(all .2s ease-out);
+						margin: 5px;
+					}
+					#works---count, #works---length { opacity: 1; }
+					#works---closeTxt {
+						color: #000;
+						text-transform: uppercase;
+						font-weight: 500;
+						position: absolute;
+						letter-spacing: 5px;
+						margin-left: 20px;
+						margin-top: -16px;
+						opacity: 0;
+						display: block;
+					}
+				}
+				&.works---arrowPrev { padding: 11px 12px 9px 10px; }
+				&.works---arrowNext { padding: 11px 10px 9px 12px; }
+			}
+			a:hover, .works--arrowHover {
+				border: 1px solid $yellow;
+				background: $yellow;
+				span svg { fill: #000; }
+			}
+			a:hover {
+				#works---count, #works---length { opacity: 0 }
+				#works---closeTxt {
+					opacity: 1;
+				}
+			}
+		}
+
+		.works--description {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			overflow: scroll;
+
+			.works---descHeader {
+				text-align: center;
+				h4 {
+					margin: 200px auto 32px auto;
+					font-family: $font-goodFoot;
+					font-size: 80px;
+					word-spacing: -10px;
+					letter-spacing: 2px;
+					line-height: 80px;
+					color: $yellow;
+				}
+				h5 {
+					color: rgba(255,255,255,1);
+					text-transform: uppercase;
+					font-family: $font-brandon;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 28px;
+					letter-spacing: 10px;
+					display: block;
+					margin: 0 auto;
+				}
+			}
+
+			.works---descContent {
+				margin: 100px auto;
+
+				video {
+					display: block;
+					margin: 100px auto;
+					max-width: 900px;
+					width: 92%;
+				}
+				h6 {
+					text-align: center;
+					display: block;
+					font-family: $font-brandon;
+					color: #fff;
+					text-transform: uppercase;
+					letter-spacing: 10px;
+					font-weight: 500;
+					font-size: 16px;
+					margin-bottom: 36px
+				}
+				p {
+					display: block;
+					max-width: 550px;
+					margin: 0 auto 100px auto;
+					padding: 0 20px;
+					color: #FFF;
+					font-size: 18px;
+					line-height: 36px;
+					font-weight: 300;
+					font-family: "museo-slab",serif;
+					letter-spacing: 2px;
+					text-align: left;
+
+					span { color: $yellow; }
+					i { font-style: italic; }
+					a {
+						text-decoration: none;
+						color: $yellow;
+						border-bottom: 1px dotted rgba(255,255,255,.6);
+						padding-bottom: 3px;
+						@include transition(all .2s ease-out);
+						&:hover {
+							border-bottom: 1px dotted rgba(255,255,255,1);
+							padding-bottom: 6px;
 						}
-						details {
-							display: none;
+					}
+				}
+				img {
+					display: block;
+					margin: 0 auto 100px auto;
+					width: 92%;
+					max-width: 900px;
+				}
+				/*p:last-child { margin-bottom: 100px; }*/
+
+
+				ul { 
+					display: block;
+					max-width: 550px;
+					margin: 18px auto 100px auto;
+					padding: 0 20px;
+
+					li {
+						color: #fff;
+						font-size: 18px;
+						line-height: 36px;
+						font-weight: 300;
+						font-family: "museo-slab",serif;
+						letter-spacing: 2px;
+						text-align: left;
+						padding-left: 20px;
+						margin-bottom: 36px;
+						border-left: 1px solid $yellow;
+						
+						span { color: $yellow; }
+		
+						img#works-----anchlGif {
+							margin: 18px auto;
+							width: 300px;
+							padding-bottom: 10px;
 						}
 					}
 				}
 			}
+
+			.works---extLink {
+				position: relative;
+				margin: 0px auto 200px auto;
+				display: inline-block;
+				text-decoration: none;
+				left: 50%;
+				@include transform(translateX(-50%));
+				padding: 15px 18px 15px 23px;
+				text-align: center;
+				letter-spacing: 6px;
+				text-transform: uppercase;
+				font-weight: 700;
+				color: #fff;
+				font-size: 18px;
+				font-family: $font-brandon;
+				border: 2px solid rgba(255,255,255,1);
+				@include transition(all .2s ease-out);
+
+				&:after {
+					content: '- External Link -';
+					display: block;
+					color: $yellow;
+					position: absolute;
+					margin: 30px auto 0 auto;
+					left: 0px;
+					right: 0;
+					font-size: 18px;
+					text-transform: none;
+					letter-spacing: 2px;
+					font-weight: 500;
+					opacity: 0;
+					@include transform(translateY(10px));
+					@include transition(all .2s ease-out);
+				}
+
+				&:hover {
+					background: #fff;
+					color: #000;
+					&:after {
+						opacity: 1;
+						@include transform(translateY(0px));
+					}
+				}
+
+				
+			}
 		}
 		
-		.works-contents {
-			display: none;
-		}
-	}
 
-	
+
+
+
+
+		.works--description {
+			display: none;
+			opacity: 0;
+			@include transition(all .2s ease-out);
+		}
+
+
+
+
+
+
+
+
+
+	}
 /* --------------------------------------- */
+
+
+/*
+@media only screen and (max-width : 2000px){
+	.works .works-list article,
+	.works .works-list article a .work--header,
+	.works .works-list article a .work--background {
+		width: 75%;
+	}
+}
+	*/
+
+@media only screen and (max-width : 1600px){
+
+}
+@media only screen and (max-width : 1200px){
+	.works .works-list article,
+	.works .works-list article a .work--header,
+	.works .works-list article a .work--background {
+		width: 100%;
+		height: 400px;
+	}
+	.works .works-list article a .work--header { line-height: 310px; }
+	.works .works-list article a .work--details { margin-top: 357px; }
+}
+
+@media only screen and (max-width : 1000px){
+	.works .works-list article,
+	.works .works-list article a .work--header,
+	.works .works-list article a .work--background {
+		height: 350px;
+	}
+	.works .works-list article a .work--header { line-height: 260px; }
+	.works .works-list article a .work--details { margin-top: 307px; }
+}
+
+

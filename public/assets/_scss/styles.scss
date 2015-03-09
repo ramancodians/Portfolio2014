@@ -1,6 +1,7 @@
 @import "_var.scss";
 @import "styles_home.scss";
 @import "styles_works.scss";
+@import "styles_contact.scss";
 @import "styles_menuOverlay.scss";
 
 
@@ -10,7 +11,8 @@ body {
 	background: #111;
 	font-family: $font-brandon;
 	font-weight: 300;
-
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility;
 }
 
 
@@ -23,6 +25,7 @@ body {
 		position: absolute;
 		z-index: $sectionZindex;
 		width: 100%;
+		height: 100%;
 	}
 		section > div {
 			z-index: $sectionZindex + 3;
@@ -39,6 +42,7 @@ body {
 		}
 		.preloader {
 			display: block;
+			opacity: 1;
 			/*background: rgba(0,0,0,.6);*/
 			/*background: #111; */
 			background: #000;
@@ -76,8 +80,10 @@ body {
 					color: $yellow;
 					font-size: 20px;
 					text-align: center;
-					letter-spacing: 1px;
-					font-weight: 100;
+					letter-spacing: 2px;
+					font-weight: 300;
+					font-family: $font-brandon;
+					text-transform: uppercase;
 					span {
 						opacity: 0.4;
 						@include transition(opacity .2s ease-out);
@@ -89,36 +95,23 @@ body {
 
 
 		.overlay {
-			background: rgba(0,0,0,.4);
+			background: rgba(0,0,0,0);
 			/*background: rgba(10,10,10,0.85);*/
 
 			z-index: $sectionZindex - 2;
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			background: url('../img/bg_home_test.jpg') no-repeat center center fixed; 
+			background: url('../img/bg_homeBW_old.jpg') no-repeat center center fixed; 
 			/*background: url('../img/bg_menu.jpg') no-repeat center center fixed; */
 			@include background-size(cover);
 			z-index: $sectionZindex - 3;
 		
 			@include transition(opacity 0.2s ease-out);
 		}
-		.load {
-			position: absolute;
-			bottom: 20px;
-			right: 50px;
-			overflow: hidden;
-			background: #000;
-			z-index: 1;
-			span {
-				font-family: 'valenciahairline', 'proxima-nova', sans-serif;
-				font-size: 10em;
-				color: rgba(255,255,255,.2);
-				font-weight: 100;
-				@inlude transition(opacity 0.2s ease-out);
-			}
-		}
 	
+		.clearMargin { margin: 0 auto !important; }
+		
 
 
 	.home-bgVideo {
@@ -127,41 +120,156 @@ body {
 		left: 0;
 		/*min-width: 100%;*/
 		min-height: 100%;
-		width: auto;
+		min-width: 100%;
 		height: auto;
 		z-index: 5;
-		background: url('../img/bg_home.jpg') no-repeat;
+		background: url('../img/bg_home.jpg') center center no-repeat;
 		background-size: cover;
+		-webkit-filter: blur(10px);
+		-moz-filter: blur(10px);
+		-o-filter: blur(10px);
+		-ms-filter: blur(10px);
+		filter: blur(10px);
 	}
-
 
 
 
 	header {
-		margin: 250px 0 !important;
-		text-align: center;
+		height: 1000px;
+		margin: auto;
+		.header-container {
+			position: relative;
+			top: 50%;
+			text-align: center;
+			@include transform(translateY(-50%));
+			h1 {
+				margin: 0 auto 32px auto;
+				font-family: $font-goodFoot;
+				font-size: 216px;
+				letter-spacing: 5px;
+				line-height: 120px;
+				color: $yellow;
+				/*display: inline-block;*/
+			}
+			h2 {
+				color: rgba(255,255,255,1);
+				text-transform: uppercase;
+				font-family: "brandon-grotesque",sans-serif;
+				font-weight: 500;
+				font-size: 16px;
+				line-height: 28px;
+				letter-spacing: 10px;
+				display: block;
+				margin: 0 auto;
+			}
+			p {
+				display: block;
+				max-width: 550px;
+				margin: 100px auto 0px auto;
+				padding: 20px 50px;
+				border-left: 1px solid $yellow;
+				color: #FFF;
+				font-size: 18px;
+				line-height: 36px;
+				font-weight: 300;
+				font-family: "museo-slab",serif;
+				letter-spacing: 2px;
+				font-style: italic;
+				text-align: left;
+			}
+		}
+	}
+
+
+	footer {
+		width: 100%;
+		height: 300px;
+		a {
+			position: relative;
+			top: 50%;
+			@include transform(translateY(-50%));
+			display: block;
+			text-decoration: none;
+			z-index: 60;
+			cursor: pointer;
+			@include transition(all .2s ease-out);
+			span {
+				display: block;
+				padding: 17px 20px 18px 21px;
+				text-align: center;
+				letter-spacing: 3px;
+				text-transform: uppercase;
+				font-weight: 500;
+				color: #fff;
+				font-size: 18px;
+				b { @include transition(color .2s ease-out); }
+				&:before {
+					content:"Keep riding";
+					margin-left: -190px;
+					position: absolute;
+					@include transition(all .2s ease-out);
+					opacity: 1;
+				}
+			}
+			svg {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				margin: auto;
+				line {
+					overflow: visible;
+					stroke-width: 3;
+					stroke: $yellow;
+					fill: none;
+					@include transition(transform .2s ease-out, stroke .6s ease-out)
+				}
+			}
+
+			&:hover {
+				span:before {
+					margin-left: -200px;
+					opacity: 0;
+				}
+				span b { color: $yellow; }
+				svg line { stroke: $yellow; }
+			}
+		}
+
+		/* ---- Work Page ---- */
+			a.footer-nextPageLink_work {
+				&:hover svg line.home-btStartUx--top { @include transform(translateX(-292px)); }
+				&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(292px)); }
+				&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
+				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 302 272 302; }
+				svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
+			}
+		/* ------------------- */
+	}
+
+
+	/*.headerTiny {
+		-webkit-transform: translateZ(0);
+		position: fixed;
+		margin: auto;
+		top: 0px;
+		background: rgba(0,0,0,.8);
 		h1 {
-			font-family: $font-goodFoot !important;
-			font-size: 216px !important;
-			color: $yellow;
+			font-size: 48px;
 			letter-spacing: 5px;
-			line-height: 120px;
-			margin-bottom: 32px !important;
-			display: inline-block;
+			line-height: 70px;
 		}
 		h2 {
-			color: rgba(255,255,255,1);
-			text-transform: uppercase;
-			font-size: 16px;
-			line-height: 28px;
-			letter-spacing: 10px;
-			font-family: "brandon-grotesque",sans-serif;
-			font-weight: 500;
-			display: block;
-			margin: 0 auto;
-		}	
+			font-size: 14px;
+			line-height: 24px;
+			letter-spacing: 5px;
+		}
+	}*/
+
+	.pageContent {
+		/*margin-top: 800px;*/
 	}
-	
 
 
 
@@ -170,10 +278,30 @@ body {
 /* --------------------------------------------- */
 	
 
+@media only screen and (max-height: 1100px){ header { height: 100%; }} 
 
+@media only screen and (max-width : 500px){
+	header .worksHeader-container h1 { 
+		font-size: 180px;
+		line-height: 100px;
+	}
+}
 
-
-
+@media only screen and (max-width : 420px){
+	header {
+		width: 96%;
+		left: 2%;
+		right: 2%;
+		.worksHeader-container {
+			h1 { 
+				font-size: 140px;
+				letter-spacing: 3px;
+				line-height: 60px;
+			}
+			h2 { line-height: 32px; }
+		}
+	}
+}
 
 
 

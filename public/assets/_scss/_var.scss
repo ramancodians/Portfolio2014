@@ -9,10 +9,11 @@
   transform: translate(-50%, -50%);
 }
 
-$font-brandon: "brandon-grotesque", sans-serif;
+$font-brandon: "brandon-grotesque", sans-serif !important;
 $font-goodFoot: "good_footregular", sans-serif;
+$font-museo: "museo-slab",serif;
 
-$yellow: #F4FD14; 
+$yellow: #F9E30B; 
 $redOpa: rgba(231, 76, 60, 1);
 $greenOpa: rgba(46, 204, 113, 1);
 $blueOpa: rgba(52, 152, 219, 1);

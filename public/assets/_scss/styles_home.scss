@@ -12,11 +12,14 @@
 		height: 100%;
 		overflow: hidden;
 
-		
-		#homeTitle {
+		.home-title {
 			display: block;
-			@include center-align;
+			position: relative;
+			top: 50%;
+			@include transform(translateY(-50%));
+			margin: 0 auto;
 			text-align: center;
+			width: 450px;
 			@include transition(all 0.2s ease-out);
 
 			color: rgba(255,255,255,1);
@@ -40,16 +43,16 @@
 			}*/
 
 			svg {
-
-				display: inline-block;
+				display: block;
 				fill: rgba(0,0,0,0);
 				stroke-width: 1;
 
 				stroke: $yellow;
-
+				width: 100%;
+				height: 100%;
 				overflow: hidden;
 				transform-origin: center center;
-				margin: 0 -5px -16px 5px;
+				margin: 50px -5px 50px 5px;
 
 
 				path {
@@ -67,9 +70,9 @@
 			h2 {
 				margin-left: 6px;
 				letter-spacing: 2px;
-				font-size: 21px;
+				font-size: 28px;
 				font-weight: $home-fontWeight;
-			
+				color: rgba(255,255,255,1);
 				span {
 					color: rgba(255,255,255,1);
 					font-weight: $home-fontWeight;
@@ -78,19 +81,15 @@
 			}
 			p {
 				color: rgba(255,255,255,.4);
-				font-size: 21px;
+				font-size: 28px;
 				letter-spacing: 2px;
-				font-weight: $home-fontWeight;
+				font-weight: 100;
 				a {
 					text-decoration: none;
-					color: rgba(255,255,255,.8);
+					color: rgba(255,255,255,.4);
 					@include transition(color 0.2s ease-out);
 					&:hover { color: #fff; }
 				}
-			}
-			& > p:first-of-type {
-				margin-bottom: 30px;
-				display: inline
 			}
 			& > p:last-of-type, h2 {
 				display: inline;
@@ -103,11 +102,11 @@
 
 		.home-btStartUx {
 			position: absolute;
-			top: 60%;
-			left: 50%;
-			@include transform(translate(-50%, -50%));
-			@include transition(transform .6s ease-out);
-
+			margin: auto;
+			@include transition(transform .4s ease-out);
+			bottom: 100px;
+			left: 0;
+			right: 0;
 			cursor: pointer;
 			width: 245px;
 			height: 52px;
@@ -150,25 +149,24 @@
 					@include transition(transform .2s ease-out, stroke .6s ease-out)
 
 				}
-			line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
-					line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
+				line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 255 225 255; }
+				line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }	
 			}
-		}
 
+			#home-tips {
+				position: relative;
+				margin: 20px -80px 0 auto;
+				float: right;
 
-		#home-tips {
-			position: relative;
-			margin: 20px -80px 0 auto;
-			float: right;
-
-			opacity: 0;
-			display: block;
-			font-family: $font-goodFoot;
-			font-size: 32px;
-			word-spacing: -10px;
-			letter-spacing: 1px;
-			color: rgba(244,253,20,0.4);
-			@include transition(all .2s ease-out);
+				opacity: 0;
+				display: block;
+				font-family: $font-goodFoot;
+				font-size: 32px;
+				word-spacing: -10px;
+				letter-spacing: 1px;
+				color: rgba(244,253,20,0.4);
+				@include transition(all .2s ease-out);
+			}
 		}
 	}
 
@@ -179,7 +177,7 @@
 
 
 @media only screen and (max-width : 1100px){
-	#homeTitle {
+	.home-title {
 		max-width: 400px;
 		line-height: 50px;
 		svg { fill: #f4fd14 !important; }
@@ -188,12 +186,12 @@
 @media only screen and (max-height : 1100px){ .home-btStartUx { top: 70% !important; }}
 @media only screen and (max-height : 850px){ .home-btStartUx { top: 75% !important; }}
 @media only screen and (max-height : 600px){
-	#homeTitle { top: 37% !important; }
+	.home-title { top: 37% !important; }
 	.home-btStartUx { top: 80% !important; }
 }
 
 @media only screen and (max-width : 500px){
-	#homeTitle {
+	.home-title {
 		h2 { display: block !important; }
 		p { display: none !important; }
 	}
@@ -205,7 +203,7 @@
 }
 
 @media only screen and (max-width : 500px){
-	#homeTitle {
+	.home-title {
 		h2 { line-height: 30px !important; }
 		svg { max-width: 80% !important; }
 	}

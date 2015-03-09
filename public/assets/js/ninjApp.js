@@ -6,7 +6,7 @@
 
 	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-		$urlRouterProvider.otherwise("/");
+		/*$urlRouterProvider.otherwise("/");*/
 		$locationProvider.html5Mode(true).hashPrefix('!');
 	    $stateProvider
 	        .state('/', {
@@ -18,7 +18,22 @@
 	        	url: '/works',
 	        	templateUrl: 'views/works.html',
 	        	controller: 'worksController'
-	        });
+	        })
+	        .state('works/', {
+	        	url: '/works/',
+	        	templateUrl: 'views/works.html',
+	        	controller: 'worksController'
+	        })
+	        .state('contact', {
+	        	url: '/contact',
+	        	templateUrl: 'views/contact.html',
+	        	controller: 'contactController'
+	        })
+	        .state('contact/', {
+	        	url: '/contact/',
+	        	templateUrl: 'views/contact.html',
+	        	controller: 'contactController'
+	        })
 	});
 
 
@@ -34,13 +49,33 @@
 		var transiArray = {
 			'home': {
 				'homeTitle': {
-					'top': {
+					'y': {
+						'oldValue': '',
+						'newValue': ''
+					}
+				},
+				'btStartUx':{
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				}
+			},
+			'works': {
+				'worksHeader': {
+					'y': {
 						'oldValue': '0',
 						'newValue': '-20'
 					}
 				},
-				'btStartUx':{
-					'top': {
+				'worksList': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				},
+				'footerBanner-works': {
+					'y': {
 						'oldValue': '0',
 						'newValue': '20'
 					}
@@ -61,14 +96,16 @@
 				};
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
-						TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
+						/*TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});*/
+						TweenLite.to(elm, 0.2, {display:"block", opacity:"1", ease:Quart.easeOut});	
 					} else {
 						setTimeout(function(){
-							TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});
-							setTimeout(function(){
-								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});
-							},1000);
-						},1000);
+							/*TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});*/
+							TweenLite.to(elm, 0.2, {display:"none", opacity:"0", ease:Quart.easeOut});	
+							/*setTimeout(function(){
+								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"0", ease:Quart.easeOut});
+							},500);*/
+						},500);
 					}
 				});
 			}
@@ -95,6 +132,29 @@
 
 
 
+
+	ninjApp.directive('worksContent',function(){
+		return {
+			restrict: 'A',
+			templateUrl: 'views/worksContent.html',
+			controller: function() {
+				this.workTab = 1;
+				this.isSet = function(checkTab) {
+					return this.workTab === checkTab;
+				};
+				this.setTab = function(activeTab) {
+					this.workTab = activeTab;
+					document.getElementById('works--nav').setAttribute("data-workPage", activeTab);
+				};
+			},
+			controllerAs: "workTab"
+		}
+	});
+
+
+
+
+
 	ninjApp.controller('mainController', function($scope, $state, Page, transiArray){
 		$scope.Page = Page;
 
@@ -109,25 +169,29 @@
 
 	
 		$scope.menu = function(keyEvent){
-		    if(keyEvent.which == 109){
-		    	if($('body').hasClass("menu_noClick")){
-		    		
-		    	} else {
-		    	    var elem = $('body');
-		    	    elem.addClass("menu_noClick");
-		    	    
-		    	    setTimeout(function() {
-		    	        elem.removeClass("menu_noClick");
-		    	    }, 600);
+			if($(keyEvent.target).is('input, textarea')){
 
-					if($('.menuOverlay').css('display') == 'none'){
-						var page =  $('section').attr('class');
-						page = page.replace('ng-scope', '').replace(' ','');
-						openMenu_fadeOutElements(transiArray, page, 1);
-					} else {
-						switchMenu_anim(transiArray, 0, true);
-					}
-				} 
+            } else {
+			    if(keyEvent.which == 109){
+			    	if($('body').hasClass("menu_noClick")){
+			    		
+			    	} else {
+			    	    var elem = $('body');
+			    	    elem.addClass("menu_noClick");
+			    	    
+			    	    setTimeout(function() {
+			    	        elem.removeClass("menu_noClick");
+			    	    }, 600);
+
+						if($('.menuOverlay').css('display') == 'none'){
+							var page =  $('section').attr('class');
+							page = page.replace('ng-scope', '').replace(' ','');
+							openMenu_fadeOutElements(transiArray, page, 1);
+						} else {
+							switchMenu_anim(transiArray, 0, true);
+						}
+					} 
+				}
 			}
 		}
 
@@ -138,12 +202,22 @@
 			switchMenu_anim(transiArray, 0, true);
 		}
 
-		$scope.switchPage = function(link){
+		$scope.switchPage = function(link, propertie){
 			var page =  $('section').attr('class');
 			page = page.replace('ng-scope', '').replace(' ','');
+			console.log('propertie: '+propertie);
 			console.log('page: '+page);
 			console.log('link: '+link);
-			if(page == link){
+			if(propertie == 'directLink'){
+				directLink_fadeOutElements(transiArray, page, 0);
+				setTimeout(function(){
+					if(link == 'home'){
+						$state.transitionTo('/');
+					} else {
+						$state.transitionTo(link);
+					}
+				},1500);
+			} else if(page == link){
 				switchMenu_anim(transiArray, 0, true);
 			} else {
 				switchMenu_anim(transiArray, 0, undefined);
@@ -157,11 +231,8 @@
 			}			
 		}
 
-
-
-		preloaderAnimation(); // functions.js
-
 	});
+
 
 
 
