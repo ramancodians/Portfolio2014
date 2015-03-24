@@ -298,8 +298,7 @@ window.directLink_fadeOutElements = function(transiArray, page, x){
 
 
 // ============================================= Header fadeOut on scroll ============================================ //
-	window.addEventListener('scroll', function(e){
-		/* scroll 0 = opa 1, y 0 | scroll 100% = opa 0, y 20 */
+/*	window.addEventListener('scroll', function(e){
 		var distanceY = window.pageYOffset || document.documentElement.scrollTop,
 			headerHeight = $('header').height(),
 			headerContainerHeight = $('.header-container').height(),
@@ -316,7 +315,8 @@ window.directLink_fadeOutElements = function(transiArray, page, x){
 			else if(result<0){result=0;}
 			TweenLite.to(header, 0, {opacity: result, y: scrollTranslateY});
 		}
-	});
+	});*/
+	// too laggy
 // =================================================================================================================== //
 
 

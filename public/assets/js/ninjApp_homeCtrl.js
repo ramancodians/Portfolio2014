@@ -14,18 +14,10 @@ ninjApp.controller('homeController', function($scope, Page){
 
 
 /* ---------------------- Home "Alexis" SVG animation ------------------------ */
-			$.get('assets/svg/svgdefs.svg', function(data){
-				// inject the defs we need from the SVG doc into main file.
-				
-
-				$('.home .home-title svg').empty().html($(data).find('#homeAlexis .alexis'));
+			/*$.get('assets/svg/svgdefs.svg', function(data){
+				$('.home .home-title svg').empty().html($(data).find('.alexis'));
 				var alexisNbLetters = $('.alexis').size();
-
-				$('.alexis').css({
-					'stroke-dasharray': '1000',
-					'stroke-dashoffset': '1000'
-				}); 
-			});
+			});*/
 
 			function alexisAppears_reset(y, z, alexisNbLetters){
 			  	setTimeout(function(){

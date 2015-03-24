@@ -1,8 +1,8 @@
 
 	var ninjApp = angular.module('ninjApp', [
-		'ui.router'
+		'ui.router',
+		'ngTouch'
 	]);
-
 
 	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -35,6 +35,7 @@
 	        	controller: 'contactController'
 	        })
 	});
+
 
 
 	ninjApp.factory('Page', function(){
@@ -97,21 +98,27 @@
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
 						/*TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});*/
-						TweenLite.to(elm, 0.2, {display:"block", opacity:"1", ease:Quart.easeOut});	
+						TweenLite.to(elm, 0, {display: "block", onComplete:function(){
+							TweenLite.to(elm, 0.2, { opacity:"1", ease:Quart.easeOut });
+						}});	
 					} else {
-						setTimeout(function(){
-							/*TweenLite.to(elm, 0.2, {top:"auto", bottom:"0", height:"0", ease:Quart.easeOut});*/
-							TweenLite.to(elm, 0.2, {display:"none", opacity:"0", ease:Quart.easeOut});	
-							/*setTimeout(function(){
-								TweenLite.to(elm, 0.2, {display:"none", top:"0px", bottom:"auto", height:"0", ease:Quart.easeOut});
-							},500);*/
-						},500);
+						TweenLite.to(elm, 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
+							TweenLite.to(elm, 0, { display: "none"});
+						}});
 					}
 				});
 			}
 		};
 	}]);
 
+
+
+	ninjApp.directive('homeSvg',function(){
+		return {
+			restrict: 'A',
+			templateUrl: 'assets/svg/svgHomeAlexis.svg',
+		}
+	});
 
 
 	ninjApp.directive('menuOverlay',function(){
@@ -230,6 +237,13 @@
 				},800);						
 			}			
 		}
+
+
+
+		$.get('assets/svg/svgdefs.svg', function(data){
+			$('.bt-menu svg').empty().html($(data).find('.burgerPath'));
+		});
+
 
 	});
 

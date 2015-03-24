@@ -125,14 +125,10 @@
 	            //Success
 	            res.send("Thanks! We have sent your message.");
 	 
-
-	 
 	});
 
 
 	app.get('*', function(req, res){
-		/*res.sendFile(path.join(__dirname, '/public', 'index.html'));
-		res.sendFile('index.html', { root: path.join(__dirname, '/public') });*/
 		res.sendfile('./public/index.html');
 	});	
 

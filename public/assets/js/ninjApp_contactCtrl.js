@@ -4,6 +4,7 @@ ninjApp.controller('contactController', function($scope, $http, $state, Page){
 
 	Page.setTitle('Contact | Alexis Bertin');
 
+	TweenLite.to('.alphaTransi', 0.2, {y: "0", opacity: "1"});
 	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,.6)"});
 	TweenLite.to('.background', 0.2, {opacity: "0"});
 	/*TweenLite.to('.works-content', 0.2, {y: "-20", ease:Quart.easeOut });*/

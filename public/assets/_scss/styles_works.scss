@@ -1,6 +1,6 @@
 @import "_var.scss";
 /* ---------------- Works ---------------- */
-	
+
 	$articleHeight: 400px;
 	$articleWidth: 500px; 
 
@@ -21,8 +21,6 @@
 
 				&:nth-child(3n){ margin-right: 0; }
 				&:nth-child(3n+1), &:first-child { margin-left: 0; }
-				/*&:nth-child(odd){ margin-right: 20px; }
-				&:nth-child(even){ margin-left: 20px; } */
 
 
 				a {
@@ -37,7 +35,6 @@
 						&:hover {
 							.work--header {
 								opacity: 1;
-								border: 10px solid rgba(255,255,255,1);
 								.work---headerContent h3 {
 									@include transform(translateY(50%));
 									@include transition(all .2s ease-out);
@@ -48,18 +45,7 @@
 									opacity: 1;
 								}
 							}
-							.work--details {
-								@include transform(translateY(0px));
-								padding: 3px 10px 13px 20px;
-							}
-							.work--background {
-								opacity: .4;
-								-webkit-filter: blur(5px);
-								-moz-filter: blur(5px);
-								-o-filter: blur(5px);
-								-ms-filter: blur(5px);
-								filter: blur(5px);
-							}
+							.work--background { opacity: .2; }
 
 						}
 
@@ -74,8 +60,8 @@
 						line-height: 310px;
 						@include transition(all .2s ease-out);
 						z-index: 2;
-						@include box-sizing(border-box);
-						border: 0px solid rgba(255,255,255,0);
+						/*@include box-sizing(border-box);*/
+						/*border: 0px solid rgba(255,255,255,0);*/
 						opacity: 0;
 
 						.work---headerContent {
@@ -109,7 +95,6 @@
 					}
 					.work--details {
 						@include transition(all .2s ease-out);
-						@include transform(translateY(10px));
 						/*opacity: 0;*/
 						/*opacity: 1;*/
 						position: absolute;
@@ -121,8 +106,7 @@
 						font-weight: 700;
 						letter-spacing: 2px;
 						z-index: 1;
-						margin-top: 357px;
-						/*margin-left: 10px;*/
+						margin-top: 367px;
 						padding: 3px 10px 3px 10px;
 					}
 					.work--background {
@@ -142,6 +126,10 @@
 				a.workClass-codeDesign .work--details { background: #e74c3c; }
 				a.workClass-dataviz .work--details { background: #2ecc71; }
 
+				/*a.workClass-code .work--details,
+				a.workClass-codeDesign .work--details,
+				a.workClass-dataviz .work--details { background: #000; }*/
+
 				a.workClass-code,
 				a.workClass-codeDesign,
 				a.workClass-dataviz { background: #000; }
@@ -153,114 +141,135 @@
 		display: none;
 		opacity: 0;
 
-		h3 a {
-			display: block;
-			position: fixed;
-			text-decoration: none;
-			font-family: $font-goodFoot;
-			color: $yellow;
-			font-size: 64px;
-			letter-spacing: 2px;
-			top: 3%;
-			left: 3%;
-			cursor: pointer;
-			@include transition(all .2s ease-out);
-			z-index: 13;
 
-			&:after {
-				content: "- Back to all works";
-				position: relative;
-				letter-spacing: 3px;
-				text-transform: uppercase;
-				font-weight: 500;
-				color: #fff;
-				font-size: 16px;
-				font-family: $font-brandon;
-				margin-left: 14px;
-				top: -3px;
-				padding: 12px 0;
-				@include transition(all .2s ease-out);
-				opacity: 0;
-				@include transform(translateX(10px));
-			}
-
-			&:hover:after {
-				@include transform(translateX(0px));
-				opacity: 1;
-			}
-
-		}
-
-
-		.works--arrow {
+		.works-nav {
 			position: absolute;
-			top: 3%;
-			right: 3%;
+			top: 0;
+			height: 45px;
+			width: 94%;
+			width: calc(94% - 45px - 10px);
+			padding: 0 3%;
 			z-index: 15;
-			a {
-				display: inline-block;
-				border: 1px solid rgba(255,255,255,0);
+			overflow: hidden;
+
+			&:hover {
+				h3 a, .bt-menu {
+					opacity: 1 !important;
+					background: rgba(0,0,0,0.8);
+				}
+				.works--arrow { 
+					opacity: 1;
+					a { background: rgba(0,0,0,0.8); }
+				}
+			}
+
+
+			h3 a {
+				display: block;
+				position: fixed;
 				text-decoration: none;
-				overflow: hidden;
-				@include transition(all .2s ease-out);
-
-				span.works---iconWrap {
-					@include transition(all .2s ease-out);
-					svg {
-						fill: $yellow;
-						width: 20px;
-						height: 20px;
-					}
-				}
-				h5 {
-					display: none;
-					color: rgba(255,255,255,.4);
-					text-transform: uppercase;
-					white-space: nowrap;
-					letter-spacing: 4px;
-					font-weight: 300;
-					font-size: 16px;
-					opacity: 1;
-					@include transition(opacity .2s ease-out, transform .2s ease-out);
-				}
-
-				&.works---close {
-					width: 110px;
-					color: rgba(255, 255, 255, 0.3);
-					padding: 14px 5px 13px 5px;
-					text-align: center;
-					span {
-						@include transition(all .2s ease-out);
-						margin: 5px;
-					}
-					#works---count, #works---length { opacity: 1; }
-					#works---closeTxt {
-						color: #000;
-						text-transform: uppercase;
-						font-weight: 500;
-						position: absolute;
-						letter-spacing: 5px;
-						margin-left: 20px;
-						margin-top: -16px;
-						opacity: 0;
-						display: block;
-					}
-				}
-				&.works---arrowPrev { padding: 11px 12px 9px 10px; }
-				&.works---arrowNext { padding: 11px 10px 9px 12px; }
-			}
-			a:hover, .works--arrowHover {
+				font-family: $font-brandon;
+				text-transform: uppercase;
+				color: $yellow;
 				border: 1px solid $yellow;
-				background: $yellow;
-				span svg { fill: #000; }
-			}
-			a:hover {
-				#works---count, #works---length { opacity: 0 }
-				#works---closeTxt {
-					opacity: 1;
+				background: rgba(0,0,0,0.2);
+				padding: 14px 11px 13px 10px;
+				font-size: 16px;
+				letter-spacing: 2px;
+				cursor: pointer;
+				opacity: 0.2;
+				@include transition(all .2s ease-out);
+				&:hover {
+					background: $yellow;
+					color: #000;
 				}
+			}
+
+	
+
+			.works--arrow {
+				float: right;
+				height: 45px;
+				opacity: 0.2;
+				@include transition(opacity .2s ease-out);
+				a {
+					display: inline-block;
+					border: 1px solid $yellow;
+					background: rgba(0,0,0,0);
+					text-decoration: none;
+					overflow: hidden;
+					@include transition(all .2s ease-out);
+
+					span.works---iconWrap {
+						@include transition(all .2s ease-out);
+						svg {
+							fill: $yellow;
+							width: 20px;
+							height: 20px;
+						}
+					}
+					h5 {
+						display: none;
+						color: rgba(255,255,255,1);
+						text-transform: uppercase;
+						white-space: nowrap;
+						letter-spacing: 4px;
+						font-weight: 300;
+						font-size: 16px;
+						opacity: 1;
+						@include transition(opacity .2s ease-out, transform .2s ease-out);
+					}
+
+					&.works---close {
+						width: 100px;
+						color: #fff;
+						padding: 14px 0px 13px 0px;
+						text-align: center;
+						font-weight: 300;
+						span {
+							@include transition(all .2s ease-out);
+						}
+						#works---count, #works---length {
+							opacity: 1;
+							margin: 5px;
+						}
+							#works---length { margin-left: 0; }
+							#works---count:after {
+								content: "/";
+								margin-left: 5px;
+							}
+
+						#works---iconClose {
+							position: absolute;
+							opacity: 0;
+							display: block;
+							margin: -20px 0 0 38px;
+							svg {
+								fill: #000;
+								width: 25px;
+								height: 25px;
+							}
+						}
+					}
+					&.works---arrowPrev { padding: 11px 12px 9px 10px; }
+					&.works---arrowNext { padding: 11px 10px 9px 12px; }
+				}
+				a:hover, .works--arrowHover {
+					border: 1px solid $yellow;
+					background: $yellow;
+					span svg { fill: #000; }
+				}
+				a:hover {
+					#works---count, #works---length { opacity: 0 }
+					#works---iconClose {
+						opacity: 1;
+					}
+				}
+
+				.svgFillBlack { fill: #000 !important; }
 			}
 		}
+
 
 		.works--description {
 			width: 100%;
@@ -289,6 +298,10 @@
 					letter-spacing: 10px;
 					display: block;
 					margin: 0 auto;
+					span:before {
+						content: "|";
+						margin-right: 5px;
+					}
 				}
 			}
 
@@ -370,7 +383,7 @@
 		
 						img#works-----anchlGif {
 							margin: 18px auto;
-							width: 300px;
+							max-width: 300px;
 							padding-bottom: 10px;
 						}
 					}
@@ -379,8 +392,9 @@
 
 			.works---extLink {
 				position: relative;
-				margin: 0px auto 200px auto;
+				margin: 0px auto 100px auto;
 				display: inline-block;
+				max-width: 60%;
 				text-decoration: none;
 				left: 50%;
 				@include transform(translateX(-50%));
@@ -391,6 +405,7 @@
 				font-weight: 700;
 				color: #fff;
 				font-size: 18px;
+				line-height: 27px;
 				font-family: $font-brandon;
 				border: 2px solid rgba(255,255,255,1);
 				@include transition(all .2s ease-out);
@@ -433,7 +448,7 @@
 		.works--description {
 			display: none;
 			opacity: 0;
-			@include transition(all .2s ease-out);
+			/*@include transition(opacity .4s ease-out);*/
 		}
 
 
@@ -459,27 +474,138 @@
 	*/
 
 @media only screen and (max-width : 1600px){
-
-}
-@media only screen and (max-width : 1200px){
-	.works .works-list article,
-	.works .works-list article a .work--header,
-	.works .works-list article a .work--background {
-		width: 100%;
-		height: 400px;
+	.works-list {
+		width: (360px * 3)+(40*2) !important;
+		article {
+			width: 360px !important;
+			height: 280px !important;
+			a {
+				.work--header {
+					width: 360px !important;
+					height: 280px !important;
+					line-height: 217px !important;
+					.work---headerContent {
+						h3 {
+							font-size: 48px !important;
+							letter-spacing: 2px !important;
+							@include transform(translateY(45%));
+						}
+						h3.bigW { font-size: 24px !important; }
+						p {
+							font-size: 14px !important;							
+							letter-spacing: 6px !important;
+							margin: 25px auto 0 auto !important;
+							@include transform(translateY(10px));
+						}
+					}
+				}
+				.work--details {
+					font-size: 12px !important;
+					line-height: 18px !important;
+					letter-spacing: 2px !important;
+					margin-top: 256px !important;
+				}
+				.work--background {
+					width: 360px !important;
+					height: 280px !important;
+				}
+			}
+		}
 	}
-	.works .works-list article a .work--header { line-height: 310px; }
-	.works .works-list article a .work--details { margin-top: 357px; }
+
+	.works .works-content h3 a { 
+		font-size: 18px !important;
+	}
 }
 
-@media only screen and (max-width : 1000px){
-	.works .works-list article,
-	.works .works-list article a .work--header,
-	.works .works-list article a .work--background {
-		height: 350px;
+@media only screen and (min-width: 801px) and (max-width: 1200px){
+	.works .works-list {
+		width: (360px * 2) + 40 !important;
+		article {
+			&:nth-child(3n){ margin-right: 20px; }
+			&:nth-child(3n+1), &:first-child { margin-left: 20px; }
+
+			&:nth-child(2n){ margin-right: 0px !important; }
+			&:nth-child(2n+1), &:first-child { margin-left: 0px !important; }		
+		}
 	}
-	.works .works-list article a .work--header { line-height: 260px; }
-	.works .works-list article a .work--details { margin-top: 307px; }
+	.works {
+		h4 {
+			margin: 200px auto 16px auto !important;
+			font-size: 64px !important;
+		}
+		h5 span {
+			display: block;
+			&:before { display: none; }
+		}
+	}
 }
+@media only screen and (max-width: 800px){
+	.works-list { width: 90% !important; }
+	.works-list article,
+	.works-list article a .work--header,
+	.works-list article a .work--background { width: 100% !important; }
+	.works-list article,
+	.works-list article:nth-child(3n),
+	.works-list article:nth-child(3n+1),
+	.works-list article:nth-child(2n),
+	.works-list article:nth-child(2n+1) {
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+	}
+
+	.works-content .works--description .works---descHeader {
+		width: 90%;
+		margin: 0 auto;
+		h4 {
+			margin: 100px auto 16px auto;
+			font-size: 48px;
+			line-height: 56px;
+		}
+		h5 {
+			font-size: 14px;
+			letter-spacing: 6px;
+			line-height: 28px;
+			span {
+				display: block;
+				&:before { display: none; }
+			}
+		}
+	}
+}
+
+
+@media only screen and (max-device-width : 1024px){
+	.works-nav {
+		top: auto !important;
+		bottom: 0 !important;
+		padding: 0 !important;
+		width: 105px !important;
+
+		h3,
+		.works--arrow .works---arrowPrev,
+		.works--arrow .works---arrowNext { display: none !important; }
+		.works--arrow {
+			float: none !important;
+			margin-right: 0 !important;
+			opacity: 1 !important;
+			a { background: rgba(0,0,0,.8) !important; }
+			.works---close { margin-left: 3%; }
+			&:hover, &:active {
+				a { background: $yellow !important; }
+				a .works---close {
+					color: #000 !important;
+					font-weight: 500 !important;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
 
 

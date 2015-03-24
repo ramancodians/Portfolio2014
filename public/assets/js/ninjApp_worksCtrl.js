@@ -3,10 +3,13 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 
 	Page.setTitle('Works | Alexis Bertin');
 
-	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,.6)"});
+	
+	setTimeout(function(){	TweenLite.to('.works .alphaTransi', 0.4, {y: "0", opacity: "1", ease:Quart.easeOut }); },1000);
+
+	TweenLite.to('.overlay', 0, {background: "rgba(0,0,0,.6)"});
 	/*TweenLite.to('.home-bgVideo', 0.2, {top: "-280"});*/
-	TweenLite.to('.background', 0.2, {opacity: "0"});
-	TweenLite.to('.works-content', 0.2, {y: "-20", ease:Quart.easeOut });
+	TweenLite.to('.background', 0, {opacity: "0"});
+	TweenLite.to('.works-content', 0, {y: "-20", ease:Quart.easeOut });
 
 /*
 	$http.get('views/worksData.json')
@@ -50,11 +53,11 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		console.log('oldWorkPage: '+oldWorkPage);
 		TweenLite.to('.works', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
 			TweenLite.to('.works', 0, {display: "none"});
-			TweenLite.to('.works-content', 0.2, {display: "block", onComplete:function(){
-				TweenLite.to('.works-content', 0.2, {opacity: "1", y: "0", ease:Quart.easeOut });
+			TweenLite.to('.works-content', 0, {display: "block", onComplete:function(){
+				TweenLite.to('.works-content', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut });
 			}});
 			TweenLite.to('.works-content #works---'+workPage, 0, {display: "block", onComplete:function(){
-				TweenLite.to('.works-content #works---'+workPage, 0.2, {opacity: "1", y:"0", ease:Quart.easeOut});
+				TweenLite.to('.works-content #works---'+workPage, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
 				var elm = document.getElementById('works---'+workPage).className.replace('ng-hide', 'ng-show');
 				document.getElementById('works---'+workPage).className = elm;
 
@@ -89,9 +92,9 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 
 			if (hash === '') {
 				/* STATE 1 --- Back on ALL WORKS ||  --- */
-				TweenLite.to('.works-content #works---'+workName, 0.2, {opacity: "0", ease:Quart.easeOut, onComplete:function(){
+				TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
 					TweenLite.to('.works-content #works---'+workName, 0, {display: "none"});
-					TweenLite.to('.works-content', 0.2, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
+					TweenLite.to('.works-content', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
 						TweenLite.to('.works-content', 0, {display: "none"});
 						TweenLite.to('.works', 0, {display: "block", onComplete:function(){
 							TweenLite.to('.works', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
@@ -107,13 +110,14 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 					/* STATE 2.1 --- Prev page was ALL WORKS --- */
 					TweenLite.to('.works', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
 						TweenLite.to('.works', 0, {display: "none"});
-						TweenLite.to('.works-content', 0.2, {display: "block", onComplete:function(){
-							TweenLite.to('.works-content', 0.2, {opacity: "1", y: "0", ease:Quart.easeOut });
+						TweenLite.to('.works-content', 0, {display: "block", onComplete:function(){
+							TweenLite.to('.works-content', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut });
 						}});
 						elm = document.getElementById('works---'+workName).className.replace('ng-hide', 'ng-show');
 						document.getElementById('works---'+workName).className = elm;
 						TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
-							TweenLite.to('.works-content #works---'+workName, 0.2, {opacity: "1", y: "0", ease:Quart.easeOut});
+							window.scrollTo(0,0);
+							TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
 							oldWorkPage = workName;
 						}});
 					}});
@@ -121,10 +125,11 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 					/* STATE 2.2 --- Prev page was an other WORK --- */
 					var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
 					document.getElementById('works---'+oldWorkPage).className = elm;
-					TweenLite.to('.works-content #works---'+oldWorkPage, 0.2, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
+					TweenLite.to('.works-content #works---'+oldWorkPage, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
 						TweenLite.to('.works-content #works---'+oldWorkPage, 0, {display: "none"});
 						TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
-							TweenLite.to('.works-content #works---'+workName, 0.2, {opacity: "1", y:"0", ease:Quart.easeOut});
+							window.scrollTo(0,0);
+							TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
 							elm = document.getElementById('works---'+workName).className.replace('ng-hide', 'ng-show');
 							document.getElementById('works---'+workName).className = elm;
 							oldWorkPage = workName;
@@ -145,9 +150,9 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		var hash = window.location.hash;
 		var workName = hash.replace('#', '');
 		document.getElementById('works--nav').setAttribute('data-workpage', 0);
-		TweenLite.to('.works-content #works---'+workName, 0.2, {opacity: "0", ease:Quart.easeOut, onComplete:function(){
+		TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
 			TweenLite.to('.works-content #works---'+workName, 0, {display: "none"});
-			TweenLite.to('.works-content', 0.2, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
+			TweenLite.to('.works-content', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
 				TweenLite.to('.works-content', 0, {display: "none"});
 				TweenLite.to('.works', 0, {display: "block", onComplete:function(){
 					TweenLite.to('.works', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
@@ -172,14 +177,15 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		}
 		/*console.log('Next: we are on page '+workPageId+' - '+workPage);
 		console.log('Next: we are going to '+workPageId+1+' - '+workPageNext);*/
-		TweenLite.to('.works-content #works---'+workPage, 0.2, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
+		TweenLite.to('.works-content #works---'+workPage, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
 			TweenLite.to('.works-content #works---'+workPage, 0, {display: "none"});
 			var elm = document.getElementById('works---'+workPage).className.replace('ng-show', 'ng-hide');
 			document.getElementById('works---'+workPage).className = elm;
 			TweenLite.to('.works-content #works---'+workPageNext, 0, {display: "block", onComplete:function(){
 				elm = document.getElementById('works---'+workPageNext).className.replace('ng-hide', 'ng-show');
 				document.getElementById('works---'+workPageNext).className = elm;
-				TweenLite.to('.works-content #works---'+workPageNext, 0.2, {opacity: "1", y:"0", ease:Quart.easeOut});
+				window.scrollTo(0,0);
+				TweenLite.to('.works-content #works---'+workPageNext, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
 				oldWorkPage = workPageNext;
 				var workPageId = worksArray.indexOf(workPageNext) + 1;
 				document.getElementById('works--nav').setAttribute('data-workpage', workPageId);
@@ -203,14 +209,15 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		}
 		/*console.log('Next: we are on page '+workPageId+' - '+workPage);
 		console.log('Next: we are back to '+workPageId+1+' - '+workPagePrev);*/
-		TweenLite.to('.works-content #works---'+workPage, 0.2, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
+		TweenLite.to('.works-content #works---'+workPage, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
 			TweenLite.to('.works-content #works---'+workPage, 0, {display: "none"});
 			var elm = document.getElementById('works---'+workPage).className.replace('ng-show', 'ng-hide');
 			document.getElementById('works---'+workPage).className = elm;
 			TweenLite.to('.works-content #works---'+workPagePrev, 0, {display: "block", onComplete:function(){
 				elm = document.getElementById('works---'+workPagePrev).className.replace('ng-hide', 'ng-show');
 				document.getElementById('works---'+workPagePrev).className = elm;
-				TweenLite.to('.works-content #works---'+workPagePrev, 0.2, {opacity: "1", y:"0", ease:Quart.easeOut});
+				window.scrollTo(0,0);
+				TweenLite.to('.works-content #works---'+workPagePrev, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
 				oldWorkPage = workPagePrev;
 				var workPageId = worksArray.indexOf(workPagePrev) + 1;
 				document.getElementById('works--nav').setAttribute('data-workpage', workPageId);
@@ -227,6 +234,11 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 	$("body").keydown(function(e) {
 		var hash = window.location.hash;
 		var page = hash.replace('#', '');
+
+		if((e.keyCode == 37 && page != '') || (e.keyCode == 39 && page != '') || (e.keyCode == 27 && page != '')){
+			$('.works--arrow').addClass('opacity');
+		}
+
 		if(e.keyCode == 37 && page != ''){
 			$('.works--arrow .works---arrowPrev').addClass('works--arrowHover');
 			$('.works--arrow .works---arrowPrev span svg').css('fill','#000');
@@ -236,12 +248,17 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		} else if(e.keyCode == 27 && page != ''){
 			$('.works--arrow .works---close').addClass('works--arrowHover');
 			TweenLite.to('#works---count, #works---length', 0, { opacity:"0" });
-			TweenLite.to('#works---closeTxt', 0, { opacity:"1" });
+			TweenLite.to('#works---iconClose', 0, { opacity:"1" });
 		}
 	});
 	$("body").keyup(function(e) {
 		var hash = window.location.hash;
 		var page = hash.replace('#', '');
+
+		if((e.keyCode == 37 && page != '') || (e.keyCode == 39 && page != '') || (e.keyCode == 27 && page != '')){
+			$('.works--arrow').removeClass('opacity');
+		}
+
 		if(e.keyCode == 37 && page != ''){
 			$('.works--arrow .works---arrowPrev').removeClass('works--arrowHover');
 			$('.works--arrow .works---arrowPrev span svg').css('fill','#f9e30b');
@@ -253,12 +270,10 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 		} else if(e.keyCode == 27 && page != ''){
 			$('.works--arrow .works---close').removeClass('works--arrowHover');
 			TweenLite.to('#works---count, #works---length', 0, { opacity:"1" });
-			TweenLite.to('#works---closeTxt', 0, { opacity:"0" });
+			TweenLite.to('#works---iconClose', 0, { opacity:"0" });
 			$scope.worksClose();
 		}
 	});
-
-
 });
 
 

@@ -1,38 +1,45 @@
 
-        
-        <h3>
-            <a href ng-click="worksClose();" title="Back to all works" class="works--title">Works</a>
-        </h3>
+        <nav class="works-nav">
+            <h3>
+                <a href ng-click="worksClose();" title="Back to all works" class="works--title">Works</a>
+            </h3>
 
-        <nav class="works--arrow" id="works--nav" data-workpage="">
-            <a href class="works---arrowPrev" ng-click="worksPrev();" >
-                <span class="works---iconWrap">
-                    <svg viewBox="0 0 64 64">
-                        <path id="arrow-left-1" d="M46.077 55.738c0.858 0.867 0.858 2.266 0 3.133s-2.243 0.867-3.101 0l-25.056-25.302c-0.858-0.867-0.858-2.269 0-3.133l25.056-25.306c0.858-0.867 2.243-0.867 3.101 0s0.858 2.266 0 3.133l-22.848 23.738 22.848 23.738z" />
-                    </svg>
-                </span>
-                <h5>Prev. Work</h5>
-            </a>
-            <a href class="works---close" ng-click="worksClose();">
-                <span id="works---count"></span>/<span id="works---length"></span>
-                <span id="works---closeTxt">Close</span>
-            </a>
-            <a href class="works---arrowNext" ng-click="worksNext();">
-                <span class="works---iconWrap">
-                    <svg viewBox="0 0 64 64">
-                        <path id="arrow-right-1" d="M17.919 55.738c-0.858 0.867-0.858 2.266 0 3.133s2.243 0.867 3.101 0l25.056-25.302c0.858-0.867 0.858-2.269 0-3.133l-25.056-25.306c-0.858-0.867-2.243-0.867-3.101 0s-0.858 2.266 0 3.133l22.848 23.738-22.848 23.738z" />
-                    </svg>
-                </span>
-                <h5>Next Work</h5>
-            </a>
+            <nav class="works--arrow" id="works--nav" data-workpage="">
+                <a href class="works---arrowPrev" ng-click="worksPrev();" >
+                    <span class="works---iconWrap">
+                        <svg viewBox="0 0 64 64">
+                            <path id="arrow-left-1" d="M46.077 55.738c0.858 0.867 0.858 2.266 0 3.133s-2.243 0.867-3.101 0l-25.056-25.302c-0.858-0.867-0.858-2.269 0-3.133l25.056-25.306c0.858-0.867 2.243-0.867 3.101 0s0.858 2.266 0 3.133l-22.848 23.738 22.848 23.738z" />
+                        </svg>
+                    </span>
+                    <h5>Prev. Work</h5>
+                </a>
+                <a href class="works---close" ng-click="worksClose();">
+                    <span id="works---count"></span><span id="works---length"></span>
+                    <span id="works---iconClose">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 6.415l-1.415-1.415-5.585 5.585-5.585-5.585-1.415 1.415 5.585 5.585-5.585 5.585 1.415 1.415 5.585-5.585 5.585 5.585 1.415-1.415-5.585-5.585z" />
+                        </svg>
+                    </span>
+                </a>
+                <a href class="works---arrowNext" ng-click="worksNext();">
+                    <span class="works---iconWrap">
+                        <svg viewBox="0 0 64 64">
+                            <path id="arrow-right-1" d="M17.919 55.738c-0.858 0.867-0.858 2.266 0 3.133s2.243 0.867 3.101 0l25.056-25.302c0.858-0.867 0.858-2.269 0-3.133l-25.056-25.306c-0.858-0.867-2.243-0.867-3.101 0s-0.858 2.266 0 3.133l22.848 23.738-22.848 23.738z" />
+                        </svg>
+                    </span>
+                    <h5>Next Work</h5>
+                </a>
+            </nav>
         </nav>
 
+
+        
 
 
         <div class="works--description" id="works---darthVader" ng-show="workTab.isSet('1')">
             <div class="works---descHeader">
                 <h4>Darth Vader Light House</h4>
-                <h5>Arduino Experiment | June 2014</h5>
+                <h5>Arduino Experiment <span>June 2014</span></h5>
             </div>
             <div class="works---descContent">
                 <p>The <span><i>Darth Vader Light House</i></span> is my final project as a student.<br />
@@ -64,7 +71,7 @@
         <div class="works--description" id="works---gifMePlz" ng-show="workTab.isSet('2')">
             <div class="works---descHeader">
                 <h4>GifMePlz</h4>
-                <h5>Basic UX | PHP Exercise | June 2014</h5>
+                <h5>Basic UX | PHP Exercise <span>June 2014</span></h5>
             </div>
 
             <div class="works---descContent">
@@ -114,7 +121,7 @@
         <div class="works--description" id="works---oweme" ng-show="workTab.isSet('4')">
             <div class="works---descHeader">
                 <h4>OweMe</h4>
-                <h5>PHP Web APP | February 2014</h5>
+                <h5>PHP Web APP <span>February 2014</span></h5>
             </div>
             <div class="works---descContent">
                 <p><i>OweMe</i> is a <span>web-app</span> made during the one-week <a href="https://dwm.re/ilab/" target="_blank" title="link to DMW.re website"><i>iLab</i> workshop</a> in February 2014.<br />
@@ -144,7 +151,7 @@
         <div class="works--description" id="works---usaFlight" ng-show="workTab.isSet('5')">
             <div class="works---descHeader">
                 <h4>USA, Leader of The Flight World</h4>
-                <h5>Data visualization Marathon | November 2012</h5>
+                <h5>Data visualization Marathon <span>November 2012</span></h5>
             </div>
             <div class="works---descContent">
                 <p>This data visualization work was carried out <span>in 24 hours</span> with <a href="http://twitter.com/vincent_vandy" title="Twitter of Vincent Vandy" target="_blank">Vincent Vandy</a> for the international competition <a href="http://visualizing.org/marathon2012" title="Visualizing Global Marathon website" target="_blank">Visualizing Global Marathon</a>.</p>
@@ -165,7 +172,7 @@
         <div class="works--description" id="works---commeChezSoi" ng-show="workTab.isSet('6')">
             <div class="works---descHeader">
                 <h4>Comme chez Soi Restaurant</h4>
-                <h5>HTML & CSS Exercise | March 2013</h5>
+                <h5>HTML & CSS Exercise <span>March 2013</span></h5>
             </div>
             <div class="works---descContent">
                 <p>Comme chez Soi was a little <span>redesigning exercise</span> for my <span>first real HTML/CSS course</span> at the <a href="http://www.infographie-sup.be/" title="website of the Haute École Albert Jacquard school" target="_blank">HEAJ</a>.</p>
@@ -212,7 +219,7 @@
         <div class="works--description" id="works---plasticSurgery" ng-show="workTab.isSet('8')">
             <div class="works---descHeader">
                 <h4>Plastic Surgery</h4>
-                <h5>Data visualization Workshop | April 2013</h5>
+                <h5>Data visualization Workshop <span>April 2013</span></h5>
             </div>
 
             <div class="works---descContent">
@@ -243,7 +250,7 @@
         <div class="works--description" id="works---anchl" ng-show="workTab.isSet('9')">
             <div class="works---descHeader">
                 <h4>ANCHL</h4>
-                <h5>Joomla Integration | December 2013</h5>
+                <h5>Joomla Integration <span>December 2013</span></h5>
             </div>
             <div class="works---descContent">
                 <p>The « <span>Association Nationale des Centres Hospitaliers Locaux</span> » (National Association of Local Hospital Centers) website was the main project I worked on during my <span>internship at</span> <a href="" title="website of the Loesys Agency">Loesys</a> in 2013.</p>

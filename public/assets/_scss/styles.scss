@@ -13,6 +13,7 @@ body {
 	font-weight: 300;
 	-webkit-font-smoothing: subpixel-antialiased;
 	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
 }
 
 
@@ -31,7 +32,7 @@ body {
 			z-index: $sectionZindex + 3;
 		}
 		.opacity {
-			opacity: 1;
+			opacity: 1 !important;
 		}
 		.preloader, .overlay, .background {
 			position: fixed;
@@ -46,21 +47,20 @@ body {
 			/*background: rgba(0,0,0,.6);*/
 			/*background: #111; */
 			background: #000;
-			z-index: $sectionZindex + 5;
+			z-index: $sectionZindex + 40;
 			@include transition(all .2s ease-out);
 			height: 100%;
 
-				svg {
+				/*svg {
 					position: fixed;
 					margin: auto;
 					top: 0; right: 0; bottom: 0; left: 0;		
 					display: block;
 					overflow: visible;
-					$gcd: 18; /* GCD of 558-522 | PGCD in french */
+					$gcd: 18;
 					$multiple: 6;
 					width: 522px / $gcd * $multiple;
 					height: 558px / $gcd * $multiple;
-					
 					fill: rgba(0,0,0,0);
 					stroke-width: 5;
 					stroke: $yellow;
@@ -69,8 +69,16 @@ body {
 					stroke-dasharray: 1000;
 					stroke-dashoffset: 1000;
 					@include animation(triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite);
+				}*/
+				img {
+					position: fixed;
+					margin: auto;
+					top: 0; right: 0; bottom: 0; left: 0;		
+					display: block;
+					overflow: visible;
+					width: 200px;
+					height: 200px;
 				}
-
 				h4 {
 					position: fixed;
 					top: 50%;
@@ -112,6 +120,67 @@ body {
 	
 		.clearMargin { margin: 0 auto !important; }
 		
+		.works .alphaTransi {
+			@include transform(translateY(-10px));
+			opacity: 0;
+		}
+
+		.bt-menu {
+			position: fixed;
+			/*right: 3%; */
+			right: 0;
+			color: $yellow;
+			display: inline-block;
+			border: 1px solid rgba(0,0,0,0);
+			background: rgba(0,0,0,0);
+			text-decoration: none;
+			overflow: hidden;
+			z-index: 20;
+			/*margin-top: 15px;*/
+			padding: 10px;
+			@include transition(background .2s ease-out, border .2s ease-out);
+			svg {
+				fill: #fff;
+				stroke-width: 2;
+				width: 20px;
+				height: 20px;
+				.burgerPath { @include transition(all .2s ease-out); }
+			}
+			&:hover {
+				/*background: $yellow !important;
+				svg { fill: #000; }*/
+				background: rgba(0,0,0,.8);
+				border: 1px solid $yellow;
+				/*svg #burger-top { display: none; }*/
+				svg {
+					.burgerPath-top { @include transform(translateY(-5px)); }
+					.burgerPath-bot { @include transform(translateY(5px)); }
+					
+					/*.burgerPath-top {
+						opacity: 0;
+						@include transform(translateY(-10px))
+					}
+					.burgerPath-mid { 
+						@include transition-delay(.1s);
+						@include transform(rotate(-45deg) translate(-34px, 10px));
+					}
+					.burgerPath-bot {
+						@include transition-delay(.1s);
+						@include transform(rotate(45deg) translate(7px, -64px) scale(1.22));
+					}*/
+				}
+
+			}
+			&:active {
+				background: $yellow !important;
+				svg { 
+					fill: #000;
+					stroke: #000;
+				}
+			}
+		}
+
+
 
 
 	.home-bgVideo {
@@ -125,18 +194,15 @@ body {
 		z-index: 5;
 		background: url('../img/bg_home.jpg') center center no-repeat;
 		background-size: cover;
-		-webkit-filter: blur(10px);
-		-moz-filter: blur(10px);
-		-o-filter: blur(10px);
-		-ms-filter: blur(10px);
-		filter: blur(10px);
 	}
 
 
 
+
 	header {
-		height: 1000px;
 		margin: auto;
+		position: relative;
+		height:100%;
 		.header-container {
 			position: relative;
 			top: 50%;
@@ -164,8 +230,9 @@ body {
 			}
 			p {
 				display: block;
+				width: 90%;
 				max-width: 550px;
-				margin: 100px auto 0px auto;
+				margin: 50px auto 0px auto;
 				padding: 20px 50px;
 				border-left: 1px solid $yellow;
 				color: #FFF;
@@ -249,24 +316,6 @@ body {
 	}
 
 
-	/*.headerTiny {
-		-webkit-transform: translateZ(0);
-		position: fixed;
-		margin: auto;
-		top: 0px;
-		background: rgba(0,0,0,.8);
-		h1 {
-			font-size: 48px;
-			letter-spacing: 5px;
-			line-height: 70px;
-		}
-		h2 {
-			font-size: 14px;
-			line-height: 24px;
-			letter-spacing: 5px;
-		}
-	}*/
-
 	.pageContent {
 		/*margin-top: 800px;*/
 	}
@@ -274,16 +323,32 @@ body {
 
 
 
-
 /* --------------------------------------------- */
-	
 
-@media only screen and (max-height: 1100px){ header { height: 100%; }} 
+
+@media only screen and (min-height: 1100px){
+	section header {
+		height: 1000px;
+		.header-container {
+			margin: 100px auto 0px auto;
+		}
+	}
+}
+@media only screen and (max-height: 700px){
+	section header { height: 700px; }
+}
+
 
 @media only screen and (max-width : 500px){
+	.home-bgVideo { height: 100% !important; }
 	header .worksHeader-container h1 { 
 		font-size: 180px;
 		line-height: 100px;
+	}
+	header .header-container p {
+		padding: 0 0 0 20px !important;
+		font-size: 16px;
+		line-height: 32px;
 	}
 }
 
@@ -292,66 +357,72 @@ body {
 		width: 96%;
 		left: 2%;
 		right: 2%;
-		.worksHeader-container {
-			h1 { 
-				font-size: 140px;
-				letter-spacing: 3px;
-				line-height: 60px;
-			}
-			h2 { line-height: 32px; }
+		h1 { 
+			font-size: 176px !important;
+			letter-spacing: 3px !important;
+			margin: 0 auto 10px auto !important;
+		}
+		h2 { line-height: 32px; }
+		p { padding: 20px 15px !important; }
+	}
+}
+@media only screen and (max-width: 350px){
+	header h1 {
+		font-size: 128px !important;
+		margin: 0 auto !important;
+	}
+}
+
+
+@media only screen and (max-device-width : 1024px){
+	.bt-menu {
+		bottom: 0;
+		border: 1px solid $yellow !important;
+		background: rgba(0,0,0,.8) !important;
+	}
+
+	footer a {
+		&:before { display: none; }
+		span:before {
+			margin-left: -200px;
+			opacity: 0;
+		}
+		span b { color: $yellow; }
+		svg line { stroke: $yellow; }
+
+		&.footer-nextPageLink_work {
+			svg line.home-btStartUx--top { @include transform(translateX(-292px)); }
+			svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+			svg line.home-btStartUx--bottom { @include transform(translateX(292px)); }
+			svg line.home-btStartUx--left { @include transform(translateY(52px)); }
+			svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 302 272 302; }
+			svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
 		}
 	}
 }
 
 
 
+/*	@include keyframes(triskel-rotation) {
+		0% { @include transform(rotate(0deg)); }
+		100% { @include transform(rotate(360deg)); }
+	}
 
-
-
-
-
-
-
-
-
-
-
-			@keyframes triskel-rotation {
-				0% { @include transform(rotate(0deg)); }
-				100% { @include transform(rotate(360deg)); }
-			}
-
-			@-webkit-keyframes triskel-dash {
-				0% { stroke-dashoffset: 1000; }
-				50% { stroke-dashoffset: 0; }
-				100% { stroke-dashoffset: 1000; }
-			}
-			@keyframes triskel-dash {
-				0% { stroke-dashoffset: 1000; }
-				50% { stroke-dashoffset: 0; }
-				100% { stroke-dashoffset: 1000; }
-			}
-
-
-
-
-			@-webkit-keyframes dash {
-				0% { stroke-dashoffset: 1000; }
-				100% { stroke-dashoffset: 0; }
-			}
-			@keyframes dash {
-				0% { stroke-dashoffset: 1000; }
-				100% { stroke-dashoffset: 0; }
-			}
-
-			@-webkit-keyframes dashBack {
-				0% { stroke-dashoffset: 0; }
-				100% { stroke-dashoffset: 1000; }
-			}
-			@keyframes dashBack {
-				0% { stroke-dashoffset: 0; }
-				100% { stroke-dashoffset: 1000; }
-			}
+	@include keyframes(triskel-dash) {
+		0% { stroke-dashoffset: 1000; }
+		50% { stroke-dashoffset: 0; }
+		100% { stroke-dashoffset: 1000; }
+	}
+	*/
+	@include keyframes(dash) {
+		0% { stroke-dashoffset: 1000; }
+		100% { stroke-dashoffset: 0; }
+	}
+	
+	@include keyframes(dashBack) {
+		0% { stroke-dashoffset: 0; }
+		100% { stroke-dashoffset: 1000; }
+	}
 
 
 

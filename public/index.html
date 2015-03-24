@@ -5,12 +5,13 @@
 
     <meta charset="utf-8" />
     <meta name="title" content="{{ Page.title() }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Alexis Bertin's Portfolio. Front End web developer." />
     <meta name="author" content="Alexis Bertin" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="HTML,CSS, JavaScript, php, front end, developer, integrateur, integration, developpement, heaj, esiaj, dwm, albert, jacquard, alexis, bertin, developpeur" />
     <meta name="revised" content="Alexis Bertin, Septembre 2014" />
+
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta property="og:title" content="{{ Page.title() }}" />
@@ -35,13 +36,20 @@
 </head>
 <body> 
     <div class="preloader" data-loading>    
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="174px" height="186px" viewBox="0 0 174 186"
+        <!-- <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="174px" height="186px" viewBox="0 0 174 186"
                  enable-background="new 0 0 174 186" xml:space="preserve">
             <use xlink:href="assets/svg/svgdefs.svg#triskel"></use>
-        </svg>
+        </svg> -->
+        <img src="assets/img/triskell.gif" title="triskell loader" width="200" height="200" />
         <h4>Loading</h4>
     </div>
 
+    <a href ng-click="openMenuOverlay();" title="Open the Dashboard" class="bt-menu">
+        <svg viewBox="0 0 65 58">
+            <use xlink:href="assets/svg/svgdefs.svg#burger"></use>
+        </svg>
+    </a>
+    
     <menu-overlay class="menuOverlay menuOverlay-contentscale menuOverlay-container" ></menu-overlay>
 
     <video autoplay loop poster="assets/img/bg_home.jpg" class="home-bgVideo">
@@ -59,16 +67,23 @@
             
 
     <script type="text/javascript" src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenLite.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/jquery.gsap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/plugins/CSSPlugin.min.js"></script>
     <script type="text/javascript" src="assets/libs/classie.js"></script>
+    -->
+
+    <script src="assets/libs/tweenlite/TweenLite.min.js"></script>
+    <script src="assets/libs/tweenlite/jquery.gsap.min.js"></script>
+    <script src="assets/libs/tweenlite/CSSPlugin.min.js"></script>
+
 
     <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
     <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/JavaScript" src="assets/libs/angular-touch/angular-touch.min.js"></script>
     <script type="text/javascript" src="assets/libs/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="assets/libs/autosize.min.js"></script>
-    <!--script src='assets/libs/jquery_keyFrames/jquery.keyframes.min.js'></script-->
+    <!-- script type="text/javascript" src="assets/libs/autosize.min.js"></script -->
     <script type="text/JavaScript" src="assets/js/functions.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp.js"></script>
     <script type="text/javascript" src="assets/js/ninjApp_menuCtrl.js"></script>
