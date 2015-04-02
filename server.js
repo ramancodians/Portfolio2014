@@ -67,7 +67,7 @@
 			service: 'Gmail',
 			auth: {
 	      		user: "whymynameisalexisbertin@gmail.com",
-				pass: "yodapowa6120" 
+				pass: "" 
 			}
 		});
 		//Mail options
