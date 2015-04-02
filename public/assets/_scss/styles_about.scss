@@ -1,0 +1,46 @@
+@import "_var.scss";
+
+
+/* ---------------- Home ---------------- */
+	.about {
+		.pageContent {
+			article {
+				margin: 0 auto 78px auto !important;
+				padding-bottom: 78px;
+				border-bottom: 1px solid rgba(255,255,255,0.2);
+				max-width: 700px;
+				width: 96%;
+				p {
+					margin-bottom: 36px;
+					&:last-child { margin-bottom: 0 !important; }
+				}
+				&:last-child {
+					border-bottom: 0 !important;
+					margin-bottom: 0 !important;
+					padding-bottom: 0 !important;
+				}
+			}
+		}
+	
+
+	}
+
+
+
+	
+/* -------------------------------------- */
+
+
+
+@media only screen and (max-device-width : 1024px){
+	
+}
+
+
+
+
+
+
+
+
+

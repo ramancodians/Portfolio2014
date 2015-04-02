@@ -1,6 +1,7 @@
 @import "_var.scss";
 @import "styles_home.scss";
 @import "styles_works.scss";
+@import "styles_about.scss";
 @import "styles_contact.scss";
 @import "styles_menuOverlay.scss";
 
@@ -15,7 +16,8 @@ body {
 	text-rendering: optimizeLegibility;
 	overflow-x: hidden;
 }
-
+	::-webkit-scrollbar-track { background-color: $yellow; }
+	::-webkit-scrollbar-thumb { background-color: $yellow; }
 
 /* ---------------- System CSS ---------------- */
 	::-moz-selection { color: #fff;  background: rgba(244,253,20,.6); }
@@ -127,7 +129,6 @@ body {
 
 		.bt-menu {
 			position: fixed;
-			/*right: 3%; */
 			right: 0;
 			color: $yellow;
 			display: inline-block;
@@ -136,8 +137,7 @@ body {
 			text-decoration: none;
 			overflow: hidden;
 			z-index: 20;
-			/*margin-top: 15px;*/
-			padding: 10px;
+			padding: 20px 10px 10px 10px;
 			@include transition(background .2s ease-out, border .2s ease-out);
 			svg {
 				fill: #fff;
@@ -149,13 +149,12 @@ body {
 			&:hover {
 				/*background: $yellow !important;
 				svg { fill: #000; }*/
-				background: rgba(0,0,0,.8);
-				border: 1px solid $yellow;
-				/*svg #burger-top { display: none; }*/
+				/*background: rgba(0,0,0,.8);
+				border: 1px solid $yellow;*/
 				svg {
 					.burgerPath-top { @include transform(translateY(-5px)); }
 					.burgerPath-bot { @include transform(translateY(5px)); }
-					
+
 					/*.burgerPath-top {
 						opacity: 0;
 						@include transform(translateY(-10px))
@@ -175,7 +174,6 @@ body {
 				background: $yellow !important;
 				svg { 
 					fill: #000;
-					stroke: #000;
 				}
 			}
 		}
@@ -247,6 +245,123 @@ body {
 		}
 	}
 
+	.pageContent,
+	.works---descContent {
+		video {
+			display: block;
+			margin: 100px auto;
+			max-width: 900px;
+			width: 92%;
+		}
+		h6 {
+			text-align: center;
+			display: block;
+			font-family: $font-brandon;
+			color: #fff;
+			text-transform: uppercase;
+			letter-spacing: 10px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 24px;
+			margin-bottom: 36px
+		}
+		p {
+			display: block;
+			max-width: 650px;
+			margin: 0 auto 100px auto;
+			padding: 0 20px;
+			color: #FFF;
+			font-size: 18px;
+			line-height: 36px;
+			font-weight: 300;
+			font-family: "museo-slab",serif;
+			letter-spacing: 1px;
+			text-align: left;
+			overflow: hidden;
+			&:last-child { margin-bottom: 0px !important; }
+			&.borderLeft { border-left: 1px solid $yellow; }
+			span { color: $yellow; }
+			i { font-style: italic; }
+		}
+		a {
+			text-decoration: none;
+			color: $yellow;
+			border-bottom: 1px dotted rgba(255,255,255,.6);
+			padding-bottom: 3px;
+			@include transition(all .2s ease-out);
+			&:hover {
+				border-bottom: 1px dotted rgba(255,255,255,1);
+				padding-bottom: 6px;
+			}
+		}
+		img {
+			display: block;
+			margin: 0 auto 100px auto;
+			width: 92%;
+			max-width: 900px;
+		}
+
+		ul { 
+			display: block;
+			max-width: 550px;
+			margin: 18px auto 100px auto;
+			padding: 0 20px;
+
+			li {
+				color: #fff;
+				font-size: 18px;
+				line-height: 36px;
+				font-weight: 300;
+				font-family: "museo-slab",serif;
+				letter-spacing: 2px;
+				text-align: left;
+				padding-left: 20px;
+				margin-bottom: 36px;
+				border-left: 1px solid $yellow;
+				
+				span { color: $yellow; }
+		
+				img#works-----anchlGif {
+					margin: 18px auto;
+					max-width: 300px;
+					padding-bottom: 10px;
+				}
+			}
+		}
+		.moreDetailsButton {
+			display: block;
+			text-align: center;
+			font-family: $font-brandon;
+			text-transform: uppercase;
+			font-size: 12px;
+			line-height: 24px;
+			letter-spacing: 4px;
+			padding: 5px 8px 4px 12px;
+			width: 132px;
+			background: rgba(0,0,0,0);
+			border: 1px solid rgba(255,255,255,.1);
+			color: rgba(255,255,255,.4) !important;
+			margin-top: 36px;
+			float: right;
+			&:hover {
+				border: 1px solid rgba(255,255,255,0.8) !important;
+				background: rgba(0,0,0,0.6);
+				color: #fff !important;
+				padding-bottom: 4px !important;
+			}
+		}
+		.moreDetailsContent {
+			@include transition(all .2s ease-out);
+			height: 0;
+			opacity: 0;
+			@include transform(translateY(-10px));
+		}
+		.moreDetailsContent.ng-hide {
+			height: 100% !important;
+			opacity: 1 !important;
+			@include transform(translateY(0px));
+		}
+	}
 
 	footer {
 		width: 100%;
@@ -254,7 +369,10 @@ body {
 		a {
 			position: relative;
 			top: 50%;
-			@include transform(translateY(-50%));
+			left: 50%;
+			width: 350px;
+			line-height: 24px;
+			@include transform(translate(-50%, -50%));
 			display: block;
 			text-decoration: none;
 			z-index: 60;
@@ -262,14 +380,13 @@ body {
 			@include transition(all .2s ease-out);
 			span {
 				display: block;
-				padding: 17px 20px 18px 21px;
+				padding: 14px 20px 14px 21px;
 				text-align: center;
 				letter-spacing: 3px;
 				text-transform: uppercase;
 				font-weight: 500;
 				color: #fff;
 				font-size: 18px;
-				b { @include transition(color .2s ease-out); }
 				&:before {
 					content:"Keep riding";
 					margin-left: -190px;
@@ -278,6 +395,7 @@ body {
 					opacity: 1;
 				}
 			}
+			span, span b { @include transition(color .2s ease-out); }
 			svg {
 				position: absolute;
 				top: 0;
@@ -301,18 +419,38 @@ body {
 				span b { color: $yellow; }
 				svg line { stroke: $yellow; }
 			}
+
+			&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+			&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
+			svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
 		}
 
 		/* ---- Work Page ---- */
 			a.footer-nextPageLink_work {
+				width: 292px;
 				&:hover svg line.home-btStartUx--top { @include transform(translateX(-292px)); }
-				&:hover svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
 				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(292px)); }
-				&:hover svg line.home-btStartUx--left { @include transform(translateY(52px)); }
 				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 302 272 302; }
-				svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
 			}
 		/* ------------------- */
+
+		/* ---- About Page ---- */
+			a.footer-nextPageLink_about {
+				width: 322px;
+				&:hover svg line.home-btStartUx--top { @include transform(translateX(-322px)); }
+				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(322px)); }
+				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 332 302 332; }
+			}
+		/* -------------------- */
+
+		/* ---- Contact Page ---- */
+			a.footer-nextPageLink_contact {
+				width: 312px;
+				&:hover svg line.home-btStartUx--top { @include transform(translateX(-312px)); }
+				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(312px)); }
+				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 322 292 322; }
+			}
+		/* ---------------------- */
 	}
 
 
@@ -338,6 +476,37 @@ body {
 	section header { height: 700px; }
 }
 
+@media only screen and (max-width: 700px){
+	footer a {
+		&:before { display: none; }
+		span:before {
+			margin-left: -200px;
+			opacity: 0;
+		}
+		span b { color: $yellow; }
+		svg line { stroke: $yellow; }
+
+		svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
+		svg line.home-btStartUx--left { @include transform(translateY(52px)); }
+		svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
+
+		&.footer-nextPageLink_work {
+			svg line.home-btStartUx--top { @include transform(translateX(-292px)); }
+			svg line.home-btStartUx--bottom { @include transform(translateX(292px)); }
+			svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 302 272 302; }
+		}
+		&.footer-nextPageLink_about {
+			svg line.home-btStartUx--top { @include transform(translateX(-322px)); }
+			svg line.home-btStartUx--bottom { @include transform(translateX(322px)); }
+			svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 332 302 332; }
+		}
+		&.footer-nextPageLink_contact  {
+			svg line.home-btStartUx--top { @include transform(translateX(-312px)); }
+			svg line.home-btStartUx--bottom { @include transform(translateX(312px)); }
+			svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 322 292 322; }
+		}
+	}
+}
 
 @media only screen and (max-width : 500px){
 	.home-bgVideo { height: 100% !important; }
@@ -366,37 +535,46 @@ body {
 		p { padding: 20px 15px !important; }
 	}
 }
-@media only screen and (max-width: 350px){
+@media only screen and (max-width: 380px){
 	header h1 {
 		font-size: 128px !important;
 		margin: 0 auto !important;
+	}
+	footer a {
+		width: 200px !important;
+		span {
+			border: 2px solid $yellow;
+			padding: 14px 5px 14px 5px;
+			b { font-weight: 600 }
+		}
+		svg { display: none; }
+		&:hover {
+			background: $yellow;
+			span { color: rgba(0,0,0,.8) !important; }
+			b { color: #000 !important; }
+		}
 	}
 }
 
 
 @media only screen and (max-device-width : 1024px){
 	.bt-menu {
-		bottom: 0;
 		border: 1px solid $yellow !important;
 		background: rgba(0,0,0,.8) !important;
 	}
-
 	footer a {
+		width: 200px !important;
 		&:before { display: none; }
-		span:before {
-			margin-left: -200px;
-			opacity: 0;
+		span {
+			border: 2px solid $yellow;
+			padding: 14px 5px 14px 5px;
+			b { font-weight: 600 }
 		}
-		span b { color: $yellow; }
-		svg line { stroke: $yellow; }
-
-		&.footer-nextPageLink_work {
-			svg line.home-btStartUx--top { @include transform(translateX(-292px)); }
-			svg line.home-btStartUx--right { @include transform(translateY(-52px)); }
-			svg line.home-btStartUx--bottom { @include transform(translateX(292px)); }
-			svg line.home-btStartUx--left { @include transform(translateY(52px)); }
-			svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 302 272 302; }
-			svg line.home-btStartUx--right, line.home-btStartUx--left { stroke-dasharray: 62 32 62; }
+		svg { display: none; }
+		&:hover {
+			background: $yellow;
+			span { color: rgba(0,0,0,.8) !important; }
+			b { color: #000 !important; }
 		}
 	}
 }

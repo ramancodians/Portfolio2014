@@ -1,0 +1,64 @@
+<section class="about">
+    <header class="transiArray alphaTransi" data-transi="aboutHeader">
+        <div class="header-container">
+            <h1>About</h1>
+            <h2>Who the f*** is this guy ?</h2>
+        </div> 
+    </header>
+
+    <div class="transiArray alphaTransi pageContent" data-transi="aboutContent">
+        <article>
+            <h6>About me</h6>
+            <p>I'm Alexis, a young 23 years old <span>front end developer</span>, graduated in computer graphics since June 2014.<br />
+            After a few years of high school learning xHTML, CSS2 or basics of PHP and SQL, I left my native Brittany to study in <span>Belgium for 4 years</span>.<br />
+            It is only the second year by joining the <a href="http://www.dwm.re" target="_blank" title="Link to the Design Web & Multimedia website">DWM working group</a> that I came out of my "code only" trip to get interested into concepts related to the <span>UI</span> and especially to the <span>UX</span>.</p>
+        </article>
+
+        <article>
+            <h6>About my years as a student</h6>
+            <p>Even if it essentially was a design oriented formation, and even if I still love opening my mind about that, my main passion and the reason for this career choice is the code. It’s a bit "nerd" to say that, but I can’t use something else, describe, "refactor" the word "code".</p>
+            <p>To become a developer after a mainly "design focus" formation like this one, I – like in high school – <span>learned a lot by myself</span>, as an <span>autodidact</span>.<br />
+            That’s how a lot of my student projects could be summarized: 80% of my time spent <span>learning by myself new techniques</span>, <span>new languages</span>, but also testing new "<span>fancy animations</span>" and other "<span>funky hacks</span>" to finally use them in the most useless yet funny way possible. <a href title="Show the rest of the content about my years as a student" ng-click="aboutMore=!aboutMore" class="moreDetailsButton"><span ng-hide="aboutMore">More</span><span ng-show="aboutMore">Less</span> Details</a></p>
+
+            <div id="moreDetailsContentAbout" class="moreDetailsContent ng-hide-animate" ng-hide="aboutMore">
+                <p>Because I spent 80% of my working time on useless – and therefore <span>indispensable</span> – things for my student’s projects, the last and most important 20% were often done in the last 24 hours.
+                <span>Sleepless nights</span> were a sort of challenge for me. A challenge because the remaining work was often substantial but, paradoxically, working under pressure is stimulating me.<br />
+                Today, I think those sleepless nights were completely worth it to learn to <span>manage my stress</span> in my work as in my everyday life.</p>
+                <p>It was as much a training as a game to me. Maybe also because I didn’t really care about the school marks. Instead of spending my time trying to comply with the conditions and rules of projects, I was trying to circumvent them, to turn them into a funny/stupid borderline subject.
+                <q>« Rules are Meant to be Broken »</q>
+                I was thinking that even if these student projects were a "<span>training</span>" for our future work and professional life, they do remain nothing more than student projects.<br />
+                In conclusion, it was the perfect projects to carry out in <span>the most wacky way possible</span> considering that I have the rest of my career to work on "serious" projects.</p>
+            </div>
+        </article>
+
+        <article>
+            <h6>About me and the Web</h6>
+            <p>As you may have noticed, all of this is first and foremost a <span>big passion</span> for me. The day I will stop having fun with the code, I will probably have to change my profession.</p>
+            <p>I love the idea that the Internet is still a <span>new world to discover</span>.<br />
+            Although we already have made awesome progress since the creation of the network, everything <span>remains to be invented</span>, <span>created</span>. We are "Indi" himself, the young Harrison Ford with his whip and his adventurer hat.<br />
+            To me, we have not chosen our Edison or Tesla of the web yet. One of them will revolutionize everything (in the good way I hope).</p>
+        </article>
+    </div>
+    <footer class="transiArray alphaTransi" data-transi="footerBanner-about">
+        <a href class="footer-nextPageLink_about" ng-click="switchPage('contact', 'directLink')" title="link to the contact page">
+            <span>Visit the <b>Contact</b> page</span>
+            <svg width="322" height="52">   
+                <line class="home-btStartUx--top" x1="0" y1="0" x2="966" y2="0" />
+                <line class="home-btStartUx--right" x1="322" y1="0" x2="322" y2="156" />
+                <line class="home-btStartUx--bottom" x1="322" y1="52" x2="-644" y2="52" />
+                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
+            </svg>
+        </a>
+    </footer>
+
+</section>
+
+
+<section class="works-content transiArray alphaTransi" works-content ng-swipe-left="worksPrev();" ng-swipe-right="worksNext();"></section>
+
+
+
+
+
+
+

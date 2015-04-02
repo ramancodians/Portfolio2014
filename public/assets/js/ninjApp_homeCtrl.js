@@ -14,10 +14,17 @@ ninjApp.controller('homeController', function($scope, Page){
 
 
 /* ---------------------- Home "Alexis" SVG animation ------------------------ */
-			/*$.get('assets/svg/svgdefs.svg', function(data){
+			$.get('assets/svg/svgHomeAlexis.svg', function(data){
+				// inject the defs we need from the SVG doc into main file.
+				
+
 				$('.home .home-title svg').empty().html($(data).find('.alexis'));
 				var alexisNbLetters = $('.alexis').size();
-			});*/
+
+				/*$('.alexis').css({
+					
+				}); */
+			});
 
 			function alexisAppears_reset(y, z, alexisNbLetters){
 			  	setTimeout(function(){

@@ -86,6 +86,7 @@
 								text-transform: uppercase;
 								letter-spacing: 11px;
 								font-weight: 400;
+								text-align: center;
 								margin: 45px auto 0 auto;
 								@include transform(translateY(10px));
 								@include transition(all .2s ease-out);
@@ -141,14 +142,19 @@
 		display: none;
 		opacity: 0;
 
-
 		.works-nav {
+			display: none;
+			opacity: 0;
+			@include transform(translateY(-20px));
+			@include transition(all .2s ease-out);
+
 			position: absolute;
 			top: 0;
 			height: 45px;
-			width: 94%;
-			width: calc(94% - 45px - 10px);
-			padding: 0 3%;
+			width: 97%;
+			width: calc(97% - 45px);
+			margin-top: 10px;
+			padding: 0 0 0 3%;
 			z-index: 15;
 			overflow: hidden;
 
@@ -271,11 +277,14 @@
 		}
 
 
+
+
+
 		.works--description {
 			width: 100%;
 			height: 100%;
 			position: fixed;
-			overflow: scroll;
+			overflow-y: scroll;
 
 			.works---descHeader {
 				text-align: center;
@@ -307,87 +316,6 @@
 
 			.works---descContent {
 				margin: 100px auto;
-
-				video {
-					display: block;
-					margin: 100px auto;
-					max-width: 900px;
-					width: 92%;
-				}
-				h6 {
-					text-align: center;
-					display: block;
-					font-family: $font-brandon;
-					color: #fff;
-					text-transform: uppercase;
-					letter-spacing: 10px;
-					font-weight: 500;
-					font-size: 16px;
-					margin-bottom: 36px
-				}
-				p {
-					display: block;
-					max-width: 550px;
-					margin: 0 auto 100px auto;
-					padding: 0 20px;
-					color: #FFF;
-					font-size: 18px;
-					line-height: 36px;
-					font-weight: 300;
-					font-family: "museo-slab",serif;
-					letter-spacing: 2px;
-					text-align: left;
-
-					span { color: $yellow; }
-					i { font-style: italic; }
-					a {
-						text-decoration: none;
-						color: $yellow;
-						border-bottom: 1px dotted rgba(255,255,255,.6);
-						padding-bottom: 3px;
-						@include transition(all .2s ease-out);
-						&:hover {
-							border-bottom: 1px dotted rgba(255,255,255,1);
-							padding-bottom: 6px;
-						}
-					}
-				}
-				img {
-					display: block;
-					margin: 0 auto 100px auto;
-					width: 92%;
-					max-width: 900px;
-				}
-				/*p:last-child { margin-bottom: 100px; }*/
-
-
-				ul { 
-					display: block;
-					max-width: 550px;
-					margin: 18px auto 100px auto;
-					padding: 0 20px;
-
-					li {
-						color: #fff;
-						font-size: 18px;
-						line-height: 36px;
-						font-weight: 300;
-						font-family: "museo-slab",serif;
-						letter-spacing: 2px;
-						text-align: left;
-						padding-left: 20px;
-						margin-bottom: 36px;
-						border-left: 1px solid $yellow;
-						
-						span { color: $yellow; }
-		
-						img#works-----anchlGif {
-							margin: 18px auto;
-							max-width: 300px;
-							padding-bottom: 10px;
-						}
-					}
-				}
 			}
 
 			.works---extLink {
@@ -569,6 +497,30 @@
 			span {
 				display: block;
 				&:before { display: none; }
+			}
+		}
+	}
+	.works-nav {
+		top: auto !important;
+		bottom: 0 !important;
+		padding: 0 !important;
+		width: 105px !important;
+
+		h3,
+		.works--arrow .works---arrowPrev,
+		.works--arrow .works---arrowNext { display: none !important; }
+		.works--arrow {
+			float: none !important;
+			margin-right: 0 !important;
+			opacity: 1 !important;
+			a { background: rgba(0,0,0,.8) !important; }
+			.works---close { margin-left: 3%; }
+			&:hover, &:active {
+				a { background: $yellow !important; }
+				a .works---close {
+					color: #000 !important;
+					font-weight: 500 !important;
+				}
 			}
 		}
 	}

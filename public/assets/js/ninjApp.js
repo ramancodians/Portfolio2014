@@ -24,6 +24,16 @@
 	        	templateUrl: 'views/works.html',
 	        	controller: 'worksController'
 	        })
+	        .state('about', {
+	        	url: '/about',
+	        	templateUrl: 'views/about.html',
+	        	controller: 'aboutController'
+	        })
+	        .state('about/', {
+	        	url: '/about/',
+	        	templateUrl: 'views/about.html',
+	        	controller: 'aboutController'
+	        })
 	        .state('contact', {
 	        	url: '/contact',
 	        	templateUrl: 'views/contact.html',
@@ -76,6 +86,26 @@
 					}
 				},
 				'footerBanner-works': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				}
+			},
+			'about':{
+				'aboutHeader': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '-20'
+					}
+				},
+				'aboutContent': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				},
+				'footerBanner-about': {
 					'y': {
 						'oldValue': '0',
 						'newValue': '20'
@@ -167,6 +197,8 @@
 
 		var intro = false;
 
+
+
 		$scope.homeTitleContent = [
 			$('.home #homeTitle p:first-of-type').html(),
 			$('.home #homeTitle p:last-of-type').html(),
@@ -203,7 +235,14 @@
 		}
 
 		$scope.openMenuOverlay = function(page){
-			openMenu_fadeOutElements(transiArray, page, 1);
+			/*openMenu_fadeOutElements(transiArray, page, 1);*/
+			if($('.menuOverlay').css('display') == 'none'){
+				var page =  $('section').attr('class');
+				page = page.replace('ng-scope', '').replace(' ','');
+				openMenu_fadeOutElements(transiArray, page, 1);
+			} else {
+				switchMenu_anim(transiArray, 0, true);
+			}
 		}
 		$scope.closeMenuOverlay = function(){
 			switchMenu_anim(transiArray, 0, true);
@@ -243,8 +282,6 @@
 		$.get('assets/svg/svgdefs.svg', function(data){
 			$('.bt-menu svg').empty().html($(data).find('.burgerPath'));
 		});
-
-
 	});
 
 
