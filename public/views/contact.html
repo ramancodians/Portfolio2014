@@ -2,15 +2,16 @@
     <header class="transiArray alphaTransi" data-transi="contactHeader">
         <div class="header-container">
             <h1>Contact</h1>
-            <h2>Drop a line</h2>
         </div> 
     </header>
 
     <form class="transiArray alphaTransi contactForm" data-transi="contactForm" role="form" action="/sendMessage" method="post">
         
-        <input id="contactForm-name" name="name" placeholder="Your Name" type="text" ng-model="contactForm.name" required />
-        <input id="contactForm-mail" name="mail" placeholder="Your Mail adress" type="email" ng-model="contactForm.mail" required />
-        <textarea id="contactForm-message" name="message" placeholder="Your message" type="text" ng-model="contactForm.message" required></textarea>
+        <textarea id="contactForm-message" name="message" placeholder="Drop me a line, send a joke or just test the form script (stop doing this please)" type="text" ng-model="contactForm.message" required></textarea>
+
+
+        <label>But first, I need <input id="contactForm-name" name="name" placeholder="your name" type="text" ng-model="contactForm.name" required /></label>
+        <label>, and <input id="contactForm-mail" name="mail" placeholder="your mail adress" type="email" ng-model="contactForm.mail" required /></label>
 
         <div class="contactForm-submit">
             <input id="contactForm-submitInput" type="submit" value="Send the message">

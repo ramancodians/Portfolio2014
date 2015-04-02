@@ -282,6 +282,10 @@
 		$.get('assets/svg/svgdefs.svg', function(data){
 			$('.bt-menu svg').empty().html($(data).find('.burgerPath'));
 		});
+
+
+
+
 	});
 
 

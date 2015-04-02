@@ -4,7 +4,7 @@
 
 
 	header {
-		height: 700px !important;
+		height: 500px !important;
 		z-index: 5;
 	}
 
@@ -13,23 +13,33 @@
 		margin: 0 auto;
 		display: block;
 		position: relative;
+		width: 80%;
 
+
+		label {
+			font-size: 24px;
+			color: #fff;
+			font-family: $font-museo;
+
+		}
 		input#contactForm-name,
 		input#contactForm-mail,
 		textarea#contactForm-message {
-			display: block;
-			max-width: 550px;
-			width: 100%;
+			display: inline-block;
+			/*max-width: 550px;
+			width: 100%;*/
 
-			margin: 0px auto 50px auto;
-			padding: 20px 50px;
+			/*margin: 0px auto 50px auto;*/
+			padding: 10px 20px;
 
 
-			border-top: 1px solid rgba(249, 227, 11, 0);
+			/*border-top: 1px solid rgba(249, 227, 11, 0);
 			border-right: 1px solid rgba(249, 227, 11, 0);
 			border-bottom: 1px solid rgba(249, 227, 11, 0);
-			border-left: 1px solid $yellow;
+			border-left: 1px solid $yellow;*/
 
+
+			/*border: 1px solid rgba(255,255,255,.4);*/
 
 			color: #FFF;
 
@@ -41,13 +51,16 @@
 			font-style: italic;
 			text-align: left;
 
-			outline: 0;
 			background: rgba(0,0,0,0);
+			border: 0;
+			outline: 0;
+			/*background: rgba(0,0,0, 0.6);*/
 
 			@include transition(all .2s ease-out);
 
 			&:focus {
-				background: rgba(0,0,0,.2);
+				background: rgba(0,0,0,.8);
+				/*border: 1px solid #fff;*/
 				/*border-top: 1px solid rgba(249, 227, 11, .2);
 				border-right: 1px solid rgba(249, 227, 11, .2);
 				border-bottom: 1px solid rgba(249, 227, 11, .2);*/
@@ -55,15 +68,30 @@
 
 			@include placeholder {
 				/*color: rgba(249, 227, 11,1);*/
-				color: #fff;
+				color: rgba(255,255,255,1);
 				font-style: italic;
-				
-
 			}
 		}
 
 		textarea#contactForm-message {
-			/*height: 360px;*/
+			display: block;
+			width: 90%;
+			min-height: 144px;
+			max-width: 550px;
+			margin: 50px auto 0px auto;
+			padding: 20px 50px;
+			border-top: 1px solid rgba(249, 227, 11, 0);
+			border-right: 1px solid rgba(249, 227, 11, 0);
+			border-bottom: 1px solid rgba(249, 227, 11, 0);
+			border-left: 1px solid $yellow;
+			outline: 0;
+			color: #FFF;
+			font-size: 24px;
+			line-height: 48px;
+			font-weight: 300;
+			font-family: "museo-slab",serif;
+			text-align: left;
+			background: 0;
 		}
 	}
 
