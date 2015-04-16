@@ -48,7 +48,7 @@ window.preloaderAnimation = function(){
 
 
 // ======================================= Menu events on Menu Overlay opening ======================================= //
-	window.mainMenuElements = function(transiArray, y, openMenu){
+	/*window.mainMenuElements = function(y, openMenu){
 		var mainMenu = $('.menuOverlay-mainMenu li').length;
 
 		setTimeout(function(){
@@ -59,52 +59,67 @@ window.preloaderAnimation = function(){
 					TweenLite.to(".menuOverlay-mainMenu li:nth-child("+y+")", 0.2, {opacity:"0", ease:Quad.easeOut});
 				}
 				y++;
-				mainMenuElements(transiArray, y, openMenu);
+				mainMenuElements(y, openMenu);
 			} else {
 				y = 1;
 				if(openMenu === false){ x = 3; }
 				else { x = 1; }
-				switchMenu_anim(transiArray, x, openMenu);
+				switchMenu_anim(x, openMenu);
 			}
 		},timer);
-	};
+	};*/
 
 	x = 0;
 	var y = 1;
-	var timer = 70;
+	var timer = 200;
 
-	window.switchMenu_anim = function(transiArray, x, openMenu){
+	window.switchMenu_anim = function(x, openMenu){
 		setTimeout(function(){
 			if(openMenu === false){
 				switch(x){
 					case 0:
-						TweenLite.to('.menuOverlay-header', 0.2, {top: "0", opacity:"1", ease:Quad.easeOut});
+						TweenLite.to('.menuOverlay-header', 0.2, {top: '0', opacity:"1", ease:Quad.easeOut});
 						x++; 
-						switchMenu_anim(transiArray, x, openMenu); break;
+						switchMenu_anim(x, openMenu); break;
 					case 1:
-						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "0", opacity:"1" , ease:Quad.easeOut, onComplete:function(){
-							x++; 
-							switchMenu_anim(transiArray, x, openMenu);
-						}});
+						TweenLite.to('.menuOverlay-footerMenu', 0.2, {bottom: '0', opacity:"1", ease:Quad.easeOut});
+						x++; 
+						switchMenu_anim(x, openMenu); break;
+					case 2:
+						TweenLite.to('.menuOverlay-secondMenu', 0.2, { bottom:'8%', opacity:"1" , ease:Quad.easeOut});
+						x++; 
+						switchMenu_anim(x, openMenu);
 						break;
-					case 2: mainMenuElements(transiArray, y, openMenu); break;
+					case 3: 
+						TweenLite.to('.menuOverlay-mainMenu', 0.2, {y:'0', opacity:"1" , ease:Quad.easeOut});
+						x = 4;
+						switchMenu_anim(x, openMenu);
+						break;
 					default:
 						openMenu = true;
 						x = 0;
 				}
 			} else if(openMenu === true) {
 				switch(x){
-					case 0: mainMenuElements(transiArray, y, openMenu); break;
+					case 0:
+						TweenLite.to('.menuOverlay-mainMenu', 0.2, {opacity:"0" , ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
+						break;
 					case 1:
 						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "-5%",opacity:"0", ease:Quad.easeOut});
 						x++;
-						switchMenu_anim(transiArray, x, openMenu);
+						switchMenu_anim(x, openMenu);
 						break;
 					case 2:
-						TweenLite.to('.menuOverlay-header', 0.2, {top: "-10%",opacity:"0", ease:Quad.easeOut, onComplete:function(){
-							x++;
-							switchMenu_anim(transiArray, x, openMenu);
-						}});
+						TweenLite.to('.menuOverlay-footerMenu', 0.2, {bottom: "-8%",opacity:"0", ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
+						break;
+					case 3:
+						TweenLite.to('.menuOverlay-header', 0.2, {top: "-15%",opacity:"0", ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
 						break;
 					default:
 						openMenu = false;
@@ -112,50 +127,43 @@ window.preloaderAnimation = function(){
 						page = $('section').attr('class');
 						page = page.replace('ng-scope','').replace(' ', '');
 						
-						/*
-						var backgroundAlpha;
-
-						switch(page){
-							case 'home': backgroundAlpha = "rgba(0,0,0,.8)"; break;
-							case 'works': backgroundAlpha = "rgba(0,0,0,.6)"; break;
-						}
-						
-						TweenLite.to('.overlay', 0.2, {background: backgroundAlpha, ease:Quad.easeOut});*/
-
 						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none", ease:Quad.easeOut});
 						$('.menuOverlay-contentscale').removeClass('open');
 						setTimeout(function(){
-							closeMenu_fadeInElements(transiArray, page, x);
+							closeMenu_fadeInElements(page, x);
 						}, 200);
 					}
 			} else if(openMenu === undefined){
 				switch(x){
-					case 0: mainMenuElements(transiArray, y, openMenu); break;
+					case 0:
+						TweenLite.to('.menuOverlay-mainMenu', 0.2, {opacity:"0" , ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
+						break;
 					case 1:
-						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "-5%", opacity:"0", ease:Quad.easeOut});
-						x++; 
-						switchMenu_anim(transiArray, x, openMenu); break;
+						TweenLite.to('.menuOverlay-secondMenu', 0.2, {bottom: "-5%",opacity:"0", ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
+						break;
 					case 2:
-						TweenLite.to('.menuOverlay-header', 0.2, {top: "-10%", opacity:"0", ease:Quad.easeOut, onComplete:function(){
-							x++;
-							switchMenu_anim(transiArray, x, openMenu);
-						}});
+						TweenLite.to('.menuOverlay-footerMenu', 0.2, {bottom: "-8%",opacity:"0", ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
+						break;
+					case 3:
+						TweenLite.to('.menuOverlay-header', 0.2, {top: "-15%",opacity:"0", ease:Quad.easeOut});
+						x++;
+						switchMenu_anim(x, openMenu);
 						break;
 					default:
 						openMenu = false;
 						x = 0;
 						page = $('section').attr('class');
 						page = page.replace('ng-scope','').replace(' ', '');
-						
-						/*var backgroundAlpha;
 
-						switch(page){
-							case 'home': backgroundAlpha = "rgba(0,0,0,.8)"; break;
-							case 'works': backgroundAlpha = "rgba(0,0,0,.6)"; break;
-						}
-						
-						TweenLite.to('.overlay', 0.2, {background: backgroundAlpha, ease:Quad.easeOut});*/
-						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", display:"none"});
+						TweenLite.to('.menuOverlay', 0.2, {opacity: "0", onComplete:function(){
+							TweenLite.to('menuOverlay', 0, {display:"none"});
+						}});
 						$('.menuOverlay-contentscale').removeClass('open');
 				}
 			} else {
@@ -176,39 +184,14 @@ window.preloaderAnimation = function(){
 
 
 // ======================================= Page events on Menu Overlay opening ======================================= //
-window.openMenu_fadeOutElements = function(transiArray, page, x){
-	var nbTransi =  $('.'+page+' .alphaTransi').size();
-
-	if(x <= nbTransi){
-		var thisTransi = '.alphaTransi:nth-child('+x+')';
-
-		if($(thisTransi).hasClass('transiArray')){
-			var thisTransiId = $(thisTransi).data('transi');
-			var propertiesNewValue = transiArray[page][thisTransiId]['y'].newValue;
-			TweenLite.to(thisTransi, 0.2, { opacity:"0", y: propertiesNewValue , ease:Quad.easeOut, onComplete:function(){
-				TweenLite.to(thisTransi, 0.2, { display:'none'});
-			}});
-
-		} else {
-			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.2, { opacity:"0"});
-		}
-		setTimeout(function(){
-			x++;
-			openMenu_fadeOutElements(transiArray, page, x);
-		},200);
-
-	} else {
-		x = 0;
-		var openMenu = false;
-
-		/*TweenLite.to('.overlay', 0.2, {background: "rgba(0, 0, 0,0.8)"});*/
-
-		TweenLite.to('.menuOverlay', 0.2, {display:"block", opacity: "1"});
-		$('.menuOverlay-contentscale').addClass('open');
-
-		switchMenu_anim(transiArray, x, openMenu);
-	}
-	return transiArray, page, x;
+window.openMenu_fadeOutElements = function(page){
+	TweenLite.to('.alphaTransi', 0.2, { opacity:"0", y:'10px', ease:Quad.easeOut, onComplete:function(){
+		TweenLite.to('.menuOverlay', 0.2, {display: 'block', opacity: "1", ease:Quad.easeOut});
+		/*$('.menuOverlay-contentscale').addClass('open');*/
+		switchMenu_anim(x, openMenu);
+		return page;
+	}});
+	var openMenu = false;
 }
 // =================================================================================================================== //
 
@@ -218,38 +201,9 @@ window.openMenu_fadeOutElements = function(transiArray, page, x){
 
 
 
-
-
 // ======================================= Page events on Menu Overlay closing ======================================= //
-window.closeMenu_fadeInElements = function(transiArray, page, x){
-	var nbTransi =  $('.'+page+' .alphaTransi').size();
-
-	if(x <= nbTransi){
-		var thisTransi = '.alphaTransi:nth-child('+x+')';
-
-
-		if($(thisTransi).hasClass('transiArray')){
-			var thisTransiId = $(thisTransi).data('transi');
-			var propertiesOldValue = transiArray[page][thisTransiId]['y'].oldValue;
-			TweenLite.to(thisTransi, 0.2, { display:'block', onComplete:function(){
-				TweenLite.to(thisTransi, 0.2, { opacity:"1", y: propertiesOldValue, ease:Quad.easeOut});
-			}});
-		} else {
-			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.4, { opacity:"1"});
-		}
-
-
-		setTimeout(function(){
-			x++;
-			closeMenu_fadeInElements(transiArray, page, x);
-		},200);
-
-	} else {
-			/*x = 1;
-			openMenu_events();*/
-	}
-
-	return transiArray, page, x;
+window.closeMenu_fadeInElements = function(page){
+	TweenLite.to('.alphaTransi', 0.2, {opacity:"1", y:'0', ease:Quad.easeOut});
 }
 // =================================================================================================================== //
 
@@ -262,62 +216,15 @@ window.closeMenu_fadeInElements = function(transiArray, page, x){
 
 
 // ======================================= Page events on Direct Page Change ======================================= //
-window.directLink_fadeOutElements = function(transiArray, page, x){
-	var nbTransi =  $('.'+page+' .alphaTransi').size();
-	if(x <= nbTransi){
-		var thisTransi = '.alphaTransi:nth-child('+x+')';
-
-		if($(thisTransi).hasClass('transiArray')){
-			var thisTransiId = $(thisTransi).data('transi');
-			var propertiesNewValue = transiArray[page][thisTransiId]['y'].newValue;
-			TweenLite.to(thisTransi, 0.2, { opacity:"0", y: propertiesNewValue , ease:Quad.easeOut, onComplete:function(){
-				TweenLite.to(thisTransi, 0.2, { display:'none'});
-			}});
-		} else {
-			TweenLite.to('.alphaTransi:nth-child('+x+')', 0.2, { opacity:"0"});
-		}
-		setTimeout(function(){
-			x++;
-			directLink_fadeOutElements(transiArray, page, x);
-		},200);
-	} else {
-		setTimeout(function(){
-			TweenLite.to('.preloader', 0.2, {display:"block", opacity:"1", ease:Quart.easeOut});	
-		},200);
-	}
+window.directLink_fadeOutElements = function(page){
+	TweenLite.to('.alphaTransi', 0.2, { opacity:"0", y:'10px', ease:Quad.easeOut, onComplete:function(){
+		Tweenlite.to('.preloader', 0.2, {opacity:"1", ease:Quart.easeOut});
+	}});
+	var openMenu = false;
 }
 // =================================================================================================================== //
 
 
-
-
-
-
-
-
-
-
-// ============================================= Header fadeOut on scroll ============================================ //
-/*	window.addEventListener('scroll', function(e){
-		var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-			headerHeight = $('header').height(),
-			headerContainerHeight = $('.header-container').height(),
-			headerContainerSemiMargin = (headerHeight - headerContainerHeight)/2,
-			headerHeightCut = headerHeight - headerContainerSemiMargin,
-			header = document.querySelector("header"),
-			scrollTranslateY = (distanceY / headerHeightCut)*200;
-
-		var result = ((distanceY - headerHeightCut) - ((distanceY - headerHeightCut)*2))/headerHeightCut;
-		result = result.toFixed(2);
-
-		if(result >= 0){
-			if(result>1){result=1;}
-			else if(result<0){result=0;}
-			TweenLite.to(header, 0, {opacity: result, y: scrollTranslateY});
-		}
-	});*/
-	// too laggy
-// =================================================================================================================== //
 
 
 

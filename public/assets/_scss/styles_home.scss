@@ -38,7 +38,7 @@
 				}
 			}
 			h1, h1 span {
-				font-family: $font-goodFoot;
+				font-family: $font-streetBrush;
 				font-size: 168px;
 			}*/
 
@@ -52,10 +52,10 @@
 				height: 100%;
 				overflow: hidden;
 				transform-origin: center center;
-				margin: 20px -5px 20px 5px;
+				margin: 20px 0px;
 
-				stroke-dasharray: 1000;
-				stroke-dashoffset: 1000;
+				stroke-dasharray: 2000;
+				stroke-dashoffset: 2000;
 
 				path {
 					@include transition(stroke-dashoffset 0.2s ease-out);
@@ -161,7 +161,7 @@
 				float: right;
 				opacity: 0;
 				display: block;
-				font-family: $font-goodFoot;
+				font-family: $font-streetBrush;
 				font-size: 32px;
 				word-spacing: -10px;
 				letter-spacing: 1px;
@@ -176,8 +176,7 @@
 /* -------------------------------------- */
 
 
-
-@media only screen and (max-device-width : 1024px){
+@media only screen and (max-width : 1101px){
 	.home-title {
 		max-width: 400px;
 		line-height: 50px;

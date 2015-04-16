@@ -69,7 +69,7 @@
 							line-height: normal;
 							display: inline-block;
 							h3 {
-								font-family: $font-goodFoot;
+								font-family: $font-streetBrush;
 								font-size: 72px;
 								color: #F4FD14;
 								letter-spacing: 2px;
@@ -290,7 +290,7 @@
 				text-align: center;
 				h4 {
 					margin: 200px auto 32px auto;
-					font-family: $font-goodFoot;
+					font-family: $font-streetBrush;
 					font-size: 80px;
 					word-spacing: -10px;
 					letter-spacing: 2px;
@@ -316,6 +316,9 @@
 
 			.works---descContent {
 				margin: 100px auto;
+				p {
+					margin: 0 auto 36px auto !important;
+				}
 			}
 
 			.works---extLink {

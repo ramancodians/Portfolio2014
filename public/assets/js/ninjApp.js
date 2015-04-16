@@ -44,6 +44,16 @@
 	        	templateUrl: 'views/contact.html',
 	        	controller: 'contactController'
 	        })
+	        .state('landingPage',{
+	        	url:'/landingPage',
+	        	templateUrl: 'views/landingPage.html',
+	        	controller: 'landingController'
+	        })
+	        .state('landingPage/',{
+	        	url:'/landingPage/',
+	        	templateUrl: 'views/landingPage.html',
+	        	controller: 'landingController'
+	        })
 	});
 
 
@@ -56,8 +66,8 @@
 		};
 	});
 
-	ninjApp.factory('transiArray', function(){
-		var transiArray = {
+	/*ninjApp.factory(' function(){
+		var  {
 			'home': {
 				'homeTitle': {
 					'y': {
@@ -111,10 +121,29 @@
 						'newValue': '20'
 					}
 				}
+			},
+			'landingPage': {
+				'landingHeader': {
+					'y': {
+						'oldValue': '0',
+						'newValue': '-20'
+					}
+				},
+				'landingContent':{
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				},
+				'footerBanner-landing':{
+					'y': {
+						'oldValue': '0',
+						'newValue': '20'
+					}
+				}
 			}
 		};
-		return transiArray;
-	})
+		return 	})*/
 
 
 
@@ -128,12 +157,10 @@
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
 						/*TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});*/
-						TweenLite.to(elm, 0, {display: "block", onComplete:function(){
-							TweenLite.to(elm, 0.2, { opacity:"1", ease:Quart.easeOut });
-						}});	
+						TweenLite.to('.preloader', 0.2, {display: "block", opacity:"1", ease:Quart.easeOut });
 					} else {
-						TweenLite.to(elm, 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
-							TweenLite.to(elm, 0, { display: "none"});
+						TweenLite.to('.preloader', 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
+							TweenLite.to('.preloader', 0, { display: "none"});
 						}});
 					}
 				});
@@ -192,7 +219,7 @@
 
 
 
-	ninjApp.controller('mainController', function($scope, $state, Page, transiArray){
+	ninjApp.controller('mainController', function($scope, $state, Page){
 		$scope.Page = Page;
 
 		var intro = false;
@@ -209,7 +236,7 @@
 	
 		$scope.menu = function(keyEvent){
 			if($(keyEvent.target).is('input, textarea')){
-
+				
             } else {
 			    if(keyEvent.which == 109){
 			    	if($('body').hasClass("menu_noClick")){
@@ -225,9 +252,9 @@
 						if($('.menuOverlay').css('display') == 'none'){
 							var page =  $('section').attr('class');
 							page = page.replace('ng-scope', '').replace(' ','');
-							openMenu_fadeOutElements(transiArray, page, 1);
+							openMenu_fadeOutElements(page);
 						} else {
-							switchMenu_anim(transiArray, 0, true);
+							switchMenu_anim(0, true);
 						}
 					} 
 				}
@@ -235,17 +262,17 @@
 		}
 
 		$scope.openMenuOverlay = function(page){
-			/*openMenu_fadeOutElements(transiArray, page, 1);*/
+			/*openMenu_fadeOutElements(page, 1);*/
 			if($('.menuOverlay').css('display') == 'none'){
 				var page =  $('section').attr('class');
 				page = page.replace('ng-scope', '').replace(' ','');
-				openMenu_fadeOutElements(transiArray, page, 1);
+				openMenu_fadeOutElements(page);
 			} else {
-				switchMenu_anim(transiArray, 0, true);
+				switchMenu_anim(0, true);
 			}
 		}
 		$scope.closeMenuOverlay = function(){
-			switchMenu_anim(transiArray, 0, true);
+			switchMenu_anim(0, true);
 		}
 
 		$scope.switchPage = function(link, propertie){
@@ -255,7 +282,7 @@
 			console.log('page: '+page);
 			console.log('link: '+link);
 			if(propertie == 'directLink'){
-				directLink_fadeOutElements(transiArray, page, 0);
+				directLink_fadeOutElements(page);
 				setTimeout(function(){
 					if(link == 'home'){
 						$state.transitionTo('/');
@@ -264,9 +291,9 @@
 					}
 				},1500);
 			} else if(page == link){
-				switchMenu_anim(transiArray, 0, true);
+				switchMenu_anim(0, true);
 			} else {
-				switchMenu_anim(transiArray, 0, undefined);
+				switchMenu_anim(0, undefined);
 				setTimeout(function(){
 					if(link == 'home'){
 						$state.transitionTo('/');

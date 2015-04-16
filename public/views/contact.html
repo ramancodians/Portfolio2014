@@ -1,42 +1,59 @@
 <section class="contact">
-    <header class="transiArray alphaTransi" data-transi="contactHeader">
+    <header class="alphaTransi" data-transi="contactHeader">
         <div class="header-container">
             <h1>Contact</h1>
         </div> 
     </header>
 
-    <form class="transiArray alphaTransi contactForm" data-transi="contactForm" role="form" action="/sendMessage" method="post">
-        
-        <textarea id="contactForm-message" name="message" placeholder="Drop me a line, send a joke or just test the form script (stop doing this please)" type="text" ng-model="contactForm.message" required></textarea>
+    <form class="alphaTransi contactForm" data-transi="contactForm" role="form" action="/sendMessage" method="post">
+        <label class="contactForm-labelTitle" for="contactForm-message">Message <span>- Feed me</span></label>
+        <textarea id="contactForm-message" name="message" placeholder="Drop me a line, send a joke or just test the form script. It's your turn to make some content." type="text" ng-model="contactForm.message" required></textarea>
 
 
-        <label>But first, I need <input id="contactForm-name" name="name" placeholder="your name" type="text" ng-model="contactForm.name" required /></label>
-        <label>, and <input id="contactForm-mail" name="mail" placeholder="your mail adress" type="email" ng-model="contactForm.mail" required /></label>
+        <label class="contactForm-labelTitle" id="contactForm--nameLabelTitle" for="contactForm-name">Name & Mail <span>- And who the f*** are you ?</span></label>
+        <div class="contactForm-more">
+            <label id="contactForm--nameSpan" for="contactForm-name"><span>I would like to know</span><span>Hi Alex, my name is</span></label>
+            <input id="contactForm-name" name="name" placeholder="your name" type="text" ng-model="contaactForm.name" required />
+            <label id="contactForm--mailLabel"><span>you can contact me back at</span> <input id="contactForm-mail" name="mail" placeholder="this mail address" type="email" ng-model="contactForm.mail" required /></label>
 
-        <div class="contactForm-submit">
-            <input id="contactForm-submitInput" type="submit" value="Send the message">
-            <svg width="292" height="52">   
-                <line class="home-btStartUx--top" x1="0" y1="0" x2="876" y2="0" />
-                <line class="home-btStartUx--right" x1="292" y1="0" x2="292" y2="156" />
-                <line class="home-btStartUx--bottom" x1="292" y1="52" x2="-584" y2="52" />
-                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
-            </svg>
+            <!-- <div class="contactForm-submit">
+                <input id="contactForm-submitInput" type="submit" value="Send the message">
+                <svg width="204" height="34">   
+                    <line class="contactForm-submitButton--top" x1="0" y1="0" x2="204" y2="0" />
+                    <line class="contactForm-submitButton--right" x1="204" y1="0" x2="204" y2="34" />
+                    <line class="contactForm-submitButton--bottom" x1="204" y1="34" x2="0" y2="34" />
+                    <line class="contactForm-submitButton--left" x1="0" y1="34" x2="0" y2="0" />
+                </svg>
+            </div> -->
+            <button class="contactForm-submit" data-text="Send the message" type="submit">
+                <span>S</span><span>e</span><span>n</span><span>d</span> <span>t</span><span>h</span><span>e</span> <span>m</span><span>e</span><span>s</span><span>s</span><span>a</span><span>g</span><span>e</span>
+                <svg class="contactForm--submitSvg" viewbox="0 0 1024 1024">
+                    <path class="path1" d="M930.909 884.364h-837.818c-51.386 0-93.091-41.705-93.091-93.091v-558.545c0-51.386 41.705-93.091 93.091-93.091h837.818c51.386 0 93.091 41.705 93.091 93.091v558.545c0 51.386-41.705 93.091-93.091 93.091zM884.364 791.273l-266.799-233.472-105.565 93.836-105.565-93.836-266.799 233.472h744.727zM93.091 744.727l261.818-232.727-261.818-232.727v465.455zM139.636 232.727l372.364 325.818 372.364-325.818h-744.727zM930.909 279.273l-261.818 232.727 261.818 232.727v-465.455z"></path>
+                </svg>
+            </button>
         </div>
-
     </form>
 
+    <div class="contactThankYou">
+        <h4>Thank you !</h4>
+        <img src="assets/img/nasa-celebration.gif" alt="gif Nasa Celebrating succeed mission" />
+        <p>Your message is now travelling through the interweb. Unless it has been destroyed by a Y2K problem or a time warp, I should have now received it.<br /></p>
+        <p><span>I'll get back in touch with you</span> as soon as possible.</p>
 
-    <footer class="transiArray alphaTransi" data-transi="footerBanner-contact">
-        <a href class="footer-nextPageLink_contact" ng-click="switchPage('credits', 'directLink')" title="link to the credits page">
-            <span>Visit the <b>Credits</b> page</span>
-            <svg width="312" height="52">   
-                <line class="home-btStartUx--top" x1="0" y1="0" x2="936" y2="0" />
-                <line class="home-btStartUx--right" x1="312" y1="0" x2="312" y2="156" />
-                <line class="home-btStartUx--bottom" x1="312" y1="52" x2="-624" y2="52" />
-                <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
-            </svg>
-        </a>
-    </footer>
+        <footer class="alphaTransi" data-transi="footerBanner-contact" id="footerBanner-contact">
+            <a href class="footer-nextPageLink_contact" ng-click="switchPage('credits', 'directLink')" title="link to the credits page">
+                <span>Visit the <b>Credits</b> page</span>
+                <svg width="312" height="52">   
+                    <line class="home-btStartUx--top" x1="0" y1="0" x2="936" y2="0" />
+                    <line class="home-btStartUx--right" x1="312" y1="0" x2="312" y2="156" />
+                    <line class="home-btStartUx--bottom" x1="312" y1="52" x2="-624" y2="52" />
+                    <line class="home-btStartUx--left" x1="0" y1="52" x2="0" y2="-104" />
+                </svg>
+            </a>
+        </footer>
+    </div>
+
+   
 
 
 </section>

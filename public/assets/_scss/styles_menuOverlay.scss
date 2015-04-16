@@ -2,10 +2,30 @@
 
 
 
+/* ----- JS opening modifications ----- */
+.menuOverlay-container,
+.menuOverlay-content {
+	display: none;
+}
+.menuOverlay-container,
+.menuOverlay-content,
+.menuOverlay-header,
+.menuOverlay-mainMenu,
+.menuOverlay-secondMenu,
+.menuOverlay-footerMenu {
+	opacity: 0;
+}
+.menuOverlay-header { top: -15% }
+.menuOverlay-secondMenu { bottom: -5%; }
+.menuOverlay-footerMenu { bottom: -8%; }
+/* ------------------------------------ */
+
+
+
+
+
 
 .menuOverlay-container {
-	display: none;
-	opacity: 0;
 	/*background: url('../img/magic.gif') center center no-repeat;*/
 	background-size: cover;
 	top: 0;
@@ -17,9 +37,8 @@
 }
 
 .menuOverlay-content {
-	display: none;
-	opacity: 0;
-	background: rgba(0,0,0,.6);
+	/*background: rgba(0,0,0,.6);*/
+	/*background: rgba(249, 227, 11, 1);*/
 	z-index: $menuZindex;
 	top: 0;
 	left: 0;
@@ -39,7 +58,7 @@
 			vertical-align: top;
 
 			@include transition(all .2s ease-in-out);
-			border-right: $lowBorder;
+			/*border-right: $lowBorder;*/
 			
 
 			& > a {
@@ -62,15 +81,15 @@
 
 
 
+
+
 	.menuOverlay-header {
 		position: absolute;
 		height: 15%;
-		/*@include transform(translateY(-15%));*/
-		top: -10%;
-		opacity: 0;
+		background: #000;
 		width: 100%;
+		border-bottom: 1px solid rgba(255,255,255,0.2);
 		cursor: pointer;
-		border-bottom: $lowBorder;
 		@include transition(all .2s ease-out);
 			
 
@@ -85,14 +104,14 @@
 			padding: 20px 3% 20px 0;
 			
 			text-decoration: none;
-			color: rgba(255,255,255,.4);
-			text-transform: uppercase;
+			color: rgba(255,255,255,.6);
+			text-align: center;
 			letter-spacing: 2px;
 			font-family: $font-brandon;
 			font-weight: 300;
 			font-size: 12px;
 			&:hover {
-				color: rgba(255,255,255,.8);
+				color: rgba(255,255,255,1);
 			}
 			@include transition(color .2s ease-out);
 			@include transform(translateY(-50%));
@@ -100,11 +119,10 @@
 			span {	
 				margin-bottom: 5px;
 				display: block;
-				font-family: $font-goodFoot;
+				font-family: $font-streetBrush;
 				font-size: 40px;
 				color: $yellow;
-				letter-spacing: 1px;
-				word-spacing: -7px;
+				letter-spacing: 3px;
 				text-transform: initial;
 			}
 		}
@@ -182,159 +200,136 @@
 
 
 
-			.menuOverlay--menuContent {
-				text-align:center;
-				position: relative;
-				top: 50%;
-				@include transform(translateY(-50%));
-
-				h3, h4 {
-					display: block;
-					padding-bottom: 0px;
-					margin: 0 auto;
-					width: 80%;
-
-					border-bottom: 1px solid rgba(255,255,255,0);
-					@include transition(all .2s ease-out);
-				}
-					h3 {
-						letter-spacing: 2px;
-						font-size: 70px;
-						color: $yellow;
-						font-family: $font-goodFoot;
-					}
-					h4 {
-						text-transform: uppercase;
-						font-size: 24px;
-						letter-spacing: 4px;
-						color: #fff;
-						font-family: $font-brandon;
-					}
-
-				p {
-					display: block;
-					opacity: 0;
-
-					width: 80%;
-					max-width: 350px;
-					height: 0;
-					margin: 0 auto;
-					letter-spacing: 1px;
-					font-family: $font-brandon;
-					font-size: 16px;
-					line-height: 26px;
-					font-weight: 100;
-					color: rgba(255,255,255,.8);
-
-					@include transition-property(all);
-					@include transition-duration(.2s);
-					@include transition-duration(ease-out);
-				}
-
-			}
-
+		
 
 
 	.menuOverlay-mainMenu {
 		position: absolute;
 		top: 15%;
+		height: 60%;
 		margin-top: 1px;
-		height: 65%;
 		& > li {
+			/*background: rgba(249, 227, 11, 0.9);*/
 			@include transform(transitionY(100%));
-			opacity: 0;
 			width: 33%;
 			@include transition(all .2s ease-out);
 			&:first-child { width: 34%; }
+			
+			&:hover {
+				background: rgba(0,0,0,0);
+				.menuOverlay--menuContent h3 {
+					color: #fff;
+				}
+			}
+
+
 		}
 		& > li:last-child { border-right: 0; }
+
+
+		.menuOverlay--menuContent {
+			text-align:center;
+			position: relative;
+			top: 50%;
+			@include transform(translateY(-50%));
+			h3, h4 {
+				display: block;
+				padding-bottom: 0px;
+				margin: 0 auto;
+				width: 80%;
+				border-bottom: 1px solid rgba(255,255,255,0);
+				@include transition(all .2s ease-out);
+			}
+				h3 {
+					letter-spacing: 2px;
+					font-size: 70px;
+					color: #fff;
+					font-family: $font-streetBrush;
+				}
+				h4 {
+					text-transform: uppercase;
+					letter-spacing: 4px;
+					color: #fff;
+					font-family: $font-brandon;
+				}
+			p {
+				display: block;
+				opacity: 0;
+				width: 80%;
+				max-width: 350px;
+				height: 0;
+				margin: 0 auto;
+				letter-spacing: 1px;
+				font-family: $font-brandon;
+				font-size: 16px;
+				line-height: 26px;
+				font-weight: 100;
+				color: rgba(255,255,255,.8);
+				@include transition-property(all);
+				@include transition-duration(.2s);
+				@include transition-duration(ease-out);
+			}
+
+		}
 	}
+
+
+
+
+
 	.menuOverlay-secondMenu {
 		position: absolute;
-		height: 20%;
-		bottom: -5%;
+		height: 17%;
+		/*bottom: 8%;*/
 		@include transition(all .2s ease-out);
-		opacity: 0;
 		display: table !important;
-
-
-
+		margin-top: 1px solid $yellow;
 		li {
 			border-top: $lowBorder;
+			/*background: rgba(249, 227, 11, 0.8);*/
+
 			@include transition(all .2s ease-out);
+			&:hover {
+
+			}
+
 			&:last-child {
 				border-right: 1px solid rgba(255,255,255,0);
 			}
 		}
-
 		.menuOverlay--subMenu li:first-child,
 		.menuOverlay---externalLinks li:first-child { border-top: 0 !important }
 
-
 		li a .menuOverlay--menuContent h4 {
+			color: #000;
 			font-size: 18px;			
 		}
 	}
 
-		.menuOverlay--subMenu {
-			height: 100%;
-			width: 100%;
 
-			& > li {
-				display: block;
-				@include box-sizing(border-box);
-				height: 50%;
-				overflow: hidden;
-				@include transition(all .2s ease-out);
-				&:last-child { border-bottom: 1px solid rgba(255,255,255,0); }
 
-				& > a {
-					display: block;
-					height: 100%;
-					width: 100%;
-					text-decoration: none;
-					font-weight: 100;
-					@include transition(all .2s ease-out);
-					letter-spacing: 2px !important;
-					overflow: hidden;
 
-					.menuOverlay--menuContent {
-						h5 {
-							opacity: .8;
-							color: #fff;
-							margin: 0 auto;
-							width: 85%;
-							padding-bottom: 5px;
-							margin-top: 0px;
-							@include transition(all .2s ease-out);
-						}
-						p {
-							margin-top: 10px !important;
-							/*top: 20%;*/
-							font-size: 14px !important;
-							line-height: 21px;
-							display: block;
-							width: 90%;
-							font-size: 16px;
-							@include transition(all .2s ease-out);
-						}
-					}
-				}
-			}
-		}
 
-	.menuOverlay-secondMenu > li:last-child {
-		width: 100px;
+
+
+	footer.menuOverlay-footerMenu {
+		position: absolute;
+		background: #000;
+		border-top: 1px solid rgba(255,255,255,0.2);
+		width: 100%;
+		height: 8%;
+		/*bottom: 0;*/
 		.menuOverlay---externalLinks {
 			height: 100%;
 			width: 100%;
 			& > li {
 				display: block;
+				float: left;
 				border-right: 1px solid rgba(255,255,255,0);
 
 				@include box-sizing(border-box);
-				width: 100%;
-				height: 25%;
+				width: 25%;
+				height: 100%;
 				&:last-child { border-bottom: 1px solid rgba(255,255,255,0); }
 				a {
 					display: block;
@@ -367,8 +362,8 @@
 			.icon-codepen,
 			.icon-github,
 			.icon-linkedin {
-				height: 20%;
-				width: 22%;
+				height: 50%;
+				
 			}
 		}
 	}

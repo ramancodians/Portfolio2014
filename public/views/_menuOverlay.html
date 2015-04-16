@@ -16,13 +16,13 @@
         <div class="menuOverlay--title">
             <h2>Dashboard</h2>
         </div>
-        <div class="menuOverlay--close">
+        <!-- <div class="menuOverlay--close">
             <h6>Close</h6>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
                  enable-background="new 0 0 100 100" xml:space="preserve" class="icon-cross">
                 <use xlink:href="assets/svg/svgicons.svg#icon-cross"></use>
             </svg>
-        </div>
+        </div> -->
     </div>
 
     <ul class="menuOverlay-mainMenu">
@@ -30,7 +30,6 @@
             <a href title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-mouseover="hoverIn(mainMenu.id, 'mainMenu')" ng-mouseleave="hoverOut(mainMenu.id, 'mainMenu')" ng-click="switchPage(mainMenu.link)">
                 <div class="menuOverlay--menuContent {{mainMenu.subClass}}">
                     <h3 class="{{work.h3Class}}">{{mainMenu.name}}</h3>
-
                     <p>{{mainMenu.desc}}</p>
                 </div>
             </a>
@@ -53,64 +52,57 @@
                 </div>
             </a>
         </li>
-        <li>
-            <ul class="menuOverlay--subMenu">
-                <li ng-repeat="subMenu in menuOverlay[2].subMenu">
-                    <a href title="{{subMenu.name}}" class="{{subMenu.class}}" ng-mouseover="hoverIn(subMenu.id, 'subMenu')" ng-mouseleave="hoverOut(subMenu.id, 'subMenu')" ng-click="switchPage(subMenu.link)">
-                        <div class="menuOverlay--menuContent {{subMenu.subClass}}">
-                            <h5>{{subMenu.name}}</h5>
-                            <p>{{subMenu.desc}}</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <ul class="menuOverlay---externalLinks">
-                <li>
-                    <a href="https://twitter.com/_alexisbertin" title="Twitter" target="_blank" ng-mouseover="hoverIn(1, 'externalLinks')" ng-mouseleave="hoverOut(1, 'externalLinks')">
-                        <div class="menuOverlay--menuContent">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
-                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-twitter">
-                                <use xlink:href="assets/svg/svgicons.svg#icon-twitter"></use>
-                            </svg>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/AlexisBertin" title="GitHub" target="_blank" ng-mouseover="hoverIn(2, 'externalLinks')" ng-mouseleave="hoverOut(2, 'externalLinks')">
-                        <div class="menuOverlay--menuContent">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
-                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-github">
-                                <use xlink:href="assets/svg/svgicons.svg#icon-github"></use>
-                            </svg>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://codepen.io/AlexisBertin/" title="CodePen" target="_blank" ng-mouseover="hoverIn(3, 'externalLinks')" ng-mouseleave="hoverOut(3, 'externalLinks')">
-                        <div class="menuOverlay--menuContent">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
-                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-codepen">
-                                <use xlink:href="assets/svg/svgicons.svg#icon-codepen"></use>
-                            </svg>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/pub/alexis-bertin/6b/281/5a7" title="LinkedIn" target="_blank" ng-mouseover="hoverIn(4, 'externalLinks')" ng-mouseleave="hoverOut(4, 'externalLinks')">
-                        <div class="menuOverlay--menuContent">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
-                                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-linkedin">
-                                <use xlink:href="assets/svg/svgicons.svg#icon-linkedin"></use>
-                            </svg>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </li>
     </ul>
     
+
+
+
+
+    <footer class="menuOverlay-footerMenu">
+        <ul class="menuOverlay---externalLinks">
+            <li>
+                <a href="https://twitter.com/_alexisbertin" title="Twitter" target="_blank" ng-mouseover="hoverIn(1, 'externalLinks')" ng-mouseleave="hoverOut(1, 'externalLinks')">
+                    <div class="menuOverlay--menuContent">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                             enable-background="new 0 0 100 100" xml:space="preserve" class="icon-twitter">
+                            <use xlink:href="assets/svg/svgicons.svg#icon-twitter"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/AlexisBertin" title="GitHub" target="_blank" ng-mouseover="hoverIn(2, 'externalLinks')" ng-mouseleave="hoverOut(2, 'externalLinks')">
+                    <div class="menuOverlay--menuContent">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                             enable-background="new 0 0 100 100" xml:space="preserve" class="icon-github">
+                            <use xlink:href="assets/svg/svgicons.svg#icon-github"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="http://codepen.io/AlexisBertin/" title="CodePen" target="_blank" ng-mouseover="hoverIn(3, 'externalLinks')" ng-mouseleave="hoverOut(3, 'externalLinks')">
+                    <div class="menuOverlay--menuContent">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                             enable-background="new 0 0 100 100" xml:space="preserve" class="icon-codepen">
+                            <use xlink:href="assets/svg/svgicons.svg#icon-codepen"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/pub/alexis-bertin/6b/281/5a7" title="LinkedIn" target="_blank" ng-mouseover="hoverIn(4, 'externalLinks')" ng-mouseleave="hoverOut(4, 'externalLinks')">
+                    <div class="menuOverlay--menuContent">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
+                             enable-background="new 0 0 100 100" xml:space="preserve" class="icon-linkedin">
+                            <use xlink:href="assets/svg/svgicons.svg#icon-linkedin"></use>
+                        </svg>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+    </footer>
 
 </div>
 

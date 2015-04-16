@@ -4,12 +4,15 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 	Page.setTitle('Works | Alexis Bertin');
 
 	
-	setTimeout(function(){	TweenLite.to('.works .alphaTransi', 0.4, {y: "0", opacity: "1", ease:Quart.easeOut }); },1000);
 
-	TweenLite.to('.overlay', 0, {background: "rgba(0,0,0,.6)"});
+	/*TweenLite.to('.overlay', 0, {background: "rgba(0,0,0,.6)"});*/
+
+	TweenLite.to('.overlay', 0.2, { background: "rgba(20,20,20,0.7)"});
+
 	/*TweenLite.to('.home-bgVideo', 0.2, {top: "-280"});*/
-	TweenLite.to('.background', 0, {opacity: "0"});
-	TweenLite.to('.works-content', 0, {y: "-20", ease:Quart.easeOut });
+	TweenLite.to('.background', 0, {opacity: "0", onComplete:function(){
+		TweenLite.to('.alphaTransi', 0.4, {y: "0", opacity: "1", ease:Quart.easeOut });
+	}});
 
 /*
 	$http.get('views/worksData.json')
@@ -83,73 +86,81 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 			stopSpamKiddo = true;
 			setTimeout(unlock, 200);
 
-			var hash = window.location.hash;
-			var workName = hash.replace('#', '');
+			var location = window.location.pathname;
+			console.log('location: '+location);
 
-			var workPageId = worksArray.indexOf(workName) + 1;
-			document.getElementById('works--nav').setAttribute('data-workpage', workPageId);
-			document.getElementById('works---count').innerHTML = Number(workPageId).toString(2);
-			document.getElementById('works---length').innerHTML = Number(worksArray.length).toString(2);
+			if(location = 'works/'){
 
-			if (hash === '') {
-				/* STATE 1 --- Back on ALL WORKS ||  --- */
-				TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
-					TweenLite.to('.works-content #works---'+workName, 0, {display: "none"});
-					/*TweenLite.to('.bt-menu', 0.4, {opacity: '0'});*/
-					TweenLite.to('.works-content', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
-						TweenLite.to('.works-nav', 0, {display: "none", opacity:"0", y:"-20"});
-						TweenLite.to('.works-content', 0, {display: "none"});
-						/*TweenLite.to('.bt-menu', 0.2, {x: '0'});*/
-						TweenLite.to('.works', 0, {display: "block", onComplete:function(){
-							TweenLite.to('.works', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
-							/*TweenLite.to('.bt-menu', 0.4, {opacity: '1'});*/
-							var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
-							document.getElementById('works---'+oldWorkPage).className = elm;
-							oldWorkPage = '';
-						}});
-					}});
-				}});
-			} else if(hash !== ''){
-				/* STATE 2 --- work opening --- */
-				if(oldWorkPage == ''){
-					/* STATE 2.1 --- Prev page was ALL WORKS --- */
-					/*TweenLite.to('.bt-menu', 0.4, {opacity: '0'});*/
-					TweenLite.to('.works', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
-						TweenLite.to('.works', 0, {display: "none"});
-						TweenLite.to('.works-content', 0, {display: "block", onComplete:function(){
-							TweenLite.to('.works-content', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut });
-						}});
-						elm = document.getElementById('works---'+workName).className.replace('ng-hide', 'ng-show');
-						document.getElementById('works---'+workName).className = elm;
-						TweenLite.to('.works-nav', 0, {display: "block", onComplete:function(){
-							/*TweenLite.to('.bt-menu', 0, {x: '-15'});*/
-							TweenLite.to('.works-nav', 0.2, {opacity: "1", y:"0", onComplete:function(){
-								/*TweenLite.to('.bt-menu', 0.4, {opacity: '1'})*/;
-								TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
-									window.scrollTo(0,0);
-									TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
-									oldWorkPage = workName;
-								}});
+				var hash = window.location.hash;
+				var workName = hash.replace('#', '');
+
+				var workPageId = worksArray.indexOf(workName) + 1;
+				document.getElementById('works--nav').setAttribute('data-workpage', workPageId);
+				document.getElementById('works---count').innerHTML = Number(workPageId).toString(2);
+				document.getElementById('works---length').innerHTML = Number(worksArray.length).toString(2);
+
+				if (hash === '') {
+					/* STATE 1 --- Back on ALL WORKS ||  --- */
+					TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
+						TweenLite.to('.works-content #works---'+workName, 0, {display: "none"});
+						/*TweenLite.to('.bt-menu', 0.4, {opacity: '0'});*/
+						TweenLite.to('.works-content', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
+							TweenLite.to('.works-nav', 0, {display: "none", opacity:"0", y:"-20"});
+							TweenLite.to('.works-content', 0, {display: "none"});
+							/*TweenLite.to('.bt-menu', 0.2, {x: '0'});*/
+							TweenLite.to('.works', 0, {display: "block", onComplete:function(){
+								TweenLite.to('.works', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
+								/*TweenLite.to('.bt-menu', 0.4, {opacity: '1'});*/
+								var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
+								document.getElementById('works---'+oldWorkPage).className = elm;
+								oldWorkPage = '';
 							}});
 						}});
 					}});
-				} else if(oldWorkPage !== ''){
-					/* STATE 2.2 --- Prev page was an other WORK --- */
-					var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
-					document.getElementById('works---'+oldWorkPage).className = elm;
-					TweenLite.to('.works-content #works---'+oldWorkPage, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
-						TweenLite.to('.works-content #works---'+oldWorkPage, 0, {display: "none"});
-						TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
-							window.scrollTo(0,0);
-							TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
+				} else if(hash !== ''){
+					/* STATE 2 --- work opening --- */
+					if(oldWorkPage == ''){
+						/* STATE 2.1 --- Prev page was ALL WORKS --- */
+						/*TweenLite.to('.bt-menu', 0.4, {opacity: '0'});*/
+						TweenLite.to('.works', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
+							TweenLite.to('.works', 0, {display: "none"});
+							TweenLite.to('.works-content', 0, {display: "block", onComplete:function(){
+								TweenLite.to('.works-content', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut });
+							}});
 							elm = document.getElementById('works---'+workName).className.replace('ng-hide', 'ng-show');
 							document.getElementById('works---'+workName).className = elm;
-							oldWorkPage = workName;
+							TweenLite.to('.works-nav', 0, {display: "block", onComplete:function(){
+								/*TweenLite.to('.bt-menu', 0, {x: '-15'});*/
+								TweenLite.to('.works-nav', 0.2, {opacity: "1", y:"0", onComplete:function(){
+									/*TweenLite.to('.bt-menu', 0.4, {opacity: '1'})*/;
+									TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
+										window.scrollTo(0,0);
+										TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
+										oldWorkPage = workName;
+									}});
+								}});
+							}});
 						}});
-					}});
+					} else if(oldWorkPage !== ''){
+						/* STATE 2.2 --- Prev page was an other WORK --- */
+						var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
+						document.getElementById('works---'+oldWorkPage).className = elm;
+						TweenLite.to('.works-content #works---'+oldWorkPage, 0.4, {opacity: "0", y:"-20", ease:Quart.easeOut, onComplete:function(){
+							TweenLite.to('.works-content #works---'+oldWorkPage, 0, {display: "none"});
+							TweenLite.to('.works-content #works---'+workName, 0, {display: "block", onComplete:function(){
+								window.scrollTo(0,0);
+								TweenLite.to('.works-content #works---'+workName, 0.4, {opacity: "1", y:"0", ease:Quart.easeOut});
+								elm = document.getElementById('works---'+workName).className.replace('ng-hide', 'ng-show');
+								document.getElementById('works---'+workName).className = elm;
+								oldWorkPage = workName;
+							}});
+						}});
+					}
+					
 				}
-				
+
 			}
+
 	    });
 	}
 

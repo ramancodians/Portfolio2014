@@ -1,5 +1,5 @@
 <section class="works">
-    <header class="transiArray alphaTransi" data-transi="worksHeader">
+    <header class="alphaTransi" data-transi="worksHeader">
         <div class="header-container">
             <h1>Work</h1>
             <h2>My few projects</h2>
@@ -7,7 +7,7 @@
         </div> 
     </header>
 
-    <div class="works-list transiArray alphaTransi pageContent" data-transi="worksList">
+    <div class="works-list alphaTransi pageContent" data-transi="worksList">
         <article ng-repeat="work in works" id="work{{work.link}}">
            <!--  <svg width="350" height="400">   
                 <line class="worksList-work--top" x1="0" y1="0" x2="1050" y2="0" />
@@ -30,7 +30,7 @@
             
         </article>
     </div>
-    <footer class="transiArray alphaTransi" data-transi="footerBanner-works">
+    <footer class="alphaTransi" data-transi="footerBanner-works">
         <a href class="footer-nextPageLink_work" ng-click="switchPage('about', 'directLink')" title="link to the about page">
             <span>Visit the <b>About</b> page</span>
             <svg width="292" height="52">   
@@ -45,7 +45,7 @@
 </section>
 
 
-<section class="works-content transiArray alphaTransi" works-content ng-swipe-left="worksPrev();" ng-swipe-right="worksNext();"></section>
+<section class="works-content alphaTransi" works-content ng-swipe-left="worksPrev();" ng-swipe-right="worksNext();"></section>
 
 
 

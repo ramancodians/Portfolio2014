@@ -4,6 +4,7 @@
 @import "styles_about.scss";
 @import "styles_contact.scss";
 @import "styles_menuOverlay.scss";
+@import "styles_landing.scss";
 
 
 
@@ -48,12 +49,12 @@ body {
 			opacity: 1;
 			/*background: rgba(0,0,0,.6);*/
 			/*background: #111; */
-			background: #000;
+			/*background: #000;*/
 			z-index: $sectionZindex + 40;
 			@include transition(all .2s ease-out);
 			height: 100%;
 
-				/*svg {
+				svg {
 					position: fixed;
 					margin: auto;
 					top: 0; right: 0; bottom: 0; left: 0;		
@@ -70,9 +71,9 @@ body {
 					@include transition(all 0.2s ease-out); 
 					stroke-dasharray: 1000;
 					stroke-dashoffset: 1000;
-					@include animation(triskel-dash 3s ease-out infinite, triskel-rotation 6s linear infinite);
-				}*/
-				img {
+					@include animation(triskel-dash 2s ease-out infinite, triskel-rotation 4s linear infinite);
+				}
+				/*img {
 					position: fixed;
 					margin: auto;
 					top: 0; right: 0; bottom: 0; left: 0;		
@@ -80,7 +81,7 @@ body {
 					overflow: visible;
 					width: 200px;
 					height: 200px;
-				}
+				}*/
 				h4 {
 					position: fixed;
 					top: 50%;
@@ -122,7 +123,7 @@ body {
 	
 		.clearMargin { margin: 0 auto !important; }
 		
-		.works .alphaTransi {
+		.alphaTransi {
 			@include transform(translateY(-10px));
 			opacity: 0;
 		}
@@ -208,7 +209,7 @@ body {
 			@include transform(translateY(-50%));
 			h1 {
 				margin: 0 auto 32px auto;
-				font-family: $font-goodFoot;
+				font-family: $font-streetBrush;
 				font-size: 216px;
 				letter-spacing: 5px;
 				line-height: 120px;
@@ -245,6 +246,21 @@ body {
 		}
 	}
 
+
+	nav.mainMenu {
+		position: fixed;
+		display: block;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100px;
+		background: rgba(0,0,0,0);
+		border-right: 1px solid rgba(255,255,255,.2);
+		@include transition(all .2s ease-out);
+	}
+
+
+
 	.pageContent,
 	.works---descContent {
 		video {
@@ -268,7 +284,7 @@ body {
 		p {
 			display: block;
 			max-width: 650px;
-			margin: 0 auto 100px auto;
+			margin: 0 auto 36px auto;
 			padding: 0 20px;
 			color: #FFF;
 			font-size: 18px;
@@ -451,6 +467,15 @@ body {
 				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 322 292 322; }
 			}
 		/* ---------------------- */
+
+		/* ---- Landing Page ---- */
+			a.footer-nextPageLink_landing {
+				width: 174px;
+				&:hover svg line.home-btStartUx--top { @include transform(translateX(-174px)); }
+				&:hover svg line.home-btStartUx--bottom { @include transform(translateX(174px)); }
+				svg line.home-btStartUx--top, line.home-btStartUx--bottom { stroke-dasharray: 184 154 184; }
+			}
+		/* ---------------------- */
 	}
 
 
@@ -581,7 +606,7 @@ body {
 
 
 
-/*	@include keyframes(triskel-rotation) {
+	@include keyframes(triskel-rotation) {
 		0% { @include transform(rotate(0deg)); }
 		100% { @include transform(rotate(360deg)); }
 	}
@@ -591,15 +616,15 @@ body {
 		50% { stroke-dashoffset: 0; }
 		100% { stroke-dashoffset: 1000; }
 	}
-	*/
+	
 	@include keyframes(dash) {
-		0% { stroke-dashoffset: 1000; }
+		0% { stroke-dashoffset: 2000; }
 		100% { stroke-dashoffset: 0; }
 	}
 	
 	@include keyframes(dashBack) {
 		0% { stroke-dashoffset: 0; }
-		100% { stroke-dashoffset: 1000; }
+		100% { stroke-dashoffset: 2000; }
 	}
 
 

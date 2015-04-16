@@ -52,54 +52,12 @@
 	/*require('./app/routes')(app);*/
 // ======================================================================================
 	
-
-<<<<<<< HEAD
-=======
-	/*app.get('/sendMessage', function(req,res){
-		res.render('sendMessage', {
-			title: 'Portfolio - Contact',
-			page: 'sendMessage' 
-		})
-	});
-
-	app.post('/sendMessage', function (req, res) {
-		var mailOpts, smtpTrans;
-		//Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
-		smtpTrans = nodemailer.createTransport('SMTP', {
-			service: 'Gmail',
-			auth: {
-	      		user: "whymynameisalexisbertin@gmail.com",
-				pass: "" 
-			}
-		});
-		//Mail options
-		mailOpts = {
-	      	from: req.body.name + ' &lt;' + req.body.email + '&gt;', //grab form data from the request body object
-	      	to: 'whymynameisalexisbertin@gmail.com',
-			subject: 'Portfolio | Contact',
-			text: req.body.message
-		};
-		smtpTrans.sendMail(mailOpts, function (error, response) {
-	      	//Email not sent
-	      	if (error) {
-	          	res.render('sendMessage', { title: 'Portfolio - Contact', msg: 'Error occured, message not sent.', err: true, page: 'sendMessage' })
-	      	}
-	      	//Yay!! Email sent
-	      	else {
-	          	res.render('sendMessage', { title: 'Portfolio - Contact', msg: 'Message sent! Thank you.', err: false, page: 'sendMessage' })
-	      	}
-	  	});
-	});*/
-
-
->>>>>>> origin/master
-
 	//Create the reusable transport
 	var transporter = nodemailer.createTransport({
 	    service: 'Gmail',
 	    auth: {
 	    	user: "whymynameisalexisbertin@gmail.com",
-	    	pass: ""
+	    	pass: "jillislucky6"
 		}
 	});
 	 
@@ -107,26 +65,28 @@
 
 	app.post('/sendMessage', function(req, res) {
 
+		/*req.body.message = req.body.message.replace(/\r?\n/g, '<br />');*/
 
 	            // setup e-mail data with unicode symbols
 	            var mailOptions = {
-	                from: req.query.mail, // sender address
+	                from: req.body.mail, // sender address
 	                to: 'whymynameisalexisbertin@gmail.com', // list of receivers. This is whoever you want to get the email when someone hits submit
-	                subject: 'Portfolio | Contact from: '+req.query.name, // Subject line
-	                text: req.query.name + ' You gg: ' + req.query.message // plaintext body
+	                subject: 'Portfolio | Contact from: '+req.body.name, // Subject line
+	                html: '<p style="font-size: 16px; line-height: 24px;"><span style="font-weight:bold">Name: </span> <span style="color: #15c">'+req.body.name+'</span> <br /><span style="font-weight:bold">Mail: </span> <span style="color: #15c">'+req.body.mail+'</span> <br /><span style="font-weight:bold">Message: </span> <br /><span style="color: #15c">'+req.body.message+'</span></p>',
+	                text: req.body.name + ' | ' + req.body.mail + ' | ' + req.body.message // plaintext body
 	 
 	            };
 	 
 	            // send mail with defined transport object
 	            transporter.sendMail(mailOptions, function (error, info) {
 	                if (error) {
-	                    console.log('NOPENOPEN: '+error);
+	                    res.send('NOPENOPEN: '+error);
 	                } else {
-	                    console.log('Message sent: ' + info.response);
+	                    res.send('Message sent: ' + info.response);
 	                }
 	            });
 	            //Success
-	            res.send("Thanks! We have sent your message.");
+	            
 	 
 	});
 

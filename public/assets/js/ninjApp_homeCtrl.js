@@ -5,26 +5,14 @@ ninjApp.controller('homeController', function($scope, Page){
 
 	Page.setTitle('Alexis Bertin | Front-End Developer');
 
-	TweenLite.to('.overlay', 0.2, {background: "rgba(0,0,0,0)"});
-	TweenLite.to('.background', 0.2, {opacity: "1"});
-
-	if (document.documentElement.clientWidth > 1100) {
-
-
+	/*TweenLite.to('.overlay', 0.2, { background: "rgba(40,40,48,0.4)" });*/
+	TweenLite.to('.overlay', 0.2, { background: "rgba(0,0,0,0.25)" });
+	TweenLite.to('.background', 0.2, {opacity: "1", onComplete:function(){
+		TweenLite.to('.alphaTransi', 0, {opacity: "1", ease:Quart.easeOut });
+	}});
 
 
 /* ---------------------- Home "Alexis" SVG animation ------------------------ */
-			$.get('assets/svg/svgHomeAlexis.svg', function(data){
-				// inject the defs we need from the SVG doc into main file.
-				
-
-				$('.home .home-title svg').empty().html($(data).find('.alexis'));
-				var alexisNbLetters = $('.alexis').size();
-
-				/*$('.alexis').css({
-					
-				}); */
-			});
 
 			function alexisAppears_reset(y, z, alexisNbLetters){
 			  	setTimeout(function(){
@@ -57,10 +45,10 @@ ninjApp.controller('homeController', function($scope, Page){
 				    if(y <= alexisNbLetters){
 				    	$('.alexis:nth-child('+y+')')
 				    		.css({
-				    			'-webkit-animation': 'dash 3s ease-out forwards',
-				    			'animation': 'dash 3s ease-out forwards'
+				    			'-webkit-animation': 'dash 2s ease-out forwards',
+				    			'animation': 'dash 2s ease-out forwards'
 				    		})
-				      		.delay(400)
+				      		.delay(600)
 				      		.queue(function(){
 						        $(this)
 						        	.css({'fill':'#F9E30B'})
@@ -78,24 +66,22 @@ ninjApp.controller('homeController', function($scope, Page){
 			}
 		
 
+			
+
+			
+
+
+
+		
+		function homeInit(){
+
+			$.get('assets/svg/svgHomeAlexis.svg', function(data){
+				// inject the defs we need from the SVG doc into main file.
+				$('.home .home-title svg').empty().html($(data).find('.alexis'));
+				var alexisNbLetters = $('.alexis').size();
+			});
 			$('.home-btStartUx').hide();
 
-
-			var homeTitle = [
-				'p:first-of-type',
-				'p:last-of-type',
-				'h2'
-			]
-			var homeTitleContent = [
-				$('.home .home-title p:first-of-type').html(),
-				$('.home .home-title p:last-of-type').html(),
-				$('.home .home-title h2').html()
-			]
-			var homeTitleContentSplit = [
-				$('.home .home-title p:first-of-type').text().split(""),
-				$('.home .home-title p:last-of-type').text().split(""),
-				$('.home .home-title h2').text().split("")
-			]
 
 			// Ending function, reset the div
 			function killHomeFunction(){
@@ -114,9 +100,22 @@ ninjApp.controller('homeController', function($scope, Page){
 				return w;
 			}
 
+			var homeTitle = [
+				'p:first-of-type',
+				'p:last-of-type',
+				'h2'
+			]
+			var homeTitleContent = [
+				$('.home .home-title p:first-of-type').html(),
+				$('.home .home-title p:last-of-type').html(),
+				$('.home .home-title h2').html()
+			]
+			var homeTitleContentSplit = [
+				$('.home .home-title p:first-of-type').text().split(""),
+				$('.home .home-title p:last-of-type').text().split(""),
+				$('.home .home-title h2').text().split("")
+			]
 
-
-	
 
 			for(var x = 0; x < homeTitle.length; x++){
 				$('.home .home-title '+homeTitle[x]).empty();
@@ -193,10 +192,17 @@ ninjApp.controller('homeController', function($scope, Page){
 						// "ALEXIS" fadein =========================
 											alexisAppears(y, z, alexisNbLetters);
 						// =========================================
-											x = 0;
-											w++;
-											if(w < homeTitleContentSplit.length){
-												setTimeout(function(){ lightMyWord(w, x); },800);
+											x++;
+											if(x < homeTitleContentSplit[w].length){
+												lightMyFire(w, x);
+											} else {
+												x = 0;
+												w++;
+												if(w < homeTitleContentSplit.length){
+													lightMyWord(w, x);
+												} else if(w >= homeTitleContentSplit.length){
+													killHomeFunction();
+												}
 											}
 										} else {
 											x++;
@@ -220,12 +226,24 @@ ninjApp.controller('homeController', function($scope, Page){
 					lightMyWord(w, x);
 				});
 		
+		};
 	
 	/* --------------------------------------------------------------------------- */
 
-	
+
+	if (document.documentElement.clientWidth > 1100) {
+		homeInit();
 	} else {
 		$('.home-title p span').css('display','none');
 	}
+
+	window.onresize = function(){
+		if (document.documentElement.clientWidth > 1100) {
+			$('.home-title p span').css('display','block');
+			homeInit();
+		} else {
+			$('.home-title p span').css('display','none');
+		}
+	} 
 
 });
