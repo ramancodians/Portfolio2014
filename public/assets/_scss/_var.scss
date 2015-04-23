@@ -10,18 +10,17 @@
 }
 
 $font-brandon: "brandon-grotesque", sans-serif !important;
-$font-goodFoot: "good_footregular", sans-serif;
 $font-museo: "museo-slab",serif;
 $font-streetBrush: "Streetbrush", sans-serif;
 
-$yellow: #F9E30B; /*rgba(249, 227, 11, 1)*/
+$yellow: #F1C40F; /*rgba(241, 196, 15,1.0)*/
 $redOpa: rgba(231, 76, 60, 1);
 $greenOpa: rgba(46, 204, 113, 1);
 $blueOpa: rgba(52, 152, 219, 1);
 
 $violetOpa: rgba(155, 89, 182, .4);
 $orangeOpa: rgba(230, 126, 34, .4);
-$lowBorder: 1px solid rgba(255,255,255,.4);
+$lowBorder: 1px solid rgba(255,255,255,.2);
 
 $formRed: rgba(231, 76, 60,1);
 $formGreen: rgba(46, 204, 113,1);
@@ -33,14 +32,3 @@ $menuBackground: rgba(0,0,0,.4);
 $home-fontWeight: 300; 
 $sectionZindex: 9;
 $menuZindex: 10000;
-
-@font-face {
-    font-family: 'good_footregular';
-    src: url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.eot');
-    src: url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.woff') format('woff'),
-         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.ttf') format('truetype'),
-         url('../fonts/goodfoot_regular_macroman/goodfoot-webfont.svg#good_footregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}

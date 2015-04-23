@@ -1,14 +1,17 @@
 
+ninjApp.controller('homeController', ['$scope', function($scope, Page){
 
-
-ninjApp.controller('homeController', function($scope, Page){
-
-	Page.setTitle('Alexis Bertin | Front-End Developer');
+	$scope.Page.setTitle('Alexis Bertin | Front-End Developer');
 
 	/*TweenLite.to('.overlay', 0.2, { background: "rgba(40,40,48,0.4)" });*/
-	TweenLite.to('.overlay', 0.2, { background: "rgba(0,0,0,0.25)" });
+	TweenLite.to('.overlay', 0.2, { background: "rgba(0,0,0,0.3)" });
 	TweenLite.to('.background', 0.2, {opacity: "1", onComplete:function(){
-		TweenLite.to('.alphaTransi', 0, {opacity: "1", ease:Quart.easeOut });
+		setTimeout(function(){
+			TweenLite.to('.preloader', 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
+				TweenLite.to('.preloader', 0, { display: "none"});
+				TweenLite.to('.alphaTransi', 0.4, { opacity: "1", ease:Quart.easeOut });
+			}});
+		},400);
 	}});
 
 
@@ -51,7 +54,7 @@ ninjApp.controller('homeController', function($scope, Page){
 				      		.delay(600)
 				      		.queue(function(){
 						        $(this)
-						        	.css({'fill':'#F9E30B'})
+						        	.css({'fill':'#F1C40F'})
 						        	.dequeue();
 				      		});
 				      	y++;
@@ -68,58 +71,66 @@ ninjApp.controller('homeController', function($scope, Page){
 
 			
 
-			
-
-
-
-		
-		function homeInit(){
-
-			$.get('assets/svg/svgHomeAlexis.svg', function(data){
-				// inject the defs we need from the SVG doc into main file.
-				$('.home .home-title svg').empty().html($(data).find('.alexis'));
-				var alexisNbLetters = $('.alexis').size();
-			});
-			$('.home-btStartUx').hide();
-
-
-			// Ending function, reset the div
-			function killHomeFunction(){
-				w = 0;
-				$('home .home-title h2 span').css({'color':'rgba(255,255,255,1)'});
-
-				for(var x = 0; x < homeTitle.length; x++){
-					$('.home .home-title '+homeTitle[x])
-						.empty()
-						.html(homeTitleContent[x]);
-				}
-				$('.home-btStartUx').fadeIn(600);
-				setTimeout(function(){
-					$('#home-tips').css('opacity','1');
-				}, 600);
-				return w;
-			}
-
+		// Ending function, reset the div
+		function killHomeFunction(){
+			w = 0;
+			$('home .home-title h2 span').css({'color':'rgba(255,255,255,1)'});
 			var homeTitle = [
 				'p:first-of-type',
 				'p:last-of-type',
 				'h2'
-			]
-			var homeTitleContent = [
-				$('.home .home-title p:first-of-type').html(),
-				$('.home .home-title p:last-of-type').html(),
-				$('.home .home-title h2').html()
-			]
-			var homeTitleContentSplit = [
-				$('.home .home-title p:first-of-type').text().split(""),
-				$('.home .home-title p:last-of-type').text().split(""),
-				$('.home .home-title h2').text().split("")
-			]
+			];
 
+			for(var x = 0; x < homeTitle.length; x++){
+				$('.home .home-title '+homeTitle[x])
+					.empty()
+					.html(homeTitleContent[x]);
+			}
+			$('.home-btStartUx').fadeIn(600);
+			setTimeout(function(){
+				$('#home-tips').css('opacity','1');
+			}, 600);
+			return w;
+		}
+
+		var homeTitle = [
+			'p:first-of-type',
+			'p:last-of-type',
+			'h2'
+		];
+		var homeTitleContent = [
+			$('.home .home-title p:first-of-type').html(),
+			$('.home .home-title p:last-of-type').html(),
+			$('.home .home-title h2').html()
+		];
+		var homeTitleContentSplit = [
+			$('.home .home-title p:first-of-type').text().split(""),
+			$('.home .home-title p:last-of-type').text().split(""),
+			$('.home .home-title h2').text().split("")
+		];
+		$.get('assets/svg/svgHomeAlexis.svg', function(data){
+			// inject the defs we need from the SVG doc into main file.
+			$('.home .home-title svg').empty().html($(data).find('.alexis'));
+			var alexisNbLetters = $('.alexis').size();
+		});
+
+		
+
+
+
+		function homeInit(){
+			$('.home-btStartUx').hide();
 
 			for(var x = 0; x < homeTitle.length; x++){
 				$('.home .home-title '+homeTitle[x]).empty();
 			}
+			for(var x = 0; x < homeTitle.length; x++){
+				for(var y = 0; y < homeTitleContentSplit[x].length; y++){
+					$('.home .home-title '+homeTitle[x]).append('<span>'+homeTitleContentSplit[x][y]+'</span>');
+				}
+			}
+			$('.home .home-title span').css('opacity','0');
+
 			$('.home .home-title').delay(1000)
 				.queue(function(){
 					var x = 0,
@@ -128,9 +139,7 @@ ninjApp.controller('homeController', function($scope, Page){
 						y = 1,
 						z = 1;
 					function lightMyWord(w, x){
-
-					
-						                         
+				                         
 							function lightMyFire(w, x){
 								var homeTitleAttr;
 								switch(w) {
@@ -143,25 +152,20 @@ ninjApp.controller('homeController', function($scope, Page){
 								}
 								
 								setTimeout(function(){
-										if(homeTitleContentSplit[w][x] == " "){
-											x++;
-											$('.home .home-title '+homeTitleAttr).append(' <span>'+homeTitleContentSplit[w][x]+'</span>');
-										} else {
-											$('.home .home-title '+homeTitleAttr).append('<span>'+homeTitleContentSplit[w][x]+'</span>');
-										}
-										$('.home .home-title '+homeTitleAttr+' span:last-of-type').css({
+										if(homeTitleContentSplit[w][x] == " "){ x++; }
+										$('.home .home-title '+homeTitleAttr+' span:nth-child('+(x+1)+')').css({
 											'opacity':'0',
 											'color': 'rgba(255,255,255,1)'
 										});
 										if(w == 2){
-											$('.home .home-title '+homeTitleAttr+' span:last-of-type')
-												.css({'opacity':'1','font-weight':'500'})
+											$('.home .home-title '+homeTitleAttr+' span:nth-child('+(x+1)+')')
+												.css({'opacity':'1','font-weight':'300'})
 												.delay(200)
 												.queue(function(){
 													$(this).css({'color': 'rgba(255,255,255,1)'});		
 												});					
 										} else {
-											$('.home .home-title '+homeTitleAttr+' span:last-of-type')
+											$('.home .home-title '+homeTitleAttr+' span:nth-child('+(x+1)+')')
 												.css({'opacity':'1'})
 												.delay(200)
 												.queue(function(){
@@ -221,7 +225,6 @@ ninjApp.controller('homeController', function($scope, Page){
 								},50);	
 							}
 							lightMyFire(w, x);
-						
 					}
 					lightMyWord(w, x);
 				});
@@ -234,16 +237,16 @@ ninjApp.controller('homeController', function($scope, Page){
 	if (document.documentElement.clientWidth > 1100) {
 		homeInit();
 	} else {
-		$('.home-title p span').css('display','none');
+		killHomeFunction();
 	}
 
 	window.onresize = function(){
 		if (document.documentElement.clientWidth > 1100) {
-			$('.home-title p span').css('display','block');
 			homeInit();
 		} else {
-			$('.home-title p span').css('display','none');
+			/*$('.home-title p span').css('display','none');*/
+			killHomeFunction();
 		}
 	} 
 
-});
+}]);

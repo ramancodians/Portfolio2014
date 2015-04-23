@@ -1,38 +1,86 @@
 <!doctype html>
-<html class="no-js" lang="fr" xmlns:ng="http://angularjs.org" ng-app="ninjApp" ng-controller="mainController" ng-keypress="menu($event)">
+<!------------------------------------------------------------------
+_____________           _____                       _________     
+___    |__  /________  ____(_)_______   __________________  /____ 
+__  /| |_  /_  _ \_  |/_/_  /__  ___/   _  ___/  __ \  __  /_  _ \
+_  ___ |  / /  __/_>  < _  / _(__  )    / /__ / /_/ / /_/ / /  __/
+/_/  |_/_/  \___//_/|_| /_/  /____/     \___/ \____/\__,_/  \___/ 
+
+                     \
+                      \
+                       \\
+                        \\
+                         >\/7
+                     _.-(6'  \
+                    (=___._/` \
+                         )  \ |
+                        /   / |
+                       /    > /
+                      j    < _\
+                   _.-' :      ``.
+                  \ r=._\        `.
+                 <`\\_  \         .`-.
+                  \ r-7  `-. ._  ' .  `\
+                   \`,      `-.`7  7)   )
+                    \/         \|  \'  / `-._
+                               ||    .'
+                               \\  (
+                               >\  >
+                             ,.-' >.'
+                            <.'_.''
+                              <'    
+------------------------------------------------------------------>
+<html class="no-js" lang="en" xmlns:ng="http://angularjs.org" ng-app="ninjApp" ng-controller="mainController" ng-keypress="menu($event)">
 <head>
-	<title>{{ Page.title() }}</title>
+    <title>{{ Page.title() }}</title>
 
     <meta charset="utf-8" />
-    <meta name="title" content="{{ Page.title() }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <meta name="title" content="Alexis Bertin | Front-End Developer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Alexis Bertin's Portfolio. Front End web developer." />
     <meta name="author" content="Alexis Bertin" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="HTML,CSS, JavaScript, php, front end, developer, integrateur, integration, developpement, heaj, esiaj, dwm, albert, jacquard, alexis, bertin, developpeur" />
-    <meta name="revised" content="Alexis Bertin, Septembre 2014" />
-
-
+    <meta name="keywords" content="front, end, front-end, web, developer, integrateur, integration, developpement, dwm, alexis, bertin, developpeur" />
+    <meta name="revised" content="Alexis Bertin, April 2015" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta property="og:title" content="{{ Page.title() }}" />
-    <meta property="og:url" content="http://www.alexisbertin.fr" />
-    <meta property="og:image" content="" />
+
+    <meta property="og:title" content="Alexis Bertin's Portfolio" />
+    <meta property="og:site_name" content="Alexis Bertin | Front-End Developer"/>
+    <meta property="og:url" content="http://www.alexisbertin.bzh/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="../assets/img/alexisBertinHome.jpg" />
+    <meta property="og:type" content="website" />
     <meta property="og:description" content="Alexis Bertin's Portfolio. Front End web developer." />
-    <meta property="fb:admins" content="1140522128" />
 
     <base href="/">
 
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.ico" />
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png" /> -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../assets/img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../assets/img/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../assets/img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../assets/img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../assets/img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="Alexis Bertin | Front-End Developer"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="../assets/img/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="../assets/img/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="../assets/img/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="../assets/img/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="../assets/img/favicon/mstile-310x310.png" />
 
-    <!-- <link rel="stylesheet" href="assets/css/foundation.css" /> -->
+
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/reset.css" />
-    <script type="text/javascript" src="//use.typekit.net/gib4jtx.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
 </head>
 <body> 
     <div class="preloader" data-loading>    
@@ -44,7 +92,7 @@
         <h4>Loading</h4>
     </div>
 
-    <a href ng-click="openMenuOverlay();" title="Open the Dashboard" class="bt-menu">
+    <a href ng-click="openMenuOverlay();" title="Burger Button | Open the Menu" class="bt-menu">
         <svg viewBox="0 0 65 58">
             <use xlink:href="assets/svg/svgdefs.svg#burger"></use>
         </svg>
@@ -61,48 +109,19 @@
     <div class="view" ui-view></div>
 
     <div class="overlay"></div>
+    <div class="background"></div>
 
-    <div class="background">
-    </div>
-            
+    <script type="text/javascript" src="assets/js/fontShitstorm.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script type="text/javascript" src="assets/js/min/ninjApp-min.js"></script>
 
-    <script type="text/javascript" src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenLite.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/jquery.gsap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/plugins/CSSPlugin.min.js"></script>
-    <script type="text/javascript" src="assets/libs/classie.js"></script>
-    -->
-
-    <script src="assets/libs/tweenlite/TweenLite.min.js"></script>
-    <script src="assets/libs/tweenlite/jquery.gsap.min.js"></script>
-    <script src="assets/libs/tweenlite/CSSPlugin.min.js"></script>
-    <script type="text/javascript" src="assets/libs/autosize.min.js"></script>
-
-    <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
-    <script type="text/javascript" src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script type="text/JavaScript" src="assets/libs/angular-touch/angular-touch.min.js"></script>
-    <script type="text/javascript" src="assets/libs/vendor/modernizr.js"></script>
-    <script type="text/JavaScript" src="assets/js/functions.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_menuCtrl.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_homeCtrl.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_aboutCtrl.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_worksCtrl.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_contactCtrl.js"></script>
-    <script type="text/javascript" src="assets/js/ninjApp_landingCtrl.js"></script>
-
-    <script type="text/javascript" src="assets/libs/svg4everybody.js"></script>
-    <script type="text/javascript">
-        var protocol=document.location.protocol;"https:"!=protocol&&(protocol="http:");var count=document.createElement("script");count.type="text/javascript";count.async=!0;count.src=protocol+"//hello.myfonts.net/count/2dea1c";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(count,s);var browserName,browserVersion,webfontType;if("undefined"==typeof woffEnabled)var woffEnabled=!0;var svgEnabled=1,woff2Enabled=1;
-        if("undefined"!=typeof customPath)var path=customPath;else{var scripts=document.getElementsByTagName("SCRIPT"),script=scripts[scripts.length-1].src;script.match("://")||"/"==script.charAt(0)||(script="./"+script);path=script.replace(/\\/g,"/").replace(/\/[^\/]*\/?$/,"")}
-        var wfpath=path+"/webfonts/",browsers=[{regex:"MSIE (\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:9,type:"woff"},{version:5,type:"eot"}]},{regex:"Trident/(\\d+\\.\\d+); (.+)?rv:(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$3)",type:[{version:11,type:"woff"}]},{regex:"Firefox[/s](\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:3.6,type:"woff"},{version:3.5,type:"ttf"}]},{regex:"Chrome/(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:36,type:"woff2"},
-        {version:6,type:"woff"},{version:4,type:"ttf"}]},{regex:"Mozilla.*Android (\\d+\\.\\d+).*AppleWebKit.*Safari",versionRegex:"new Number(RegExp.$1)",type:[{version:4.1,type:"woff"},{version:3.1,type:"svg#wf"},{version:2.2,type:"ttf"}]},{regex:"Mozilla.*(iPhone|iPad).* OS (\\d+)_(\\d+).* AppleWebKit.*Safari",versionRegex:"new Number(RegExp.$2) + (new Number(RegExp.$3) / 10)",unhinted:!0,type:[{version:5,type:"woff"},{version:4.2,type:"ttf"},{version:1,type:"svg#wf"}]},{regex:"Mozilla.*(iPhone|iPad|BlackBerry).*AppleWebKit.*Safari",
-        versionRegex:"1.0",type:[{version:1,type:"svg#wf"}]},{regex:"Version/(\\d+\\.\\d+)(\\.\\d+)? Safari/(\\d+\\.\\d+)",versionRegex:"new Number(RegExp.$1)",type:[{version:5.1,type:"woff"},{version:3.1,type:"ttf"}]},{regex:"Opera/(\\d+\\.\\d+)(.+)Version/(\\d+\\.\\d+)(\\.\\d+)?",versionRegex:"new Number(RegExp.$3)",type:[{version:24,type:"woff2"},{version:11.1,type:"woff"},{version:10.1,type:"ttf"}]}],browLen=browsers.length,suffix="",i=0;
-        a:for(;i<browLen;i++){var regex=RegExp(browsers[i].regex);if(regex.test(navigator.userAgent)){browserVersion=eval(browsers[i].versionRegex);var typeLen=browsers[i].type.length;for(j=0;j<typeLen;j++)if(browserVersion>=browsers[i].type[j].version&&(!0==browsers[i].unhinted&&(suffix="_unhinted"),webfontType=browsers[i].type[j].type,"woff"!=webfontType||woffEnabled)&&("woff2"!=webfontType||woff2Enabled)&&("svg#wf"!=webfontType||svgEnabled))break a}else webfontType="woff"}
-        /(Macintosh|Android)/.test(navigator.userAgent)&&"svg#wf"!=webfontType&&(suffix="_unhinted");var head=document.getElementsByTagName("head")[0],stylesheet=document.createElement("style");stylesheet.setAttribute("type","text/css");head.appendChild(stylesheet);
-        for(var fonts=[{fontFamily:"Streetbrush",url:wfpath+"2DEA1C_0"+suffix+"_0."+webfontType}],len=fonts.length,css="",i=0;i<len;i++){var format="svg#wf"==webfontType?'format("svg")':"ttf"==webfontType?'format("truetype")':"eot"==webfontType?"":'format("'+webfontType+'")',css=css+("@font-face{font-family: "+fonts[i].fontFamily+";src:url("+fonts[i].url+")"+format+";");fonts[i].fontWeight&&(css+="font-weight: "+fonts[i].fontWeight+";");fonts[i].fontStyle&&(css+="font-style: "+fonts[i].fontStyle+";");css+=
-        "}"}stylesheet.styleSheet?stylesheet.styleSheet.cssText=css:stylesheet.innerHTML=css;
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-62169145-1', 'auto');
+      ga('send', 'pageview');
     </script>
 </body>
 </html>

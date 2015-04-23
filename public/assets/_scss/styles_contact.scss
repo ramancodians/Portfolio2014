@@ -10,7 +10,7 @@
 	/*#footerBanner-contact { display: none; }*/
 
 	.contactForm {
-		margin: 0 auto;
+		margin: 0 auto 150px auto;
 		display: block;
 		position: relative;
 		width: 94%;
@@ -38,8 +38,10 @@
 			font-family: "museo-slab",serif;
 			text-align: left;
 			outline: 0;
+			border: 0;
 			background: 0;
 			border: none;
+			&:focus { outline:0px none transparent;}
 		}
 
 
@@ -47,6 +49,7 @@
 			display: block;
 			font-family: "brandon-grotesque", sans-serif !important;
 			font-size: 16px;
+			line-height: 24px;
 			font-weight: 300;
 			text-transform: uppercase;
 			margin: 0 3% 10px 3%;
@@ -134,7 +137,7 @@
 
 					@include placeholder {
 						padding: 0 2px;
-						color: rgba(231, 76, 60, 0.6) !important;
+						color: rgba(231, 76, 60, 0.8) !important;
 					}
 				}
 			}
@@ -143,7 +146,7 @@
 
 		/* --- Submit Button --- */
 			.contactForm-submit {
-				margin: 40px 3% 0 0;
+				margin: 40px 3% 150px 0;
 				/*padding-right: 0;*/
 				position: absolute;
 				right: 0;
@@ -286,11 +289,6 @@
 
 
 
-
-
-
-
-
 	.contactThankYou {
 		display: none;
 		opacity: 0;
@@ -340,6 +338,24 @@
 		}
 	}
 
+}
+
+
+@media only screen and (max-device-width : 1024px){
+	.contactForm-submit {
+		background-color: rgba(0,0,0,0.4) !important;
+		border: 1px solid rgba(255,255,255,0.2) !important;
+		padding-right: 55px !important;
+		span, svg {
+			opacity: 1 !important;
+			@include transform(translate3d(0, 0, 0) rotate(0) !important);
+		}
+	}
+	.contactForm-submit:before {
+		content: '' !important;
+		opacity: 0 !important;
+		@include transform(translate3d(0, 100%, 0) !important);
+	}
 }
 
 

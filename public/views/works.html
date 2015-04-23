@@ -1,13 +1,13 @@
 <section class="works">
-    <header class="alphaTransi" data-transi="worksHeader">
+    <header class="alphaTransi">
         <div class="header-container">
             <h1>Work</h1>
             <h2>My few projects</h2>
-            <!-- <p>Here are the few projects I worked on as a student.<br /> I concider a lot of them as quite obscolete but they individually represents something I really loved to work on or something which was really usefull in my learnings.</p> -->
+            <p>Here are the few projects I worked on as a student.<br /> I consider a lot of them to be quite obsolete but they individually represent something I really loved to work on or something which was really useful in my learning process.</p>
         </div> 
     </header>
 
-    <div class="works-list alphaTransi pageContent" data-transi="worksList">
+    <div class="works-list alphaTransi pageContent">
         <article ng-repeat="work in works" id="work{{work.link}}">
            <!--  <svg width="350" height="400">   
                 <line class="worksList-work--top" x1="0" y1="0" x2="1050" y2="0" />
@@ -30,7 +30,7 @@
             
         </article>
     </div>
-    <footer class="alphaTransi" data-transi="footerBanner-works">
+    <footer class="pageFooter alphaTransi">
         <a href class="footer-nextPageLink_work" ng-click="switchPage('about', 'directLink')" title="link to the about page">
             <span>Visit the <b>About</b> page</span>
             <svg width="292" height="52">   

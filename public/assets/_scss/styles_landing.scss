@@ -1,11 +1,15 @@
 @import "_var.scss";
 
 .landingPage {
-	header { height: 400px; }
+	header {
+		margin-top: 50px;
+		height: 400px;
+		@include transition(height .2s ease-out);
+	}
 
 	p:last-child { margin-bottom: 100px; }
 	footer a span:before {
 		content: 'Start with the' !important;
-		margin-left: -217px;
+		margin-left: -217px !important;
 	}
 }

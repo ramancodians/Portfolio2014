@@ -9,17 +9,14 @@
 }
 .menuOverlay-container,
 .menuOverlay-content,
-.menuOverlay-header,
-.menuOverlay-mainMenu,
-.menuOverlay-secondMenu,
-.menuOverlay-footerMenu {
+.menuOverlay-headerMenu,
+.menuOverlay-mainMenu > li {
 	opacity: 0;
 }
-.menuOverlay-header { top: -15% }
-.menuOverlay-secondMenu { bottom: -5%; }
-.menuOverlay-footerMenu { bottom: -8%; }
+/*.menuOverlay-mainMenu > li { @include transform(translateY(10px)); }*/
+.menuOverlay-headerMenu { @include transform(matrix(1, 0, 0, 1, 0, -200)); }
 /* ------------------------------------ */
-
+/*.menuOverlay-header { top: 0% }*/
 
 
 
@@ -38,7 +35,6 @@
 
 .menuOverlay-content {
 	/*background: rgba(0,0,0,.6);*/
-	/*background: rgba(249, 227, 11, 1);*/
 	z-index: $menuZindex;
 	top: 0;
 	left: 0;
@@ -47,560 +43,304 @@
 	position: fixed;
 
 	& > ul {
-		display: table;
 		text-align: center;
 		width: 100%;
-
-		& > li {
-			display: table-cell;
-			height: 100%;
-			overflow: hidden;
-			vertical-align: top;
-
-			@include transition(all .2s ease-in-out);
-			/*border-right: $lowBorder;*/
-			
-
-			& > a {
-				display: block;
-				height: 100%;
-				width: 100%;
-				color: rgba(255,255,255,.4);
-				text-decoration: none;
-				font-weight: 100;
-				@include transition(all .2s ease-out);
-
-				&:hover {
-					color: rgba(255,255,255,1);
-				}
-
-				
-			}
-		}
 	}
 
 
 
 
 
-	.menuOverlay-header {
+
+
+	header.menuOverlay-headerMenu {
 		position: absolute;
-		height: 15%;
-		background: #000;
+		/*background: #000;*/
+		/*border-top: $lowBorder;*/
 		width: 100%;
-		border-bottom: 1px solid rgba(255,255,255,0.2);
-		cursor: pointer;
-		@include transition(all .2s ease-out);
-			
-
-		.menuOverlay--logo {
-			display: block;
-			position: relative;
-			top: 50%;
-			left: 3%;
-			float: left;
-			z-index: 5000;
-			width: 210px;
-			padding: 20px 3% 20px 0;
-			
-			text-decoration: none;
-			color: rgba(255,255,255,.6);
-			text-align: center;
-			letter-spacing: 2px;
-			font-family: $font-brandon;
-			font-weight: 300;
-			font-size: 12px;
-			&:hover {
-				color: rgba(255,255,255,1);
-			}
-			@include transition(color .2s ease-out);
-			@include transform(translateY(-50%));
-		
-			span {	
-				margin-bottom: 5px;
-				display: block;
-				font-family: $font-streetBrush;
-				font-size: 40px;
-				color: $yellow;
-				letter-spacing: 3px;
-				text-transform: initial;
+		height: 15%;
+		left: 0;
+		background: $yellow;
+		& > ul {
+			width: 100%;
+			height: 100%;
+			& > li {
+				height: 100%;
+				float: left;
+				width: 33.3%;
+				&:first-child { width: 33.4%; }
 			}
 		}
 
-		.menuOverlay--title {
-			opacity: 1;
-			position: absolute;
-			top: 50%;
-			@include transform(translateY(-50%));
-			right: 3%;
-			float: right;
-			@include transition(all .2s ease-out);
 
-			h2 {
+		li:first-child .menuOverlay-logo {
+			a {
 				display: block;
-				font-family: $font-brandon;
-				font-size: 20px;
-				text-transform: uppercase;
-				color: rgba(255,255,255,1);
-				letter-spacing: 3px;
+				position: absolute;
+				top: 50%;
+				left: 3%;
+				height: 45px;
+				padding: 20px 0;
+				text-decoration: none;
+				font-size: 24px;
+				color: rgba(0, 0, 0, 1);
+				letter-spacing: 0px;
+				font-family: $font-museo;
+				font-weight: 600;
+				
+				@include transition(all .2s ease-out);
+				@include transform(translateY(-50%));
+				
+				span {	
+					margin-top: 5px;
+					display: block;
+					font-size: 12px;
+					color: rgba(0,0,0,0.4);
+					letter-spacing: 1px;
+					@include transition(all .2s ease-out);
+					&:last-child { opacity: 0; } 
+				}
 			}
-		}
-
-		.menuOverlay--close {
-			opacity: 0;
-			position: absolute;
-			top: 50%;
-			@include transform(translateY(-50%));	
-			padding-bottom: 14px;	
-			float: right;
-			right: 3%;
-			@include transition(all .2s ease-out);
-
-			.icon-cross {
-				fill: #F4FD14;
-				opacity: .2;
-				position: relative;
-				margin: 0 auto;
-				overflow: hidden;
-				width: 30px;
-				height: 30px;
-				top: 8px;
-				margin-left: 10px;
-				display: inline-block;
-				transform-origin: center center;
-				@include transition(all .2s ease-out);	
-			}
-
-			h6 {
-				text-transform: uppercase;
-				color: $yellow;
-				font-size: 20px;
-				text-align: center;
-				letter-spacing: 3px;
-				/*font-weight: 100;*/
-				display: inline-block;
-				opacity: .2;
-				@include transition(opacity .2s ease-out);
-
+			&:hover a {
 				span {
-					opacity: 0.4;
-					@include transition(opacity .2s ease-out);
+					color: rgba(0,0,0,0.8);
+					@include transform(translateY(-17px));
+					&:first-child { opacity: 0; }
+					&:last-child { opacity: 1; }
+				}
+			}
+			&:active a {
+				span {
+					color: rgba(0,0,0,1);
+				}
+			}
+		}
+
+
+		li:last-child {
+
+			.menuOverlay--close {
+				width: 100%;
+				height: 50%;
+				svg {
+					position: absolute;
+					display: block;
+					width: 20px;
+					height: 20px;
+					padding: 20px 10px 10px 10px;
+					right: 0;
+					transform-origin: center center;
+					@include transition(all .2s ease-out);
+					&:hover { @include animation(icon-cross-rotation .8s ease-out infinite); }
+					&:active { @include animation(icon-cross-rotation 1s ease-out); }
 				}
 			}
 
+			
 		}
 
-	}
-
-	@keyframes icon-cross-rotation {
-		0% { @include transform(rotate(0deg)); }
-		100% { @include transform(rotate(360deg)); }
-	}
-
-
-
-
 		
+	}
+
+
+
 
 
 	.menuOverlay-mainMenu {
 		position: absolute;
+		width: 100%;
+		height: 85%;
 		top: 15%;
-		height: 60%;
-		margin-top: 1px;
+		/*margin-top: 1px;*/
 		& > li {
-			/*background: rgba(249, 227, 11, 0.9);*/
+			width: 100%;
+			height: 30%;
+			background: rgba(23,23,23,0.9);
+			border-top: 1px solid rgba(23,23,23,0);
+			border-bottom: 1px solid rgba(23,23,23,0);
+			& > a {
+				display: block;
+				height: 100%;
+				text-decoration: none;
+				span {
+					display: block;
+					position: relative;
+					top: 55%;
+					text-align: center;
+					@include transform(translateY(-50%));
+					letter-spacing: 2px;
+					font-size: 120px;
+					font-family: $font-streetBrush;
+					color: $yellow;
+				}
+			}
+
 			@include transform(transitionY(100%));
-			width: 33%;
-			@include transition(all .2s ease-out);
-			&:first-child { width: 34%; }
+			@include transition(background .2s ease-out, border .2s ease-out);
+			&:nth-child(3),
+			&:nth-child(3):hover {
+				border-bottom: 0;
+			}
 			
 			&:hover {
-				background: rgba(0,0,0,0);
-				.menuOverlay--menuContent h3 {
-					color: #fff;
-				}
-			}
-
-
-		}
-		& > li:last-child { border-right: 0; }
-
-
-		.menuOverlay--menuContent {
-			text-align:center;
-			position: relative;
-			top: 50%;
-			@include transform(translateY(-50%));
-			h3, h4 {
-				display: block;
-				padding-bottom: 0px;
-				margin: 0 auto;
-				width: 80%;
-				border-bottom: 1px solid rgba(255,255,255,0);
-				@include transition(all .2s ease-out);
-			}
-				h3 {
-					letter-spacing: 2px;
-					font-size: 70px;
-					color: #fff;
-					font-family: $font-streetBrush;
-				}
-				h4 {
-					text-transform: uppercase;
-					letter-spacing: 4px;
-					color: #fff;
-					font-family: $font-brandon;
-				}
-			p {
-				display: block;
-				opacity: 0;
-				width: 80%;
-				max-width: 350px;
-				height: 0;
-				margin: 0 auto;
-				letter-spacing: 1px;
-				font-family: $font-brandon;
-				font-size: 16px;
-				line-height: 26px;
-				font-weight: 100;
-				color: rgba(255,255,255,.8);
-				@include transition-property(all);
-				@include transition-duration(.2s);
-				@include transition-duration(ease-out);
-			}
-
-		}
-	}
-
-
-
-
-
-	.menuOverlay-secondMenu {
-		position: absolute;
-		height: 17%;
-		/*bottom: 8%;*/
-		@include transition(all .2s ease-out);
-		display: table !important;
-		margin-top: 1px solid $yellow;
-		li {
-			border-top: $lowBorder;
-			/*background: rgba(249, 227, 11, 0.8);*/
-
-			@include transition(all .2s ease-out);
-			&:hover {
-
-			}
-
-			&:last-child {
-				border-right: 1px solid rgba(255,255,255,0);
+				background: rgba(23,23,23,0.4);
+				border-top: 1px solid rgba(0,0,0,1);
+				border-bottom: 1px solid rgba(0,0,0,1);
 			}
 		}
-		.menuOverlay--subMenu li:first-child,
-		.menuOverlay---externalLinks li:first-child { border-top: 0 !important }
-
-		li a .menuOverlay--menuContent h4 {
-			color: #000;
-			font-size: 18px;			
-		}
-	}
 
 
 
-
-
-
-
-	footer.menuOverlay-footerMenu {
-		position: absolute;
-		background: #000;
-		border-top: 1px solid rgba(255,255,255,0.2);
-		width: 100%;
-		height: 8%;
-		/*bottom: 0;*/
-		.menuOverlay---externalLinks {
-			height: 100%;
-			width: 100%;
-			& > li {
-				display: block;
-				float: left;
-				border-right: 1px solid rgba(255,255,255,0);
-
-				@include box-sizing(border-box);
-				width: 25%;
-				height: 100%;
-				&:last-child { border-bottom: 1px solid rgba(255,255,255,0); }
-				a {
-					display: block;
-					width: 100%;
-					overflow: visible;
-					height: 100%;
-					@include transition(all .2s ease-out);
-					.menuOverlay--menuContent {
-						height: 100%;
-						top: 0 !important;
-						@include transform(translateY(0));
-					}
-				}
-			}
-
-
-			[class^="icon-"], [class*=" icon-"] {
+		& > li:last-child {
+			height: calc(10% - 7px);
+			background: rgba(23,23,23,1);
+			border-top: 1px solid #000;
+			&:hover { background: rgba(23,23,23,0.9); }
+			svg {
 				fill: #fff;
-				opacity: .4;
+				opacity: .2;
 				display: block;	
 				position: relative;
 				margin: 0 auto;
 				overflow: visible;
 				top: 50%;
 				@include transform(translateY(-50%));
-				@include transition(opacity .2s ease-out);
+				@include transition(all .2s ease-out);
 			}
 
-			.icon-twitter,
-			.icon-codepen,
-			.icon-github,
-			.icon-linkedin {
-				height: 50%;
-				
-			}
-		}
-	}
 
 
-
-
-
-
-
-	/* ----- li Hover ----- */
-	li.menuOverlay--selected {
-		a {
-			background: $menuBackground;
-			/*background: rgba(241, 196, 15,.2);*/
-			h3, h4 {
-				padding-bottom: 20px !important;
-				border-bottom: $lowBorder !important;
-			}
-			h5 { margin-top: -10px !important; }
-			p { opacity: 1 !important; }
-		}
-	}
-	/*ul.menuOverlay--subMenu li.menuOverlay--selected p { @include transition-delay(.2s); }*/
-
-	li.menuOverlay--notSelected a h3,
-	li.menuOverlay--notSelected a h5 { opacity: .4 !important; }
-
-
-		li.menuOverlay--selected-mainMenu {
-			background: $menuBackground !important;
-			/*background: rgba(241, 196, 15,.2);*/
-			h3 {
-				padding-bottom: 20px !important;
-				border-bottom: $lowBorder !important;
-			}
-			p {
-				/*@include transition-delay(.2s);*/
-				margin-top: 30px !important;
-				opacity: 1 !important;
-				height: 30px !important;
-			}
-			/*&:nth-child(1) a { background: $redOpa !important; }
-			&:nth-child(2) a { background: $greenOpa !important; }
-			&:nth-child(3) a { background: $blueOpa !important; }*/
-			/*&:nth-child(1) a h3 { color: $redOpa !important; }
-			&:nth-child(2) a h3 { color: $greenOpa !important; }
-			&:nth-child(3) a h3 { color: $blueOpa !important; }*/
-			/*&:nth-child(1) a,
-			&:nth-child(2) a,
-			&:nth-child(3) a,
-			li.menuOverlay--selected-secondMenu:nth-child(1) a,
-			li.menuOverlay--selected-secondMenu:nth-child(2) a { background: rgba(0,0,0,.4) !important; }*/
-		}
-		/*li.menuOverlay--selected-secondMenu {
-			&:nth-child(1) a { background: $orangeOpa !important; }
-			&:nth-child(2) a { background: $violetOpa !important; }
-		}*/
-		li.menuOverlay--selected-secondMenu a {
-			p {
-				margin-top: 15px !important;
-			}
-		}
-
-		li.menuOverlay--selected-externalLinks {
-			a {
-				/*background: rgba(241, 196, 15,.2);*/
-				[class^="icon-"], [class*=" icon-"] {
-					opacity: 1 !important;
-				}
-			}
-		}
-		li.menuOverlay--notSelected-externalLinks {
-			a {
-				[class^="icon-"], [class*=" icon-"] {
-					opacity: .2 !important;	
-				}
-			}
-		}
-	/* ----------------- */
-	
-
-}
-
-
-@media only screen and (min-width : 901px){
-	.menuOverlay-header:hover {
-		background: rgba(0,0,0,1);
-		.menuOverlay--close {
-			margin-top: -10px;
-			opacity: 1;
-			h6, .icon-cross { opacity: 1 !important; }
-			&:hover .icon-cross {
-				@include animation(icon-cross-rotation .8s ease-out infinite);
-			}
-		}
-		.menuOverlay--title {
-			margin-top: -20px;
-			opacity: 0;
-		}
-	}
-	.menuOverlay-header:active .icon-cross { @include animation(icon-cross-rotation 1s ease-out); }
-}
-
-
-
-
-
-
-
-
-@media only screen and (max-width : 900px), screen and (max-height: 650px) {
-	.menuOverlay {
-		position: absolute;
-		height: auto;
-		.menuOverlay--menuContent p { display: none !important; }
-	}
-	.menuOverlay-header {
-		position: relative !important;
-		.menuOverlay--title, .menuOverlay--close h6 { opacity: 0 !important; }
-		.menuOverlay--close, .menuOverlay--close svg  { opacity: 1 !important; }
-	}
-	.menuOverlay-mainMenu {
-		position: relative !important;
-		top: 0!important;
-		& > li {
-			display: block !important;
-			width: 100% !important;
-			border-right: 0 !important;
-		}
-	}
-	.menuOverlay-secondMenu,
-	.menuOverlay--subMenu {
-		position: relative !important;
-	}
-	.menuOverlay .menuOverlay-secondMenu > li:last-child { width: 100% !important; }
-
-
-	/* --- Default responsive Height --- */
-		.menuOverlay-header { height: 150px !important; }
-		.menuOverlay-mainMenu {
-			height: 450px !important;
-			& > li { height: 150px !important; }
-		}
-		.menuOverlay-secondMenu {
-			height: 100px * 2 + 75px * 2 + 100px !important;
-			& > li {
-				height: 100px !important;
-				display: block !important;
-			}
-			li:nth-child(2) { border-top: 0 !important; }
-			li:nth-child(3),
-			.menuOverlay--subMenu { height: 150px !important; }
-			.menuOverlay--subMenu li { height: 75px !important; }
-			.menuOverlay---externalLinks {
-				width: 100% !important;
-				height: 100px !important;
-				li {
+			.menuOverlay--externalLinks {
+				float: left;
+				height: 100%;
+				width: calc(75px * 4);
+				& > li {
+					width: 75px;
+					height: 100%;
+					display: block;
 					float: left;
-					width: 25% !important;
-					height: 100px !important;
-					border-right: $lowBorder !important;
-					&:last-child { border-right: 0 !important; }
+					
+					&:hover {
+						a svg { opacity: 1; }
+					}
+
+					a {
+						display: block;
+						width: 100%;
+						overflow: visible;
+						height: 100%;
+						@include transition(all .2s ease-out);
+						.menuOverlay--menuContent {
+							height: 100%;
+							top: 0 !important;
+							@include transform(translateY(0));
+						}
+						.icon-twitter,
+						.icon-codepen,
+						.icon-github,
+						.icon-linkedin {
+							height: 20px;
+							width: 20px;
+						}
+					}
+				}
+			}
+
+
+			.menuOverlay--secondMenu {
+				height: 100%;
+				float: right;
+				margin-right: 3%;
+				li {
+					float: right;
+					height: 100%;
+					&:hover a {
+						h4 { color: rgba(255,255,255,1); }
+						svg {
+							@include transform(translateY(-50%) scale(1.2));
+							opacity: 1;
+						}
+					}
+					a {
+						display: block;
+						text-decoration: none;
+						height: 100%;
+						padding: 0 15px;
+						h4 {
+							position: relative;
+							display: block;
+							height: 18px;
+							color: rgba(255,255,255,0.2);
+							font-size: 18px;
+							letter-spacing: 1px;
+							top: 50%;
+							@include transform(translateY(-50%));
+							@include transition(all .2s ease-out)
+						}
+					}
 				}
 			}
 		}
-	/* --------------------------------- */
-	li.menuOverlay--selected-mainMenu {
-		h3 {
-			padding-bottom: 0px !important;
-			border-bottom: 0 !important;
-		}
-		p {
-			margin-top: 0px !important;
-			opacity: 0 !important;
-			height: 0px !important;
-		}
+
 	}
-	li.menuOverlay--selected-secondMenu a p { margin-top: 0px !important; }
-} 
+	
+}
 
 
 
 
+@media only screen and (max-device-width : 1024px){
+	li:last-child ul {
+		li a svg { opacity: 1 !important; }
+		&.menuOverlay--secondMenu li a h4 { color: #fff !important; }
+	}
+}
+@media only screen and (max-width: 900px){
+	/* Full Screen button */
+	.menuOverlay-mainMenu li:last-child ul.menuOverlay--secondMenu li:first-child { display: none; }
+}
 
-
-@media only screen and (min-height: 701px) and (max-width : 900px){
-	.menuOverlay { height: 100% !important }
-	.menuOverlay-header { height: 10% !important; }
-	.menuOverlay-mainMenu {
-		position: absolute !important;
-		margin-top: 1px !important;
+@media only screen and (max-width : 700px), screen and (max-height: 650px) {
+	.menuOverlay-headerMenu { height: 10% !important; }
+	.menuOverlay-mainMenu { 
 		top: 10% !important;
-		height: 50% !important;
-		& > li {
-			height: 33% !important;
-			&:last-child { height: 34% !important; }
+		height: 90% !important;
+		& > li { height: 27% !important; }
+		& > li:last-child {
+			height: 19% !important;
 		}
-	}
-	.menuOverlay-secondMenu {
-		position: absolute !important;
-		height: 40% !important;
-		bottom: 0 !important;
-		& > li:nth-child(1),
-		& > li:nth-child(2),
-		& > li:nth-child(4){ height: 20% !important; }
-		& > li:nth-child(3){ height: 40% !important; }
-		.menuOverlay--subMenu {
-			height: 100% !important;
-			li { height: 50% !important; }
+		a span {
+			font-size: 72px !important;
 		}
-		.menuOverlay---externalLinks {
-			width: 100% !important;
-			height: 100% !important;
-			li {
-				width: 25% !important;
-				height: 100% !important;
+		li:last-child {
+			ul {
+				height: 50% !important;
+				width: 100% !important;
+				margin-right: 0 !important;
+				&.menuOverlay--externalLinks li { width: 25% !important; }
+				&.menuOverlay--secondMenu li:nth-child(2) { width: 57% !important; }
+				&.menuOverlay--secondMenu li:nth-child(3) { width: 43% !important; }
 			}
 		}
-	}
+	}	
+}
+@media only screen and (max-height: 400px){
+	.menuOverlay-headerMenu { height: 15% !important; }
+	.menuOverlay-mainMenu { 
+		top: 15% !important;
+		height: 85% !important;
+		& > li { height: 25% !important; }
+		& > li:last-child {
+			height: 25% !important;
+		}
+		a span {
+			font-size: 64px !important;
+		}
+	}	
 }
 
-@media only screen and (max-height : 700px) and (max-width : 900px){
-	.menuOverlay-header { height: 100px !important; }
-	.menuOverlay-mainMenu {
-		height: 300px !important;
-		& > li { height: 100px !important; }
-	}
-	.menuOverlay-secondMenu {
-		height: 70px * 2 + 50px * 2 + 70px !important;
-		& > li { height: 70px !important }
-		li:nth-child(3),
-		.menuOverlay--subMenu { height: 100px !important; }
-		.menuOverlay--subMenu li { height: 50px !important; }
-		.menuOverlay---externalLinks {
-			height: 70px !important;
-			li svg { margin-top: -13px !important; }
-		}
-	}
-}
+
+
+
+
+

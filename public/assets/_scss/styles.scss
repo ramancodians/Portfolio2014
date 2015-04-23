@@ -1,3 +1,4 @@
+@import "reset.scss";
 @import "_var.scss";
 @import "styles_home.scss";
 @import "styles_works.scss";
@@ -5,7 +6,7 @@
 @import "styles_contact.scss";
 @import "styles_menuOverlay.scss";
 @import "styles_landing.scss";
-
+@import "styles_credits.scss";
 
 
 body {
@@ -21,8 +22,8 @@ body {
 	::-webkit-scrollbar-thumb { background-color: $yellow; }
 
 /* ---------------- System CSS ---------------- */
-	::-moz-selection { color: #fff;  background: rgba(244,253,20,.6); }
-	::selection      { color: #fff;  background: rgba(244,253,20,.6); } 
+	::-moz-selection { color: #000;  background: rgba(244,253,20,.6); }
+	::selection      { color: #000;  background: rgba(244,253,20,.6); } 
 
 
 	section {
@@ -40,20 +41,19 @@ body {
 		.preloader, .overlay, .background {
 			position: fixed;
 			top: 0;
-			width: 100%;
+			left: 0;
+			min-width: 100%;
+			min-height: 100%;
 			height: 100%;
+			width: auto;
 			overflow: hidden;
 		}
 		.preloader {
 			display: block;
 			opacity: 1;
-			/*background: rgba(0,0,0,.6);*/
-			/*background: #111; */
-			/*background: #000;*/
+			background: #131313;
 			z-index: $sectionZindex + 40;
-			@include transition(all .2s ease-out);
 			height: 100%;
-
 				svg {
 					position: fixed;
 					margin: auto;
@@ -73,15 +73,6 @@ body {
 					stroke-dashoffset: 1000;
 					@include animation(triskel-dash 2s ease-out infinite, triskel-rotation 4s linear infinite);
 				}
-				/*img {
-					position: fixed;
-					margin: auto;
-					top: 0; right: 0; bottom: 0; left: 0;		
-					display: block;
-					overflow: visible;
-					width: 200px;
-					height: 200px;
-				}*/
 				h4 {
 					position: fixed;
 					top: 50%;
@@ -100,8 +91,6 @@ body {
 						@include transition(opacity .2s ease-out);
 					}
 				}
-			
-
 		}
 
 
@@ -113,11 +102,10 @@ body {
 			@include transition(background .2s ease-out);
 		}
 		.background {
-			background: url('../img/bg_homeBW_old.jpg') no-repeat center center fixed; 
+			background: url('../img/bg_home.jpg') no-repeat center center; 
 			/*background: url('../img/bg_menu.jpg') no-repeat center center fixed; */
-			@include background-size(cover);
+			background-size: cover;
 			z-index: $sectionZindex - 3;
-		
 			@include transition(opacity 0.2s ease-out);
 		}
 	
@@ -136,9 +124,8 @@ body {
 			border: 1px solid rgba(0,0,0,0);
 			background: rgba(0,0,0,0);
 			text-decoration: none;
-			overflow: hidden;
-			z-index: 20;
-			padding: 20px 10px 10px 10px;
+			z-index: 100;
+			padding: 20px 10px 10px 20px;
 			@include transition(background .2s ease-out, border .2s ease-out);
 			svg {
 				fill: #fff;
@@ -146,6 +133,18 @@ body {
 				width: 20px;
 				height: 20px;
 				.burgerPath { @include transition(all .2s ease-out); }
+				.burgerPath-top {
+					opacity: 1;
+					@include transform(translateY(0px))
+				}
+				.burgerPath-mid { 
+					@include transition-delay(.1s);
+					@include transform(rotate(0deg) translate(0px, 0px));
+				}
+				.burgerPath-bot {
+					@include transition-delay(.1s);
+					@include transform(rotate(0deg) translate(0px, 0px) scale(1));
+				}
 			}
 			&:hover {
 				/*background: $yellow !important;
@@ -155,27 +154,56 @@ body {
 				svg {
 					.burgerPath-top { @include transform(translateY(-5px)); }
 					.burgerPath-bot { @include transform(translateY(5px)); }
-
-					/*.burgerPath-top {
-						opacity: 0;
-						@include transform(translateY(-10px))
-					}
-					.burgerPath-mid { 
-						@include transition-delay(.1s);
-						@include transform(rotate(-45deg) translate(-34px, 10px));
-					}
-					.burgerPath-bot {
-						@include transition-delay(.1s);
-						@include transform(rotate(45deg) translate(7px, -64px) scale(1.22));
-					}*/
 				}
-
 			}
-			&:active {
-				background: $yellow !important;
-				svg { 
-					fill: #000;
+		}
+		.bt-menu-open {
+			svg {
+				fill: #000 !important;
+				.burgerPath-top {
+					opacity: 0;
+					@include transform(translateY(-10px))
 				}
+				.burgerPath-mid { 
+					@include transition-delay(.1s);
+					@include transform(rotate(-45deg) translate(-34px, 10px));
+				}
+				.burgerPath-bot {
+					@include transition-delay(.1s);
+					@include transform(rotate(45deg) translate(7px, -64px) scale(1.22));
+				}
+			}
+			&:hover {
+				svg {
+					.burgerPath-bot { @include transform(rotate(45deg) translate(7px, -64px) scale(1.22)); }
+				}
+				&:before,
+				&:after { opacity: 1; }
+			}
+			&:before,
+			&:after {
+				letter-spacing: 2px;
+				font-family: $font-brandon;
+				font-size: 12px;
+				text-transform: uppercase;
+				color: rgba(0, 0, 0, 1);
+				@include transition(all .2s ease-out);
+				opacity: 0;
+			}
+			&:before {
+				position: relative;
+				content: 'Close';
+				display: inline;
+				top: -5px;
+				margin-right: 5px;
+			}
+			&:after {
+				position: absolute;
+				content: 'or Press M';
+				display: block;
+				top: 45px;
+				right: 10px;
+				color: rgba(0,0,0,0.2);
 			}
 		}
 
@@ -242,6 +270,7 @@ body {
 				letter-spacing: 2px;
 				font-style: italic;
 				text-align: left;
+				span { color: $yellow; }
 			}
 		}
 	}
@@ -275,7 +304,7 @@ body {
 			font-family: $font-brandon;
 			color: #fff;
 			text-transform: uppercase;
-			letter-spacing: 10px;
+			letter-spacing: 7px;
 			font-weight: 500;
 			font-size: 16px;
 			line-height: 24px;
@@ -286,7 +315,7 @@ body {
 			max-width: 650px;
 			margin: 0 auto 36px auto;
 			padding: 0 20px;
-			color: #FFF;
+			color: rgba(255,255,255,0.9);
 			font-size: 18px;
 			line-height: 36px;
 			font-weight: 300;
@@ -310,9 +339,15 @@ body {
 				padding-bottom: 6px;
 			}
 		}
+		q {
+			display: block;
+			quotes: none;
+			font-style: italic;
+			margin: 36px 0;
+		}
 		img {
 			display: block;
-			margin: 0 auto 100px auto;
+			margin: 64px auto 100px auto;
 			width: 92%;
 			max-width: 900px;
 		}
@@ -379,7 +414,7 @@ body {
 		}
 	}
 
-	footer {
+	footer.pageFooter {
 		width: 100%;
 		height: 300px;
 		a {
@@ -498,15 +533,16 @@ body {
 	}
 }
 @media only screen and (max-height: 700px){
-	section header { height: 700px; }
+	.works header { height: 700px; }
 }
 
 @media only screen and (max-width: 700px){
+	header h1 { font-size: 168px !important; }
 	footer a {
 		&:before { display: none; }
 		span:before {
 			margin-left: -200px;
-			opacity: 0;
+			opacity: 0 !important;
 		}
 		span b { color: $yellow; }
 		svg line { stroke: $yellow; }
@@ -533,17 +569,20 @@ body {
 	}
 }
 
-@media only screen and (max-width : 500px){
+@media only screen and (max-width : 550px){
 	.home-bgVideo { height: 100% !important; }
-	header .worksHeader-container h1 { 
-		font-size: 180px;
-		line-height: 100px;
+	header {
+		h1 { 
+			font-size: 120px !important;
+			line-height: 100px !important;
+		}
+		p {
+			padding: 0 0 0 20px !important;
+			font-size: 16px;
+			line-height: 32px;
+		}
 	}
-	header .header-container p {
-		padding: 0 0 0 20px !important;
-		font-size: 16px;
-		line-height: 32px;
-	}
+	.landingPage header { height: 300px; }
 }
 
 @media only screen and (max-width : 420px){
@@ -552,19 +591,20 @@ body {
 		left: 2%;
 		right: 2%;
 		h1 { 
-			font-size: 176px !important;
-			letter-spacing: 3px !important;
+			font-size: 96px !important;
 			margin: 0 auto 10px auto !important;
 		}
 		h2 { line-height: 32px; }
 		p { padding: 20px 15px !important; }
 	}
+	.landingPage header { height: 200px; }
 }
 @media only screen and (max-width: 380px){
 	header h1 {
-		font-size: 128px !important;
+		font-size: 72px !important;
 		margin: 0 auto !important;
 	}
+	.landingPage header { height: 150px; }
 	footer a {
 		width: 200px !important;
 		span {
@@ -580,16 +620,30 @@ body {
 		}
 	}
 }
+
+
 
 
 @media only screen and (max-device-width : 1024px){
+	.background {
+		/*background-size: 100% 100%;*/
+	}
 	.bt-menu {
-		border: 1px solid $yellow !important;
-		background: rgba(0,0,0,.8) !important;
+		border: 1px solid $yellow;
+		background: rgba(0,0,0,.8);
+		padding: 10px !important;
+	}
+	.bt-menu-open {
+		border: 1px solid rgba(0,0,0,0) !important;
+		background: rgba(0,0,0,0) !important;
+		&:before,
+		&:after {
+			display: none !important;
+		}
 	}
 	footer a {
 		width: 200px !important;
-		&:before { display: none; }
+		&:before { opacity: 0 !important; }
 		span {
 			border: 2px solid $yellow;
 			padding: 14px 5px 14px 5px;
@@ -603,6 +657,8 @@ body {
 		}
 	}
 }
+
+
 
 
 

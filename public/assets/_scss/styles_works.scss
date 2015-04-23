@@ -7,21 +7,18 @@
 	.works {
 		.works-list {
 			overflow: hidden;
-			width: ($articleWidth * 3)+(40*2);
+			width: $articleWidth * 3;
 			margin: auto;
 
 			article {
 				width: $articleWidth;
 				display: block;
 				height: $articleHeight;
-				margin: 0 20px 40px 20px;
+				/*margin: 0 20px 40px 20px;*/
+				margin: 0;
 				overflow: hidden;
 				float: left;
 				@include transition(all .2s ease-out);
-
-				&:nth-child(3n){ margin-right: 0; }
-				&:nth-child(3n+1), &:first-child { margin-left: 0; }
-
 
 				a {
 					display: block;
@@ -36,11 +33,9 @@
 							.work--header {
 								opacity: 1;
 								.work---headerContent h3 {
-									@include transform(translateY(50%));
 									@include transition(all .2s ease-out);
 								}
 								.work---headerContent p {
-									@include transition-delay(.2s);
 									@include transform(translateY(0px));
 									opacity: 1;
 								}
@@ -74,10 +69,11 @@
 								color: #F4FD14;
 								letter-spacing: 2px;
 								display: block;
-								@include transform(translateY(45%));
+								@include transform(translateY(50%));
 								@include transition(all .2s ease-out);
 							}
 							h3.bigW { font-size: 36px; }
+							h3.midW { font-size: 36px !important; }
 							p {
 								display: block;
 								color: #fff;
@@ -120,16 +116,18 @@
 						overflow: hidden;
 						box-shadow: none;
 						/*opacity: .4;*/
+						box-sizing: border-box;
+						border: 1px solid #000;
 					}
 				}
 
-				a.workClass-code .work--details { background: #3498db; }				
+				/*a.workClass-code .work--details { background: #3498db; }				
 				a.workClass-codeDesign .work--details { background: #e74c3c; }
-				a.workClass-dataviz .work--details { background: #2ecc71; }
+				a.workClass-dataviz .work--details { background: #2ecc71; }*/
 
-				/*a.workClass-code .work--details,
+				a.workClass-code .work--details,
 				a.workClass-codeDesign .work--details,
-				a.workClass-dataviz .work--details { background: #000; }*/
+				a.workClass-dataviz .work--details { background: #000; }
 
 				a.workClass-code,
 				a.workClass-codeDesign,
@@ -155,13 +153,14 @@
 			width: calc(97% - 45px);
 			margin-top: 10px;
 			padding: 0 0 0 3%;
-			z-index: 15;
+			z-index: 100;
 			overflow: hidden;
 
 			&:hover {
 				h3 a, .bt-menu {
 					opacity: 1 !important;
 					background: rgba(0,0,0,0.8);
+					border: 1px solid $yellow;
 				}
 				.works--arrow { 
 					opacity: 1;
@@ -174,20 +173,19 @@
 				display: block;
 				position: fixed;
 				text-decoration: none;
-				font-family: $font-brandon;
-				text-transform: uppercase;
+				font-family: $font-streetBrush;
 				color: $yellow;
-				border: 1px solid $yellow;
-				background: rgba(0,0,0,0.2);
-				padding: 14px 11px 13px 10px;
-				font-size: 16px;
+				border: 1px solid rgba(0,0,0,0);
+				padding: 10px 11px 9px 10px;
+				font-size: 24px;
 				letter-spacing: 2px;
 				cursor: pointer;
-				opacity: 0.2;
+				opacity: 1;
 				@include transition(all .2s ease-out);
 				&:hover {
 					background: $yellow;
 					color: #000;
+					border: 1px solid rgba(0,0,0,1);
 				}
 			}
 
@@ -293,7 +291,8 @@
 					font-family: $font-streetBrush;
 					font-size: 80px;
 					word-spacing: -10px;
-					letter-spacing: 2px;
+					letter-spacing: 7px;
+					word-spacing: 7px;
 					line-height: 80px;
 					color: $yellow;
 				}
@@ -406,7 +405,7 @@
 
 @media only screen and (max-width : 1600px){
 	.works-list {
-		width: (360px * 3)+(40*2) !important;
+		width: 360px * 3 !important;
 		article {
 			width: 360px !important;
 			height: 280px !important;
@@ -419,7 +418,7 @@
 						h3 {
 							font-size: 48px !important;
 							letter-spacing: 2px !important;
-							@include transform(translateY(45%));
+							@include transform(translateY(50%));
 						}
 						h3.bigW { font-size: 24px !important; }
 						p {
@@ -451,14 +450,14 @@
 
 @media only screen and (min-width: 801px) and (max-width: 1200px){
 	.works .works-list {
-		width: (360px * 2) + 40 !important;
-		article {
+		width: 360px * 2 !important;
+		/*article {
 			&:nth-child(3n){ margin-right: 20px; }
 			&:nth-child(3n+1), &:first-child { margin-left: 20px; }
 
 			&:nth-child(2n){ margin-right: 0px !important; }
 			&:nth-child(2n+1), &:first-child { margin-left: 0px !important; }		
-		}
+		}*/
 	}
 	.works {
 		h4 {
@@ -476,14 +475,6 @@
 	.works-list article,
 	.works-list article a .work--header,
 	.works-list article a .work--background { width: 100% !important; }
-	.works-list article,
-	.works-list article:nth-child(3n),
-	.works-list article:nth-child(3n+1),
-	.works-list article:nth-child(2n),
-	.works-list article:nth-child(2n+1) {
-		margin-right: 0 !important;
-		margin-left: 0 !important;
-	}
 
 	.works-content .works--description .works---descHeader {
 		width: 90%;
@@ -532,8 +523,8 @@
 
 @media only screen and (max-device-width : 1024px){
 	.works-nav {
-		top: auto !important;
-		bottom: 0 !important;
+		top: 0 !important;
+		margin-top: 0 !important;
 		padding: 0 !important;
 		width: 105px !important;
 
@@ -551,6 +542,7 @@
 				a .works---close {
 					color: #000 !important;
 					font-weight: 500 !important;
+					margin-left: 0 !important;
 				}
 			}
 		}

@@ -57,7 +57,7 @@
 	    service: 'Gmail',
 	    auth: {
 	    	user: "whymynameisalexisbertin@gmail.com",
-	    	pass: "jillislucky6"
+	    	pass: ""
 		}
 	});
 	 
@@ -89,6 +89,8 @@
 	            
 	 
 	});
+
+
 
 
 	app.get('*', function(req, res){

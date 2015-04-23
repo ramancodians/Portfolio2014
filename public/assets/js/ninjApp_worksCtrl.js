@@ -1,8 +1,9 @@
-ninjApp.controller('worksController', function($scope, $http, $state, Page){
+ninjApp.controller('worksController', ['$scope','$http', '$state', function($scope, $http, $state, Page){
 
 
-	Page.setTitle('Works | Alexis Bertin');
+	$scope.Page.setTitle('Works | Alexis Bertin');
 
+	window.scrollTo(0,0);
 	
 
 	/*TweenLite.to('.overlay', 0, {background: "rgba(0,0,0,.6)"});*/
@@ -10,8 +11,13 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 	TweenLite.to('.overlay', 0.2, { background: "rgba(20,20,20,0.7)"});
 
 	/*TweenLite.to('.home-bgVideo', 0.2, {top: "-280"});*/
-	TweenLite.to('.background', 0, {opacity: "0", onComplete:function(){
-		TweenLite.to('.alphaTransi', 0.4, {y: "0", opacity: "1", ease:Quart.easeOut });
+	TweenLite.to('.background', 0.2, {opacity: "0", onComplete:function(){
+		setTimeout(function(){
+			TweenLite.to('.preloader', 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
+				TweenLite.to('.preloader', 0, { display: "none"});
+				TweenLite.to('.alphaTransi', 0.4, {y: "0", opacity: "1", ease:Quart.easeOut });
+			}});
+		},400);
 	}});
 
 /*
@@ -53,7 +59,7 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 	if(workPageLength > 1){
 		workPage = workPage[1];
 		var oldWorkPage = workPage;
-		console.log('oldWorkPage: '+oldWorkPage);
+		/*console.log('oldWorkPage: '+oldWorkPage);*/
 		TweenLite.to('.works', 0.4, {opacity: "0", y: "-20", ease:Quart.easeOut, onComplete:function(){
 			TweenLite.to('.works', 0, {display: "none"});
 			TweenLite.to('.works-content', 0, {display: "block", onComplete:function(){
@@ -87,7 +93,7 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 			setTimeout(unlock, 200);
 
 			var location = window.location.pathname;
-			console.log('location: '+location);
+			/*console.log('location: '+location);*/
 
 			if(location = 'works/'){
 
@@ -95,9 +101,11 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 				var workName = hash.replace('#', '');
 
 				var workPageId = worksArray.indexOf(workName) + 1;
-				document.getElementById('works--nav').setAttribute('data-workpage', workPageId);
-				document.getElementById('works---count').innerHTML = Number(workPageId).toString(2);
-				document.getElementById('works---length').innerHTML = Number(worksArray.length).toString(2);
+				if($('#works--nav').length){
+					$('#works--nav').attr('data-workpage', workPageId);
+					$('#works---count').html(Number(workPageId).toString(2));
+					$('#works---length').html(Number(worksArray.length).toString(2));
+				}
 
 				if (hash === '') {
 					/* STATE 1 --- Back on ALL WORKS ||  --- */
@@ -111,8 +119,10 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 							TweenLite.to('.works', 0, {display: "block", onComplete:function(){
 								TweenLite.to('.works', 0.4, {opacity: "1", y: "0", ease:Quart.easeOut});
 								/*TweenLite.to('.bt-menu', 0.4, {opacity: '1'});*/
-								var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
-								document.getElementById('works---'+oldWorkPage).className = elm;
+								/*var elm = document.getElementById('works---'+oldWorkPage).className.replace('ng-show', 'ng-hide');
+								document.getElementById('works---'+oldWorkPage).className = elm;*/
+								$('#works---'+oldWorkPage).removeClass('ng-show').addClass('ng-hide');
+								var elm = $('#works---'+oldWorkPage).attr('class');
 								oldWorkPage = '';
 							}});
 						}});
@@ -169,7 +179,7 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 
 
 	$scope.worksClose = function(){
-		console.log('Close !');
+		/*console.log('Close !');*/
 		var hash = window.location.hash;
 		var workName = hash.replace('#', '');
 		document.getElementById('works--nav').setAttribute('data-workpage', 0);
@@ -301,7 +311,7 @@ ninjApp.controller('worksController', function($scope, $http, $state, Page){
 			$scope.worksClose();
 		}
 	});
-});
+}]);
 
 
 

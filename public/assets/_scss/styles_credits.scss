@@ -1,0 +1,13 @@
+@import "_var.scss";
+
+.credits {
+	.pageContent {
+		article {
+			margin-bottom: 150px !important;
+			ul {
+				margin: 0 auto !important;
+				li { margin-bottom: 0 !important; }
+			}
+		}
+	}
+}

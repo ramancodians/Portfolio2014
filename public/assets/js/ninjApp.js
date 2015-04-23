@@ -5,8 +5,6 @@
 	]);
 
 	ninjApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
-		/*$urlRouterProvider.otherwise("/");*/
 		$locationProvider.html5Mode(true).hashPrefix('!');
 	    $stateProvider
 	        .state('/', {
@@ -54,9 +52,17 @@
 	        	templateUrl: 'views/landingPage.html',
 	        	controller: 'landingController'
 	        })
+	        .state('credits',{
+	        	url:'/credits',
+	        	templateUrl: 'views/credits.html',
+	        	controller: 'creditsController'
+	        })
+	        .state('credits/',{
+	        	url:'/credits/',
+	        	templateUrl: 'views/credits.html',
+	        	controller: 'creditsController'
+	        });
 	});
-
-
 
 	ninjApp.factory('Page', function(){
 		var title = 'Alexis Bertin | Front-End Developer';
@@ -65,87 +71,6 @@
 			setTitle: function(newTitle) { title = newTitle; }
 		};
 	});
-
-	/*ninjApp.factory(' function(){
-		var  {
-			'home': {
-				'homeTitle': {
-					'y': {
-						'oldValue': '',
-						'newValue': ''
-					}
-				},
-				'btStartUx':{
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				}
-			},
-			'works': {
-				'worksHeader': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '-20'
-					}
-				},
-				'worksList': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				},
-				'footerBanner-works': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				}
-			},
-			'about':{
-				'aboutHeader': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '-20'
-					}
-				},
-				'aboutContent': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				},
-				'footerBanner-about': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				}
-			},
-			'landingPage': {
-				'landingHeader': {
-					'y': {
-						'oldValue': '0',
-						'newValue': '-20'
-					}
-				},
-				'landingContent':{
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				},
-				'footerBanner-landing':{
-					'y': {
-						'oldValue': '0',
-						'newValue': '20'
-					}
-				}
-			}
-		};
-		return 	})*/
-
-
 
 	ninjApp.directive('loading', ['$http',function($http){
 		return {
@@ -156,12 +81,13 @@
 				};
 				scope.$watch(scope.isLoading, function (v){
 					if(v){
-						/*TweenLite.to(elm, 0.2, {display:"block", top:"0px", bottom:"auto", height:"100%", ease:Quart.easeOut});*/
-						TweenLite.to('.preloader', 0.2, {display: "block", opacity:"1", ease:Quart.easeOut });
-					} else {
-						TweenLite.to('.preloader', 0.2, { opacity:"0", ease:Quart.easeOut, onComplete:function(){
-							TweenLite.to('.preloader', 0, { display: "none"});
+						TweenLite.to('.preloader', 0, {display: "block", onComplete:function(){
+							TweenLite.to('.preloader', 0.2, { opacity:"1", ease:Quart.easeOut});
 						}});
+					} else {
+						setTimeout(function(){
+							TweenLite.to('.preloader', 0, { opacity: '0', display: "none"});
+						},2000);
 					}
 				});
 			}
@@ -173,8 +99,9 @@
 	ninjApp.directive('homeSvg',function(){
 		return {
 			restrict: 'A',
-			templateUrl: 'assets/svg/svgHomeAlexis.svg',
-		}
+			templateNamespace: 'svg',
+			templateUrl: 'assets/svg/svgHomeAlexis.svg'
+		};
 	});
 
 
@@ -189,9 +116,9 @@
 					})
 					.error(function(data){
 						console.log('Error - $http.get(views/_menuOverlayData.json) - '+ data);
-					})
+					});
 			}
-		}
+		};
 	});
 
 
@@ -212,7 +139,7 @@
 				};
 			},
 			controllerAs: "workTab"
-		}
+		};
 	});
 
 
@@ -238,7 +165,7 @@
 			if($(keyEvent.target).is('input, textarea')){
 				
             } else {
-			    if(keyEvent.which == 109){
+			    if(keyEvent.which === 109){
 			    	if($('body').hasClass("menu_noClick")){
 			    		
 			    	} else {
@@ -249,60 +176,70 @@
 			    	        elem.removeClass("menu_noClick");
 			    	    }, 600);
 
-						if($('.menuOverlay').css('display') == 'none'){
+						if($('.menuOverlay').css('display') === 'none'){
 							var page =  $('section').attr('class');
 							page = page.replace('ng-scope', '').replace(' ','');
 							openMenu_fadeOutElements(page);
 						} else {
-							switchMenu_anim(0, true);
+							switchMenu_anim(true);
 						}
 					} 
 				}
 			}
-		}
+		};
 
 		$scope.openMenuOverlay = function(page){
 			/*openMenu_fadeOutElements(page, 1);*/
-			if($('.menuOverlay').css('display') == 'none'){
-				var page =  $('section').attr('class');
+			if($('.menuOverlay').css('display') === 'none'){
+				page =  $('section').attr('class');
 				page = page.replace('ng-scope', '').replace(' ','');
 				openMenu_fadeOutElements(page);
 			} else {
-				switchMenu_anim(0, true);
+				switchMenu_anim(true);
 			}
-		}
+		};
 		$scope.closeMenuOverlay = function(){
-			switchMenu_anim(0, true);
-		}
+			switchMenu_anim(true);
+		};
 
 		$scope.switchPage = function(link, propertie){
 			var page =  $('section').attr('class');
 			page = page.replace('ng-scope', '').replace(' ','');
-			console.log('propertie: '+propertie);
-			console.log('page: '+page);
-			console.log('link: '+link);
-			if(propertie == 'directLink'){
-				directLink_fadeOutElements(page);
-				setTimeout(function(){
-					if(link == 'home'){
-						$state.transitionTo('/');
-					} else {
-						$state.transitionTo(link);
-					}
-				},1500);
-			} else if(page == link){
-				switchMenu_anim(0, true);
+			if(propertie === 'directLink'){
+				if(page === 'home'){
+					TweenLite.to('.alphaTransi', 0.2, { opacity:"0", ease:Quad.easeOut });
+					setTimeout(function(){ TweenLite.to('.preloader', 0.2, {opacity:"1", ease:Quart.easeOut}); },100);
+				} else {
+					TweenLite.to('.alphaTransi', 0.2, { opacity:"0", y:'10', ease:Quad.easeOut });
+					setTimeout(function(){ TweenLite.to('.preloader', 0.2, {opacity:"1", ease:Quart.easeOut}); },100);
+				}
+				var openMenu = false;
+				TweenLite.to('.menuOverlay', 0.2, {opacity: "0", onComplete:function(){
+					TweenLite.to('.menuOverlay', 0, {display:"none"});
+					setTimeout(function(){
+						if(link === 'home'){
+							$state.transitionTo('/');
+						} else {
+							$state.transitionTo(link);
+						}
+					},400);	
+				}});
+			} else if(page === link){
+				switchMenu_anim(true);
 			} else {
-				switchMenu_anim(0, undefined);
-				setTimeout(function(){
-					if(link == 'home'){
-						$state.transitionTo('/');
-					} else {
-						$state.transitionTo(link);
-					}
-				},800);						
+				switchMenu_anim(undefined);
+				TweenLite.to('.menuOverlay', 0.2, {opacity: "0", onComplete:function(){
+					TweenLite.to('.menuOverlay', 0, {display:"none"});
+					setTimeout(function(){
+						if(link === 'home'){
+							$state.transitionTo('/');
+						} else {
+							$state.transitionTo(link);
+						}
+					},400);	
+				}});
 			}			
-		}
+		};
 
 
 

@@ -1,11 +1,11 @@
 <section class="contact">
-    <header class="alphaTransi" data-transi="contactHeader">
+    <header class="alphaTransi">
         <div class="header-container">
             <h1>Contact</h1>
         </div> 
     </header>
 
-    <form class="alphaTransi contactForm" data-transi="contactForm" role="form" action="/sendMessage" method="post">
+    <form class="alphaTransi contactForm" role="form" action="/sendMessage" method="post">
         <label class="contactForm-labelTitle" for="contactForm-message">Message <span>- Feed me</span></label>
         <textarea id="contactForm-message" name="message" placeholder="Drop me a line, send a joke or just test the form script. It's your turn to make some content." type="text" ng-model="contactForm.message" required></textarea>
 
@@ -37,10 +37,10 @@
     <div class="contactThankYou">
         <h4>Thank you !</h4>
         <img src="assets/img/nasa-celebration.gif" alt="gif Nasa Celebrating succeed mission" />
-        <p>Your message is now travelling through the interweb. Unless it has been destroyed by a Y2K problem or a time warp, I should have now received it.<br /></p>
-        <p><span>I'll get back in touch with you</span> as soon as possible.</p>
+        <p>Your message is now travelling through the interweb. Unless it has been destroyed by a Y2K problem or a time warp, I should have received it by now.<br /></p>
+        <p><span>I'll get back in touch with you</span> asap.</p>
 
-        <footer class="alphaTransi" data-transi="footerBanner-contact" id="footerBanner-contact">
+        <footer class="pageFooter alphaTransi" id="footerBanner-contact">
             <a href class="footer-nextPageLink_contact" ng-click="switchPage('credits', 'directLink')" title="link to the credits page">
                 <span>Visit the <b>Credits</b> page</span>
                 <svg width="312" height="52">   
