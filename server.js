@@ -10,11 +10,9 @@
 	var db = require('./config/db');
 	var port = process.env.PORT || 8080;
 	var path = require('path');
-
-	var morgan = require('morgan'); // log requests for the console
-
-	var bodyParser = require('body-parser'); // pull information from HTML POST
-	var methodOverride = require('method-override'); // simulate DELETE and PUT
+	var morgan = require('morgan');
+	var bodyParser = require('body-parser');
+	var methodOverride = require('method-override');
 
 	var nodemailer = require('nodemailer');
 // ======================================================================================
@@ -29,9 +27,7 @@
 	/*app.use(compression());*/
 	/*app.use(express.static(__dirname + '/public'));*/
 
-	
-	
-	
+
 	app.use(express.static(path.join(__dirname, '/public')));
 	
 
@@ -48,11 +44,8 @@
 
 
 
-// Routes ===============================================================================
-	/*require('./app/routes')(app);*/
-// ======================================================================================
+
 	
-	//Create the reusable transport
 	var transporter = nodemailer.createTransport({
 	    service: 'Gmail',
 	    auth: {
@@ -61,41 +54,29 @@
 		}
 	});
 	 
-	//Create the route that does all the magic when your contact form submit button is pressed
-
 	app.post('/sendMessage', function(req, res) {
-
-		/*req.body.message = req.body.message.replace(/\r?\n/g, '<br />');*/
-
-	            // setup e-mail data with unicode symbols
-	            var mailOptions = {
-	                from: req.body.mail, // sender address
-	                to: 'whymynameisalexisbertin@gmail.com', // list of receivers. This is whoever you want to get the email when someone hits submit
-	                subject: 'Portfolio | Contact from: '+req.body.name, // Subject line
-	                html: '<p style="font-size: 16px; line-height: 24px;"><span style="font-weight:bold">Name: </span> <span style="color: #15c">'+req.body.name+'</span> <br /><span style="font-weight:bold">Mail: </span> <span style="color: #15c">'+req.body.mail+'</span> <br /><span style="font-weight:bold">Message: </span> <br /><span style="color: #15c">'+req.body.message+'</span></p>',
-	                text: req.body.name + ' | ' + req.body.mail + ' | ' + req.body.message // plaintext body
-	 
-	            };
-	 
-	            // send mail with defined transport object
-	            transporter.sendMail(mailOptions, function (error, info) {
-	                if (error) {
-	                    res.send('NOPENOPEN: '+error);
-	                } else {
-	                    res.send('Message sent: ' + info.response);
-	                }
-	            });
-	            //Success
-	            
-	 
+		var mailOptions = {
+		    from: req.body.mail,
+		    to: 'whymynameisalexisbertin@gmail.com',
+		    subject: 'Portfolio | Contact from: '+req.body.name,
+		    html: '<p style="font-size: 16px; line-height: 24px;"><span style="font-weight:bold">Name: </span> <span style="color: #15c">'+req.body.name+'</span> <br /><span style="font-weight:bold">Mail: </span> <span style="color: #15c">'+req.body.mail+'</span> <br /><span style="font-weight:bold">Message: </span> <br /><span style="color: #15c">'+req.body.message+'</span></p>',
+		    text: req.body.name + ' | ' + req.body.mail + ' | ' + req.body.message
+		};
+		
+		transporter.sendMail(mailOptions, function (error, info) {
+		    if (error) {
+		        res.send('NOPENOPEN: '+error);
+		    } else {
+		        res.send('Message sent: ' + info.response);
+		    }
+		});
 	});
-
-
 
 
 	app.get('*', function(req, res){
 		res.sendfile('./public/index.html');
 	});	
+
 
 
 // Listen ===============================================================================

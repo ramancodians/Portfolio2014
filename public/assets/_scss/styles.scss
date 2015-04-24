@@ -61,7 +61,7 @@ body {
 					display: block;
 					overflow: visible;
 					$gcd: 18;
-					$multiple: 6;
+					$multiple: 4;
 					width: 522px / $gcd * $multiple;
 					height: 558px / $gcd * $multiple;
 					fill: rgba(0,0,0,0);
@@ -70,19 +70,28 @@ body {
 					@include transform-origin((522px/$gcd)*($multiple/2) (558px/$gcd)*($multiple/2));
 					@include transition(all 0.2s ease-out); 
 					stroke-dasharray: 1000;
-					stroke-dashoffset: 1000;
+					stroke-dashoffset: 0;
 					@include animation(triskel-dash 2s ease-out infinite, triskel-rotation 4s linear infinite);
 				}
+				/*img {
+					position: fixed;
+					margin: auto;
+					top: 0; right: 0; bottom: 0; left: 0;		
+					display: block;
+					overflow: visible;
+					width: 200px;
+					height: 200px;
+				}*/
 				h4 {
 					position: fixed;
 					top: 50%;
 					left: 50%;
 					@include transform(translate(-50%, -50%));
-					margin-top: 150px;
-					color: $yellow;
-					font-size: 20px;
+					margin-top: 90px;
+					color: #fff;
+					font-size: 12px;
 					text-align: center;
-					letter-spacing: 2px;
+					letter-spacing: 5px;
 					font-weight: 300;
 					font-family: $font-brandon;
 					text-transform: uppercase;
@@ -403,20 +412,27 @@ body {
 		}
 		.moreDetailsContent {
 			@include transition(all .2s ease-out);
-			height: 0;
 			opacity: 0;
 			@include transform(translateY(-10px));
+			height: 100% !important;
+			p {
+				display: none;
+			}
 		}
 		.moreDetailsContent.ng-hide {
-			height: 100% !important;
 			opacity: 1 !important;
-			@include transform(translateY(0px));
+			@include transform(translateY(0px));	
+			height: 100% !important;
+			p {
+				display: block;
+			}
 		}
 	}
 
 	footer.pageFooter {
 		width: 100%;
 		height: 300px;
+		z-index: 1000;
 		a {
 			position: relative;
 			top: 50%;
@@ -668,9 +684,9 @@ body {
 	}
 
 	@include keyframes(triskel-dash) {
-		0% { stroke-dashoffset: 1000; }
-		50% { stroke-dashoffset: 0; }
-		100% { stroke-dashoffset: 1000; }
+		0% { stroke-dashoffset: 0; }
+		50% { stroke-dashoffset: 1000; }
+		100% { stroke-dashoffset: 0; }
 	}
 	
 	@include keyframes(dash) {

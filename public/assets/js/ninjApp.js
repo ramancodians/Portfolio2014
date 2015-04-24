@@ -9,57 +9,57 @@
 	    $stateProvider
 	        .state('/', {
 	            url: '/',
-	            templateUrl: 'views/home.html',
+	            templateUrl: 'views/home-min.html',
 	            controller: 'homeController'
 	        })
 	        .state('works', {
 	        	url: '/works',
-	        	templateUrl: 'views/works.html',
+	        	templateUrl: 'views/works-min.html',
 	        	controller: 'worksController'
 	        })
 	        .state('works/', {
 	        	url: '/works/',
-	        	templateUrl: 'views/works.html',
+	        	templateUrl: 'views/works-min.html',
 	        	controller: 'worksController'
 	        })
 	        .state('about', {
 	        	url: '/about',
-	        	templateUrl: 'views/about.html',
+	        	templateUrl: 'views/about-min.html',
 	        	controller: 'aboutController'
 	        })
 	        .state('about/', {
 	        	url: '/about/',
-	        	templateUrl: 'views/about.html',
+	        	templateUrl: 'views/about-min.html',
 	        	controller: 'aboutController'
 	        })
 	        .state('contact', {
 	        	url: '/contact',
-	        	templateUrl: 'views/contact.html',
+	        	templateUrl: 'views/contact-min.html',
 	        	controller: 'contactController'
 	        })
 	        .state('contact/', {
 	        	url: '/contact/',
-	        	templateUrl: 'views/contact.html',
+	        	templateUrl: 'views/contact-min.html',
 	        	controller: 'contactController'
 	        })
 	        .state('landingPage',{
 	        	url:'/landingPage',
-	        	templateUrl: 'views/landingPage.html',
+	        	templateUrl: 'views/landingPage-min.html',
 	        	controller: 'landingController'
 	        })
 	        .state('landingPage/',{
 	        	url:'/landingPage/',
-	        	templateUrl: 'views/landingPage.html',
+	        	templateUrl: 'views/landingPage-min.html',
 	        	controller: 'landingController'
 	        })
 	        .state('credits',{
 	        	url:'/credits',
-	        	templateUrl: 'views/credits.html',
+	        	templateUrl: 'views/credits-min.html',
 	        	controller: 'creditsController'
 	        })
 	        .state('credits/',{
 	        	url:'/credits/',
-	        	templateUrl: 'views/credits.html',
+	        	templateUrl: 'views/credits-min-min.html',
 	        	controller: 'creditsController'
 	        });
 	});
@@ -108,7 +108,7 @@
 	ninjApp.directive('menuOverlay',function(){
 		return {
 			restrict: 'E',
-			templateUrl: 'views/_menuOverlay.html',
+			templateUrl: 'views/_menuOverlay-min.html',
 			controller: function($scope, $http){
 				$http.get('views/_menuOverlayData.json')
 					.success(function(data){
@@ -127,7 +127,7 @@
 	ninjApp.directive('worksContent',function(){
 		return {
 			restrict: 'A',
-			templateUrl: 'views/worksContent.html',
+			templateUrl: 'views/worksContent-min.html',
 			controller: function() {
 				this.workTab = 1;
 				this.isSet = function(checkTab) {
@@ -251,86 +251,3 @@
 
 
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-// Routes ===============================================================================
-	/*ninjApp.config(['$routeProvider', '$locationProvider'],
-		function($routeProvider, $locationProvider){
-			$routeProvider
-				.when('/', {
-					templateUrl: 'views/home.html',
-					controller: 'homeController'
-				})
-				.when('/works', {
-					templateUrl: 'views/works.html'
-				});
-
-			$locationProvider.html5Mode(true);
-		}
-	);*/
-// ======================================================================================
-
-	
-
-
-// Controllers ==========================================================================
-	/*ninjApp.controller('homeController', function($scope){
-		$.get('assets/js/ninjApp_homeCtrl.js', function($scope){
-			return $scope;
-		});
-	});*/
-// ======================================================================================
-
-
-
-
-
-
-
-
-
-
-
-/* ---------------- Others ---------------- */
-	/* Calcul de la taille du menu en fonction du nombre de li et de leur taille individuelle */
-
-	/*var navMenuWidth = 0;
-	for(var x = 1; x <= $('.works .mainNav li').size(); x++){
-		navMenuWidth = navMenuWidth + $('.works .mainNav li:nth-child('+x+') a').width() + 26;
-	}
-
-	var homeMenuWidth = 0;
-	for(var x = 1; x <= $('.home .homeMenu li').size(); x++){
-		homeMenuWidth = homeMenuWidth + $('.home .homeMenu li:nth-child('+x+') a').width() + 26;
-	}
-	console.log(homeMenuWidth);
-	$('.home .homeMenu').css('width',homeMenuWidth);
-	$('.works .mainNav').css('width',navMenuWidth);*/
-/* ---------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

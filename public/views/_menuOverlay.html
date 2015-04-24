@@ -1,24 +1,4 @@
 <div class="menuOverlay menuOverlay-content" ng-controller="menuController">
-
-
-    <!-- <div class="menuOverlay-header" ng-click="closeMenuOverlay()">
-        <a href ng-click="switchPage('home')" title="Home" class="menuOverlay--logo">
-            <span>Alexis Bertin</span> Frontend & UI Developer
-        </a>
-
-        <div class="menuOverlay--title">
-            <h2>Dashboard</h2>
-        </div>
-        <div class="menuOverlay--close">
-            <h6>Close</h6>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100"
-                 enable-background="new 0 0 100 100" xml:space="preserve" class="icon-cross">
-                <use xlink:href="assets/svg/svgicons.svg#icon-cross"></use>
-            </svg>
-        </div>
-    </div> -->
-
-
     <header class="menuOverlay-headerMenu">
         <ul>
             <li>
@@ -30,11 +10,6 @@
             </li>
         </ul>
     </header>
-
-
-
-
-
     <ul class="menuOverlay-mainMenu">
         <li ng-repeat="mainMenu in menuOverlay[0].mainMenu" >
             <a href title="{{mainMenu.name}}" class="{{mainMenu.class}}" ng-click="switchPage(mainMenu.link)">
@@ -93,11 +68,5 @@
             </ul>
         </li>
     </ul>
-
-    
-    
-
-    
-
 </div>
 

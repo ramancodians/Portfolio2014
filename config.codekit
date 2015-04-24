@@ -3155,21 +3155,10 @@
 		},
 	"\/public\/assets\/js\/fontShitstorm.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/public\/assets\/js\/fontShitstorm.js",
 		"outputAbbreviatedPath": "\/public\/assets\/js\/min\/fontShitstorm-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/public\/assets\/js\/fontsLoading.js": {
-		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/public\/assets\/js\/fontsLoading.js",
-		"outputAbbreviatedPath": "\/public\/assets\/js\/min\/fontsLoading-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -3328,6 +3317,69 @@
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedttf.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedttf.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedttfwoff2.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedttfwoff2.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedwoff.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_data_unhintedwoff.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_datattf.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_datattf.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_datattfwoff2.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_datattfwoff2.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/2DFD4E_datawoff.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/2DFD4E_datawoff.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/public\/assets\/js\/webfonts\/svg_test.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/public\/assets\/js\/webfonts\/svg_test.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		},
 	"\/public\/assets\/libs\/angular-route\/angular-route.js": {
 		"fileType": 64,
@@ -5785,110 +5837,116 @@
 	"\/public\/assets\/js\/ninjApp.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/jquery\/dist\/jquery.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/fontShitstorm.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/TweenLite.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/jquery\/dist\/jquery.min.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/CSSPlugin.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/TweenLite.min.js",
 			"position": 2,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/jquery.gsap.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/CSSPlugin.min.js",
 			"position": 3,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/svg4everybody.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/tweenlite\/jquery.gsap.min.js",
 			"position": 4,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/vendor\/modernizr.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/svg4everybody.js",
 			"position": 5,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/autosize.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/vendor\/modernizr.min.js",
 			"position": 6,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular\/angular.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/autosize.min.js",
 			"position": 7,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular-touch\/angular-touch.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular\/angular.min.js",
 			"position": 8,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular-ui-router\/release\/angular-ui-router.min.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular-touch\/angular-touch.min.js",
 			"position": 9,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/functions.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/libs\/angular-ui-router\/release\/angular-ui-router.min.js",
 			"position": 10,
-			"type": 1
+			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_aboutCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/functions.js",
 			"position": 11,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_contactCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_aboutCtrl.js",
 			"position": 12,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_creditsCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_contactCtrl.js",
 			"position": 13,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_homeCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_creditsCtrl.js",
 			"position": 14,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_menuCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_homeCtrl.js",
 			"position": 15,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_landingCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_menuCtrl.js",
 			"position": 16,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_worksCtrl.js",
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_landingCtrl.js",
 			"position": 17,
+			"type": 1
+			},
+		{
+			"followForSyntaxChecking": 1,
+			"linkedFileAbbreviatedPath": "\/public\/assets\/js\/ninjApp_worksCtrl.js",
+			"position": 18,
 			"type": 1
 			}
 		]

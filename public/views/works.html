@@ -8,15 +8,7 @@
     </header>
 
     <div class="works-list alphaTransi pageContent">
-        <article ng-repeat="work in works" id="work{{work.link}}">
-           <!--  <svg width="350" height="400">   
-                <line class="worksList-work--top" x1="0" y1="0" x2="1050" y2="0" />
-                <line class="worksList-work--right" x1="350" y1="0" x2="350" y2="1200" />
-                <line class="worksList-work--bottom" x1="350" y1="400" x2="-700" y2="400" />
-                <line class="worksList-work--left" x1="0" y1="400" x2="0" y2="-800" />
-            </svg> -->
-            <!-- <a ui-sref="partyDetail({ partyID: id, partyLocation: location })">See the Party</a> -->
-            
+        <article ng-repeat="work in works" id="work{{work.link}}">          
             <a href="works#{{work.link}}" ng-click="workTab.setTab(work.id)" ng-attr-title="take a look at {{work.name}}" class="{{work.mainTypeClass}}">
                 <div class="work--header">
                     <div class="work---headerContent">
@@ -27,7 +19,6 @@
                 <div class="work--details">{{work.mainType}}</div>
                 <div class="work--background" style="background: url('assets/img/work/{{work.id}}_{{work.link}}.jpg') {{work.bgColor}} center center no-repeat; background-size: {{work.bgSize}}"></div>
             </a>
-            
         </article>
     </div>
     <footer class="pageFooter alphaTransi">
@@ -41,7 +32,6 @@
             </svg>
         </a>
     </footer>
-
 </section>
 
 
